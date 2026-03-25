@@ -1,0 +1,72 @@
+{
+  "name": "Environment Variable Validation",
+  "description": "Validate all environment variables at startup using Zod. If any required variable is missing or has the wrong type, the app refuses to start with a clear error message listing exactly what's wrong.",
+  "sourceSessionId": "curated-env-validation",
+  "steps": [
+    {
+      "action": "find",
+      "target": ".env.example",
+      "description": "Document all required environment variables"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install zod",
+      "description": "Install Zod for schema validation"
+    },
+    {
+      "action": "create_file",
+      "target": "src/config/env.ts",
+      "description": "Create Zod schema for all env vars, parse process.env, export typed config object"
+    },
+    {
+      "action": "modify_file",
+      "target": "src/index.ts",
+      "description": "Import env.ts first (before any other imports) to validate at startup"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env.example",
+      "description": "Ensure all variables from env.ts schema are documented with example values"
+    },
+    {
+      "action": "create_file",
+      "target": "tests/env.test.ts",
+      "description": "Test that missing required vars throw with a clear message on startup"
+    },
+    {
+      "action": "run_command",
+      "target": "npm test",
+      "description": "Verify env validation tests pass"
+    }
+  ],
+  "parameters": {
+    "src": "src",
+    "tests": "tests"
+  },
+  "tags": [
+    "env",
+    "validation",
+    "security",
+    "zod",
+    "nodejs",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "env-validation",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T14:59:58.204Z",
+    "updatedAt": "2026-03-25T14:59:58.204Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "456e7669726f6e6d",
+    "category": "security",
+    "stack": [
+      "nodejs",
+      "typescript"
+    ],
+    "tagline": "Crash at startup if required env vars are missing — not at 2am in production"
+  }
+}

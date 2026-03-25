@@ -1,0 +1,58 @@
+{
+  "name": "Vercel Deployment",
+  "description": "Configure a Next.js or Node.js project for Vercel deployment. Includes vercel.json, environment variable setup in Vercel dashboard, preview URL configuration, and GitHub integration for automatic deploys.",
+  "sourceSessionId": "curated-vercel-deployment",
+  "steps": [
+    {
+      "action": "find",
+      "target": "package.json",
+      "description": "Check framework and build configuration"
+    },
+    {
+      "action": "create_file",
+      "target": "vercel.json",
+      "description": "Create vercel.json with framework, buildCommand, outputDirectory, and rewrites"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env.example",
+      "description": "Document all required environment variables for Vercel dashboard setup"
+    },
+    {
+      "action": "create_file",
+      "target": ".vercelignore",
+      "description": "Add tests, seeds, docs, and scripts to Vercel ignore"
+    },
+    {
+      "action": "run_command",
+      "target": "npx vercel --prod --confirm",
+      "description": "Deploy to Vercel production and verify URL"
+    }
+  ],
+  "parameters": {},
+  "tags": [
+    "vercel",
+    "deployment",
+    "nextjs",
+    "devops",
+    "hosting"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "vercel-deployment",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T14:59:58.202Z",
+    "updatedAt": "2026-03-25T14:59:58.202Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "56657263656c2044",
+    "category": "devops",
+    "stack": [
+      "nextjs",
+      "nodejs"
+    ],
+    "tagline": "Zero-config deploy to Vercel with preview URLs, environment variables, and edge config"
+  }
+}

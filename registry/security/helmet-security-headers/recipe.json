@@ -1,0 +1,67 @@
+{
+  "name": "Security Headers with Helmet",
+  "description": "Add Helmet.js to an Express app with a production-ready Content Security Policy, HSTS, and referrer policy. Configured correctly so it doesn't break your frontend.",
+  "sourceSessionId": "curated-helmet-security-headers",
+  "steps": [
+    {
+      "action": "find",
+      "target": "src/app.ts",
+      "description": "Check Express app setup and existing middleware order"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install helmet",
+      "description": "Install Helmet"
+    },
+    {
+      "action": "modify_file",
+      "target": "src/app.ts",
+      "description": "Add helmet() as the first middleware (before routes), with custom CSP directives"
+    },
+    {
+      "action": "create_file",
+      "target": "src/config/helmet.ts",
+      "description": "Create helmet config with CSP that allows your CDN and API origins, HSTS with 1-year maxAge"
+    },
+    {
+      "action": "create_file",
+      "target": "tests/security.test.ts",
+      "description": "Test that responses include Strict-Transport-Security, X-Frame-Options, X-Content-Type-Options headers"
+    },
+    {
+      "action": "run_command",
+      "target": "npm test",
+      "description": "Verify security header tests pass"
+    }
+  ],
+  "parameters": {
+    "src": "src",
+    "tests": "tests"
+  },
+  "tags": [
+    "security",
+    "helmet",
+    "headers",
+    "csp",
+    "express",
+    "nodejs"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "helmet-security-headers",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T14:59:58.204Z",
+    "updatedAt": "2026-03-25T14:59:58.204Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "5365637572697479",
+    "category": "security",
+    "stack": [
+      "nodejs",
+      "express"
+    ],
+    "tagline": "Add 15 security headers in one line — CSP, HSTS, XSS protection, and more"
+  }
+}

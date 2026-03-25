@@ -1,0 +1,76 @@
+{
+  "name": "CORS Configuration",
+  "description": "Configure CORS for an Express API: allowlist of origins per environment, preflight caching, credentials support, and logging for blocked origins to catch misconfigurations.",
+  "sourceSessionId": "curated-cors-config",
+  "steps": [
+    {
+      "action": "find",
+      "target": "src/app.ts",
+      "description": "Check existing CORS setup and middleware order"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install cors",
+      "description": "Install CORS middleware"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install -D @types/cors",
+      "description": "Install CORS types"
+    },
+    {
+      "action": "create_file",
+      "target": "src/config/cors.ts",
+      "description": "Create CORS options: origin function with env-based allowlist, credentials true, preflight cache 1 hour, log blocked origins"
+    },
+    {
+      "action": "modify_file",
+      "target": "src/app.ts",
+      "description": "Apply cors(corsOptions) middleware before routes, handle OPTIONS preflight"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env",
+      "description": "Add ALLOWED_ORIGINS=http://localhost:3000,https://yourapp.com"
+    },
+    {
+      "action": "create_file",
+      "target": "tests/cors.test.ts",
+      "description": "Test allowed origin gets CORS headers, blocked origin gets 403, OPTIONS returns 204"
+    },
+    {
+      "action": "run_command",
+      "target": "npm test",
+      "description": "Verify CORS tests pass"
+    }
+  ],
+  "parameters": {
+    "src": "src",
+    "tests": "tests"
+  },
+  "tags": [
+    "cors",
+    "security",
+    "express",
+    "api",
+    "nodejs"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "cors-config",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T14:59:58.204Z",
+    "updatedAt": "2026-03-25T14:59:58.204Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "434f525320436f6e",
+    "category": "security",
+    "stack": [
+      "nodejs",
+      "express"
+    ],
+    "tagline": "Precise CORS setup that works in dev, staging, and production without wildcards"
+  }
+}

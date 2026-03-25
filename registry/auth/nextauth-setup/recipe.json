@@ -1,0 +1,84 @@
+{
+  "name": "NextAuth.js Setup",
+  "description": "Add NextAuth.js to a Next.js app with Google OAuth, GitHub OAuth, credentials provider, and Prisma adapter for session persistence. Production-ready in one session.",
+  "sourceSessionId": "curated-nextauth-setup",
+  "steps": [
+    {
+      "action": "find",
+      "target": "package.json",
+      "description": "Check Next.js version and existing auth setup"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install next-auth @auth/prisma-adapter",
+      "description": "Install NextAuth and Prisma adapter"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/auth/[...nextauth]/route.ts",
+      "description": "Create NextAuth handler with Google and GitHub providers"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/auth.ts",
+      "description": "Export auth options and getServerSession helper"
+    },
+    {
+      "action": "modify_file",
+      "target": "prisma/schema.prisma",
+      "description": "Add Account, Session, User, VerificationToken models for NextAuth adapter"
+    },
+    {
+      "action": "run_command",
+      "target": "npx prisma migrate dev --name nextauth",
+      "description": "Run NextAuth database migration"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env.local",
+      "description": "Add NEXTAUTH_SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GITHUB_ID, GITHUB_SECRET"
+    },
+    {
+      "action": "create_file",
+      "target": "components/AuthButton.tsx",
+      "description": "Create sign in/sign out button component using useSession"
+    },
+    {
+      "action": "modify_file",
+      "target": "middleware.ts",
+      "description": "Add route protection middleware using NextAuth matcher"
+    }
+  ],
+  "parameters": {
+    "lib": "lib",
+    "components": "components"
+  },
+  "tags": [
+    "auth",
+    "nextjs",
+    "oauth",
+    "google",
+    "github",
+    "session",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "nextauth-setup",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T14:59:58.200Z",
+    "updatedAt": "2026-03-25T14:59:58.200Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "4e65787441757468",
+    "category": "auth",
+    "stack": [
+      "nextjs",
+      "typescript",
+      "prisma"
+    ],
+    "tagline": "Drop-in auth for Next.js: Google, GitHub, email/password, session management"
+  }
+}

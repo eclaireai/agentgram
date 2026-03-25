@@ -1,0 +1,661 @@
+{
+  "version": "2",
+  "updatedAt": "2026-03-25T14:59:58.206Z",
+  "totalRecipes": 26,
+  "categories": [
+    "auth",
+    "database",
+    "testing",
+    "devops",
+    "quality",
+    "api",
+    "security",
+    "monitoring"
+  ],
+  "recipes": [
+    {
+      "id": "jwt-authentication",
+      "name": "JWT Authentication",
+      "tagline": "Stateless auth with access + refresh tokens and bcrypt password hashing",
+      "description": "Add production-ready JWT authentication to any Express/Node.js API. Includes access tokens (15-min expiry), refresh tokens (7-day expiry), bcrypt password hashing, auth middleware, and a full test sui",
+      "author": "agentgram",
+      "category": "auth",
+      "tags": [
+        "auth",
+        "jwt",
+        "security",
+        "express",
+        "nodejs",
+        "typescript",
+        "api"
+      ],
+      "stack": [
+        "nodejs",
+        "express",
+        "typescript"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 11
+    },
+    {
+      "id": "nextauth-setup",
+      "name": "NextAuth.js Setup",
+      "tagline": "Drop-in auth for Next.js: Google, GitHub, email/password, session management",
+      "description": "Add NextAuth.js to a Next.js app with Google OAuth, GitHub OAuth, credentials provider, and Prisma adapter for session persistence. Production-ready in one session.",
+      "author": "agentgram",
+      "category": "auth",
+      "tags": [
+        "auth",
+        "nextjs",
+        "oauth",
+        "google",
+        "github",
+        "session",
+        "typescript"
+      ],
+      "stack": [
+        "nextjs",
+        "typescript",
+        "prisma"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 9
+    },
+    {
+      "id": "api-key-auth",
+      "name": "API Key Authentication",
+      "tagline": "Secure machine-to-machine auth with hashed keys, scopes, and rate limiting",
+      "description": "Add API key authentication for machine-to-machine communication. Keys are hashed (never stored in plain text), support scopes (read/write/admin), and tie into rate limiting.",
+      "author": "agentgram",
+      "category": "auth",
+      "tags": [
+        "auth",
+        "api-key",
+        "security",
+        "express",
+        "nodejs",
+        "typescript"
+      ],
+      "stack": [
+        "nodejs",
+        "express",
+        "typescript"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 9
+    },
+    {
+      "id": "prisma-postgresql",
+      "name": "Prisma + PostgreSQL",
+      "tagline": "Type-safe ORM with schema-first migrations, seed data, and connection pooling",
+      "description": "Set up Prisma ORM with PostgreSQL from zero: schema definition, initial migration, seed script, and connection pooling with PgBouncer-compatible connection strings.",
+      "author": "agentgram",
+      "category": "database",
+      "tags": [
+        "database",
+        "prisma",
+        "postgresql",
+        "orm",
+        "nodejs",
+        "typescript"
+      ],
+      "stack": [
+        "nodejs",
+        "typescript"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 11
+    },
+    {
+      "id": "mongoose-mongodb",
+      "name": "Mongoose + MongoDB",
+      "tagline": "Document database with schema validation, indexes, and connection management",
+      "description": "Set up Mongoose with MongoDB Atlas or local Docker. Includes schema validation, compound indexes, connection retry logic, and TypeScript interfaces auto-generated from schemas.",
+      "author": "agentgram",
+      "category": "database",
+      "tags": [
+        "database",
+        "mongodb",
+        "mongoose",
+        "nodejs",
+        "typescript"
+      ],
+      "stack": [
+        "nodejs",
+        "typescript"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 10
+    },
+    {
+      "id": "redis-caching",
+      "name": "Redis Caching Layer",
+      "tagline": "Response caching with Redis — automatic invalidation, TTL, and cache-aside pattern",
+      "description": "Add Redis caching to any Express API using the cache-aside pattern. Includes a cacheMiddleware for automatic route-level caching, manual cache invalidation helpers, and graceful degradation if Redis i",
+      "author": "agentgram",
+      "category": "database",
+      "tags": [
+        "redis",
+        "caching",
+        "performance",
+        "express",
+        "nodejs",
+        "typescript"
+      ],
+      "stack": [
+        "nodejs",
+        "express",
+        "typescript"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 9
+    },
+    {
+      "id": "drizzle-sqlite",
+      "name": "Drizzle ORM + SQLite",
+      "tagline": "Lightweight SQL with Drizzle — perfect for edge functions, Cloudflare Workers, Bun",
+      "description": "Set up Drizzle ORM with SQLite (via better-sqlite3 or Bun native). Schema-first, fully type-safe, no migration runner required. Ideal for edge deployments and local-first apps.",
+      "author": "agentgram",
+      "category": "database",
+      "tags": [
+        "database",
+        "drizzle",
+        "sqlite",
+        "orm",
+        "typescript",
+        "edge"
+      ],
+      "stack": [
+        "nodejs",
+        "typescript"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 10
+    },
+    {
+      "id": "vitest-setup",
+      "name": "Vitest Testing Framework",
+      "tagline": "Blazing fast unit tests with TypeScript, coverage, and watch mode",
+      "description": "Set up Vitest from scratch: TypeScript support, V8 coverage reports, path aliases, and a sample test. Runs 10x faster than Jest on cold starts.",
+      "author": "agentgram",
+      "category": "testing",
+      "tags": [
+        "testing",
+        "vitest",
+        "typescript",
+        "coverage",
+        "unit-tests"
+      ],
+      "stack": [
+        "nodejs",
+        "typescript"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 8
+    },
+    {
+      "id": "jest-setup",
+      "name": "Jest Testing Framework",
+      "tagline": "Battle-tested unit testing with TypeScript, mocks, and Istanbul coverage",
+      "description": "Set up Jest with TypeScript (via ts-jest), Istanbul coverage, module mocking, and a sensible default config. The standard for Node.js testing.",
+      "author": "agentgram",
+      "category": "testing",
+      "tags": [
+        "testing",
+        "jest",
+        "typescript",
+        "coverage",
+        "unit-tests"
+      ],
+      "stack": [
+        "nodejs",
+        "typescript"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 6
+    },
+    {
+      "id": "playwright-e2e",
+      "name": "Playwright End-to-End Tests",
+      "tagline": "Cross-browser E2E testing with Playwright: Chrome, Firefox, Safari",
+      "description": "Add Playwright for end-to-end testing against a running server. Includes browser setup, page object model pattern, GitHub Actions CI integration, and screenshot on failure.",
+      "author": "agentgram",
+      "category": "testing",
+      "tags": [
+        "testing",
+        "playwright",
+        "e2e",
+        "typescript",
+        "browser"
+      ],
+      "stack": [
+        "typescript"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 9
+    },
+    {
+      "id": "pytest-setup",
+      "name": "Pytest Setup",
+      "tagline": "Python testing with pytest, fixtures, coverage, and async support",
+      "description": "Set up pytest for a Python project: fixtures, conftest.py, async test support (pytest-asyncio), coverage reporting, and parametrize for data-driven tests.",
+      "author": "agentgram",
+      "category": "testing",
+      "tags": [
+        "testing",
+        "pytest",
+        "python",
+        "coverage",
+        "async"
+      ],
+      "stack": [
+        "python"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 6
+    },
+    {
+      "id": "github-actions-ci",
+      "name": "GitHub Actions CI",
+      "tagline": "Lint + test + build on every push, Node 18/20/22 matrix, cache npm deps",
+      "description": "Add a production-grade GitHub Actions CI pipeline: typecheck, lint, test (Node 18/20/22 matrix), build, and optional npm publish on release tags. npm dependency caching keeps it fast.",
+      "author": "agentgram",
+      "category": "devops",
+      "tags": [
+        "ci",
+        "github-actions",
+        "devops",
+        "nodejs",
+        "typescript"
+      ],
+      "stack": [
+        "nodejs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 6
+    },
+    {
+      "id": "docker-compose",
+      "name": "Docker + Docker Compose",
+      "tagline": "Containerize any Node.js app with multi-stage builds and compose for local dev",
+      "description": "Add Docker to a Node.js project: multi-stage Dockerfile (builder + production), docker-compose.yml for local development with PostgreSQL and Redis, and .dockerignore.",
+      "author": "agentgram",
+      "category": "devops",
+      "tags": [
+        "docker",
+        "devops",
+        "nodejs",
+        "postgresql",
+        "redis",
+        "containers"
+      ],
+      "stack": [
+        "nodejs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 7
+    },
+    {
+      "id": "vercel-deployment",
+      "name": "Vercel Deployment",
+      "tagline": "Zero-config deploy to Vercel with preview URLs, environment variables, and edge config",
+      "description": "Configure a Next.js or Node.js project for Vercel deployment. Includes vercel.json, environment variable setup in Vercel dashboard, preview URL configuration, and GitHub integration for automatic depl",
+      "author": "agentgram",
+      "category": "devops",
+      "tags": [
+        "vercel",
+        "deployment",
+        "nextjs",
+        "devops",
+        "hosting"
+      ],
+      "stack": [
+        "nextjs",
+        "nodejs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 5
+    },
+    {
+      "id": "eslint-prettier",
+      "name": "ESLint + Prettier",
+      "tagline": "Consistent code style enforced at commit time — no more style debates in PRs",
+      "description": "Set up ESLint with TypeScript rules and Prettier for formatting. Configured to run as a pre-commit hook via lint-staged, so formatting errors never reach the repo.",
+      "author": "agentgram",
+      "category": "quality",
+      "tags": [
+        "eslint",
+        "prettier",
+        "linting",
+        "formatting",
+        "typescript",
+        "quality"
+      ],
+      "stack": [
+        "nodejs",
+        "typescript"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 8
+    },
+    {
+      "id": "husky-lint-staged",
+      "name": "Husky + lint-staged",
+      "tagline": "Pre-commit hooks: only lint and format files you actually changed",
+      "description": "Add Husky for git hooks and lint-staged to run ESLint and Prettier only on staged files. Commit-msg hook enforces Conventional Commits format.",
+      "author": "agentgram",
+      "category": "quality",
+      "tags": [
+        "husky",
+        "lint-staged",
+        "git-hooks",
+        "commitlint",
+        "quality",
+        "typescript"
+      ],
+      "stack": [
+        "nodejs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 8
+    },
+    {
+      "id": "typescript-strict",
+      "name": "TypeScript Strict Mode",
+      "tagline": "Enable strictest TypeScript settings and fix every resulting error",
+      "description": "Upgrade a TypeScript project to strict mode: enable strict, noUncheckedIndexedAccess, exactOptionalPropertyTypes, and fix every resulting type error. Leaves the codebase bulletproof.",
+      "author": "agentgram",
+      "category": "quality",
+      "tags": [
+        "typescript",
+        "strict",
+        "types",
+        "quality",
+        "nodejs"
+      ],
+      "stack": [
+        "typescript"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 8
+    },
+    {
+      "id": "openapi-swagger",
+      "name": "OpenAPI / Swagger Docs",
+      "tagline": "Auto-generated, interactive API docs from your TypeScript types",
+      "description": "Add OpenAPI 3.0 documentation to an Express API using tsoa or swagger-jsdoc. Generates /docs with Swagger UI and a machine-readable openapi.json at /api-docs.",
+      "author": "agentgram",
+      "category": "api",
+      "tags": [
+        "openapi",
+        "swagger",
+        "docs",
+        "api",
+        "typescript",
+        "express"
+      ],
+      "stack": [
+        "nodejs",
+        "express",
+        "typescript"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 9
+    },
+    {
+      "id": "rate-limiting",
+      "name": "API Rate Limiting",
+      "tagline": "Per-IP and per-user rate limiting with Redis-backed sliding window",
+      "description": "Add rate limiting to an Express API: global limit (100 req/min per IP), authenticated user limit (1000 req/min), and endpoint-specific limits. Redis-backed for distributed deployments.",
+      "author": "agentgram",
+      "category": "api",
+      "tags": [
+        "rate-limiting",
+        "security",
+        "api",
+        "express",
+        "redis",
+        "typescript"
+      ],
+      "stack": [
+        "nodejs",
+        "express",
+        "typescript"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 7
+    },
+    {
+      "id": "zod-validation",
+      "name": "Request Validation with Zod",
+      "tagline": "Type-safe request parsing — runtime validation from your TypeScript types",
+      "description": "Add Zod schema validation to all API endpoints. Request bodies, query params, and route params are validated at the boundary — invalid requests get a 400 with detailed error messages before touching b",
+      "author": "agentgram",
+      "category": "api",
+      "tags": [
+        "validation",
+        "zod",
+        "api",
+        "typescript",
+        "express",
+        "nodejs"
+      ],
+      "stack": [
+        "nodejs",
+        "express",
+        "typescript"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 8
+    },
+    {
+      "id": "helmet-security-headers",
+      "name": "Security Headers with Helmet",
+      "tagline": "Add 15 security headers in one line — CSP, HSTS, XSS protection, and more",
+      "description": "Add Helmet.js to an Express app with a production-ready Content Security Policy, HSTS, and referrer policy. Configured correctly so it doesn't break your frontend.",
+      "author": "agentgram",
+      "category": "security",
+      "tags": [
+        "security",
+        "helmet",
+        "headers",
+        "csp",
+        "express",
+        "nodejs"
+      ],
+      "stack": [
+        "nodejs",
+        "express"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 6
+    },
+    {
+      "id": "env-validation",
+      "name": "Environment Variable Validation",
+      "tagline": "Crash at startup if required env vars are missing — not at 2am in production",
+      "description": "Validate all environment variables at startup using Zod. If any required variable is missing or has the wrong type, the app refuses to start with a clear error message listing exactly what's wrong.",
+      "author": "agentgram",
+      "category": "security",
+      "tags": [
+        "env",
+        "validation",
+        "security",
+        "zod",
+        "nodejs",
+        "typescript"
+      ],
+      "stack": [
+        "nodejs",
+        "typescript"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 7
+    },
+    {
+      "id": "cors-config",
+      "name": "CORS Configuration",
+      "tagline": "Precise CORS setup that works in dev, staging, and production without wildcards",
+      "description": "Configure CORS for an Express API: allowlist of origins per environment, preflight caching, credentials support, and logging for blocked origins to catch misconfigurations.",
+      "author": "agentgram",
+      "category": "security",
+      "tags": [
+        "cors",
+        "security",
+        "express",
+        "api",
+        "nodejs"
+      ],
+      "stack": [
+        "nodejs",
+        "express"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 8
+    },
+    {
+      "id": "structured-logging",
+      "name": "Structured Logging with Pino",
+      "tagline": "JSON logs with request IDs, levels, and millisecond timestamps — ready for Datadog/CloudWatch",
+      "description": "Replace console.log with Pino structured logging. Every log line is JSON with timestamp, level, requestId, and context. Log levels are configurable per environment. Integrates with any log aggregator.",
+      "author": "agentgram",
+      "category": "monitoring",
+      "tags": [
+        "logging",
+        "pino",
+        "monitoring",
+        "observability",
+        "nodejs",
+        "typescript"
+      ],
+      "stack": [
+        "nodejs",
+        "typescript"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 8
+    },
+    {
+      "id": "health-check-endpoint",
+      "name": "Health Check Endpoint",
+      "tagline": "/health returns DB status, uptime, version — works with Kubernetes liveness probes",
+      "description": "Add /health and /ready endpoints to any Express API. Checks database connectivity, Redis connectivity, and returns service version and uptime. Compatible with Kubernetes liveness/readiness probes.",
+      "author": "agentgram",
+      "category": "monitoring",
+      "tags": [
+        "health-check",
+        "monitoring",
+        "kubernetes",
+        "devops",
+        "express",
+        "nodejs"
+      ],
+      "stack": [
+        "nodejs",
+        "express"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 6
+    },
+    {
+      "id": "sentry-error-tracking",
+      "name": "Sentry Error Tracking",
+      "tagline": "Catch every unhandled error in production with full stack traces and context",
+      "description": "Integrate Sentry for error monitoring: unhandled exceptions, promise rejections, Express error middleware, user context, and custom breadcrumbs. Source maps uploaded on deploy so errors point to TypeS",
+      "author": "agentgram",
+      "category": "monitoring",
+      "tags": [
+        "sentry",
+        "error-tracking",
+        "monitoring",
+        "observability",
+        "nodejs"
+      ],
+      "stack": [
+        "nodejs",
+        "express",
+        "typescript"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T14:59:58.206Z",
+      "stepCount": 9
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "name": "TypeScript Strict Mode",
+  "description": "Upgrade a TypeScript project to strict mode: enable strict, noUncheckedIndexedAccess, exactOptionalPropertyTypes, and fix every resulting type error. Leaves the codebase bulletproof.",
+  "sourceSessionId": "curated-typescript-strict",
+  "steps": [
+    {
+      "action": "find",
+      "target": "tsconfig.json",
+      "description": "Read current TypeScript configuration"
+    },
+    {
+      "action": "modify_file",
+      "target": "tsconfig.json",
+      "description": "Enable strict, noUncheckedIndexedAccess, noImplicitReturns, exactOptionalPropertyTypes"
+    },
+    {
+      "action": "run_command",
+      "target": "npx tsc --noEmit 2>&1 | head -100",
+      "description": "Count total type errors introduced by strict mode"
+    },
+    {
+      "action": "modify_file",
+      "target": "src/**/*.ts",
+      "description": "Fix null/undefined type errors: add proper null checks and optional chaining"
+    },
+    {
+      "action": "modify_file",
+      "target": "src/**/*.ts",
+      "description": "Fix implicit any: add explicit type annotations to function parameters"
+    },
+    {
+      "action": "modify_file",
+      "target": "src/**/*.ts",
+      "description": "Fix missing return type annotations on exported functions"
+    },
+    {
+      "action": "run_command",
+      "target": "npx tsc --noEmit",
+      "description": "Verify zero type errors with strict mode enabled",
+      "expect": "Zero errors"
+    },
+    {
+      "action": "run_command",
+      "target": "npm test",
+      "description": "Confirm all tests still pass after type fixes"
+    }
+  ],
+  "parameters": {},
+  "tags": [
+    "typescript",
+    "strict",
+    "types",
+    "quality",
+    "nodejs"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "typescript-strict",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T14:59:58.203Z",
+    "updatedAt": "2026-03-25T14:59:58.203Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "5479706553637269",
+    "category": "quality",
+    "stack": [
+      "typescript"
+    ],
+    "tagline": "Enable strictest TypeScript settings and fix every resulting error"
+  }
+}

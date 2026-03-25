@@ -1,0 +1,75 @@
+{
+  "name": "ESLint + Prettier",
+  "description": "Set up ESLint with TypeScript rules and Prettier for formatting. Configured to run as a pre-commit hook via lint-staged, so formatting errors never reach the repo.",
+  "sourceSessionId": "curated-eslint-prettier",
+  "steps": [
+    {
+      "action": "find",
+      "target": "package.json",
+      "description": "Check existing linting setup and TypeScript config"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin prettier eslint-config-prettier",
+      "description": "Install ESLint, TypeScript plugin, and Prettier"
+    },
+    {
+      "action": "create_file",
+      "target": ".eslintrc.json",
+      "description": "Create ESLint config: TypeScript parser, recommended rules, no-unused-vars, no-floating-promises, prettier last"
+    },
+    {
+      "action": "create_file",
+      "target": ".prettierrc",
+      "description": "Create Prettier config: singleQuote, trailingComma all, printWidth 100, tabWidth 2"
+    },
+    {
+      "action": "create_file",
+      "target": ".prettierignore",
+      "description": "Add dist, coverage, node_modules, *.json to prettierignore"
+    },
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Add lint, lint:fix, and format scripts"
+    },
+    {
+      "action": "run_command",
+      "target": "npm run lint",
+      "description": "Run linter on codebase and fix auto-fixable issues",
+      "expect": "No lint errors"
+    },
+    {
+      "action": "run_command",
+      "target": "npm run format",
+      "description": "Format all files with Prettier"
+    }
+  ],
+  "parameters": {},
+  "tags": [
+    "eslint",
+    "prettier",
+    "linting",
+    "formatting",
+    "typescript",
+    "quality"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "eslint-prettier",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T14:59:58.203Z",
+    "updatedAt": "2026-03-25T14:59:58.203Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "45534c696e74202b",
+    "category": "quality",
+    "stack": [
+      "nodejs",
+      "typescript"
+    ],
+    "tagline": "Consistent code style enforced at commit time — no more style debates in PRs"
+  }
+}

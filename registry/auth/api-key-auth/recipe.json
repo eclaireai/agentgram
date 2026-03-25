@@ -1,0 +1,83 @@
+{
+  "name": "API Key Authentication",
+  "description": "Add API key authentication for machine-to-machine communication. Keys are hashed (never stored in plain text), support scopes (read/write/admin), and tie into rate limiting.",
+  "sourceSessionId": "curated-api-key-auth",
+  "steps": [
+    {
+      "action": "find",
+      "target": "package.json",
+      "description": "Check existing auth setup and middleware"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install crypto-js",
+      "description": "Install crypto library for key hashing"
+    },
+    {
+      "action": "create_file",
+      "target": "src/utils/apiKeys.ts",
+      "description": "Create generateApiKey(), hashKey(), and verifyKey() utilities"
+    },
+    {
+      "action": "create_file",
+      "target": "src/models/ApiKey.ts",
+      "description": "Create ApiKey model with id, keyHash, name, scopes, lastUsed, expiresAt"
+    },
+    {
+      "action": "create_file",
+      "target": "src/middleware/apiKeyAuth.ts",
+      "description": "Create middleware that extracts Bearer token, hashes it, and looks up the key"
+    },
+    {
+      "action": "create_file",
+      "target": "src/routes/apiKeys.ts",
+      "description": "Create POST /api-keys (create), GET /api-keys (list), DELETE /api-keys/:id (revoke)"
+    },
+    {
+      "action": "modify_file",
+      "target": "src/app.ts",
+      "description": "Apply apiKeyAuth middleware to /v1/* routes"
+    },
+    {
+      "action": "create_file",
+      "target": "tests/apiKeys.test.ts",
+      "description": "Test key generation, authentication, and revocation"
+    },
+    {
+      "action": "run_command",
+      "target": "npm test",
+      "description": "Verify API key auth tests pass"
+    }
+  ],
+  "parameters": {
+    "src": "src",
+    "tests": "tests"
+  },
+  "tags": [
+    "auth",
+    "api-key",
+    "security",
+    "express",
+    "nodejs",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "api-key-auth",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T14:59:58.200Z",
+    "updatedAt": "2026-03-25T14:59:58.200Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "415049204b657920",
+    "category": "auth",
+    "stack": [
+      "nodejs",
+      "express",
+      "typescript"
+    ],
+    "tagline": "Secure machine-to-machine auth with hashed keys, scopes, and rate limiting"
+  }
+}

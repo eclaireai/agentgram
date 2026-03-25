@@ -1,0 +1,68 @@
+{
+  "name": "Docker + Docker Compose",
+  "description": "Add Docker to a Node.js project: multi-stage Dockerfile (builder + production), docker-compose.yml for local development with PostgreSQL and Redis, and .dockerignore.",
+  "sourceSessionId": "curated-docker-compose",
+  "steps": [
+    {
+      "action": "find",
+      "target": "package.json",
+      "description": "Check start script and Node version requirements"
+    },
+    {
+      "action": "create_file",
+      "target": "Dockerfile",
+      "description": "Create multi-stage Dockerfile: deps stage (npm ci), builder stage (npm run build), production stage (node:alpine with dist only)"
+    },
+    {
+      "action": "create_file",
+      "target": ".dockerignore",
+      "description": "Add node_modules, .env, .git, dist, coverage, tests to .dockerignore"
+    },
+    {
+      "action": "create_file",
+      "target": "docker-compose.yml",
+      "description": "Create compose file with app, postgres:15, and redis:7 services, named volumes, healthchecks"
+    },
+    {
+      "action": "create_file",
+      "target": "docker-compose.prod.yml",
+      "description": "Create production override: pull from registry, no bind mounts, restart: always"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env.example",
+      "description": "Add POSTGRES_USER, POSTGRES_DB, REDIS_URL vars"
+    },
+    {
+      "action": "run_command",
+      "target": "docker build -t app:test --target production .",
+      "description": "Build production image and verify it succeeds"
+    }
+  ],
+  "parameters": {},
+  "tags": [
+    "docker",
+    "devops",
+    "nodejs",
+    "postgresql",
+    "redis",
+    "containers"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "docker-compose",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T14:59:58.202Z",
+    "updatedAt": "2026-03-25T14:59:58.202Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "446f636b6572202b",
+    "category": "devops",
+    "stack": [
+      "nodejs"
+    ],
+    "tagline": "Containerize any Node.js app with multi-stage builds and compose for local dev"
+  }
+}

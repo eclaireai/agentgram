@@ -1,0 +1,73 @@
+{
+  "name": "Husky + lint-staged",
+  "description": "Add Husky for git hooks and lint-staged to run ESLint and Prettier only on staged files. Commit-msg hook enforces Conventional Commits format.",
+  "sourceSessionId": "curated-husky-lint-staged",
+  "steps": [
+    {
+      "action": "find",
+      "target": "package.json",
+      "description": "Check ESLint, Prettier, and npm version"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install -D husky lint-staged @commitlint/cli @commitlint/config-conventional",
+      "description": "Install Husky, lint-staged, and commitlint"
+    },
+    {
+      "action": "run_command",
+      "target": "npx husky init",
+      "description": "Initialize Husky (creates .husky/ directory and prepare script)"
+    },
+    {
+      "action": "create_file",
+      "target": ".husky/pre-commit",
+      "description": "Create pre-commit hook: npx lint-staged"
+    },
+    {
+      "action": "create_file",
+      "target": ".husky/commit-msg",
+      "description": "Create commit-msg hook: npx commitlint --edit $1"
+    },
+    {
+      "action": "create_file",
+      "target": "commitlint.config.js",
+      "description": "Configure commitlint to extend @commitlint/config-conventional"
+    },
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Add lint-staged config: *.ts runs eslint --fix and prettier --write"
+    },
+    {
+      "action": "run_command",
+      "target": "echo \"test: verify hooks work\" | npx commitlint",
+      "description": "Verify commitlint accepts conventional commit message"
+    }
+  ],
+  "parameters": {},
+  "tags": [
+    "husky",
+    "lint-staged",
+    "git-hooks",
+    "commitlint",
+    "quality",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "husky-lint-staged",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T14:59:58.203Z",
+    "updatedAt": "2026-03-25T14:59:58.203Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "4875736b79202b20",
+    "category": "quality",
+    "stack": [
+      "nodejs"
+    ],
+    "tagline": "Pre-commit hooks: only lint and format files you actually changed"
+  }
+}

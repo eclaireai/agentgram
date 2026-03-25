@@ -1,0 +1,86 @@
+{
+  "name": "Mongoose + MongoDB",
+  "description": "Set up Mongoose with MongoDB Atlas or local Docker. Includes schema validation, compound indexes, connection retry logic, and TypeScript interfaces auto-generated from schemas.",
+  "sourceSessionId": "curated-mongoose-mongodb",
+  "steps": [
+    {
+      "action": "find",
+      "target": "package.json",
+      "description": "Check existing dependencies"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install mongoose",
+      "description": "Install Mongoose"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install -D @types/mongoose",
+      "description": "Install Mongoose type definitions"
+    },
+    {
+      "action": "create_file",
+      "target": "src/lib/mongodb.ts",
+      "description": "Create connection helper with retry logic and connection state caching"
+    },
+    {
+      "action": "create_file",
+      "target": "src/models/User.ts",
+      "description": "Create User schema with name, email (unique index), password, createdAt, and toJSON transform"
+    },
+    {
+      "action": "create_file",
+      "target": "src/models/index.ts",
+      "description": "Export all models from single entry point"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env",
+      "description": "Add MONGODB_URI environment variable"
+    },
+    {
+      "action": "modify_file",
+      "target": "src/app.ts",
+      "description": "Connect to MongoDB on startup with error handling"
+    },
+    {
+      "action": "create_file",
+      "target": "tests/user.test.ts",
+      "description": "Add tests using mongodb-memory-server for in-memory testing"
+    },
+    {
+      "action": "run_command",
+      "target": "npm test",
+      "description": "Verify Mongoose tests pass with in-memory server"
+    }
+  ],
+  "parameters": {
+    "src": "src",
+    "tests": "tests"
+  },
+  "tags": [
+    "database",
+    "mongodb",
+    "mongoose",
+    "nodejs",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "mongoose-mongodb",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T14:59:58.200Z",
+    "updatedAt": "2026-03-25T14:59:58.200Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "4d6f6e676f6f7365",
+    "category": "database",
+    "stack": [
+      "nodejs",
+      "typescript"
+    ],
+    "tagline": "Document database with schema validation, indexes, and connection management"
+  }
+}

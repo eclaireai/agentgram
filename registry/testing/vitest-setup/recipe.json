@@ -1,0 +1,77 @@
+{
+  "name": "Vitest Testing Framework",
+  "description": "Set up Vitest from scratch: TypeScript support, V8 coverage reports, path aliases, and a sample test. Runs 10x faster than Jest on cold starts.",
+  "sourceSessionId": "curated-vitest-setup",
+  "steps": [
+    {
+      "action": "find",
+      "target": "package.json",
+      "description": "Check existing test framework and TypeScript config"
+    },
+    {
+      "action": "find",
+      "target": "tsconfig.json",
+      "description": "Read TypeScript config for path aliases"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install -D vitest @vitest/coverage-v8 @vitest/ui",
+      "description": "Install Vitest, coverage provider, and UI"
+    },
+    {
+      "action": "create_file",
+      "target": "vitest.config.ts",
+      "description": "Create config with coverage thresholds (80%), include patterns, and path aliases"
+    },
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Add test, test:watch, test:ui, and coverage scripts"
+    },
+    {
+      "action": "create_file",
+      "target": "tests/example.test.ts",
+      "description": "Create sample test demonstrating describe/it/expect patterns"
+    },
+    {
+      "action": "run_command",
+      "target": "npm test",
+      "description": "Verify test suite runs and passes",
+      "expect": "1 passed"
+    },
+    {
+      "action": "run_command",
+      "target": "npm run coverage",
+      "description": "Verify coverage report generates",
+      "expect": "Coverage report generated"
+    }
+  ],
+  "parameters": {
+    "tests": "tests"
+  },
+  "tags": [
+    "testing",
+    "vitest",
+    "typescript",
+    "coverage",
+    "unit-tests"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "vitest-setup",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T14:59:58.201Z",
+    "updatedAt": "2026-03-25T14:59:58.201Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "5669746573742054",
+    "category": "testing",
+    "stack": [
+      "nodejs",
+      "typescript"
+    ],
+    "tagline": "Blazing fast unit tests with TypeScript, coverage, and watch mode"
+  }
+}

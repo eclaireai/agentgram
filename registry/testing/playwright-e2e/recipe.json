@@ -1,0 +1,80 @@
+{
+  "name": "Playwright End-to-End Tests",
+  "description": "Add Playwright for end-to-end testing against a running server. Includes browser setup, page object model pattern, GitHub Actions CI integration, and screenshot on failure.",
+  "sourceSessionId": "curated-playwright-e2e",
+  "steps": [
+    {
+      "action": "find",
+      "target": "package.json",
+      "description": "Check existing test setup and dev server command"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install -D @playwright/test",
+      "description": "Install Playwright test runner"
+    },
+    {
+      "action": "run_command",
+      "target": "npx playwright install chromium firefox webkit",
+      "description": "Install browser binaries"
+    },
+    {
+      "action": "create_file",
+      "target": "playwright.config.ts",
+      "description": "Configure Playwright with baseURL, retries, screenshot on failure, and webServer"
+    },
+    {
+      "action": "create_file",
+      "target": "e2e/pages/BasePage.ts",
+      "description": "Create BasePage class with common navigation and assertion helpers"
+    },
+    {
+      "action": "create_file",
+      "target": "e2e/pages/HomePage.ts",
+      "description": "Create HomePage page object extending BasePage"
+    },
+    {
+      "action": "create_file",
+      "target": "e2e/home.spec.ts",
+      "description": "Write first E2E test: visit homepage, check title, verify key element"
+    },
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Add e2e, e2e:ui, and e2e:debug scripts"
+    },
+    {
+      "action": "run_command",
+      "target": "npx playwright test",
+      "description": "Run E2E tests in headless mode",
+      "expect": "1 passed"
+    }
+  ],
+  "parameters": {
+    "e2e": "e2e"
+  },
+  "tags": [
+    "testing",
+    "playwright",
+    "e2e",
+    "typescript",
+    "browser"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "playwright-e2e",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T14:59:58.202Z",
+    "updatedAt": "2026-03-25T14:59:58.202Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "506c617977726967",
+    "category": "testing",
+    "stack": [
+      "typescript"
+    ],
+    "tagline": "Cross-browser E2E testing with Playwright: Chrome, Firefox, Safari"
+  }
+}

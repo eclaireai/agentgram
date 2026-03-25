@@ -1,0 +1,62 @@
+{
+  "name": "GitHub Actions CI",
+  "description": "Add a production-grade GitHub Actions CI pipeline: typecheck, lint, test (Node 18/20/22 matrix), build, and optional npm publish on release tags. npm dependency caching keeps it fast.",
+  "sourceSessionId": "curated-github-actions-ci",
+  "steps": [
+    {
+      "action": "find",
+      "target": "package.json",
+      "description": "Check test, lint, typecheck, and build scripts"
+    },
+    {
+      "action": "run_command",
+      "target": "mkdir -p .github/workflows",
+      "description": "Create GitHub Actions directory"
+    },
+    {
+      "action": "create_file",
+      "target": ".github/workflows/ci.yml",
+      "description": "Create CI workflow: checkout, node matrix (18/20/22), npm ci, typecheck, lint, test, build"
+    },
+    {
+      "action": "create_file",
+      "target": ".github/workflows/release.yml",
+      "description": "Create release workflow: triggered on version tags, runs CI then npm publish"
+    },
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Ensure typecheck, lint, test, and build scripts all exist and exit non-zero on failure"
+    },
+    {
+      "action": "create_file",
+      "target": ".github/dependabot.yml",
+      "description": "Enable Dependabot for weekly npm and GitHub Actions updates"
+    }
+  ],
+  "parameters": {},
+  "tags": [
+    "ci",
+    "github-actions",
+    "devops",
+    "nodejs",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "github-actions-ci",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T14:59:58.202Z",
+    "updatedAt": "2026-03-25T14:59:58.202Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "4769744875622041",
+    "category": "devops",
+    "stack": [
+      "nodejs"
+    ],
+    "tagline": "Lint + test + build on every push, Node 18/20/22 matrix, cache npm deps"
+  }
+}
