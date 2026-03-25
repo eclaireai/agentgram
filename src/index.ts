@@ -22,6 +22,20 @@ export type { SessionResult } from './core/session.js';
 // Core types
 export * from './core/types.js';
 
+// Claude Code hooks — zero-config auto-capture
+export {
+  installHooks,
+  uninstallHooks,
+  generateHookConfig,
+} from './hooks/claude-code.js';
+
+// MCP server — universal agent support
+export { createMcpServer, startMcpServer } from './mcp/server.js';
+
+// Interactive visualizer
+export { generateVizHtml } from './viz/html.js';
+export type { VizData } from './viz/html.js';
+
 // Utilities
 export { contentHash, generateId, sessionBranchName } from './utils/hash.js';
 export { isGitRepo, createGit } from './utils/git.js';

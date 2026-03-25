@@ -378,6 +378,80 @@ export function createProgram(): Command {
       );
     });
 
+  // ── viz ───────────────────────────────────────────────────────────────────
+  program
+    .command('viz <session-id>')
+    .description('Open an interactive provenance graph in the browser')
+    .option('-o, --output <file>', 'save HTML to file instead of opening browser')
+    .action(async (sessionId: string, options: { output?: string }) => {
+      const session = await readSession(sessionId);
+      const distiller = new RecipeDistiller();
+      const recipe = distiller.distill(session);
+      const tracker = new ProvenanceTracker(session.id);
+
+      for (const op of session.operations) {
+        if (op.type === 'read') {
+          tracker.addRead(op);
+        } else if (op.type === 'exec') {
+          tracker.addExec(op);
+        } else {
+          tracker.addWrite(op);
+        }
+      }
+
+      const { generateVizHtml } = await import('./viz/html.js');
+      const html = generateVizHtml({
+        session,
+        provenance: tracker.getProvenance(),
+        recipe,
+      });
+
+      if (options.output) {
+        const dest = path.resolve(options.output);
+        await fs.writeFile(dest, html, 'utf8');
+        console.log(chalk.green('✔') + `  Saved visualization to ${chalk.cyan(dest)}`);
+      } else {
+        // Write to temp file and open in browser
+        const tmpDir = path.join(process.cwd(), '.agentgram', 'tmp');
+        await fs.mkdir(tmpDir, { recursive: true });
+        const tmpFile = path.join(tmpDir, `viz-${sessionId.slice(0, 12)}.html`);
+        await fs.writeFile(tmpFile, html, 'utf8');
+
+        const { exec } = await import('node:child_process');
+        const openCmd = process.platform === 'darwin' ? 'open' : process.platform === 'win32' ? 'start' : 'xdg-open';
+        exec(`${openCmd} "${tmpFile}"`);
+        console.log(chalk.green('✔') + `  Opening visualization in browser...`);
+        console.log(chalk.dim(`   File: ${tmpFile}`));
+      }
+    });
+
+  // ── hook ──────────────────────────────────────────────────────────────────
+  const hookCmd = program
+    .command('hook <subcommand>')
+    .description('Claude Code hook management')
+    .addHelpText('after', `
+${chalk.dim('Subcommands:')}
+  ${chalk.cyan('install')}          Add agentgram hooks to Claude Code settings
+  ${chalk.cyan('install --project')} Add hooks to project settings only
+  ${chalk.cyan('uninstall')}        Remove agentgram hooks
+  ${chalk.cyan('session-start')}    Internal: called by Claude Code on session start
+  ${chalk.cyan('capture')}          Internal: called by Claude Code on tool use
+`);
+
+  hookCmd.action(async (subcommand: string) => {
+    const { runHookCommand } = await import('./hooks/claude-code.js');
+    runHookCommand([subcommand, ...hookCmd.args.slice(1)]);
+  });
+
+  // ── mcp ───────────────────────────────────────────────────────────────────
+  program
+    .command('mcp')
+    .description('Start the agentgram MCP server (stdio transport)')
+    .action(async () => {
+      const { startMcpServer } = await import('./mcp/server.js');
+      await startMcpServer();
+    });
+
   return program;
 }
 

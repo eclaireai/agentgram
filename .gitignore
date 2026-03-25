@@ -2,6 +2,7 @@ node_modules/
 dist/
 coverage/
 *.tgz
+SHOW_HN.md
 .DS_Store
 .env
 .env.*

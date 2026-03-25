@@ -71,6 +71,43 @@ npx agentgram export <session-id> out.json      # full export
 
 ---
 
+### Zero-Config with Claude Code (hooks)
+
+```bash
+npx agentgram hook install   # one command, done forever
+```
+
+Every file read, write, edit, and bash command is automatically captured. No code changes needed.
+
+### As an MCP Server (universal agent support)
+
+Add to `.claude/.mcp.json` (works with Claude Code, Cursor, Claude Desktop):
+
+```json
+{
+  "mcpServers": {
+    "agentgram": {
+      "command": "npx",
+      "args": ["agentgram", "mcp"],
+      "type": "stdio"
+    }
+  }
+}
+```
+
+Then agents can use `agentgram_start`, `agentgram_read`, `agentgram_write`, `agentgram_exec`, `agentgram_stop` tools automatically.
+
+### Interactive Provenance Visualizer
+
+```bash
+npx agentgram viz <session-id>           # opens interactive DAG in browser
+npx agentgram viz <session-id> -o out.html  # save as shareable HTML file
+```
+
+D3.js-powered force-directed graph with click-to-inspect nodes, edge highlighting, recipe sidebar, and GitHub dark theme.
+
+---
+
 ## Features
 
 <table>
