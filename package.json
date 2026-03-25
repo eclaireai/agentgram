@@ -1,0 +1,81 @@
+{
+  "name": "agentgram",
+  "version": "0.1.0",
+  "description": "Replay, retrace, and journal agentic coding sessions. Shadow worktree journaling + causal provenance graphs + recipe distillation.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "bin": {
+    "agentgram": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src tests",
+    "typecheck": "tsc --noEmit",
+    "ci": "npm run typecheck && npm run lint && npm run test:coverage && npm run build",
+    "prepublishOnly": "npm run ci"
+  },
+  "keywords": [
+    "agent",
+    "replay",
+    "trace",
+    "journal",
+    "provenance",
+    "git",
+    "worktree",
+    "llm",
+    "ai",
+    "coding-agent",
+    "claude",
+    "devtools",
+    "developer-tools"
+  ],
+  "author": "metacogma",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metacogma/agentgram.git"
+  },
+  "homepage": "https://github.com/metacogma/agentgram#readme",
+  "bugs": {
+    "url": "https://github.com/metacogma/agentgram/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "commander": "^14.0.3",
+    "crypto-hash": "^4.0.1",
+    "glob": "^13.0.6",
+    "simple-git": "^3.33.0",
+    "yaml": "^2.8.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "@typescript-eslint/eslint-plugin": "^8.57.2",
+    "@typescript-eslint/parser": "^8.57.2",
+    "@vitest/coverage-v8": "^4.1.1",
+    "eslint": "^10.1.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.1"
+  }
+}

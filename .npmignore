@@ -1,0 +1,14 @@
+src/
+tests/
+coverage/
+.github/
+.agentrace/
+tsconfig.json
+tsup.config.ts
+vitest.config.ts
+eslint.config.js
+*.tgz
+.DS_Store
+.env
+.env.*
+node_modules/
