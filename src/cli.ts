@@ -443,6 +443,26 @@ ${chalk.dim('Subcommands:')}
     runHookCommand([subcommand, ...hookCmd.args.slice(1)]);
   });
 
+  // ── ingest ────────────────────────────────────────────────────────────────
+  program
+    .command('ingest')
+    .description('Convert captured hook events into full agentgram sessions with provenance + recipe')
+    .action(async () => {
+      const { ingestAndSave } = await import('./hooks/ingest.js');
+      const savedIds = ingestAndSave(process.cwd());
+      if (savedIds.length === 0) {
+        console.log(chalk.dim('No hook events found to ingest.'));
+        console.log(chalk.dim('Run `agentgram hook install` to start capturing Claude Code sessions.'));
+      } else {
+        console.log(chalk.green('✔') + `  Ingested ${savedIds.length} session(s):`);
+        for (const id of savedIds) {
+          console.log(`   ${chalk.cyan(id)}`);
+        }
+        console.log(chalk.dim('\nView with: agentgram show <session-id>'));
+        console.log(chalk.dim('Visualize: agentgram viz <session-id>'));
+      }
+    });
+
   // ── mcp ───────────────────────────────────────────────────────────────────
   program
     .command('mcp')

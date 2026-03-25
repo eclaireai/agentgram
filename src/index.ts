@@ -29,6 +29,14 @@ export {
   generateHookConfig,
 } from './hooks/claude-code.js';
 
+// Hook ingestion pipeline — converts JSONL events to full sessions
+export {
+  parseEventsFile,
+  eventToOperation,
+  ingestHookSession,
+  ingestAndSave,
+} from './hooks/ingest.js';
+
 // MCP server — universal agent support
 export { createMcpServer, startMcpServer } from './mcp/server.js';
 
