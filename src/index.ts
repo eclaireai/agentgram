@@ -74,6 +74,28 @@ export type { EnrichedRecipe, EnrichedStep } from './recipe/enriched.js';
 // PR→Recipe reverse extractor
 export { extractRecipeFromCommit, extractRecipesFromRepo } from './recipe/extractor.js';
 
+// Ticket integrations — link sessions to GitHub/Jira/Linear tickets
+export {
+  parseTicketUrl,
+  formatTicketRef,
+  extractTicketKeywords,
+  suggestRecipesForTicket,
+  formatTicketComment,
+} from './integrations/ticket.js';
+export type { TicketRef, TicketRecipe, RecipeSuggestion, TicketProvider } from './integrations/ticket.js';
+
+export { GitHubIntegration } from './integrations/github.js';
+export type { GitHubIssue, GitHubPR, GitHubIntegrationConfig } from './integrations/github.js';
+
+export {
+  resolveSessionToTicket,
+  buildKnowledgeBase,
+  loadTicketLinks,
+  findRecipesForTicket,
+  findTicketsForRecipe,
+} from './integrations/resolve.js';
+export type { ResolveOptions, ResolveResult, TicketKnowledgeEntry } from './integrations/resolve.js';
+
 // Recipe composition — chain recipes like Unix pipes
 export { pipe, parallel, branch, repeat, compose, toMermaid, toMarkdown } from './recipe/compose.js';
 export type { ComposedRecipe, CompositionNode, CompositionMode, CompositionResult } from './recipe/compose.js';

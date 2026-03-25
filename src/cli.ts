@@ -766,6 +766,186 @@ ${chalk.dim('Subcommands:')}
       await startMcpServer();
     });
 
+  // ── suggest ───────────────────────────────────────────────────────────────
+  program
+    .command('suggest <ticket-url>')
+    .description('Suggest recipes BEFORE starting work on a ticket — skip the exploration')
+    .option('-n, --limit <n>', 'max suggestions', '5')
+    .option('--local', 'search local recipes only (no registry fetch)', false)
+    .action(async (ticketUrl: string, options: { limit: string; local: boolean }) => {
+      const { parseTicketUrl, formatTicketRef, suggestRecipesForTicket, extractTicketKeywords } = await import('./integrations/ticket.js');
+      const { AgentMemory } = await import('./memory/index.js');
+      const { GitHubIntegration } = await import('./integrations/github.js');
+
+      const ticketRef = parseTicketUrl(ticketUrl);
+      const memory = new AgentMemory();
+      let searchText = ticketUrl;
+      let issueTitle = '';
+
+      // Fetch issue content from GitHub if available
+      if (ticketRef.provider === 'github' && ticketRef.owner && ticketRef.repo) {
+        try {
+          const gh = new GitHubIntegration();
+          process.stdout.write(chalk.dim('  Fetching issue from GitHub...'));
+          const issue = await gh.fetchIssue(ticketRef.owner, ticketRef.repo, ticketRef.id);
+          issueTitle = issue.title;
+          searchText = [issue.title, issue.body ?? '', issue.labels.map((l) => l.name).join(' ')].join(' ');
+          process.stdout.write(`\r${' '.repeat(40)}\r`);
+        } catch {
+          process.stdout.write(`\r${' '.repeat(40)}\r`);
+          // Fall through to keyword-only matching
+        }
+      }
+
+      const allRecipes = memory.list().map((e) => e.recipe);
+
+      if (allRecipes.length === 0) {
+        console.log(chalk.dim('\n  No recipes in memory yet.'));
+        console.log(chalk.dim('  Run: agentgram memory import  (loads community recipes)\n'));
+        return;
+      }
+
+      const keywords = extractTicketKeywords(searchText);
+      const suggestions = suggestRecipesForTicket(searchText, allRecipes, {
+        limit: parseInt(options.limit, 10),
+      });
+
+      console.log(chalk.bold(`\n💡  Recipe Suggestions for ${formatTicketRef(ticketRef)}\n`));
+      if (issueTitle) console.log(`  ${chalk.dim('Issue:')} ${chalk.white(issueTitle)}\n`);
+      if (keywords.length > 0) console.log(`  ${chalk.dim('Keywords:')} ${keywords.slice(0, 8).join(', ')}\n`);
+
+      if (suggestions.length === 0) {
+        console.log(chalk.dim('  No relevant recipes found.'));
+        console.log(chalk.dim('  Try: agentgram memory import\n'));
+        return;
+      }
+
+      for (const [i, s] of suggestions.entries()) {
+        const pct = Math.round(s.confidence * 100);
+        const bar = '█'.repeat(Math.round(pct / 10)) + '░'.repeat(10 - Math.round(pct / 10));
+        const color = pct >= 60 ? chalk.green : pct >= 30 ? chalk.yellow : chalk.dim;
+
+        console.log(`  ${color(bar)} ${pct}%  ${chalk.bold(s.recipe.name)}`);
+        console.log(`              ${chalk.dim(s.recipe.description.slice(0, 80))}`);
+        console.log(`              ${chalk.cyan(s.reason)}`);
+        if (i < suggestions.length - 1) console.log();
+      }
+
+      console.log();
+      console.log(chalk.dim('  To use the top suggestion:'));
+      console.log(chalk.cyan(`  agentgram memory recall "${suggestions[0].recipe.name.toLowerCase()}"`));
+      console.log();
+    });
+
+  // ── resolve ───────────────────────────────────────────────────────────────
+  program
+    .command('resolve <session-id> <ticket-url>')
+    .description('Link a completed session to a ticket — distill, link, and post the recipe')
+    .option('--outcome <text>', 'short description of what was accomplished')
+    .option('--pr <url>', 'PR URL that shipped this work')
+    .option('--post-comment', 'post recipe card as comment on the GitHub issue/PR', false)
+    .option('--publish', 'publish recipe to the community registry', false)
+    .option('--name <name>', 'override recipe name')
+    .option('--tags <tags>', 'additional tags (comma-separated)')
+    .action(async (
+      sessionId: string,
+      ticketUrl: string,
+      options: {
+        outcome?: string; pr?: string; postComment: boolean;
+        publish: boolean; name?: string; tags?: string;
+      },
+    ) => {
+      const session = await readSession(sessionId);
+      const { resolveSessionToTicket } = await import('./integrations/resolve.js');
+
+      console.log(chalk.bold(`\n🔗  Resolving session → ticket\n`));
+      console.log(`  Session: ${chalk.cyan(sessionId)}`);
+      console.log(`  Ticket:  ${chalk.cyan(ticketUrl)}`);
+      if (options.outcome) console.log(`  Outcome: ${chalk.dim(options.outcome)}`);
+      console.log();
+
+      const result = await resolveSessionToTicket(session, {
+        ticketUrl,
+        prUrl: options.pr,
+        outcome: options.outcome,
+        postComment: options.postComment,
+        publish: options.publish,
+        name: options.name,
+        tags: options.tags?.split(',').map((t) => t.trim()),
+        cwd: process.cwd(),
+      });
+
+      console.log(chalk.green('✔') + `  Recipe saved: ${chalk.bold(result.recipeName)}`);
+      console.log(chalk.green('✔') + `  Ticket linked: ${chalk.cyan(ticketUrl)}`);
+      console.log(chalk.green('✔') + `  Steps: ${result.stepCount}  |  Duration: ${Math.round(result.durationMs / 60000)}min`);
+
+      if (result.commentUrl) {
+        console.log(chalk.green('✔') + `  Comment posted: ${chalk.cyan(result.commentUrl)}`);
+      }
+
+      console.log();
+      console.log(chalk.dim('  Future recall:'));
+      console.log(chalk.cyan(`  agentgram suggest ${ticketUrl.split('/').slice(0, 7).join('/')}/issues/NEW`));
+      console.log(chalk.cyan(`  agentgram memory recall "${result.recipeName.toLowerCase()}"`));
+      console.log();
+    });
+
+  // ── knowledge ─────────────────────────────────────────────────────────────
+  program
+    .command('knowledge')
+    .description('Your team\'s complete AI development history — every ticket resolved with AI')
+    .option('-n, --limit <n>', 'max entries to show', '20')
+    .option('--tag <tag>', 'filter by tag')
+    .option('--json', 'output raw JSON', false)
+    .action(async (options: { limit: string; tag?: string; json: boolean }) => {
+      const { buildKnowledgeBase } = await import('./integrations/resolve.js');
+      const kb = buildKnowledgeBase();
+
+      const filtered = options.tag
+        ? kb.filter((e) => e.tags.includes(options.tag!))
+        : kb;
+
+      const limited = filtered.slice(0, parseInt(options.limit, 10));
+
+      if (options.json) {
+        console.log(JSON.stringify(limited, null, 2));
+        return;
+      }
+
+      if (limited.length === 0) {
+        console.log(chalk.dim('\n  No tickets resolved yet.'));
+        console.log(chalk.dim('  After finishing a session, run:'));
+        console.log(chalk.cyan('  agentgram resolve <session-id> <ticket-url>\n'));
+        return;
+      }
+
+      console.log(chalk.bold(`\n📚  Team Knowledge Base\n`));
+      console.log(chalk.dim(`  ${limited.length} tickets resolved with AI${options.tag ? ` (filtered: ${options.tag})` : ''}\n`));
+
+      for (const entry of limited) {
+        const date = new Date(entry.resolvedAt).toLocaleDateString();
+        const dur = entry.durationMin > 0 ? chalk.dim(`${entry.durationMin}min`) : '';
+
+        console.log(
+          `  ${chalk.green('●')}  ${chalk.bold(entry.recipeName.slice(0, 45).padEnd(45))}` +
+          `  ${chalk.cyan(`${entry.stepCount} steps`).padEnd(12)}  ${dur}`
+        );
+        console.log(`     ${chalk.dim(entry.ticketUrl)}`);
+        if (entry.outcome) console.log(`     ${chalk.dim('→')} ${entry.outcome}`);
+        if (entry.tags.length > 0) {
+          console.log(`     ${entry.tags.slice(0, 5).map((t) => chalk.dim(`[${t}]`)).join(' ')}`);
+        }
+        console.log();
+      }
+
+      // Summary stats
+      const totalMinutes = kb.reduce((s, e) => s + e.durationMin, 0);
+      const uniqueTags = [...new Set(kb.flatMap((e) => e.tags))];
+      console.log(chalk.bold(`  Summary:`));
+      console.log(`    ${chalk.cyan(kb.length)} tickets resolved  ·  ${chalk.cyan(totalMinutes)}min AI time  ·  ${chalk.cyan(uniqueTags.length)} unique patterns`);
+      console.log();
+    });
+
   // ── memory ────────────────────────────────────────────────────────────────
   const memCmd = program
     .command('memory')
