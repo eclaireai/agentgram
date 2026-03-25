@@ -766,6 +766,226 @@ ${chalk.dim('Subcommands:')}
       await startMcpServer();
     });
 
+  // ── memory ────────────────────────────────────────────────────────────────
+  const memCmd = program
+    .command('memory')
+    .description('Agent long-term memory — recall relevant recipes for any task')
+    .addHelpText('after', `
+${chalk.dim('Subcommands:')}
+  ${chalk.cyan('recall <task>')}    Find recipes relevant to a task
+  ${chalk.cyan('list')}             Show all memories
+  ${chalk.cyan('stats')}            Memory health statistics
+  ${chalk.cyan('import')}           Import recipes from registry into memory
+  ${chalk.cyan('forget <id>')}      Remove a recipe from memory
+
+${chalk.dim('Examples:')}
+  ${chalk.cyan('agentgram memory recall "set up JWT auth"')}
+  ${chalk.cyan('agentgram memory recall "add prisma postgres" --fingerprint')}
+  ${chalk.cyan('agentgram memory list')}
+  ${chalk.cyan('agentgram memory import --limit 50')}`);
+
+  memCmd
+    .command('recall <task>')
+    .description('Find recipes most relevant to a task description')
+    .option('-n, --limit <n>', 'max results', '5')
+    .option('-s, --min-score <n>', 'minimum relevance score (0-1)', '0.05')
+    .option('-f, --fingerprint', 'match against current project stack', false)
+    .action(async (task: string, options: { limit: string; minScore: string; fingerprint: boolean }) => {
+      const { AgentMemory } = await import('./memory/index.js');
+      const memory = new AgentMemory();
+
+      let fp;
+      if (options.fingerprint) {
+        const { fingerprint } = await import('./recipe/fingerprint.js');
+        fp = await fingerprint(process.cwd());
+        console.log(chalk.dim(`  Stack: ${fp.language}/${fp.framework}/${fp.orm}\n`));
+      }
+
+      const results = memory.recall({
+        task,
+        fingerprint: fp,
+        limit: parseInt(options.limit, 10),
+        minScore: parseFloat(options.minScore),
+      });
+
+      if (results.length === 0) {
+        console.log(chalk.dim(`\n  No relevant recipes found for: "${task}"`));
+        console.log(chalk.dim('  Try: agentgram memory import  (to load community recipes)\n'));
+        return;
+      }
+
+      console.log(chalk.bold(`\n🧠  Memory Recall: "${task}"\n`));
+
+      for (const result of results) {
+        const score = Math.round(result.relevance.score * 100);
+        const scoreColor = score >= 60 ? chalk.green : score >= 30 ? chalk.yellow : chalk.dim;
+
+        console.log(
+          `  ${scoreColor(`${score}%`)}  ${chalk.bold(result.entry.recipe.name)}` +
+          `  ${chalk.cyan(`${result.entry.recipe.steps.length} steps`)}` +
+          `  ${chalk.dim(`used ${result.entry.recallCount}×`)}`
+        );
+        console.log(`       ${chalk.dim(result.entry.recipe.description.slice(0, 80))}`);
+        if (result.relevance.matches.length > 0) {
+          console.log(`       ${chalk.dim('↳ ' + result.relevance.matches.join(' · '))}`);
+        }
+        console.log();
+      }
+
+      console.log(chalk.dim(`  To use: agentgram pull <recipe-name>  or  agentgram recipe <session-id>\n`));
+    });
+
+  memCmd
+    .command('list')
+    .description('List all recipes in agent memory')
+    .action(async () => {
+      const { AgentMemory } = await import('./memory/index.js');
+      const memory = new AgentMemory();
+      const entries = memory.list();
+
+      if (entries.length === 0) {
+        console.log(chalk.dim('\n  Memory is empty. Run: agentgram memory import\n'));
+        return;
+      }
+
+      console.log(chalk.bold(`\n🧠  Agent Memory (${entries.length} recipes)\n`));
+      const sorted = entries.sort((a, b) => b.recallCount - a.recallCount);
+
+      for (const entry of sorted) {
+        console.log(
+          `  ${chalk.bold(entry.recipe.name.slice(0, 40).padEnd(40))}` +
+          `  ${chalk.cyan(`${entry.recipe.steps.length} steps`).padEnd(10)}` +
+          `  ${chalk.dim(`${entry.recallCount}× used`).padEnd(12)}` +
+          `  ${chalk.dim(entry.recipe.tags.slice(0, 3).join(', '))}`
+        );
+      }
+      console.log();
+    });
+
+  memCmd
+    .command('stats')
+    .description('Memory health and usage statistics')
+    .action(async () => {
+      const { AgentMemory } = await import('./memory/index.js');
+      const memory = new AgentMemory();
+      const stats = memory.stats();
+
+      console.log(chalk.bold(`\n🧠  Memory Statistics\n`));
+      console.log(`  ${chalk.dim('Total recipes:')}  ${chalk.cyan(stats.totalRecipes)}`);
+      console.log(`  ${chalk.dim('Avg recall:')}     ${chalk.cyan(stats.avgRecallCount.toFixed(1))}× per recipe\n`);
+
+      if (stats.mostUsed.length > 0) {
+        console.log(chalk.bold('  Most recalled:'));
+        for (const e of stats.mostUsed) {
+          console.log(`    ${chalk.green(`${e.recallCount}×`)}  ${e.recipe.name}`);
+        }
+        console.log();
+      }
+
+      if (stats.recentlyLearned.length > 0) {
+        console.log(chalk.bold('  Recently learned:'));
+        for (const e of stats.recentlyLearned) {
+          const age = Math.round((Date.now() - e.learnedAt) / (1000 * 60 * 60 * 24));
+          console.log(`    ${chalk.dim(`${age}d ago`)}  ${e.recipe.name}`);
+        }
+        console.log();
+      }
+    });
+
+  memCmd
+    .command('import')
+    .description('Import recipes from the community registry into memory')
+    .option('-n, --limit <n>', 'max recipes to import', '100')
+    .option('-t, --tag <tag>', 'import only recipes with this tag')
+    .action(async (options: { limit: string; tag?: string }) => {
+      const { AgentMemory } = await import('./memory/index.js');
+      const { GitHubRecipeRegistry } = await import('./recipe/registry.js');
+      const { DEFAULT_REGISTRY_CONFIG } = await import('./recipe/types.js');
+
+      const registry = new GitHubRecipeRegistry({});
+      const memory = new AgentMemory();
+
+      console.log(chalk.bold('\n🧠  Importing from community registry...\n'));
+
+      const entries = await registry.list({ limit: parseInt(options.limit, 10) });
+      const filtered = options.tag
+        ? entries.filter((e) => e.tags.includes(options.tag!))
+        : entries;
+
+      let imported = 0;
+      for (const entry of filtered) {
+        try {
+          const shared = await registry.pull(entry.id);
+          const recipe = await shared;
+          memory.remember(recipe);
+          imported++;
+          process.stdout.write(`\r  ${chalk.green('✔')} Imported ${imported}/${filtered.length}`);
+        } catch {
+          // Skip failed pulls silently
+        }
+      }
+
+      console.log(`\n\n  ${chalk.green(`✔  ${imported} recipes`)} imported into memory.`);
+      console.log(chalk.dim('  Now try: agentgram memory recall "your task here"\n'));
+    });
+
+  memCmd
+    .command('forget <id>')
+    .description('Remove a recipe from memory')
+    .action(async (id: string) => {
+      const { AgentMemory } = await import('./memory/index.js');
+      const memory = new AgentMemory();
+      const removed = memory.forget(id);
+
+      if (removed) {
+        console.log(chalk.green('✔') + `  Forgot recipe: ${chalk.bold(id)}`);
+      } else {
+        console.log(chalk.yellow('⚠') + `  Recipe not found in memory: ${id}`);
+      }
+    });
+
+  // ── compose ───────────────────────────────────────────────────────────────
+  program
+    .command('compose <name> <recipe-ids...>')
+    .description('Compose multiple recipes into a pipeline')
+    .option('-m, --mode <mode>', 'composition mode: pipe|parallel', 'pipe')
+    .option('--mermaid', 'output Mermaid flowchart diagram')
+    .action(async (name: string, recipeIds: string[], options: { mode: string; mermaid: boolean }) => {
+      const { LocalRecipeStore } = await import('./recipe/store.js');
+      const { pipe, parallel, toMermaid, toMarkdown } = await import('./recipe/compose.js');
+
+      const store = new LocalRecipeStore(process.cwd());
+      const recipes = [];
+
+      for (const id of recipeIds) {
+        try {
+          const recipe = await store.load(id);
+          recipes.push(recipe);
+        } catch {
+          console.error(chalk.red(`✖  Recipe not found: ${id}`));
+          console.error(chalk.dim(`   Pull it first: agentgram pull ${id}`));
+          process.exit(1);
+        }
+      }
+
+      const composed = options.mode === 'parallel'
+        ? parallel(name, ...recipes)
+        : pipe(name, ...recipes);
+
+      if (options.mermaid) {
+        console.log(toMermaid(composed));
+        return;
+      }
+
+      console.log(toMarkdown(composed));
+      console.log(chalk.dim(`\n  ${composed.steps.length} total steps | ${composed.composition.nodes.length} recipes composed`));
+
+      if (composed.composition.overlapFactor < 1) {
+        const saved = Math.round((1 - composed.composition.overlapFactor) * 100);
+        console.log(chalk.green(`  ↓ ${saved}% step reduction via deduplication\n`));
+      }
+    });
+
   return program;
 }
 

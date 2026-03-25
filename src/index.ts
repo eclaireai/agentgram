@@ -74,6 +74,14 @@ export type { EnrichedRecipe, EnrichedStep } from './recipe/enriched.js';
 // PR→Recipe reverse extractor
 export { extractRecipeFromCommit, extractRecipesFromRepo } from './recipe/extractor.js';
 
+// Recipe composition — chain recipes like Unix pipes
+export { pipe, parallel, branch, repeat, compose, toMermaid, toMarkdown } from './recipe/compose.js';
+export type { ComposedRecipe, CompositionNode, CompositionMode, CompositionResult } from './recipe/compose.js';
+
+// Agent memory — long-term memory layer for AI coding agents
+export { AgentMemory, getAgentMemory } from './memory/index.js';
+export type { MemoryEntry, RecallResult, RecallOptions } from './memory/index.js';
+
 // Utilities
 export { contentHash, generateId, sessionBranchName } from './utils/hash.js';
 export { isGitRepo, createGit } from './utils/git.js';
