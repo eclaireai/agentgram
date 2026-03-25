@@ -320,7 +320,7 @@ export function createProgram(): Command {
       }
     });
 
-  // ── recipe ────────────────────────────────────────────────────────────────
+  // ── recipe (distill from session) ────────────────────────────────────────
   program
     .command('recipe <session-id>')
     .description('Output the distilled recipe for a session')
@@ -341,6 +341,189 @@ export function createProgram(): Command {
         console.error(chalk.red(`✖  Unknown format: ${options.format}`));
         console.error(chalk.dim('  Supported formats: yaml, markdown, json'));
         process.exit(1);
+      }
+    });
+
+  // ── share ──────────────────────────────────────────────────────────────────
+  program
+    .command('share <session-id>')
+    .description('Parameterize and publish a recipe to the agentgram registry')
+    .option('--name <name>', 'recipe name (defaults to session name)')
+    .option('--tags <tags>', 'comma-separated tags', '')
+    .option('--agent <agent>', 'source agent (claude-code, cursor, etc.)')
+    .option('--yes', 'skip confirmation prompt')
+    .action(async (sessionId: string, options: { name?: string; tags: string; agent?: string; yes?: boolean }) => {
+      const session = await readSession(sessionId);
+      const { prepareForSharing } = await import('./recipe/share.js');
+      const { GitHubRecipeRegistry } = await import('./recipe/registry.js');
+
+      const tags = options.tags ? options.tags.split(',').map((t: string) => t.trim()).filter(Boolean) : [];
+      const shared = prepareForSharing(session, {
+        name: options.name,
+        tags,
+        sourceAgent: options.agent,
+      });
+
+      console.log(chalk.bold(`\n📦  Recipe: ${shared.name}\n`));
+      console.log(`  ${chalk.dim('ID:')}     ${shared.metadata.id}`);
+      console.log(`  ${chalk.dim('Steps:')}  ${shared.steps.length}`);
+      console.log(`  ${chalk.dim('Tags:')}   ${shared.tags.join(', ') || '(none)'}`);
+      console.log(`  ${chalk.dim('Agent:')}  ${shared.metadata.sourceAgent}`);
+      console.log();
+
+      for (const [i, step] of shared.steps.entries()) {
+        console.log(`  ${chalk.dim(String(i + 1).padStart(2))}  ${chalk.cyan(step.action.padEnd(14))} ${step.target}`);
+      }
+
+      if (Object.keys(shared.parameters).length > 0) {
+        console.log(chalk.bold('\n  Parameters:'));
+        for (const [key, value] of Object.entries(shared.parameters)) {
+          console.log(`    ${chalk.yellow(`{${key}}`)} = ${value}`);
+        }
+      }
+
+      console.log();
+
+      if (!options.yes) {
+        console.log(chalk.yellow('  Publish to agentgram registry? Set --yes to auto-confirm.\n'));
+        return;
+      }
+
+      try {
+        const registry = new GitHubRecipeRegistry();
+        const id = await registry.publish(shared);
+        console.log(chalk.green('✔') + `  Published: ${chalk.bold(id)}`);
+        console.log(chalk.dim(`  https://github.com/eclaireai/agentgram-recipes/blob/main/recipes/${id}.json`));
+      } catch (err) {
+        console.error(chalk.red('✖  Publish failed:'), err instanceof Error ? err.message : err);
+        process.exit(1);
+      }
+    });
+
+  // ── search ─────────────────────────────────────────────────────────────────
+  program
+    .command('search <query>')
+    .description('Search the agentgram recipe registry')
+    .option('--tag <tag>', 'filter by tag')
+    .option('--agent <agent>', 'filter by source agent')
+    .option('--limit <n>', 'max results', '20')
+    .action(async (query: string, options: { tag?: string; agent?: string; limit: string }) => {
+      const { GitHubRecipeRegistry } = await import('./recipe/registry.js');
+      const registry = new GitHubRecipeRegistry();
+
+      try {
+        const result = await registry.search(query, {
+          tags: options.tag ? [options.tag] : undefined,
+          agent: options.agent,
+          limit: parseInt(options.limit, 10),
+        });
+
+        if (result.entries.length === 0) {
+          console.log(chalk.dim(`\n  No recipes found for "${query}"\n`));
+          return;
+        }
+
+        console.log(chalk.bold(`\n🔍  ${result.total} recipe(s) matching "${query}"\n`));
+
+        for (const entry of result.entries) {
+          console.log(
+            `  ${chalk.bold(entry.id)}  ${chalk.whiteBright(entry.name)}` +
+            `  ${chalk.dim('by')} ${entry.author}` +
+            `  ${chalk.cyan(`${entry.stepCount} steps`)}` +
+            `  ${chalk.dim(`↓${entry.downloads}`)}`
+          );
+          if (entry.tags.length > 0) {
+            console.log(`    ${chalk.dim('tags:')} ${entry.tags.join(', ')}`);
+          }
+        }
+
+        console.log(chalk.dim(`\n  Pull with: agentgram pull <recipe-id>\n`));
+      } catch (err) {
+        console.error(chalk.red('✖  Search failed:'), err instanceof Error ? err.message : err);
+        process.exit(1);
+      }
+    });
+
+  // ── pull ───────────────────────────────────────────────────────────────────
+  program
+    .command('pull <recipe-id>')
+    .description('Download a recipe from the registry to your local store')
+    .action(async (recipeId: string) => {
+      const { GitHubRecipeRegistry } = await import('./recipe/registry.js');
+      const { LocalRecipeStore } = await import('./recipe/store.js');
+
+      const registry = new GitHubRecipeRegistry();
+      const store = new LocalRecipeStore(process.cwd());
+
+      try {
+        const recipe = await registry.pull(recipeId);
+        await store.save(recipe);
+
+        console.log(chalk.green('✔') + `  Pulled: ${chalk.bold(recipe.name)}`);
+        console.log(`  ${chalk.dim('ID:')}      ${recipe.metadata.id}`);
+        console.log(`  ${chalk.dim('Author:')}  ${recipe.metadata.author}`);
+        console.log(`  ${chalk.dim('Steps:')}   ${recipe.steps.length}`);
+        console.log(`  ${chalk.dim('Saved:')}   ${store.getStorePath()}`);
+      } catch (err) {
+        console.error(chalk.red('✖  Pull failed:'), err instanceof Error ? err.message : err);
+        process.exit(1);
+      }
+    });
+
+  // ── recipes (list local/remote) ────────────────────────────────────────────
+  program
+    .command('recipes')
+    .description('List recipes (local by default, --remote for registry)')
+    .option('--remote', 'list from the registry instead of local store')
+    .option('--limit <n>', 'max results', '20')
+    .action(async (options: { remote?: boolean; limit: string }) => {
+      const limit = parseInt(options.limit, 10);
+
+      if (options.remote) {
+        const { GitHubRecipeRegistry } = await import('./recipe/registry.js');
+        const registry = new GitHubRecipeRegistry();
+
+        try {
+          const entries = await registry.list({ limit });
+
+          if (entries.length === 0) {
+            console.log(chalk.dim('\n  No recipes in the registry yet.\n'));
+            return;
+          }
+
+          console.log(chalk.bold(`\n🌐  Registry recipes\n`));
+          for (const entry of entries) {
+            console.log(
+              `  ${chalk.bold(entry.id)}  ${chalk.whiteBright(entry.name)}` +
+              `  ${chalk.dim('by')} ${entry.author}` +
+              `  ${chalk.cyan(`${entry.stepCount} steps`)}` +
+              `  ${chalk.dim(`↓${entry.downloads}`)}`
+            );
+          }
+          console.log();
+        } catch (err) {
+          console.error(chalk.red('✖  Failed:'), err instanceof Error ? err.message : err);
+          process.exit(1);
+        }
+      } else {
+        const { LocalRecipeStore } = await import('./recipe/store.js');
+        const store = new LocalRecipeStore(process.cwd());
+        const recipes = await store.list();
+
+        if (recipes.length === 0) {
+          console.log(chalk.dim('\n  No local recipes. Pull some with: agentgram pull <recipe-id>\n'));
+          return;
+        }
+
+        console.log(chalk.bold(`\n📚  Local recipes (${recipes.length})\n`));
+        for (const r of recipes.slice(0, limit)) {
+          console.log(
+            `  ${chalk.bold(r.metadata.id)}  ${chalk.whiteBright(r.name)}` +
+            `  ${chalk.cyan(`${r.steps.length} steps`)}` +
+            `  ${chalk.dim(r.metadata.sourceAgent)}`
+          );
+        }
+        console.log();
       }
     });
 

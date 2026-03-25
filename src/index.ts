@@ -15,6 +15,12 @@ export { ProvenanceTracker } from './provenance/graph.js';
 // Recipe distiller — extracts minimal reproducible steps from a session
 export { RecipeDistiller } from './recipe/distill.js';
 
+// Recipe sharing — publish, search, pull recipes
+export * from './recipe/types.js';
+export { LocalRecipeStore } from './recipe/store.js';
+export { GitHubRecipeRegistry, RegistryError } from './recipe/registry.js';
+export { prepareForSharing, generateRecipeId, detectSourceAgent } from './recipe/share.js';
+
 // Session orchestrator — main user-facing API
 export { AgentraceSession, Agentrace } from './core/session.js';
 export type { SessionResult } from './core/session.js';
