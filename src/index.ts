@@ -74,6 +74,33 @@ export type { EnrichedRecipe, EnrichedStep } from './recipe/enriched.js';
 // PR→Recipe reverse extractor
 export { extractRecipeFromCommit, extractRecipesFromRepo } from './recipe/extractor.js';
 
+// Cognitive trace — Tier 3: captures the WHY behind every agent action
+export {
+  CognitiveTraceBuilder,
+  detectDeadEnds,
+  extractReasoning,
+  detectDecisionPoint,
+  distillCognitiveRecipe,
+  cognitiveTraceToMarkdown,
+} from './cognitive/trace.js';
+export type {
+  CognitiveTrace,
+  CognitiveEvent,
+  CognitiveRecipeStep,
+  ReasoningTurn,
+  DecisionPoint,
+  DeadEnd,
+} from './cognitive/trace.js';
+
+export {
+  handleCognitiveCapture,
+  finalizeCognitiveTrace,
+  loadCognitiveTrace,
+  appendCognitiveEvent,
+  replayFromLog,
+} from './cognitive/capture.js';
+export type { ClaudeCodeHookPayload } from './cognitive/capture.js';
+
 // Ticket integrations — link sessions to GitHub/Jira/Linear tickets
 export {
   parseTicketUrl,

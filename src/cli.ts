@@ -766,6 +766,61 @@ ${chalk.dim('Subcommands:')}
       await startMcpServer();
     });
 
+  // ── cognitive ─────────────────────────────────────────────────────────────
+  program
+    .command('cognitive <session-id>')
+    .description('Show the cognitive trace — WHY the agent did what it did')
+    .option('--dead-ends', 'show only dead ends (wasted work)', false)
+    .option('--recipe', 'output as explainable recipe with reasoning', false)
+    .option('--json', 'raw JSON output', false)
+    .action(async (sessionId: string, options: { deadEnds: boolean; recipe: boolean; json: boolean }) => {
+      const { distillCognitiveRecipe, cognitiveTraceToMarkdown } = await import('./cognitive/trace.js');
+      const { loadCognitiveTrace } = await import('./cognitive/capture.js');
+
+      const trace = loadCognitiveTrace(sessionId);
+      if (!trace) {
+        console.log(chalk.red(`✖  No cognitive trace found for session: ${sessionId}`));
+        console.log(chalk.dim('  Cognitive traces are captured automatically when Claude Code hooks are active.'));
+        console.log(chalk.dim('  Run: agentgram hook install'));
+        return;
+      }
+
+      if (options.json) { console.log(JSON.stringify(trace, null, 2)); return; }
+
+      if (options.recipe) {
+        const steps = distillCognitiveRecipe(trace);
+        console.log(chalk.bold(`\n🧠  Explainable Recipe: ${sessionId}\n`));
+        for (const [i, step] of steps.entries()) {
+          const icon: Record<string, string> = { find: '🔍', run_command: '⚡', create_file: '📄', modify_file: '✏️', delete: '🗑️' };
+          console.log(`  ${i + 1}. ${icon[step.action] ?? '→'} ${chalk.bold(step.action)} → ${chalk.cyan(step.target)}`);
+          if (step.reasoning) console.log(`     ${chalk.dim('Why:')} ${step.reasoning.slice(0, 100)}`);
+          if (step.learnedFromDeadEnd) console.log(`     ${chalk.yellow('⚡ Learned from dead end:')} ${step.learnedFromDeadEnd}`);
+          if (step.alternativesRejected.length > 0) console.log(`     ${chalk.dim('Rejected:')} ${step.alternativesRejected[0].slice(0, 80)}`);
+        }
+        console.log();
+        return;
+      }
+
+      if (options.deadEnds) {
+        if (trace.deadEnds.length === 0) {
+          console.log(chalk.green('\n  ✔  No dead ends — agent went straight to the answer.\n'));
+          return;
+        }
+        console.log(chalk.bold(`\n💸  Dead Ends in session ${sessionId}\n`));
+        console.log(chalk.dim(`  ${trace.wastedOperations} wasted operations · ~${trace.estimatedTokensWasted.toLocaleString()} tokens wasted\n`));
+        for (const d of trace.deadEnds) {
+          console.log(`  ❌  ${chalk.red(d.operation.type)} → ${chalk.dim(d.operation.target)}`);
+          console.log(`      ${d.reason}`);
+          console.log(`      ${chalk.dim(`~${d.estimatedTokensWasted.toLocaleString()} tokens wasted`)}`);
+          console.log();
+        }
+        return;
+      }
+
+      // Full markdown view
+      console.log(cognitiveTraceToMarkdown(trace));
+    });
+
   // ── suggest ───────────────────────────────────────────────────────────────
   program
     .command('suggest <ticket-url>')
