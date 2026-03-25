@@ -614,6 +614,64 @@ export function createProgram(): Command {
       );
     });
 
+  // ── extract ────────────────────────────────────────────────────────────────
+  program
+    .command('extract [path]')
+    .description('Extract recipes from git history (reverse-engineer commits into recipes)')
+    .option('--limit <n>', 'max commits to scan', '20')
+    .option('--since <date>', 'only commits after this date (e.g. "2024-01-01")')
+    .action(async (repoPath: string | undefined, options: { limit: string; since?: string }) => {
+      const cwd = repoPath ? path.resolve(repoPath) : process.cwd();
+      const { extractRecipesFromRepo } = await import('./recipe/extractor.js');
+
+      console.log(chalk.bold(`\n⛏️  Extracting recipes from git history...\n`));
+      console.log(chalk.dim(`  Scanning: ${cwd}`));
+      console.log(chalk.dim(`  Limit: ${options.limit} commits\n`));
+
+      const recipes = await extractRecipesFromRepo(cwd, {
+        limit: parseInt(options.limit, 10),
+        since: options.since,
+      });
+
+      if (recipes.length === 0) {
+        console.log(chalk.dim('  No recipes extracted (commits may be trivial).'));
+        return;
+      }
+
+      for (const recipe of recipes) {
+        console.log(
+          `  ${chalk.green('✔')}  ${chalk.bold(recipe.name.slice(0, 60))}` +
+          `  ${chalk.cyan(`${recipe.steps.length} steps`)}` +
+          `  ${chalk.dim(recipe.tags.slice(0, 3).join(', '))}`
+        );
+      }
+
+      console.log(chalk.bold(`\n  Extracted ${recipes.length} recipes.\n`));
+      console.log(chalk.dim('  To save: agentgram extract --save (coming soon)'));
+    });
+
+  // ── fingerprint ────────────────────────────────────────────────────────────
+  program
+    .command('fingerprint [path]')
+    .description('Scan a project and show its tech stack fingerprint')
+    .action(async (projectPath?: string) => {
+      const cwd = projectPath ? path.resolve(projectPath) : process.cwd();
+      const { fingerprint } = await import('./recipe/fingerprint.js');
+
+      const fp = await fingerprint(cwd);
+
+      console.log(chalk.bold(`\n🔍  Codebase Fingerprint\n`));
+      console.log(`  ${chalk.dim('Language:')}       ${chalk.cyan(fp.language)}`);
+      console.log(`  ${chalk.dim('Framework:')}      ${chalk.cyan(fp.framework)}`);
+      console.log(`  ${chalk.dim('ORM:')}            ${chalk.cyan(fp.orm)}`);
+      console.log(`  ${chalk.dim('Test framework:')} ${chalk.cyan(fp.testFramework)}`);
+      console.log(`  ${chalk.dim('Pkg manager:')}    ${chalk.cyan(fp.packageManager)}`);
+      console.log(`  ${chalk.dim('Docker:')}         ${fp.hasDocker ? chalk.green('yes') : chalk.dim('no')}`);
+      console.log(`  ${chalk.dim('CI:')}             ${fp.hasCI ? chalk.green('yes') : chalk.dim('no')}`);
+      console.log(`  ${chalk.dim('Monorepo:')}       ${fp.isMonorepo ? chalk.green('yes') : chalk.dim('no')}`);
+      console.log();
+    });
+
   // ── viz ───────────────────────────────────────────────────────────────────
   program
     .command('viz <session-id>')

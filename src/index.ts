@@ -63,6 +63,17 @@ export { createMcpServer, startMcpServer } from './mcp/server.js';
 export { generateVizHtml } from './viz/html.js';
 export type { VizData } from './viz/html.js';
 
+// Codebase fingerprinting
+export { fingerprint } from './recipe/fingerprint.js';
+export type { CodebaseFingerprint } from './recipe/fingerprint.js';
+
+// Enriched recipes (provenance-attached)
+export { enrichRecipeWithProvenance } from './recipe/enriched.js';
+export type { EnrichedRecipe, EnrichedStep } from './recipe/enriched.js';
+
+// PR→Recipe reverse extractor
+export { extractRecipeFromCommit, extractRecipesFromRepo } from './recipe/extractor.js';
+
 // Utilities
 export { contentHash, generateId, sessionBranchName } from './utils/hash.js';
 export { isGitRepo, createGit } from './utils/git.js';
