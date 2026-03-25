@@ -527,6 +527,59 @@ export function createProgram(): Command {
       }
     });
 
+  // ── report ─────────────────────────────────────────────────────────────────
+  program
+    .command('report [recipe-id]')
+    .description('View execution reports for recipes')
+    .action(async (recipeId?: string) => {
+      const { loadReports } = await import('./recipe/executor.js');
+      const reports = await loadReports(process.cwd(), recipeId);
+
+      if (reports.length === 0) {
+        console.log(chalk.dim('\n  No execution reports found.\n'));
+        return;
+      }
+
+      console.log(chalk.bold(`\n📊  Execution Reports${recipeId ? ` for ${recipeId}` : ''}\n`));
+
+      for (const report of reports) {
+        const successIcon = report.success ? chalk.green('✔') : chalk.red('✖');
+        const scoreColor = report.score >= 4 ? chalk.green : report.score >= 2.5 ? chalk.yellow : chalk.red;
+
+        console.log(
+          `  ${successIcon}  ${chalk.bold(report.recipeName)}` +
+          `  ${scoreColor(`★ ${report.score}/5`)}` +
+          `  ${chalk.cyan(`${Math.round(report.completionRate * 100)}% complete`)}` +
+          `  ${chalk.dim(new Date(report.executedAt).toLocaleDateString())}`
+        );
+        console.log(
+          `     ${chalk.dim('Ops:')} ${report.metrics.totalOperations}` +
+          `  ${chalk.dim('On-recipe:')} ${report.metrics.onRecipeOperations}` +
+          `  ${chalk.dim('Extra:')} ${report.metrics.extraOperations}` +
+          `  ${chalk.dim('Efficiency:')} ${chalk.cyan(`${Math.round(report.metrics.efficiency * 100)}%`)}` +
+          `  ${chalk.green(`↓${report.metrics.savingsPercent}% cost`)}`
+        );
+        console.log();
+      }
+
+      // Aggregate stats
+      if (reports.length > 1) {
+        const avgScore = reports.reduce((s, r) => s + r.score, 0) / reports.length;
+        const avgCompletion = reports.reduce((s, r) => s + r.completionRate, 0) / reports.length;
+        const avgSavings = reports.reduce((s, r) => s + r.metrics.savingsPercent, 0) / reports.length;
+        const totalTokensSaved = reports.reduce((s, r) => s + r.metrics.estimatedTokensSaved, 0);
+
+        console.log(chalk.bold('  Aggregate:'));
+        console.log(
+          `    Avg score: ${chalk.cyan(avgScore.toFixed(1))}/5` +
+          `  Avg completion: ${chalk.cyan(`${Math.round(avgCompletion * 100)}%`)}` +
+          `  Avg savings: ${chalk.green(`${Math.round(avgSavings)}%`)}` +
+          `  Total tokens saved: ${chalk.green(totalTokensSaved.toLocaleString())}`
+        );
+        console.log();
+      }
+    });
+
   // ── export ────────────────────────────────────────────────────────────────
   program
     .command('export <session-id> <outfile>')

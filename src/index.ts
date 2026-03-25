@@ -21,6 +21,19 @@ export { LocalRecipeStore } from './recipe/store.js';
 export { GitHubRecipeRegistry, RegistryError } from './recipe/registry.js';
 export { prepareForSharing, generateRecipeId, detectSourceAgent } from './recipe/share.js';
 
+// Recipe execution tracking
+export {
+  RecipeExecutor,
+  submitFeedback,
+  saveReport,
+  loadReports,
+} from './recipe/executor.js';
+export type {
+  StepResult,
+  CostMetrics,
+  ExecutionReport,
+} from './recipe/executor.js';
+
 // Session orchestrator — main user-facing API
 export { AgentraceSession, Agentrace } from './core/session.js';
 export type { SessionResult } from './core/session.js';
