@@ -2,7 +2,7 @@
 
 **Title:** Show HN: Agentgram – Git micro-commits + causal provenance for AI coding agents
 
-**URL:** https://github.com/metacogma/agentgram
+**URL:** https://github.com/eclaireai/agentgram
 
 ---
 
@@ -41,7 +41,7 @@ const result = await session.stop();
 
 I'd love feedback on the causal inference rules and recipe distillation algorithm. Both are deterministic and don't require an LLM call.
 
-GitHub: https://github.com/metacogma/agentgram
+GitHub: https://github.com/eclaireai/agentgram
 
 ---
 

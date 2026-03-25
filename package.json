@@ -47,15 +47,15 @@
     "devtools",
     "developer-tools"
   ],
-  "author": "metacogma",
+  "author": "eclaireai",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/metacogma/agentgram.git"
+    "url": "git+https://github.com/eclaireai/agentgram.git"
   },
-  "homepage": "https://github.com/metacogma/agentgram#readme",
+  "homepage": "https://github.com/eclaireai/agentgram#readme",
   "bugs": {
-    "url": "https://github.com/metacogma/agentgram/issues"
+    "url": "https://github.com/eclaireai/agentgram/issues"
   },
   "engines": {
     "node": ">=18"

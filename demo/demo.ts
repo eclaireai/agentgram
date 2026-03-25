@@ -106,7 +106,7 @@ async function main() {
 
   console.log('\n\x1b[1m\x1b[32m✔ Demo complete!\x1b[0m');
   console.log('\x1b[90mInstall: npm install agentgram\x1b[0m');
-  console.log('\x1b[90mGitHub:  https://github.com/metacogma/agentgram\x1b[0m\n');
+  console.log('\x1b[90mGitHub:  https://github.com/eclaireai/agentgram\x1b[0m\n');
 }
 
 main().catch(console.error);

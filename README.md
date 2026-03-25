@@ -6,8 +6,8 @@ Shadow worktree journaling + causal provenance graphs + recipe distillation for 
 
 <p align="center">
   <a href="https://www.npmjs.com/package/agentgram"><img src="https://img.shields.io/npm/v/agentgram?style=flat-square&color=cb3837" alt="npm version" /></a>
-  <a href="https://github.com/metacogma/agentgram/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/metacogma/agentgram/ci.yml?branch=main&style=flat-square&label=CI" alt="CI" /></a>
-  <a href="https://codecov.io/gh/metacogma/agentgram"><img src="https://img.shields.io/codecov/c/github/metacogma/agentgram?style=flat-square" alt="Coverage" /></a>
+  <a href="https://github.com/eclaireai/agentgram/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/eclaireai/agentgram/ci.yml?branch=main&style=flat-square&label=CI" alt="CI" /></a>
+  <a href="https://codecov.io/gh/eclaireai/agentgram"><img src="https://img.shields.io/codecov/c/github/eclaireai/agentgram?style=flat-square" alt="Coverage" /></a>
   <a href="https://www.npmjs.com/package/agentgram"><img src="https://img.shields.io/npm/dm/agentgram?style=flat-square" alt="Downloads" /></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="MIT License" /></a>
   <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen?style=flat-square" alt="Node >= 18" />
@@ -409,7 +409,7 @@ Sessions are stored in `<cwd>/.agentgram/sessions/<id>.json`.
 ## Development
 
 ```bash
-git clone https://github.com/metacogma/agentgram
+git clone https://github.com/eclaireai/agentgram
 cd agentgram
 npm install
 npm run dev           # watch mode
