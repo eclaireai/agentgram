@@ -1,0 +1,72 @@
+{
+  "name": "Stripe Checkout",
+  "description": "Implement Stripe Checkout for one-time payments. Includes a checkout session API route, success/cancel redirect pages, webhook handler for payment_intent.succeeded, and order fulfillment trigger.",
+  "sourceSessionId": "curated-stripe-checkout",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install stripe",
+      "description": "Install Stripe Node.js SDK"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/stripe.ts",
+      "description": "Create Stripe client singleton with API version pinned to latest stable"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/checkout/route.ts",
+      "description": "Create POST /api/checkout that creates Stripe Checkout Session with success_url and cancel_url"
+    },
+    {
+      "action": "create_file",
+      "target": "app/checkout/success/page.tsx",
+      "description": "Create success page that retrieves session and shows order confirmation"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/webhooks/stripe/route.ts",
+      "description": "Create Stripe webhook handler with signature verification, handle payment_intent.succeeded and checkout.session.completed"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env.local",
+      "description": "Add STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY"
+    },
+    {
+      "action": "run_command",
+      "target": "stripe listen --forward-to localhost:3000/api/webhooks/stripe",
+      "description": "Test webhooks locally with Stripe CLI"
+    }
+  ],
+  "parameters": {
+    "CURRENCY": "usd",
+    "SUCCESS_URL": "/checkout/success",
+    "CANCEL_URL": "/pricing"
+  },
+  "tags": [
+    "payments",
+    "stripe",
+    "checkout",
+    "webhooks",
+    "ecommerce"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "stripe-checkout",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.177Z",
+    "updatedAt": "2026-03-25T19:00:59.177Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "5374726970652043",
+    "category": "payments",
+    "stack": [
+      "nextjs",
+      "nodejs"
+    ],
+    "tagline": "Accept payments in 30 minutes — one-time, saved cards, Apple Pay included"
+  }
+}

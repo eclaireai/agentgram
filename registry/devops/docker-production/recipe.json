@@ -1,0 +1,74 @@
+{
+  "name": "Production Docker Setup",
+  "description": "Create a production-grade Dockerfile and Docker Compose setup. Multi-stage build (deps → builder → runner), non-root user, health checks, .dockerignore, and docker-compose with Postgres and Redis.",
+  "sourceSessionId": "curated-docker-production",
+  "steps": [
+    {
+      "action": "find",
+      "target": "package.json",
+      "description": "Read start script and Node version requirement"
+    },
+    {
+      "action": "create_file",
+      "target": "Dockerfile",
+      "description": "Multi-stage: deps (npm ci --frozen-lockfile), builder (npm run build), runner (node:alpine, non-root user, COPY from builder)"
+    },
+    {
+      "action": "create_file",
+      "target": ".dockerignore",
+      "description": "Exclude: node_modules, .env, .git, .next/cache, coverage, *.test.ts, *.spec.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "docker-compose.yml",
+      "description": "Compose with app (healthcheck), postgres:16-alpine (with healthcheck), redis:7-alpine, named volumes"
+    },
+    {
+      "action": "create_file",
+      "target": "docker-compose.prod.yml",
+      "description": "Production override: restart: unless-stopped, no bind mounts, resource limits"
+    },
+    {
+      "action": "run_command",
+      "target": "docker build -t app:latest --target runner .",
+      "description": "Build production image and verify it works",
+      "expect": "Build succeeds"
+    },
+    {
+      "action": "run_command",
+      "target": "docker run --rm app:latest node -e \"process.exit(0)\"",
+      "description": "Verify image starts cleanly"
+    }
+  ],
+  "parameters": {
+    "NODE_VERSION": "22-alpine",
+    "PORT": "3000",
+    "HEALTHCHECK_PATH": "/api/health"
+  },
+  "tags": [
+    "docker",
+    "devops",
+    "containers",
+    "production",
+    "health-checks",
+    "security"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "docker-production",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.178Z",
+    "updatedAt": "2026-03-25T19:00:59.178Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "50726f6475637469",
+    "category": "devops",
+    "stack": [
+      "nodejs",
+      "nextjs"
+    ],
+    "tagline": "Multi-stage builds, health checks, non-root user, and secrets — done right"
+  }
+}

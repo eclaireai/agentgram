@@ -1,0 +1,72 @@
+{
+  "name": "Local AI with Ollama",
+  "description": "Set up Ollama for local AI development. Run open-source models (Llama 3.1, Mistral, CodeLlama) with no API keys, no cost per token, and data never leaving your machine. Integrates with the same Vercel AI SDK interface.",
+  "sourceSessionId": "curated-ollama-local-ai",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "brew install ollama",
+      "description": "Install Ollama (macOS) or download from ollama.com"
+    },
+    {
+      "action": "run_command",
+      "target": "ollama pull llama3.1",
+      "description": "Download Llama 3.1 (8B model, ~5GB)"
+    },
+    {
+      "action": "run_command",
+      "target": "ollama serve",
+      "description": "Start Ollama server on localhost:11434"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install ai @ai-sdk/ollama",
+      "description": "Install Vercel AI SDK with Ollama provider"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/local-ai.ts",
+      "description": "Create localAI client pointing to Ollama with fallback to OpenAI when OLLAMA_AVAILABLE env is false"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env.local",
+      "description": "Add OLLAMA_HOST=http://localhost:11434 and OLLAMA_MODEL=llama3.1"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/chat/route.ts",
+      "description": "Update chat route to use localAI — zero code change needed"
+    }
+  ],
+  "parameters": {
+    "OLLAMA_MODEL": "llama3.1",
+    "OLLAMA_HOST": "http://localhost:11434"
+  },
+  "tags": [
+    "ai",
+    "ollama",
+    "local-ai",
+    "llama",
+    "privacy",
+    "open-source"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "ollama-local-ai",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.176Z",
+    "updatedAt": "2026-03-25T19:00:59.176Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "4c6f63616c204149",
+    "category": "ai",
+    "stack": [
+      "nextjs",
+      "nodejs"
+    ],
+    "tagline": "Run Llama 3, Mistral, and Phi-3 locally — zero API cost, full privacy"
+  }
+}

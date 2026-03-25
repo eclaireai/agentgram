@@ -1,0 +1,67 @@
+{
+  "name": "AI Image Generation",
+  "description": "Add AI image generation to any app. Covers DALL-E 3 for quality, Replicate Flux for speed, prompt engineering patterns, generated image storage in S3/Cloudflare R2, and a React gallery component.",
+  "sourceSessionId": "curated-ai-image-generation",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install openai replicate @aws-sdk/client-s3",
+      "description": "Install OpenAI, Replicate, and S3 clients"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/image-gen.ts",
+      "description": "Create generateImage(prompt, model) — supports DALL-E 3 and Replicate Flux, returns URL"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/image-storage.ts",
+      "description": "Create storeImage(url) that fetches the generated image and uploads to R2/S3 with unique key"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/generate/route.ts",
+      "description": "Create POST /api/generate with rate limiting, prompt moderation, generate, store, return URL"
+    },
+    {
+      "action": "create_file",
+      "target": "components/ImageGallery.tsx",
+      "description": "Create gallery with masonry layout, download button, and share link"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env.local",
+      "description": "Add OPENAI_API_KEY, REPLICATE_API_TOKEN, R2_BUCKET_URL, and R2_ACCESS_KEY"
+    }
+  ],
+  "parameters": {
+    "DEFAULT_MODEL": "dall-e-3",
+    "IMAGE_SIZE": "1024x1024",
+    "STYLE": "vivid"
+  },
+  "tags": [
+    "ai",
+    "image-generation",
+    "dall-e",
+    "replicate",
+    "flux",
+    "openai"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "ai-image-generation",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.176Z",
+    "updatedAt": "2026-03-25T19:00:59.176Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "414920496d616765",
+    "category": "ai",
+    "stack": [
+      "nextjs"
+    ],
+    "tagline": "Generate, edit, and vary images with DALL-E 3 and Replicate Flux"
+  }
+}

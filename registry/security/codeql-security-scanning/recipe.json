@@ -1,0 +1,60 @@
+{
+  "name": "CodeQL Security Scanning + Dependabot",
+  "description": "Set up GitHub CodeQL for static security analysis and Dependabot for dependency vulnerability scanning. CodeQL finds XSS, SQL injection, and path traversal in your code. Dependabot auto-PRs vulnerable dependency updates.",
+  "sourceSessionId": "curated-codeql-security-scanning",
+  "steps": [
+    {
+      "action": "create_file",
+      "target": ".github/workflows/codeql.yml",
+      "description": "Create CodeQL analysis workflow on push/PR: javascript and typescript languages"
+    },
+    {
+      "action": "create_file",
+      "target": ".github/dependabot.yml",
+      "description": "Configure Dependabot: npm updates weekly, GitHub Actions updates monthly"
+    },
+    {
+      "action": "create_file",
+      "target": ".github/workflows/security.yml",
+      "description": "Add npm audit --audit-level=high to CI — fail build on high-severity vulnerabilities"
+    },
+    {
+      "action": "create_file",
+      "target": ".github/SECURITY.md",
+      "description": "Create security policy: responsible disclosure, contact email, expected response time"
+    },
+    {
+      "action": "run_command",
+      "target": "npm audit",
+      "description": "Run initial audit to baseline current vulnerability state",
+      "expect": "N vulnerabilities"
+    }
+  ],
+  "parameters": {},
+  "tags": [
+    "security",
+    "codeql",
+    "dependabot",
+    "scanning",
+    "sast",
+    "supply-chain"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "codeql-security-scanning",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.180Z",
+    "updatedAt": "2026-03-25T19:00:59.180Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "436f6465514c2053",
+    "category": "security",
+    "stack": [
+      "nodejs",
+      "nextjs"
+    ],
+    "tagline": "Catch vulnerabilities in your code and dependencies automatically — before they ship"
+  }
+}

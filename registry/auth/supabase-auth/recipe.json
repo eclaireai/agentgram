@@ -1,0 +1,73 @@
+{
+  "name": "Supabase Auth with Social Login",
+  "description": "Set up Supabase Auth with email/password, Google OAuth, and magic links. Includes server-side session handling with SSR helpers, Row Level Security policies, and a user profile table linked to auth.users.",
+  "sourceSessionId": "curated-supabase-auth",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install @supabase/supabase-js @supabase/ssr",
+      "description": "Install Supabase client and SSR helpers"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/supabase/client.ts",
+      "description": "Create browser Supabase client with createBrowserClient()"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/supabase/server.ts",
+      "description": "Create server Supabase client with createServerClient() and cookie handling"
+    },
+    {
+      "action": "create_file",
+      "target": "middleware.ts",
+      "description": "Create auth middleware that refreshes sessions and protects routes"
+    },
+    {
+      "action": "create_file",
+      "target": "app/auth/callback/route.ts",
+      "description": "Create OAuth callback route that exchanges code for session"
+    },
+    {
+      "action": "create_file",
+      "target": "supabase/migrations/001_profiles.sql",
+      "description": "Create profiles table + trigger to auto-create profile on user signup + RLS policies"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env.local",
+      "description": "Add NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY"
+    }
+  ],
+  "parameters": {
+    "REDIRECT_URL": "/dashboard",
+    "ENABLE_GOOGLE": "true",
+    "ENABLE_GITHUB": "true"
+  },
+  "tags": [
+    "auth",
+    "supabase",
+    "oauth",
+    "magic-link",
+    "rls",
+    "postgresql"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "supabase-auth",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.177Z",
+    "updatedAt": "2026-03-25T19:00:59.177Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "5375706162617365",
+    "category": "auth",
+    "stack": [
+      "nextjs",
+      "nodejs"
+    ],
+    "tagline": "Auth + database + realtime in one — the Firebase alternative that uses Postgres"
+  }
+}

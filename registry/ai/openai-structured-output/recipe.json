@@ -1,0 +1,67 @@
+{
+  "name": "AI Structured Output (Tool Calls)",
+  "description": "Use OpenAI function calling / structured outputs with Zod schemas to guarantee typed JSON responses from any model. Includes schema definition, validation, error retry, and streaming with partial object support.",
+  "sourceSessionId": "curated-openai-structured-output",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install ai @ai-sdk/openai zod",
+      "description": "Install Vercel AI SDK, OpenAI provider, and Zod"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/schemas.ts",
+      "description": "Define Zod schemas for your AI outputs (e.g., ProductSchema, SummarySchema)"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/ai-extract.ts",
+      "description": "Create extract<T>(prompt, schema) using generateObject() — returns validated TypeScript type"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/ai-stream-object.ts",
+      "description": "Create streamExtract<T>(prompt, schema) using streamObject() for progressive UI updates"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/extract/route.ts",
+      "description": "Create extraction API route with input validation and error handling"
+    },
+    {
+      "action": "create_file",
+      "target": "tests/ai-extract.test.ts",
+      "description": "Add tests with mocked AI responses verifying schema validation"
+    }
+  ],
+  "parameters": {
+    "MODEL": "gpt-4o",
+    "MAX_RETRIES": "3"
+  },
+  "tags": [
+    "ai",
+    "structured-output",
+    "tool-calls",
+    "zod",
+    "openai",
+    "function-calling"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "openai-structured-output",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.176Z",
+    "updatedAt": "2026-03-25T19:00:59.176Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "4149205374727563",
+    "category": "ai",
+    "stack": [
+      "nextjs",
+      "nodejs"
+    ],
+    "tagline": "Make AI return typed JSON every time — no more parsing hallucinated strings"
+  }
+}

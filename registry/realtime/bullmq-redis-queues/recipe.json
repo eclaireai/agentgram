@@ -1,0 +1,73 @@
+{
+  "name": "Job Queues with BullMQ + Redis",
+  "description": "Set up BullMQ for reliable job queue processing. Covers producer/consumer pattern, job concurrency limits, exponential backoff retry, scheduled jobs, job events, and Bull Board UI for monitoring.",
+  "sourceSessionId": "curated-bullmq-redis-queues",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install bullmq ioredis",
+      "description": "Install BullMQ and Redis client"
+    },
+    {
+      "action": "run_command",
+      "target": "docker run -d -p 6379:6379 redis:7-alpine",
+      "description": "Start Redis for local development"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/queue/connection.ts",
+      "description": "Create Redis connection for BullMQ with connection pooling"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/queue/queues.ts",
+      "description": "Define queues: emailQueue, imageQueue, notificationQueue with default job options"
+    },
+    {
+      "action": "create_file",
+      "target": "workers/email.worker.ts",
+      "description": "Create email queue worker with concurrency 5, retry on failure, and completion logging"
+    },
+    {
+      "action": "create_file",
+      "target": "workers/index.ts",
+      "description": "Create worker entrypoint that starts all workers"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/admin/queues/route.ts",
+      "description": "Mount Bull Board dashboard at /admin/queues (protected route)"
+    }
+  ],
+  "parameters": {
+    "REDIS_URL": "redis://localhost:6379",
+    "CONCURRENCY": "5",
+    "MAX_RETRIES": "3"
+  },
+  "tags": [
+    "queues",
+    "bullmq",
+    "redis",
+    "jobs",
+    "workers",
+    "background-processing"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "bullmq-redis-queues",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.178Z",
+    "updatedAt": "2026-03-25T19:00:59.178Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "4a6f622051756575",
+    "category": "realtime",
+    "stack": [
+      "nodejs",
+      "nextjs"
+    ],
+    "tagline": "High-throughput job queues with retries, concurrency, and delayed jobs"
+  }
+}

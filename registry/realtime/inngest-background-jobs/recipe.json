@@ -1,0 +1,78 @@
+{
+  "name": "Background Jobs with Inngest",
+  "description": "Implement reliable background job processing with Inngest. Create durable functions that run after HTTP responses, retry automatically on failure, support fan-out workflows, and can be scheduled as crons.",
+  "sourceSessionId": "curated-inngest-background-jobs",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install inngest",
+      "description": "Install Inngest SDK"
+    },
+    {
+      "action": "create_file",
+      "target": "inngest/client.ts",
+      "description": "Create Inngest client with app ID and event key"
+    },
+    {
+      "action": "create_file",
+      "target": "inngest/functions/send-welcome-email.ts",
+      "description": "Create sendWelcomeEmail inngest function triggered by user.created event"
+    },
+    {
+      "action": "create_file",
+      "target": "inngest/functions/process-upload.ts",
+      "description": "Create processUpload function with multi-step: validate → transform → notify"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/inngest/route.ts",
+      "description": "Create Inngest route handler serving all functions"
+    },
+    {
+      "action": "modify_file",
+      "target": "app/api/users/route.ts",
+      "description": "Trigger user.created event after user registration"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env.local",
+      "description": "Add INNGEST_EVENT_KEY and INNGEST_SIGNING_KEY"
+    },
+    {
+      "action": "run_command",
+      "target": "npx inngest-cli@latest dev",
+      "description": "Start Inngest dev server for local testing",
+      "expect": "Inngest dev server running"
+    }
+  ],
+  "parameters": {
+    "MAX_RETRIES": "3",
+    "CONCURRENCY": "10"
+  },
+  "tags": [
+    "background-jobs",
+    "inngest",
+    "queues",
+    "async",
+    "cron",
+    "workflows"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "inngest-background-jobs",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.178Z",
+    "updatedAt": "2026-03-25T19:00:59.178Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "4261636b67726f75",
+    "category": "realtime",
+    "stack": [
+      "nextjs",
+      "nodejs"
+    ],
+    "tagline": "Durable async workflows that survive server restarts — no Redis, no Bull, no workers"
+  }
+}

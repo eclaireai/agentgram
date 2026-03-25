@@ -1,0 +1,63 @@
+{
+  "name": "Advanced Rate Limiting (Upstash)",
+  "description": "Implement distributed rate limiting using Upstash Redis and the @upstash/ratelimit library. Supports sliding window, fixed window, and token bucket algorithms. Works in Edge Runtime, Vercel Functions, and traditional servers.",
+  "sourceSessionId": "curated-advanced-rate-limiting",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install @upstash/ratelimit @upstash/redis",
+      "description": "Install Upstash rate limiter and Redis client"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/rate-limit.ts",
+      "description": "Create rateLimiter with sliding window (10 req/10s) and separate limits for auth endpoints (5/60s)"
+    },
+    {
+      "action": "create_file",
+      "target": "middleware/rate-limit.ts",
+      "description": "Create rate limiting middleware using limiter.limit(identifier) where identifier is IP or userId"
+    },
+    {
+      "action": "modify_file",
+      "target": "middleware.ts",
+      "description": "Apply rate limiting in Next.js middleware before route handling"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env.local",
+      "description": "Add UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN from Upstash console"
+    }
+  ],
+  "parameters": {
+    "REQUESTS_PER_WINDOW": "10",
+    "WINDOW_SECONDS": "10",
+    "AUTH_MAX": "5"
+  },
+  "tags": [
+    "security",
+    "rate-limiting",
+    "upstash",
+    "redis",
+    "ddos",
+    "edge"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "advanced-rate-limiting",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.180Z",
+    "updatedAt": "2026-03-25T19:00:59.180Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "416476616e636564",
+    "category": "security",
+    "stack": [
+      "nextjs",
+      "nodejs"
+    ],
+    "tagline": "Per-user rate limits with Redis — survives horizontal scaling and serverless"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "name": "Lemon Squeezy (Digital Products)",
+  "description": "Integrate Lemon Squeezy for selling digital products, SaaS subscriptions, and licenses. They are the Merchant of Record — they handle VAT, sales tax, and EU compliance. Includes webhook handler and license key activation.",
+  "sourceSessionId": "curated-lemon-squeezy",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install @lemonsqueezy/lemonsqueezy.js",
+      "description": "Install Lemon Squeezy SDK"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/lemon-squeezy.ts",
+      "description": "Create Lemon Squeezy client with configureLemonSqueezy()"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/checkout/route.ts",
+      "description": "Create checkout URL generation with customer email pre-fill and success redirect"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/webhooks/lemon-squeezy/route.ts",
+      "description": "Handle order_created, subscription_created, subscription_cancelled, license_key_created webhooks"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/license.ts",
+      "description": "Create activateLicense(key, instanceId), deactivateLicense(), validateLicense() using Lemon Squeezy Licensing API"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env.local",
+      "description": "Add LEMONSQUEEZY_API_KEY, LEMONSQUEEZY_WEBHOOK_SECRET, NEXT_PUBLIC_STORE_ID"
+    }
+  ],
+  "parameters": {
+    "STORE_ID": "your-store-id"
+  },
+  "tags": [
+    "payments",
+    "lemon-squeezy",
+    "digital-products",
+    "vat",
+    "licensing",
+    "saas"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "lemon-squeezy",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.177Z",
+    "updatedAt": "2026-03-25T19:00:59.177Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "4c656d6f6e205371",
+    "category": "payments",
+    "stack": [
+      "nextjs",
+      "nodejs"
+    ],
+    "tagline": "Sell digital products globally — Lemon Squeezy handles VAT, tax, and compliance"
+  }
+}

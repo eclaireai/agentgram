@@ -1,0 +1,71 @@
+{
+  "name": "Secrets Management (Doppler)",
+  "description": "Eliminate .env files from production using Doppler. Secrets are stored encrypted, access is audited, and they sync automatically to Vercel/AWS/GitHub Actions. Includes secret rotation and the developer local workflow.",
+  "sourceSessionId": "curated-secrets-management",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "brew install dopplerhq/cli/doppler",
+      "description": "Install Doppler CLI"
+    },
+    {
+      "action": "run_command",
+      "target": "doppler login",
+      "description": "Authenticate Doppler CLI with your account"
+    },
+    {
+      "action": "run_command",
+      "target": "doppler setup",
+      "description": "Link project to Doppler config"
+    },
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Prefix dev command with \"doppler run --\": \"dev\": \"doppler run -- next dev\""
+    },
+    {
+      "action": "create_file",
+      "target": ".github/workflows/deploy.yml",
+      "description": "Inject Doppler secrets into GitHub Actions using DOPPLER_TOKEN secret"
+    },
+    {
+      "action": "create_file",
+      "target": "scripts/sync-vercel.sh",
+      "description": "Script to sync Doppler secrets to Vercel environment using doppler secrets download"
+    },
+    {
+      "action": "modify_file",
+      "target": ".gitignore",
+      "description": "Remove .env from gitignore — you no longer need it. Add .env.backup instead."
+    }
+  ],
+  "parameters": {
+    "DOPPLER_PROJECT": "my-app",
+    "DOPPLER_CONFIG": "dev"
+  },
+  "tags": [
+    "security",
+    "secrets",
+    "doppler",
+    "env-management",
+    "devops"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "secrets-management",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.180Z",
+    "updatedAt": "2026-03-25T19:00:59.180Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "5365637265747320",
+    "category": "security",
+    "stack": [
+      "nodejs",
+      "nextjs"
+    ],
+    "tagline": "Zero .env files in production — secrets rotated, audited, and synced everywhere"
+  }
+}

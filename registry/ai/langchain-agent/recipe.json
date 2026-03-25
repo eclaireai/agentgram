@@ -1,0 +1,68 @@
+{
+  "name": "LangChain Agent with Tools",
+  "description": "Create a LangChain agent with custom tools (web search, database queries, API calls). Uses ReAct reasoning loop, conversation memory, and streaming output. Includes LangSmith tracing for debugging.",
+  "sourceSessionId": "curated-langchain-agent",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install langchain @langchain/openai @langchain/community",
+      "description": "Install LangChain and OpenAI integration"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/tools/search.ts",
+      "description": "Create web search tool wrapping Tavily or SerpAPI with result formatting"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/tools/database.ts",
+      "description": "Create database query tool with safe SQL execution and row limit"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/agent.ts",
+      "description": "Create createAgent() with tools, memory (ConversationSummaryMemory), and streaming executor"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/agent/route.ts",
+      "description": "Create agent API route with session management and streaming response"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env.local",
+      "description": "Add LANGCHAIN_API_KEY, LANGCHAIN_TRACING_V2=true, TAVILY_API_KEY"
+    }
+  ],
+  "parameters": {
+    "MODEL": "gpt-4o",
+    "MAX_ITERATIONS": "10",
+    "MEMORY_WINDOW": "5"
+  },
+  "tags": [
+    "ai",
+    "langchain",
+    "agents",
+    "tools",
+    "openai",
+    "react-agent"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "langchain-agent",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.176Z",
+    "updatedAt": "2026-03-25T19:00:59.176Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "4c616e6743686169",
+    "category": "ai",
+    "stack": [
+      "nextjs",
+      "nodejs"
+    ],
+    "tagline": "Build an AI agent that can search, browse, and call your APIs autonomously"
+  }
+}

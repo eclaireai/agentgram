@@ -1,0 +1,68 @@
+{
+  "name": "Kubernetes Deployment with Helm",
+  "description": "Create a Helm chart for deploying a Node.js app to Kubernetes. Includes Deployment with resource limits, HorizontalPodAutoscaler, ConfigMap, ExternalSecret (for secrets manager), and Ingress with cert-manager TLS.",
+  "sourceSessionId": "curated-kubernetes-helm",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "helm create charts/app",
+      "description": "Scaffold a new Helm chart"
+    },
+    {
+      "action": "modify_file",
+      "target": "charts/app/values.yaml",
+      "description": "Set image.repository, resources.requests/limits, autoscaling.enabled, ingress.enabled, replicaCount"
+    },
+    {
+      "action": "create_file",
+      "target": "charts/app/templates/hpa.yaml",
+      "description": "Create HPA scaling on CPU (70%) and memory (80%) with min 2 / max 10 replicas"
+    },
+    {
+      "action": "create_file",
+      "target": "charts/app/templates/externalsecret.yaml",
+      "description": "Create ExternalSecret pulling DATABASE_URL and API keys from AWS Secrets Manager"
+    },
+    {
+      "action": "modify_file",
+      "target": "charts/app/templates/deployment.yaml",
+      "description": "Add liveness/readiness probes, security context (non-root), and rollingUpdate strategy"
+    },
+    {
+      "action": "run_command",
+      "target": "helm lint charts/app",
+      "description": "Validate chart syntax",
+      "expect": "1 chart(s) linted, 0 chart(s) failed"
+    }
+  ],
+  "parameters": {
+    "NAMESPACE": "production",
+    "MIN_REPLICAS": "2",
+    "MAX_REPLICAS": "10"
+  },
+  "tags": [
+    "devops",
+    "kubernetes",
+    "helm",
+    "k8s",
+    "autoscaling",
+    "containers"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "kubernetes-helm",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.179Z",
+    "updatedAt": "2026-03-25T19:00:59.179Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "4b756265726e6574",
+    "category": "devops",
+    "stack": [
+      "nodejs"
+    ],
+    "tagline": "Deploy any app to K8s with HPA, rolling updates, and secret management"
+  }
+}

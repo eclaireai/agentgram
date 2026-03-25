@@ -1,305 +1,553 @@
 {
-  "version": "2",
-  "updatedAt": "2026-03-25T14:59:58.206Z",
-  "totalRecipes": 26,
+  "version": "3",
+  "updatedAt": "2026-03-25T19:00:59.181Z",
+  "totalRecipes": 39,
   "categories": [
+    "ai",
     "auth",
-    "database",
-    "testing",
+    "payments",
+    "realtime",
     "devops",
-    "quality",
-    "api",
+    "dx",
     "security",
-    "monitoring"
+    "mobile"
   ],
   "recipes": [
     {
-      "id": "jwt-authentication",
-      "name": "JWT Authentication",
-      "tagline": "Stateless auth with access + refresh tokens and bcrypt password hashing",
-      "description": "Add production-ready JWT authentication to any Express/Node.js API. Includes access tokens (15-min expiry), refresh tokens (7-day expiry), bcrypt password hashing, auth middleware, and a full test sui",
+      "id": "vercel-ai-sdk-chat",
+      "name": "AI Streaming Chat (Vercel AI SDK)",
+      "tagline": "Add a streaming GPT-4o chatbot to any Next.js app in under 30 minutes",
+      "description": "Integrate the Vercel AI SDK to stream AI responses in real time. Includes useChat hook, streaming API route, message history, and abort handling. Works with OpenAI, Anthropic, Google, and Groq.",
       "author": "agentgram",
-      "category": "auth",
+      "category": "ai",
       "tags": [
-        "auth",
-        "jwt",
-        "security",
-        "express",
-        "nodejs",
-        "typescript",
-        "api"
+        "ai",
+        "llm",
+        "streaming",
+        "nextjs",
+        "openai",
+        "vercel-ai-sdk",
+        "chatbot"
       ],
       "stack": [
-        "nodejs",
-        "express",
-        "typescript"
+        "nextjs"
       ],
       "sourceAgent": "curated",
       "downloads": 0,
       "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
-      "stepCount": 11
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 8
     },
     {
-      "id": "nextauth-setup",
-      "name": "NextAuth.js Setup",
-      "tagline": "Drop-in auth for Next.js: Google, GitHub, email/password, session management",
-      "description": "Add NextAuth.js to a Next.js app with Google OAuth, GitHub OAuth, credentials provider, and Prisma adapter for session persistence. Production-ready in one session.",
+      "id": "rag-pgvector",
+      "name": "RAG Pipeline with pgvector",
+      "tagline": "Production RAG: embed your docs, store in Postgres, semantic search in <100ms",
+      "description": "Build a Retrieval-Augmented Generation pipeline using pgvector in PostgreSQL. Embed documents with OpenAI text-embedding-3-small, store vectors in Postgres, and use cosine similarity search to inject ",
       "author": "agentgram",
-      "category": "auth",
+      "category": "ai",
       "tags": [
-        "auth",
-        "nextjs",
-        "oauth",
-        "google",
-        "github",
-        "session",
-        "typescript"
+        "ai",
+        "rag",
+        "pgvector",
+        "embeddings",
+        "semantic-search",
+        "postgresql",
+        "openai"
       ],
       "stack": [
         "nextjs",
-        "typescript",
-        "prisma"
+        "nodejs",
+        "postgresql"
       ],
       "sourceAgent": "curated",
       "downloads": 0,
       "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
+      "createdAt": "2026-03-25T19:00:59.181Z",
       "stepCount": 9
+    },
+    {
+      "id": "openai-structured-output",
+      "name": "AI Structured Output (Tool Calls)",
+      "tagline": "Make AI return typed JSON every time — no more parsing hallucinated strings",
+      "description": "Use OpenAI function calling / structured outputs with Zod schemas to guarantee typed JSON responses from any model. Includes schema definition, validation, error retry, and streaming with partial obje",
+      "author": "agentgram",
+      "category": "ai",
+      "tags": [
+        "ai",
+        "structured-output",
+        "tool-calls",
+        "zod",
+        "openai",
+        "function-calling"
+      ],
+      "stack": [
+        "nextjs",
+        "nodejs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 6
+    },
+    {
+      "id": "ollama-local-ai",
+      "name": "Local AI with Ollama",
+      "tagline": "Run Llama 3, Mistral, and Phi-3 locally — zero API cost, full privacy",
+      "description": "Set up Ollama for local AI development. Run open-source models (Llama 3.1, Mistral, CodeLlama) with no API keys, no cost per token, and data never leaving your machine. Integrates with the same Vercel",
+      "author": "agentgram",
+      "category": "ai",
+      "tags": [
+        "ai",
+        "ollama",
+        "local-ai",
+        "llama",
+        "privacy",
+        "open-source"
+      ],
+      "stack": [
+        "nextjs",
+        "nodejs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 7
+    },
+    {
+      "id": "ai-image-generation",
+      "name": "AI Image Generation",
+      "tagline": "Generate, edit, and vary images with DALL-E 3 and Replicate Flux",
+      "description": "Add AI image generation to any app. Covers DALL-E 3 for quality, Replicate Flux for speed, prompt engineering patterns, generated image storage in S3/Cloudflare R2, and a React gallery component.",
+      "author": "agentgram",
+      "category": "ai",
+      "tags": [
+        "ai",
+        "image-generation",
+        "dall-e",
+        "replicate",
+        "flux",
+        "openai"
+      ],
+      "stack": [
+        "nextjs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 6
+    },
+    {
+      "id": "mcp-server",
+      "name": "MCP Server (Model Context Protocol)",
+      "tagline": "Give Claude and GPT-4 direct access to your database, APIs, and files",
+      "description": "Build a Model Context Protocol server that exposes your app's data and actions as tools for AI agents. Includes tool definitions, resource handlers, and connection to Claude Desktop and cursor.",
+      "author": "agentgram",
+      "category": "ai",
+      "tags": [
+        "ai",
+        "mcp",
+        "model-context-protocol",
+        "claude",
+        "agents",
+        "tools"
+      ],
+      "stack": [
+        "nodejs",
+        "nextjs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 7
+    },
+    {
+      "id": "langchain-agent",
+      "name": "LangChain Agent with Tools",
+      "tagline": "Build an AI agent that can search, browse, and call your APIs autonomously",
+      "description": "Create a LangChain agent with custom tools (web search, database queries, API calls). Uses ReAct reasoning loop, conversation memory, and streaming output. Includes LangSmith tracing for debugging.",
+      "author": "agentgram",
+      "category": "ai",
+      "tags": [
+        "ai",
+        "langchain",
+        "agents",
+        "tools",
+        "openai",
+        "react-agent"
+      ],
+      "stack": [
+        "nextjs",
+        "nodejs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 6
+    },
+    {
+      "id": "clerk-nextjs",
+      "name": "Clerk Auth for Next.js",
+      "tagline": "Complete auth with social login, MFA, and user management in 10 minutes",
+      "description": "Add Clerk authentication to a Next.js App Router project. Includes middleware for protected routes, useUser hook, UserButton component, webhooks for user events, and organization support for multi-ten",
+      "author": "agentgram",
+      "category": "auth",
+      "tags": [
+        "auth",
+        "clerk",
+        "nextjs",
+        "oauth",
+        "mfa",
+        "social-login"
+      ],
+      "stack": [
+        "nextjs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 8
+    },
+    {
+      "id": "supabase-auth",
+      "name": "Supabase Auth with Social Login",
+      "tagline": "Auth + database + realtime in one — the Firebase alternative that uses Postgres",
+      "description": "Set up Supabase Auth with email/password, Google OAuth, and magic links. Includes server-side session handling with SSR helpers, Row Level Security policies, and a user profile table linked to auth.us",
+      "author": "agentgram",
+      "category": "auth",
+      "tags": [
+        "auth",
+        "supabase",
+        "oauth",
+        "magic-link",
+        "rls",
+        "postgresql"
+      ],
+      "stack": [
+        "nextjs",
+        "nodejs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 7
+    },
+    {
+      "id": "auth-js-v5",
+      "name": "Auth.js v5 (Next-Auth)",
+      "tagline": "Framework-agnostic auth with 50+ OAuth providers — the open-source standard",
+      "description": "Configure Auth.js v5 with multiple OAuth providers (GitHub, Google, Discord), database sessions via Drizzle adapter, and RBAC. Includes protected API routes, server actions auth, and JWT customization",
+      "author": "agentgram",
+      "category": "auth",
+      "tags": [
+        "auth",
+        "nextauth",
+        "auth-js",
+        "oauth",
+        "drizzle",
+        "sessions"
+      ],
+      "stack": [
+        "nextjs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 7
     },
     {
       "id": "api-key-auth",
       "name": "API Key Authentication",
-      "tagline": "Secure machine-to-machine auth with hashed keys, scopes, and rate limiting",
-      "description": "Add API key authentication for machine-to-machine communication. Keys are hashed (never stored in plain text), support scopes (read/write/admin), and tie into rate limiting.",
+      "tagline": "Secure your API with hashed keys, scopes, rate limits, and usage tracking",
+      "description": "Implement API key authentication for developer-facing APIs. Keys are SHA-256 hashed before storage (never store raw keys), support scopes (read/write/admin), have per-key rate limits, and log every re",
       "author": "agentgram",
       "category": "auth",
       "tags": [
         "auth",
-        "api-key",
+        "api-keys",
         "security",
-        "express",
-        "nodejs",
-        "typescript"
+        "rate-limiting",
+        "developer-api"
       ],
       "stack": [
-        "nodejs",
-        "express",
-        "typescript"
+        "nextjs",
+        "nodejs"
       ],
       "sourceAgent": "curated",
       "downloads": 0,
       "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
-      "stepCount": 9
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 5
     },
     {
-      "id": "prisma-postgresql",
-      "name": "Prisma + PostgreSQL",
-      "tagline": "Type-safe ORM with schema-first migrations, seed data, and connection pooling",
-      "description": "Set up Prisma ORM with PostgreSQL from zero: schema definition, initial migration, seed script, and connection pooling with PgBouncer-compatible connection strings.",
+      "id": "stripe-checkout",
+      "name": "Stripe Checkout",
+      "tagline": "Accept payments in 30 minutes — one-time, saved cards, Apple Pay included",
+      "description": "Implement Stripe Checkout for one-time payments. Includes a checkout session API route, success/cancel redirect pages, webhook handler for payment_intent.succeeded, and order fulfillment trigger.",
       "author": "agentgram",
-      "category": "database",
+      "category": "payments",
       "tags": [
-        "database",
-        "prisma",
-        "postgresql",
-        "orm",
-        "nodejs",
-        "typescript"
+        "payments",
+        "stripe",
+        "checkout",
+        "webhooks",
+        "ecommerce"
       ],
       "stack": [
-        "nodejs",
-        "typescript"
+        "nextjs",
+        "nodejs"
       ],
       "sourceAgent": "curated",
       "downloads": 0,
       "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
-      "stepCount": 11
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 7
     },
     {
-      "id": "mongoose-mongodb",
-      "name": "Mongoose + MongoDB",
-      "tagline": "Document database with schema validation, indexes, and connection management",
-      "description": "Set up Mongoose with MongoDB Atlas or local Docker. Includes schema validation, compound indexes, connection retry logic, and TypeScript interfaces auto-generated from schemas.",
+      "id": "stripe-subscriptions",
+      "name": "Stripe Subscriptions (SaaS Billing)",
+      "tagline": "Monthly/annual billing, usage limits, plan upgrades, and customer portal",
+      "description": "Full SaaS billing with Stripe Subscriptions. Covers plan tiers, trial periods, subscription webhooks (created/updated/cancelled), usage-based billing, and the Stripe Customer Portal for self-serve pla",
       "author": "agentgram",
-      "category": "database",
+      "category": "payments",
       "tags": [
-        "database",
-        "mongodb",
-        "mongoose",
-        "nodejs",
-        "typescript"
+        "payments",
+        "stripe",
+        "subscriptions",
+        "saas",
+        "billing",
+        "webhooks"
       ],
       "stack": [
-        "nodejs",
-        "typescript"
+        "nextjs",
+        "nodejs"
       ],
       "sourceAgent": "curated",
       "downloads": 0,
       "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
-      "stepCount": 10
-    },
-    {
-      "id": "redis-caching",
-      "name": "Redis Caching Layer",
-      "tagline": "Response caching with Redis — automatic invalidation, TTL, and cache-aside pattern",
-      "description": "Add Redis caching to any Express API using the cache-aside pattern. Includes a cacheMiddleware for automatic route-level caching, manual cache invalidation helpers, and graceful degradation if Redis i",
-      "author": "agentgram",
-      "category": "database",
-      "tags": [
-        "redis",
-        "caching",
-        "performance",
-        "express",
-        "nodejs",
-        "typescript"
-      ],
-      "stack": [
-        "nodejs",
-        "express",
-        "typescript"
-      ],
-      "sourceAgent": "curated",
-      "downloads": 0,
-      "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
-      "stepCount": 9
-    },
-    {
-      "id": "drizzle-sqlite",
-      "name": "Drizzle ORM + SQLite",
-      "tagline": "Lightweight SQL with Drizzle — perfect for edge functions, Cloudflare Workers, Bun",
-      "description": "Set up Drizzle ORM with SQLite (via better-sqlite3 or Bun native). Schema-first, fully type-safe, no migration runner required. Ideal for edge deployments and local-first apps.",
-      "author": "agentgram",
-      "category": "database",
-      "tags": [
-        "database",
-        "drizzle",
-        "sqlite",
-        "orm",
-        "typescript",
-        "edge"
-      ],
-      "stack": [
-        "nodejs",
-        "typescript"
-      ],
-      "sourceAgent": "curated",
-      "downloads": 0,
-      "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
-      "stepCount": 10
-    },
-    {
-      "id": "vitest-setup",
-      "name": "Vitest Testing Framework",
-      "tagline": "Blazing fast unit tests with TypeScript, coverage, and watch mode",
-      "description": "Set up Vitest from scratch: TypeScript support, V8 coverage reports, path aliases, and a sample test. Runs 10x faster than Jest on cold starts.",
-      "author": "agentgram",
-      "category": "testing",
-      "tags": [
-        "testing",
-        "vitest",
-        "typescript",
-        "coverage",
-        "unit-tests"
-      ],
-      "stack": [
-        "nodejs",
-        "typescript"
-      ],
-      "sourceAgent": "curated",
-      "downloads": 0,
-      "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
+      "createdAt": "2026-03-25T19:00:59.181Z",
       "stepCount": 8
     },
     {
-      "id": "jest-setup",
-      "name": "Jest Testing Framework",
-      "tagline": "Battle-tested unit testing with TypeScript, mocks, and Istanbul coverage",
-      "description": "Set up Jest with TypeScript (via ts-jest), Istanbul coverage, module mocking, and a sensible default config. The standard for Node.js testing.",
+      "id": "lemon-squeezy",
+      "name": "Lemon Squeezy (Digital Products)",
+      "tagline": "Sell digital products globally — Lemon Squeezy handles VAT, tax, and compliance",
+      "description": "Integrate Lemon Squeezy for selling digital products, SaaS subscriptions, and licenses. They are the Merchant of Record — they handle VAT, sales tax, and EU compliance. Includes webhook handler and li",
       "author": "agentgram",
-      "category": "testing",
+      "category": "payments",
       "tags": [
-        "testing",
-        "jest",
-        "typescript",
-        "coverage",
-        "unit-tests"
+        "payments",
+        "lemon-squeezy",
+        "digital-products",
+        "vat",
+        "licensing",
+        "saas"
+      ],
+      "stack": [
+        "nextjs",
+        "nodejs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 6
+    },
+    {
+      "id": "uploadthing-files",
+      "name": "File Uploads with UploadThing",
+      "tagline": "Type-safe file uploads with progress tracking, validation, and CDN delivery",
+      "description": "Add file uploads to a Next.js app using UploadThing. Includes file type validation, size limits, upload progress UI, server-side processing callback, and CDN-delivered URLs. No S3 configuration needed",
+      "author": "agentgram",
+      "category": "realtime",
+      "tags": [
+        "uploads",
+        "uploadthing",
+        "files",
+        "cdn",
+        "s3",
+        "nextjs"
+      ],
+      "stack": [
+        "nextjs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 6
+    },
+    {
+      "id": "inngest-background-jobs",
+      "name": "Background Jobs with Inngest",
+      "tagline": "Durable async workflows that survive server restarts — no Redis, no Bull, no workers",
+      "description": "Implement reliable background job processing with Inngest. Create durable functions that run after HTTP responses, retry automatically on failure, support fan-out workflows, and can be scheduled as cr",
+      "author": "agentgram",
+      "category": "realtime",
+      "tags": [
+        "background-jobs",
+        "inngest",
+        "queues",
+        "async",
+        "cron",
+        "workflows"
+      ],
+      "stack": [
+        "nextjs",
+        "nodejs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 8
+    },
+    {
+      "id": "resend-email",
+      "name": "Transactional Email with Resend",
+      "tagline": "Beautiful HTML emails with React Email — and actually get delivered to inbox",
+      "description": "Set up Resend for transactional email with React Email templates. Includes welcome email, password reset, invoice, and notification templates. Custom domain setup for near-100% inbox delivery.",
+      "author": "agentgram",
+      "category": "realtime",
+      "tags": [
+        "email",
+        "resend",
+        "react-email",
+        "transactional",
+        "notifications"
+      ],
+      "stack": [
+        "nextjs",
+        "nodejs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 6
+    },
+    {
+      "id": "supabase-realtime",
+      "name": "Real-Time with Supabase",
+      "tagline": "Live cursors, presence, and database change streaming — no WebSocket server needed",
+      "description": "Add real-time features using Supabase Realtime: database change subscriptions (INSERT/UPDATE/DELETE events), presence (who's online), and broadcast (send arbitrary messages to all connected clients). ",
+      "author": "agentgram",
+      "category": "realtime",
+      "tags": [
+        "realtime",
+        "supabase",
+        "websockets",
+        "presence",
+        "live",
+        "collaborative"
+      ],
+      "stack": [
+        "nextjs",
+        "nodejs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 6
+    },
+    {
+      "id": "bullmq-redis-queues",
+      "name": "Job Queues with BullMQ + Redis",
+      "tagline": "High-throughput job queues with retries, concurrency, and delayed jobs",
+      "description": "Set up BullMQ for reliable job queue processing. Covers producer/consumer pattern, job concurrency limits, exponential backoff retry, scheduled jobs, job events, and Bull Board UI for monitoring.",
+      "author": "agentgram",
+      "category": "realtime",
+      "tags": [
+        "queues",
+        "bullmq",
+        "redis",
+        "jobs",
+        "workers",
+        "background-processing"
       ],
       "stack": [
         "nodejs",
-        "typescript"
+        "nextjs"
       ],
       "sourceAgent": "curated",
       "downloads": 0,
       "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
-      "stepCount": 6
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 7
     },
     {
-      "id": "playwright-e2e",
-      "name": "Playwright End-to-End Tests",
-      "tagline": "Cross-browser E2E testing with Playwright: Chrome, Firefox, Safari",
-      "description": "Add Playwright for end-to-end testing against a running server. Includes browser setup, page object model pattern, GitHub Actions CI integration, and screenshot on failure.",
-      "author": "agentgram",
-      "category": "testing",
-      "tags": [
-        "testing",
-        "playwright",
-        "e2e",
-        "typescript",
-        "browser"
-      ],
-      "stack": [
-        "typescript"
-      ],
-      "sourceAgent": "curated",
-      "downloads": 0,
-      "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
-      "stepCount": 9
-    },
-    {
-      "id": "pytest-setup",
-      "name": "Pytest Setup",
-      "tagline": "Python testing with pytest, fixtures, coverage, and async support",
-      "description": "Set up pytest for a Python project: fixtures, conftest.py, async test support (pytest-asyncio), coverage reporting, and parametrize for data-driven tests.",
-      "author": "agentgram",
-      "category": "testing",
-      "tags": [
-        "testing",
-        "pytest",
-        "python",
-        "coverage",
-        "async"
-      ],
-      "stack": [
-        "python"
-      ],
-      "sourceAgent": "curated",
-      "downloads": 0,
-      "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
-      "stepCount": 6
-    },
-    {
-      "id": "github-actions-ci",
-      "name": "GitHub Actions CI",
-      "tagline": "Lint + test + build on every push, Node 18/20/22 matrix, cache npm deps",
-      "description": "Add a production-grade GitHub Actions CI pipeline: typecheck, lint, test (Node 18/20/22 matrix), build, and optional npm publish on release tags. npm dependency caching keeps it fast.",
+      "id": "docker-production",
+      "name": "Production Docker Setup",
+      "tagline": "Multi-stage builds, health checks, non-root user, and secrets — done right",
+      "description": "Create a production-grade Dockerfile and Docker Compose setup. Multi-stage build (deps → builder → runner), non-root user, health checks, .dockerignore, and docker-compose with Postgres and Redis.",
       "author": "agentgram",
       "category": "devops",
       "tags": [
-        "ci",
-        "github-actions",
+        "docker",
         "devops",
+        "containers",
+        "production",
+        "health-checks",
+        "security"
+      ],
+      "stack": [
         "nodejs",
-        "typescript"
+        "nextjs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 7
+    },
+    {
+      "id": "github-actions-ci",
+      "name": "GitHub Actions CI/CD",
+      "tagline": "Fast CI with dependency caching, parallel jobs, and automated deploys on merge",
+      "description": "Production GitHub Actions workflow for Node.js. Includes npm caching (cuts install from 60s to 5s), parallel test and lint jobs, type checking, and deploy-to-Vercel/Railway on merge to main.",
+      "author": "agentgram",
+      "category": "devops",
+      "tags": [
+        "devops",
+        "github-actions",
+        "ci-cd",
+        "automation",
+        "deployment",
+        "caching"
+      ],
+      "stack": [
+        "nodejs",
+        "nextjs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 5
+    },
+    {
+      "id": "terraform-aws",
+      "name": "Terraform AWS Infrastructure",
+      "tagline": "VPC, ECS Fargate, RDS Postgres, and ALB — production AWS in code",
+      "description": "Define AWS production infrastructure with Terraform. Creates VPC with public/private subnets, ECS Fargate cluster, RDS PostgreSQL (Multi-AZ), Application Load Balancer, ACM certificate, and ECR regist",
+      "author": "agentgram",
+      "category": "devops",
+      "tags": [
+        "devops",
+        "terraform",
+        "aws",
+        "ecs",
+        "rds",
+        "infrastructure",
+        "iac"
       ],
       "stack": [
         "nodejs"
@@ -307,22 +555,22 @@
       "sourceAgent": "curated",
       "downloads": 0,
       "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
-      "stepCount": 6
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 8
     },
     {
-      "id": "docker-compose",
-      "name": "Docker + Docker Compose",
-      "tagline": "Containerize any Node.js app with multi-stage builds and compose for local dev",
-      "description": "Add Docker to a Node.js project: multi-stage Dockerfile (builder + production), docker-compose.yml for local development with PostgreSQL and Redis, and .dockerignore.",
+      "id": "kubernetes-helm",
+      "name": "Kubernetes Deployment with Helm",
+      "tagline": "Deploy any app to K8s with HPA, rolling updates, and secret management",
+      "description": "Create a Helm chart for deploying a Node.js app to Kubernetes. Includes Deployment with resource limits, HorizontalPodAutoscaler, ConfigMap, ExternalSecret (for secrets manager), and Ingress with cert",
       "author": "agentgram",
       "category": "devops",
       "tags": [
-        "docker",
         "devops",
-        "nodejs",
-        "postgresql",
-        "redis",
+        "kubernetes",
+        "helm",
+        "k8s",
+        "autoscaling",
         "containers"
       ],
       "stack": [
@@ -331,22 +579,71 @@
       "sourceAgent": "curated",
       "downloads": 0,
       "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
-      "stepCount": 7
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 6
     },
     {
-      "id": "vercel-deployment",
-      "name": "Vercel Deployment",
-      "tagline": "Zero-config deploy to Vercel with preview URLs, environment variables, and edge config",
-      "description": "Configure a Next.js or Node.js project for Vercel deployment. Includes vercel.json, environment variable setup in Vercel dashboard, preview URL configuration, and GitHub integration for automatic depl",
+      "id": "cloudflare-workers",
+      "name": "Cloudflare Workers + D1",
+      "tagline": "Deploy serverless API to 300+ edge locations with SQLite at the edge",
+      "description": "Build and deploy a Cloudflare Workers API with D1 (SQLite at the edge), KV storage, and R2 for files. Sub-millisecond cold starts, 0ms latency from your users' location, and a generous free tier.",
       "author": "agentgram",
       "category": "devops",
       "tags": [
-        "vercel",
-        "deployment",
-        "nextjs",
         "devops",
-        "hosting"
+        "cloudflare",
+        "edge",
+        "serverless",
+        "d1",
+        "workers"
+      ],
+      "stack": [
+        "nodejs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 8
+    },
+    {
+      "id": "opentelemetry-observability",
+      "name": "OpenTelemetry Full Observability",
+      "tagline": "Traces, metrics, and logs in one — vendor-neutral observability for any stack",
+      "description": "Instrument a Node.js app with OpenTelemetry SDK. Exports traces to Jaeger, metrics to Prometheus, and logs to Grafana Loki. Includes auto-instrumentation for HTTP, database, and custom business spans.",
+      "author": "agentgram",
+      "category": "devops",
+      "tags": [
+        "devops",
+        "observability",
+        "opentelemetry",
+        "tracing",
+        "metrics",
+        "grafana"
+      ],
+      "stack": [
+        "nodejs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 6
+    },
+    {
+      "id": "turborepo-monorepo",
+      "name": "Turborepo Monorepo",
+      "tagline": "Web app + mobile + API + shared packages — one repo, 10x faster builds",
+      "description": "Set up a Turborepo monorepo with pnpm workspaces. Apps: web (Next.js), api (Hono/Express), mobile (Expo). Packages: ui (shadcn), config (ESLint/TypeScript configs), db (Drizzle schema). Remote caching",
+      "author": "agentgram",
+      "category": "dx",
+      "tags": [
+        "dx",
+        "turborepo",
+        "monorepo",
+        "pnpm",
+        "workspaces",
+        "nextjs"
       ],
       "stack": [
         "nextjs",
@@ -355,307 +652,328 @@
       "sourceAgent": "curated",
       "downloads": 0,
       "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 6
+    },
+    {
+      "id": "shadcn-tailwind-v4",
+      "name": "shadcn/ui + Tailwind v4",
+      "tagline": "The component library that owns no code — beautiful, accessible, yours to modify",
+      "description": "Set up shadcn/ui with Tailwind CSS v4 in a Next.js project. Includes dark mode, custom theme tokens, 10 most-used components (Button, Dialog, Sheet, Form, Table, etc.), and Storybook for component dev",
+      "author": "agentgram",
+      "category": "dx",
+      "tags": [
+        "dx",
+        "shadcn",
+        "tailwind",
+        "ui",
+        "components",
+        "dark-mode",
+        "accessibility"
+      ],
+      "stack": [
+        "nextjs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 6
+    },
+    {
+      "id": "drizzle-postgres",
+      "name": "Drizzle ORM + PostgreSQL",
+      "tagline": "Type-safe SQL that feels like writing SQL — migrations, relations, zero runtime overhead",
+      "description": "Set up Drizzle ORM with PostgreSQL. Define schemas in TypeScript, run type-safe queries, generate and apply migrations. Includes relations, prepared statements, and Drizzle Studio for visual data expl",
+      "author": "agentgram",
+      "category": "dx",
+      "tags": [
+        "dx",
+        "drizzle",
+        "orm",
+        "postgresql",
+        "typescript",
+        "sql",
+        "migrations"
+      ],
+      "stack": [
+        "nextjs",
+        "nodejs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 8
+    },
+    {
+      "id": "trpc-v11",
+      "name": "tRPC v11 Type-Safe API",
+      "tagline": "End-to-end type-safe API — no codegen, no REST, just TypeScript",
+      "description": "Set up tRPC v11 with Next.js App Router. Define procedures on the server, call them from the client with full autocomplete and type safety. Includes auth middleware, input validation with Zod, React Q",
+      "author": "agentgram",
+      "category": "dx",
+      "tags": [
+        "dx",
+        "trpc",
+        "typescript",
+        "api",
+        "react-query",
+        "type-safety"
+      ],
+      "stack": [
+        "nextjs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 6
+    },
+    {
+      "id": "posthog-analytics",
+      "name": "PostHog Analytics + Feature Flags",
+      "tagline": "Event tracking, funnels, session replay, and feature flags — open source",
+      "description": "Integrate PostHog for product analytics and feature flags. Track custom events, define funnels, enable session replay, and use feature flags to roll out features to specific user segments. Self-hostab",
+      "author": "agentgram",
+      "category": "dx",
+      "tags": [
+        "dx",
+        "analytics",
+        "posthog",
+        "feature-flags",
+        "session-replay",
+        "events"
+      ],
+      "stack": [
+        "nextjs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 6
+    },
+    {
+      "id": "meilisearch-search",
+      "name": "Full-Text Search with Meilisearch",
+      "tagline": "Instant search with typo tolerance in <50ms — self-hosted or cloud",
+      "description": "Add Meilisearch for lightning-fast, typo-tolerant full-text search. Index your database records, configure searchable/filterable attributes, and build a search UI with InstantSearch React components.",
+      "author": "agentgram",
+      "category": "dx",
+      "tags": [
+        "dx",
+        "search",
+        "meilisearch",
+        "full-text-search",
+        "instant-search"
+      ],
+      "stack": [
+        "nextjs",
+        "nodejs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 7
+    },
+    {
+      "id": "owasp-api-top10",
+      "name": "OWASP API Security Top 10",
+      "tagline": "Harden your API against the 10 most exploited vulnerabilities in production",
+      "description": "Implement defenses for the OWASP API Security Top 10 (2023). Covers broken object authorization, authentication flaws, unrestricted resource consumption, injection, and security misconfiguration — wit",
+      "author": "agentgram",
+      "category": "security",
+      "tags": [
+        "security",
+        "owasp",
+        "api",
+        "rate-limiting",
+        "injection",
+        "authorization"
+      ],
+      "stack": [
+        "nodejs",
+        "nextjs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 8
+    },
+    {
+      "id": "secrets-management",
+      "name": "Secrets Management (Doppler)",
+      "tagline": "Zero .env files in production — secrets rotated, audited, and synced everywhere",
+      "description": "Eliminate .env files from production using Doppler. Secrets are stored encrypted, access is audited, and they sync automatically to Vercel/AWS/GitHub Actions. Includes secret rotation and the develope",
+      "author": "agentgram",
+      "category": "security",
+      "tags": [
+        "security",
+        "secrets",
+        "doppler",
+        "env-management",
+        "devops"
+      ],
+      "stack": [
+        "nodejs",
+        "nextjs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 7
+    },
+    {
+      "id": "codeql-security-scanning",
+      "name": "CodeQL Security Scanning + Dependabot",
+      "tagline": "Catch vulnerabilities in your code and dependencies automatically — before they ship",
+      "description": "Set up GitHub CodeQL for static security analysis and Dependabot for dependency vulnerability scanning. CodeQL finds XSS, SQL injection, and path traversal in your code. Dependabot auto-PRs vulnerable",
+      "author": "agentgram",
+      "category": "security",
+      "tags": [
+        "security",
+        "codeql",
+        "dependabot",
+        "scanning",
+        "sast",
+        "supply-chain"
+      ],
+      "stack": [
+        "nodejs",
+        "nextjs"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
       "stepCount": 5
     },
     {
-      "id": "eslint-prettier",
-      "name": "ESLint + Prettier",
-      "tagline": "Consistent code style enforced at commit time — no more style debates in PRs",
-      "description": "Set up ESLint with TypeScript rules and Prettier for formatting. Configured to run as a pre-commit hook via lint-staged, so formatting errors never reach the repo.",
+      "id": "advanced-rate-limiting",
+      "name": "Advanced Rate Limiting (Upstash)",
+      "tagline": "Per-user rate limits with Redis — survives horizontal scaling and serverless",
+      "description": "Implement distributed rate limiting using Upstash Redis and the @upstash/ratelimit library. Supports sliding window, fixed window, and token bucket algorithms. Works in Edge Runtime, Vercel Functions,",
       "author": "agentgram",
-      "category": "quality",
+      "category": "security",
       "tags": [
-        "eslint",
-        "prettier",
-        "linting",
-        "formatting",
-        "typescript",
-        "quality"
-      ],
-      "stack": [
-        "nodejs",
-        "typescript"
-      ],
-      "sourceAgent": "curated",
-      "downloads": 0,
-      "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
-      "stepCount": 8
-    },
-    {
-      "id": "husky-lint-staged",
-      "name": "Husky + lint-staged",
-      "tagline": "Pre-commit hooks: only lint and format files you actually changed",
-      "description": "Add Husky for git hooks and lint-staged to run ESLint and Prettier only on staged files. Commit-msg hook enforces Conventional Commits format.",
-      "author": "agentgram",
-      "category": "quality",
-      "tags": [
-        "husky",
-        "lint-staged",
-        "git-hooks",
-        "commitlint",
-        "quality",
-        "typescript"
-      ],
-      "stack": [
-        "nodejs"
-      ],
-      "sourceAgent": "curated",
-      "downloads": 0,
-      "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
-      "stepCount": 8
-    },
-    {
-      "id": "typescript-strict",
-      "name": "TypeScript Strict Mode",
-      "tagline": "Enable strictest TypeScript settings and fix every resulting error",
-      "description": "Upgrade a TypeScript project to strict mode: enable strict, noUncheckedIndexedAccess, exactOptionalPropertyTypes, and fix every resulting type error. Leaves the codebase bulletproof.",
-      "author": "agentgram",
-      "category": "quality",
-      "tags": [
-        "typescript",
-        "strict",
-        "types",
-        "quality",
-        "nodejs"
-      ],
-      "stack": [
-        "typescript"
-      ],
-      "sourceAgent": "curated",
-      "downloads": 0,
-      "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
-      "stepCount": 8
-    },
-    {
-      "id": "openapi-swagger",
-      "name": "OpenAPI / Swagger Docs",
-      "tagline": "Auto-generated, interactive API docs from your TypeScript types",
-      "description": "Add OpenAPI 3.0 documentation to an Express API using tsoa or swagger-jsdoc. Generates /docs with Swagger UI and a machine-readable openapi.json at /api-docs.",
-      "author": "agentgram",
-      "category": "api",
-      "tags": [
-        "openapi",
-        "swagger",
-        "docs",
-        "api",
-        "typescript",
-        "express"
-      ],
-      "stack": [
-        "nodejs",
-        "express",
-        "typescript"
-      ],
-      "sourceAgent": "curated",
-      "downloads": 0,
-      "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
-      "stepCount": 9
-    },
-    {
-      "id": "rate-limiting",
-      "name": "API Rate Limiting",
-      "tagline": "Per-IP and per-user rate limiting with Redis-backed sliding window",
-      "description": "Add rate limiting to an Express API: global limit (100 req/min per IP), authenticated user limit (1000 req/min), and endpoint-specific limits. Redis-backed for distributed deployments.",
-      "author": "agentgram",
-      "category": "api",
-      "tags": [
+        "security",
         "rate-limiting",
-        "security",
-        "api",
-        "express",
+        "upstash",
         "redis",
-        "typescript"
+        "ddos",
+        "edge"
       ],
       "stack": [
-        "nodejs",
-        "express",
-        "typescript"
+        "nextjs",
+        "nodejs"
       ],
       "sourceAgent": "curated",
       "downloads": 0,
       "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 5
+    },
+    {
+      "id": "expo-eas",
+      "name": "React Native with Expo EAS",
+      "tagline": "Build iOS and Android from one codebase — OTA updates, no App Store wait",
+      "description": "Set up a React Native app with Expo and EAS (Expo Application Services). Get OTA updates (ship without App Store review), cloud builds (no Mac needed for iOS), and preview builds for testing.",
+      "author": "agentgram",
+      "category": "mobile",
+      "tags": [
+        "mobile",
+        "expo",
+        "react-native",
+        "ios",
+        "android",
+        "ota",
+        "eas"
+      ],
+      "stack": [
+        "react-native"
+      ],
+      "sourceAgent": "curated",
+      "downloads": 0,
+      "rating": 5,
+      "createdAt": "2026-03-25T19:00:59.181Z",
       "stepCount": 7
     },
     {
-      "id": "zod-validation",
-      "name": "Request Validation with Zod",
-      "tagline": "Type-safe request parsing — runtime validation from your TypeScript types",
-      "description": "Add Zod schema validation to all API endpoints. Request bodies, query params, and route params are validated at the boundary — invalid requests get a 400 with detailed error messages before touching b",
+      "id": "pwa-nextjs",
+      "name": "Progressive Web App with Next.js",
+      "tagline": "Install your web app on any device — offline support, push notifications, home screen",
+      "description": "Convert a Next.js app into a PWA with offline support, push notifications, home screen installation, and app-like navigation. Uses next-pwa with Workbox service worker strategies.",
       "author": "agentgram",
-      "category": "api",
+      "category": "mobile",
       "tags": [
-        "validation",
-        "zod",
-        "api",
-        "typescript",
-        "express",
-        "nodejs"
+        "mobile",
+        "pwa",
+        "nextjs",
+        "offline",
+        "push-notifications",
+        "service-worker"
       ],
       "stack": [
-        "nodejs",
-        "express",
-        "typescript"
+        "nextjs"
       ],
       "sourceAgent": "curated",
       "downloads": 0,
       "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
-      "stepCount": 8
-    },
-    {
-      "id": "helmet-security-headers",
-      "name": "Security Headers with Helmet",
-      "tagline": "Add 15 security headers in one line — CSP, HSTS, XSS protection, and more",
-      "description": "Add Helmet.js to an Express app with a production-ready Content Security Policy, HSTS, and referrer policy. Configured correctly so it doesn't break your frontend.",
-      "author": "agentgram",
-      "category": "security",
-      "tags": [
-        "security",
-        "helmet",
-        "headers",
-        "csp",
-        "express",
-        "nodejs"
-      ],
-      "stack": [
-        "nodejs",
-        "express"
-      ],
-      "sourceAgent": "curated",
-      "downloads": 0,
-      "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
+      "createdAt": "2026-03-25T19:00:59.181Z",
       "stepCount": 6
     },
     {
-      "id": "env-validation",
-      "name": "Environment Variable Validation",
-      "tagline": "Crash at startup if required env vars are missing — not at 2am in production",
-      "description": "Validate all environment variables at startup using Zod. If any required variable is missing or has the wrong type, the app refuses to start with a clear error message listing exactly what's wrong.",
+      "id": "capacitor-mobile",
+      "name": "Web to iOS/Android with Capacitor",
+      "tagline": "Ship your existing web app as a native iOS and Android app today",
+      "description": "Wrap any existing web app (React, Next.js, Vue) in a native iOS and Android app using Capacitor. Access camera, GPS, biometrics, and native APIs. Submit to App Store and Google Play from your web code",
       "author": "agentgram",
-      "category": "security",
+      "category": "mobile",
       "tags": [
-        "env",
-        "validation",
-        "security",
-        "zod",
-        "nodejs",
-        "typescript"
+        "mobile",
+        "capacitor",
+        "ios",
+        "android",
+        "native",
+        "cross-platform"
       ],
       "stack": [
-        "nodejs",
-        "typescript"
+        "nextjs",
+        "nodejs"
       ],
       "sourceAgent": "curated",
       "downloads": 0,
       "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
+      "createdAt": "2026-03-25T19:00:59.181Z",
       "stepCount": 7
     },
     {
-      "id": "cors-config",
-      "name": "CORS Configuration",
-      "tagline": "Precise CORS setup that works in dev, staging, and production without wildcards",
-      "description": "Configure CORS for an Express API: allowlist of origins per environment, preflight caching, credentials support, and logging for blocked origins to catch misconfigurations.",
+      "id": "n8n-automation",
+      "name": "n8n Workflow Automation",
+      "tagline": "No-code automation for non-tech users — connect 400+ apps without writing code",
+      "description": "Deploy and integrate n8n for workflow automation. Create automations that trigger on webhooks, schedule with cron, and connect your app to Slack, email, databases, and 400+ other services. Self-hosted",
       "author": "agentgram",
-      "category": "security",
+      "category": "mobile",
       "tags": [
-        "cors",
-        "security",
-        "express",
-        "api",
+        "automation",
+        "n8n",
+        "no-code",
+        "workflows",
+        "integration",
+        "non-tech"
+      ],
+      "stack": [
         "nodejs"
       ],
-      "stack": [
-        "nodejs",
-        "express"
-      ],
       "sourceAgent": "curated",
       "downloads": 0,
       "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
-      "stepCount": 8
-    },
-    {
-      "id": "structured-logging",
-      "name": "Structured Logging with Pino",
-      "tagline": "JSON logs with request IDs, levels, and millisecond timestamps — ready for Datadog/CloudWatch",
-      "description": "Replace console.log with Pino structured logging. Every log line is JSON with timestamp, level, requestId, and context. Log levels are configurable per environment. Integrates with any log aggregator.",
-      "author": "agentgram",
-      "category": "monitoring",
-      "tags": [
-        "logging",
-        "pino",
-        "monitoring",
-        "observability",
-        "nodejs",
-        "typescript"
-      ],
-      "stack": [
-        "nodejs",
-        "typescript"
-      ],
-      "sourceAgent": "curated",
-      "downloads": 0,
-      "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
-      "stepCount": 8
-    },
-    {
-      "id": "health-check-endpoint",
-      "name": "Health Check Endpoint",
-      "tagline": "/health returns DB status, uptime, version — works with Kubernetes liveness probes",
-      "description": "Add /health and /ready endpoints to any Express API. Checks database connectivity, Redis connectivity, and returns service version and uptime. Compatible with Kubernetes liveness/readiness probes.",
-      "author": "agentgram",
-      "category": "monitoring",
-      "tags": [
-        "health-check",
-        "monitoring",
-        "kubernetes",
-        "devops",
-        "express",
-        "nodejs"
-      ],
-      "stack": [
-        "nodejs",
-        "express"
-      ],
-      "sourceAgent": "curated",
-      "downloads": 0,
-      "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
-      "stepCount": 6
-    },
-    {
-      "id": "sentry-error-tracking",
-      "name": "Sentry Error Tracking",
-      "tagline": "Catch every unhandled error in production with full stack traces and context",
-      "description": "Integrate Sentry for error monitoring: unhandled exceptions, promise rejections, Express error middleware, user context, and custom breadcrumbs. Source maps uploaded on deploy so errors point to TypeS",
-      "author": "agentgram",
-      "category": "monitoring",
-      "tags": [
-        "sentry",
-        "error-tracking",
-        "monitoring",
-        "observability",
-        "nodejs"
-      ],
-      "stack": [
-        "nodejs",
-        "express",
-        "typescript"
-      ],
-      "sourceAgent": "curated",
-      "downloads": 0,
-      "rating": 5,
-      "createdAt": "2026-03-25T14:59:58.206Z",
-      "stepCount": 9
+      "createdAt": "2026-03-25T19:00:59.181Z",
+      "stepCount": 5
     }
   ]
 }

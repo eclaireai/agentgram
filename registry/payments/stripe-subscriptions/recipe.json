@@ -1,0 +1,77 @@
+{
+  "name": "Stripe Subscriptions (SaaS Billing)",
+  "description": "Full SaaS billing with Stripe Subscriptions. Covers plan tiers, trial periods, subscription webhooks (created/updated/cancelled), usage-based billing, and the Stripe Customer Portal for self-serve plan management.",
+  "sourceSessionId": "curated-stripe-subscriptions",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install stripe",
+      "description": "Install Stripe SDK"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/stripe.ts",
+      "description": "Create Stripe client with types for Plan, Subscription, and Customer"
+    },
+    {
+      "action": "create_file",
+      "target": "db/schema/subscriptions.ts",
+      "description": "Create subscriptions table: userId, stripeCustomerId, stripePriceId, status, currentPeriodEnd, cancelAtPeriodEnd"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/billing/subscribe/route.ts",
+      "description": "Create POST /api/billing/subscribe — create customer + subscription, return client secret for payment confirmation"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/billing/portal/route.ts",
+      "description": "Create Stripe Customer Portal session for self-serve plan management"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/webhooks/stripe/route.ts",
+      "description": "Handle customer.subscription.created/updated/deleted and invoice.payment_failed webhooks"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/subscription.ts",
+      "description": "Create getSubscription(userId), hasFeature(userId, feature), getPlanLimits(planId) helpers"
+    },
+    {
+      "action": "create_file",
+      "target": "middleware/require-plan.ts",
+      "description": "Create middleware to gate features by subscription tier"
+    }
+  ],
+  "parameters": {
+    "TRIAL_DAYS": "14",
+    "DEFAULT_PLAN": "starter"
+  },
+  "tags": [
+    "payments",
+    "stripe",
+    "subscriptions",
+    "saas",
+    "billing",
+    "webhooks"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "stripe-subscriptions",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.177Z",
+    "updatedAt": "2026-03-25T19:00:59.177Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "5374726970652053",
+    "category": "payments",
+    "stack": [
+      "nextjs",
+      "nodejs"
+    ],
+    "tagline": "Monthly/annual billing, usage limits, plan upgrades, and customer portal"
+  }
+}

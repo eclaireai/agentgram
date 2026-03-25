@@ -1,53 +1,52 @@
 {
-  "name": "GitHub Actions CI",
-  "description": "Add a production-grade GitHub Actions CI pipeline: typecheck, lint, test (Node 18/20/22 matrix), build, and optional npm publish on release tags. npm dependency caching keeps it fast.",
+  "name": "GitHub Actions CI/CD",
+  "description": "Production GitHub Actions workflow for Node.js. Includes npm caching (cuts install from 60s to 5s), parallel test and lint jobs, type checking, and deploy-to-Vercel/Railway on merge to main.",
   "sourceSessionId": "curated-github-actions-ci",
   "steps": [
     {
-      "action": "find",
-      "target": "package.json",
-      "description": "Check test, lint, typecheck, and build scripts"
-    },
-    {
-      "action": "run_command",
-      "target": "mkdir -p .github/workflows",
-      "description": "Create GitHub Actions directory"
-    },
-    {
       "action": "create_file",
       "target": ".github/workflows/ci.yml",
-      "description": "Create CI workflow: checkout, node matrix (18/20/22), npm ci, typecheck, lint, test, build"
-    },
-    {
-      "action": "create_file",
-      "target": ".github/workflows/release.yml",
-      "description": "Create release workflow: triggered on version tags, runs CI then npm publish"
+      "description": "Create CI workflow: trigger on PR and push to main, runs on ubuntu-latest"
     },
     {
       "action": "modify_file",
-      "target": "package.json",
-      "description": "Ensure typecheck, lint, test, and build scripts all exist and exit non-zero on failure"
+      "target": ".github/workflows/ci.yml",
+      "description": "Add npm cache step using actions/cache with cache key on package-lock.json hash"
+    },
+    {
+      "action": "modify_file",
+      "target": ".github/workflows/ci.yml",
+      "description": "Add parallel jobs: typecheck, lint, test (with coverage upload), build"
     },
     {
       "action": "create_file",
-      "target": ".github/dependabot.yml",
-      "description": "Enable Dependabot for weekly npm and GitHub Actions updates"
+      "target": ".github/workflows/deploy.yml",
+      "description": "Create deploy workflow triggered on push to main: runs tests then deploys to Vercel"
+    },
+    {
+      "action": "create_file",
+      "target": ".github/workflows/security.yml",
+      "description": "Add weekly security scan: npm audit, CodeQL analysis, Dependabot alerts"
     }
   ],
-  "parameters": {},
+  "parameters": {
+    "NODE_VERSION": "22",
+    "CACHE_KEY": "node-modules-${{ hashFiles('package-lock.json') }}"
+  },
   "tags": [
-    "ci",
-    "github-actions",
     "devops",
-    "nodejs",
-    "typescript"
+    "github-actions",
+    "ci-cd",
+    "automation",
+    "deployment",
+    "caching"
   ],
-  "version": "1.0.0",
+  "version": "2.0.0",
   "metadata": {
     "id": "github-actions-ci",
     "author": "agentgram",
-    "createdAt": "2026-03-25T14:59:58.202Z",
-    "updatedAt": "2026-03-25T14:59:58.202Z",
+    "createdAt": "2026-03-25T19:00:59.178Z",
+    "updatedAt": "2026-03-25T19:00:59.178Z",
     "downloads": 0,
     "rating": 5,
     "ratingCount": 1,
@@ -55,8 +54,9 @@
     "checksum": "4769744875622041",
     "category": "devops",
     "stack": [
-      "nodejs"
+      "nodejs",
+      "nextjs"
     ],
-    "tagline": "Lint + test + build on every push, Node 18/20/22 matrix, cache npm deps"
+    "tagline": "Fast CI with dependency caching, parallel jobs, and automated deploys on merge"
   }
 }

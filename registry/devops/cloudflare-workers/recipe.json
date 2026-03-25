@@ -1,0 +1,77 @@
+{
+  "name": "Cloudflare Workers + D1",
+  "description": "Build and deploy a Cloudflare Workers API with D1 (SQLite at the edge), KV storage, and R2 for files. Sub-millisecond cold starts, 0ms latency from your users' location, and a generous free tier.",
+  "sourceSessionId": "curated-cloudflare-workers",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm create cloudflare@latest my-worker -- --type=hello-world",
+      "description": "Scaffold Cloudflare Worker with Wrangler"
+    },
+    {
+      "action": "modify_file",
+      "target": "wrangler.toml",
+      "description": "Add D1 database binding, KV namespace binding, and R2 bucket binding"
+    },
+    {
+      "action": "run_command",
+      "target": "npx wrangler d1 create my-db",
+      "description": "Create D1 database and copy ID to wrangler.toml"
+    },
+    {
+      "action": "create_file",
+      "target": "src/db/schema.sql",
+      "description": "Create D1 schema: users, posts tables with indexes"
+    },
+    {
+      "action": "run_command",
+      "target": "npx wrangler d1 execute my-db --local --file=src/db/schema.sql",
+      "description": "Apply schema to local D1"
+    },
+    {
+      "action": "create_file",
+      "target": "src/index.ts",
+      "description": "Create Hono.js router with GET/POST routes using D1 bindings for database operations"
+    },
+    {
+      "action": "run_command",
+      "target": "npx wrangler dev",
+      "description": "Start local development with D1",
+      "expect": "Ready on http://localhost:8787"
+    },
+    {
+      "action": "run_command",
+      "target": "npx wrangler deploy",
+      "description": "Deploy to Cloudflare edge network"
+    }
+  ],
+  "parameters": {
+    "WORKER_NAME": "my-api",
+    "D1_DATABASE": "my-db"
+  },
+  "tags": [
+    "devops",
+    "cloudflare",
+    "edge",
+    "serverless",
+    "d1",
+    "workers"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "cloudflare-workers",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.179Z",
+    "updatedAt": "2026-03-25T19:00:59.179Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "436c6f7564666c61",
+    "category": "devops",
+    "stack": [
+      "nodejs"
+    ],
+    "tagline": "Deploy serverless API to 300+ edge locations with SQLite at the edge"
+  }
+}

@@ -1,58 +1,42 @@
 # API Key Authentication
 
-> Secure machine-to-machine auth with hashed keys, scopes, and rate limiting
+> Secure your API with hashed keys, scopes, rate limits, and usage tracking
 
-## What it does
+## Why This Exists
 
-Add API key authentication for machine-to-machine communication. Keys are hashed (never stored in plain text), support scopes (read/write/admin), and tie into rate limiting.
+If you're building an API that other developers consume, OAuth is overkill and JWT is wrong. API keys are the right primitive — stateless, revocable, auditable, and familiar. This recipe gets the security right (hashing, no logging of raw keys).
 
-## Why this recipe exists
+## Steps (5 total)
 
-JWTs are for users. API keys are for services. When your API needs to be called by other services, crons, or third-party integrations, you need proper API key management — not just a hardcoded token in .env.
+1. 📄 **Create generateApiKey() using crypto.randomBytes(32), hashKey() using SHA-256, prefix with "ag_"**
+   `lib/api-keys.ts`
 
-## Steps (9 total)
+2. 📄 **Create api_keys table: id, keyHash, prefix (first 8 chars for lookup), scopes, userId, lastUsed, rateLimit**
+   `db/schema/api-keys.ts`
 
-1. 🔍 **`find`** → `package.json`  
-   Check existing auth setup and middleware
+3. 📄 **Create validateApiKey(req) middleware: extract Bearer token, hash, lookup by prefix, verify hash, check scopes**
+   `middleware/api-auth.ts`
 
-2. ⚡ **`run_command`** → `npm install crypto-js`  
-   Install crypto library for key hashing
+4. 📄 **Create POST /api/keys (create key, return raw key ONCE), GET /api/keys (list keys with last-used), DELETE /api/keys/[id]**
+   `app/api/keys/route.ts`
 
-3. 📄 **`create_file`** → `src/utils/apiKeys.ts`  
-   Create generateApiKey(), hashKey(), and verifyKey() utilities
-
-4. 📄 **`create_file`** → `src/models/ApiKey.ts`  
-   Create ApiKey model with id, keyHash, name, scopes, lastUsed, expiresAt
-
-5. 📄 **`create_file`** → `src/middleware/apiKeyAuth.ts`  
-   Create middleware that extracts Bearer token, hashes it, and looks up the key
-
-6. 📄 **`create_file`** → `src/routes/apiKeys.ts`  
-   Create POST /api-keys (create), GET /api-keys (list), DELETE /api-keys/:id (revoke)
-
-7. ✏️ **`modify_file`** → `src/app.ts`  
-   Apply apiKeyAuth middleware to /v1/* routes
-
-8. 📄 **`create_file`** → `tests/apiKeys.test.ts`  
-   Test key generation, authentication, and revocation
-
-9. ⚡ **`run_command`** → `npm test`  
-   Verify API key auth tests pass
+5. 📄 **Create api_usage table for per-key request logging (for billing and analytics)**
+   `db/schema/api-usage.ts`
 
 ## Parameters
 
 | Parameter | Default | Description |
 |-----------|---------|-------------|
-| `src` | `src` | Change to match your project |
-| `tests` | `tests` | Change to match your project |
-
+| `KEY_PREFIX` | `ag_` | — |
+| `KEY_LENGTH` | `32` | — |
+| `DEFAULT_RATE_LIMIT` | `1000` | — |
 ## Tags
 
-`auth` · `api-key` · `security` · `express` · `nodejs` · `typescript`
+`auth` · `api-keys` · `security` · `rate-limiting` · `developer-api`
 
 ## Stack
 
-Works with: nodejs, express, typescript
+Works with: nextjs, nodejs
 
 ---
 

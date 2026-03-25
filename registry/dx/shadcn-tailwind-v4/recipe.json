@@ -1,0 +1,67 @@
+{
+  "name": "shadcn/ui + Tailwind v4",
+  "description": "Set up shadcn/ui with Tailwind CSS v4 in a Next.js project. Includes dark mode, custom theme tokens, 10 most-used components (Button, Dialog, Sheet, Form, Table, etc.), and Storybook for component development.",
+  "sourceSessionId": "curated-shadcn-tailwind-v4",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npx shadcn@latest init",
+      "description": "Initialize shadcn/ui (selects style, base color, CSS variables)"
+    },
+    {
+      "action": "run_command",
+      "target": "npx shadcn@latest add button dialog sheet form table card badge toast",
+      "description": "Add the 10 most-used components"
+    },
+    {
+      "action": "create_file",
+      "target": "app/globals.css",
+      "description": "Configure Tailwind v4 @theme block with custom colors, fonts, and spacing"
+    },
+    {
+      "action": "create_file",
+      "target": "components/theme-toggle.tsx",
+      "description": "Create dark/light mode toggle using next-themes"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install -D @storybook/nextjs",
+      "description": "Add Storybook for component development"
+    },
+    {
+      "action": "run_command",
+      "target": "npx storybook@latest init",
+      "description": "Initialize Storybook with Next.js framework"
+    }
+  ],
+  "parameters": {
+    "BASE_COLOR": "slate",
+    "STYLE": "default"
+  },
+  "tags": [
+    "dx",
+    "shadcn",
+    "tailwind",
+    "ui",
+    "components",
+    "dark-mode",
+    "accessibility"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "shadcn-tailwind-v4",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.179Z",
+    "updatedAt": "2026-03-25T19:00:59.179Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "73686164636e2f75",
+    "category": "dx",
+    "stack": [
+      "nextjs"
+    ],
+    "tagline": "The component library that owns no code — beautiful, accessible, yours to modify"
+  }
+}

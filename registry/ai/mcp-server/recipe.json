@@ -1,0 +1,72 @@
+{
+  "name": "MCP Server (Model Context Protocol)",
+  "description": "Build a Model Context Protocol server that exposes your app's data and actions as tools for AI agents. Includes tool definitions, resource handlers, and connection to Claude Desktop and cursor.",
+  "sourceSessionId": "curated-mcp-server",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install @modelcontextprotocol/sdk zod",
+      "description": "Install MCP SDK and Zod for schema validation"
+    },
+    {
+      "action": "create_file",
+      "target": "mcp/server.ts",
+      "description": "Create MCP Server with name, version, and capabilities declaration"
+    },
+    {
+      "action": "create_file",
+      "target": "mcp/tools/index.ts",
+      "description": "Register tools with name, description, inputSchema (Zod), and handler function"
+    },
+    {
+      "action": "create_file",
+      "target": "mcp/resources/index.ts",
+      "description": "Register resources (database tables, file contents) as readable context"
+    },
+    {
+      "action": "create_file",
+      "target": "mcp/index.ts",
+      "description": "Create entry point connecting server to stdio transport for Claude Desktop"
+    },
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Add \"mcp\": \"node dist/mcp/index.js\" to scripts"
+    },
+    {
+      "action": "create_file",
+      "target": ".claude/mcp.json",
+      "description": "Register your MCP server in Claude Code settings"
+    }
+  ],
+  "parameters": {
+    "SERVER_NAME": "my-app-mcp",
+    "SERVER_VERSION": "1.0.0"
+  },
+  "tags": [
+    "ai",
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "agents",
+    "tools"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "mcp-server",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.176Z",
+    "updatedAt": "2026-03-25T19:00:59.176Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "4d43502053657276",
+    "category": "ai",
+    "stack": [
+      "nodejs",
+      "nextjs"
+    ],
+    "tagline": "Give Claude and GPT-4 direct access to your database, APIs, and files"
+  }
+}

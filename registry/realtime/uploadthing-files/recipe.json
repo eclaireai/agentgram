@@ -1,0 +1,66 @@
+{
+  "name": "File Uploads with UploadThing",
+  "description": "Add file uploads to a Next.js app using UploadThing. Includes file type validation, size limits, upload progress UI, server-side processing callback, and CDN-delivered URLs. No S3 configuration needed.",
+  "sourceSessionId": "curated-uploadthing-files",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install uploadthing @uploadthing/react",
+      "description": "Install UploadThing and React components"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/uploadthing/core.ts",
+      "description": "Create file router with routes (imageUploader, documentUploader), auth check, file type/size rules, onUploadComplete callback"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/uploadthing/route.ts",
+      "description": "Create Next.js route handler from your file router"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/uploadthing.ts",
+      "description": "Export typed client components: UploadButton, UploadDropzone, Uploader"
+    },
+    {
+      "action": "create_file",
+      "target": "components/FileUpload.tsx",
+      "description": "Create file upload component with drag-and-drop, progress bar, and preview"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env.local",
+      "description": "Add UPLOADTHING_SECRET and UPLOADTHING_APP_ID from UploadThing dashboard"
+    }
+  ],
+  "parameters": {
+    "MAX_FILE_SIZE": "4MB",
+    "ALLOWED_TYPES": "image/*, application/pdf"
+  },
+  "tags": [
+    "uploads",
+    "uploadthing",
+    "files",
+    "cdn",
+    "s3",
+    "nextjs"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "uploadthing-files",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.178Z",
+    "updatedAt": "2026-03-25T19:00:59.178Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "46696c652055706c",
+    "category": "realtime",
+    "stack": [
+      "nextjs"
+    ],
+    "tagline": "Type-safe file uploads with progress tracking, validation, and CDN delivery"
+  }
+}

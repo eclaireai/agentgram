@@ -1,0 +1,67 @@
+{
+  "name": "Real-Time with Supabase",
+  "description": "Add real-time features using Supabase Realtime: database change subscriptions (INSERT/UPDATE/DELETE events), presence (who's online), and broadcast (send arbitrary messages to all connected clients). Zero WebSocket server setup.",
+  "sourceSessionId": "curated-supabase-realtime",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install @supabase/supabase-js",
+      "description": "Install Supabase client (realtime is built in)"
+    },
+    {
+      "action": "create_file",
+      "target": "hooks/useRealtimeTable.ts",
+      "description": "Create useRealtimeTable(table) hook that subscribes to INSERT/UPDATE/DELETE and returns live rows"
+    },
+    {
+      "action": "create_file",
+      "target": "hooks/usePresence.ts",
+      "description": "Create usePresence(channelId) hook tracking online users with enter/leave events"
+    },
+    {
+      "action": "create_file",
+      "target": "hooks/useBroadcast.ts",
+      "description": "Create useBroadcast(channel) hook for sending/receiving arbitrary real-time messages"
+    },
+    {
+      "action": "create_file",
+      "target": "components/LiveCursors.tsx",
+      "description": "Create live cursor overlay showing other users' mouse positions"
+    },
+    {
+      "action": "create_file",
+      "target": "components/OnlineIndicator.tsx",
+      "description": "Create presence indicator showing online count and avatars"
+    }
+  ],
+  "parameters": {
+    "CHANNEL_PREFIX": "room:",
+    "HEARTBEAT_INTERVAL": "30000"
+  },
+  "tags": [
+    "realtime",
+    "supabase",
+    "websockets",
+    "presence",
+    "live",
+    "collaborative"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "supabase-realtime",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.178Z",
+    "updatedAt": "2026-03-25T19:00:59.178Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "5265616c2d54696d",
+    "category": "realtime",
+    "stack": [
+      "nextjs",
+      "nodejs"
+    ],
+    "tagline": "Live cursors, presence, and database change streaming — no WebSocket server needed"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "name": "Transactional Email with Resend",
+  "description": "Set up Resend for transactional email with React Email templates. Includes welcome email, password reset, invoice, and notification templates. Custom domain setup for near-100% inbox delivery.",
+  "sourceSessionId": "curated-resend-email",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install resend @react-email/components @react-email/render",
+      "description": "Install Resend and React Email"
+    },
+    {
+      "action": "create_file",
+      "target": "emails/WelcomeEmail.tsx",
+      "description": "Create welcome email template with company branding, user name, and CTA button"
+    },
+    {
+      "action": "create_file",
+      "target": "emails/PasswordResetEmail.tsx",
+      "description": "Create password reset email with secure reset link and 24-hour expiry notice"
+    },
+    {
+      "action": "create_file",
+      "target": "emails/InvoiceEmail.tsx",
+      "description": "Create invoice email with line items table, total, and PDF attachment support"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/email.ts",
+      "description": "Create sendEmail(to, template, props) wrapper with error handling and dev-mode preview"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env.local",
+      "description": "Add RESEND_API_KEY and RESEND_FROM_EMAIL (e.g. noreply@yourdomain.com)"
+    }
+  ],
+  "parameters": {
+    "FROM_EMAIL": "noreply@example.com",
+    "REPLY_TO": "support@example.com"
+  },
+  "tags": [
+    "email",
+    "resend",
+    "react-email",
+    "transactional",
+    "notifications"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "resend-email",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.178Z",
+    "updatedAt": "2026-03-25T19:00:59.178Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "5472616e73616374",
+    "category": "realtime",
+    "stack": [
+      "nextjs",
+      "nodejs"
+    ],
+    "tagline": "Beautiful HTML emails with React Email — and actually get delivered to inbox"
+  }
+}

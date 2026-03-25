@@ -1,0 +1,66 @@
+{
+  "name": "PostHog Analytics + Feature Flags",
+  "description": "Integrate PostHog for product analytics and feature flags. Track custom events, define funnels, enable session replay, and use feature flags to roll out features to specific user segments. Self-hostable.",
+  "sourceSessionId": "curated-posthog-analytics",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install posthog-js posthog-node",
+      "description": "Install PostHog browser SDK and Node.js SDK"
+    },
+    {
+      "action": "create_file",
+      "target": "app/providers/PostHogProvider.tsx",
+      "description": "Create PostHog provider component with posthog-js initialization and user identification"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/analytics.ts",
+      "description": "Create track(), identify(), setUserProperties(), and page() wrapper functions"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/feature-flags.ts",
+      "description": "Create isFeatureEnabled(flag, userId) using posthog-node for server-side flag evaluation"
+    },
+    {
+      "action": "create_file",
+      "target": "middleware.ts",
+      "description": "Add Bootstrap data to middleware response for SSR feature flags without waterfall"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env.local",
+      "description": "Add NEXT_PUBLIC_POSTHOG_KEY and NEXT_PUBLIC_POSTHOG_HOST"
+    }
+  ],
+  "parameters": {
+    "POSTHOG_HOST": "https://app.posthog.com",
+    "SESSION_RECORDING": "true"
+  },
+  "tags": [
+    "dx",
+    "analytics",
+    "posthog",
+    "feature-flags",
+    "session-replay",
+    "events"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "posthog-analytics",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.180Z",
+    "updatedAt": "2026-03-25T19:00:59.180Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "506f7374486f6720",
+    "category": "dx",
+    "stack": [
+      "nextjs"
+    ],
+    "tagline": "Event tracking, funnels, session replay, and feature flags — open source"
+  }
+}

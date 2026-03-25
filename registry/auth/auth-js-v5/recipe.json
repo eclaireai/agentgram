@@ -1,0 +1,71 @@
+{
+  "name": "Auth.js v5 (Next-Auth)",
+  "description": "Configure Auth.js v5 with multiple OAuth providers (GitHub, Google, Discord), database sessions via Drizzle adapter, and RBAC. Includes protected API routes, server actions auth, and JWT customization.",
+  "sourceSessionId": "curated-auth-js-v5",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install next-auth@beta @auth/drizzle-adapter",
+      "description": "Install Auth.js v5 beta and Drizzle adapter"
+    },
+    {
+      "action": "create_file",
+      "target": "auth.ts",
+      "description": "Create Auth.js config with providers, Drizzle adapter, callbacks for JWT and session"
+    },
+    {
+      "action": "create_file",
+      "target": "auth.config.ts",
+      "description": "Create edge-compatible config with authorized() callback for middleware use"
+    },
+    {
+      "action": "create_file",
+      "target": "middleware.ts",
+      "description": "Create auth middleware using auth.config.ts (edge-safe)"
+    },
+    {
+      "action": "create_file",
+      "target": "db/schema/auth.ts",
+      "description": "Create Auth.js Drizzle schema: users, accounts, sessions, verificationTokens tables"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env.local",
+      "description": "Add AUTH_SECRET, GITHUB_ID, GITHUB_SECRET, GOOGLE_ID, GOOGLE_SECRET"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/auth/[...nextauth]/route.ts",
+      "description": "Create catch-all Auth.js route handler"
+    }
+  ],
+  "parameters": {
+    "SESSION_STRATEGY": "jwt",
+    "PROVIDERS": "github,google"
+  },
+  "tags": [
+    "auth",
+    "nextauth",
+    "auth-js",
+    "oauth",
+    "drizzle",
+    "sessions"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "auth-js-v5",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.177Z",
+    "updatedAt": "2026-03-25T19:00:59.177Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "417574682e6a7320",
+    "category": "auth",
+    "stack": [
+      "nextjs"
+    ],
+    "tagline": "Framework-agnostic auth with 50+ OAuth providers — the open-source standard"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "name": "Progressive Web App with Next.js",
+  "description": "Convert a Next.js app into a PWA with offline support, push notifications, home screen installation, and app-like navigation. Uses next-pwa with Workbox service worker strategies.",
+  "sourceSessionId": "curated-pwa-nextjs",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install @ducanh2912/next-pwa",
+      "description": "Install next-pwa (Workbox-powered, TypeScript compatible)"
+    },
+    {
+      "action": "modify_file",
+      "target": "next.config.ts",
+      "description": "Wrap next config with withPWA() — configure caching strategies and workbox options"
+    },
+    {
+      "action": "create_file",
+      "target": "public/manifest.json",
+      "description": "Create Web App Manifest: name, icons (192px, 512px), theme_color, display: standalone, start_url"
+    },
+    {
+      "action": "modify_file",
+      "target": "app/layout.tsx",
+      "description": "Add <link rel=\"manifest\">, meta theme-color, and apple-touch-icon to document head"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/push-notifications.ts",
+      "description": "Create subscribeToPush(), sendPushNotification(), and unsubscribe() using Web Push API"
+    },
+    {
+      "action": "create_file",
+      "target": "public/sw-custom.js",
+      "description": "Add custom service worker logic: background sync, offline page, push event handler"
+    }
+  ],
+  "parameters": {
+    "APP_NAME": "My App",
+    "THEME_COLOR": "#000000",
+    "OFFLINE_PAGE": "/offline"
+  },
+  "tags": [
+    "mobile",
+    "pwa",
+    "nextjs",
+    "offline",
+    "push-notifications",
+    "service-worker"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "pwa-nextjs",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.181Z",
+    "updatedAt": "2026-03-25T19:00:59.181Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "50726f6772657373",
+    "category": "mobile",
+    "stack": [
+      "nextjs"
+    ],
+    "tagline": "Install your web app on any device — offline support, push notifications, home screen"
+  }
+}

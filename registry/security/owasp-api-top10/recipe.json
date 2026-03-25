@@ -1,0 +1,78 @@
+{
+  "name": "OWASP API Security Top 10",
+  "description": "Implement defenses for the OWASP API Security Top 10 (2023). Covers broken object authorization, authentication flaws, unrestricted resource consumption, injection, and security misconfiguration — with code examples for each.",
+  "sourceSessionId": "curated-owasp-api-top10",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install helmet express-rate-limit joi",
+      "description": "Install security middleware"
+    },
+    {
+      "action": "create_file",
+      "target": "middleware/security.ts",
+      "description": "Apply helmet() for all security headers (CSP, HSTS, X-Frame-Options, etc.)"
+    },
+    {
+      "action": "create_file",
+      "target": "middleware/rate-limit.ts",
+      "description": "Apply rate limiting: 100 req/15min globally, 5 req/15min on /auth routes"
+    },
+    {
+      "action": "create_file",
+      "target": "middleware/object-auth.ts",
+      "description": "Create checkOwnership(req, resourceId) middleware for object-level authorization (BOLA fix)"
+    },
+    {
+      "action": "create_file",
+      "target": "middleware/input-validation.ts",
+      "description": "Validate all request bodies with Zod/Joi, reject unknown fields (mass assignment fix)"
+    },
+    {
+      "action": "create_file",
+      "target": "middleware/query-limits.ts",
+      "description": "Enforce max page size, max depth for nested queries, and request timeout"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/safe-query.ts",
+      "description": "Create parameterized query wrapper that prevents SQL injection"
+    },
+    {
+      "action": "create_file",
+      "target": "middleware/error-handler.ts",
+      "description": "Create error handler that never leaks stack traces or internal details to API responses"
+    }
+  ],
+  "parameters": {
+    "RATE_LIMIT_WINDOW_MS": "900000",
+    "RATE_LIMIT_MAX": "100",
+    "MAX_PAGE_SIZE": "100"
+  },
+  "tags": [
+    "security",
+    "owasp",
+    "api",
+    "rate-limiting",
+    "injection",
+    "authorization"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "owasp-api-top10",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.180Z",
+    "updatedAt": "2026-03-25T19:00:59.180Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "4f57415350204150",
+    "category": "security",
+    "stack": [
+      "nodejs",
+      "nextjs"
+    ],
+    "tagline": "Harden your API against the 10 most exploited vulnerabilities in production"
+  }
+}

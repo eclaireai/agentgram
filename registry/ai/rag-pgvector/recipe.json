@@ -1,0 +1,87 @@
+{
+  "name": "RAG Pipeline with pgvector",
+  "description": "Build a Retrieval-Augmented Generation pipeline using pgvector in PostgreSQL. Embed documents with OpenAI text-embedding-3-small, store vectors in Postgres, and use cosine similarity search to inject context into prompts.",
+  "sourceSessionId": "curated-rag-pgvector",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install @ai-sdk/openai drizzle-orm pg",
+      "description": "Install AI SDK, ORM, and Postgres client"
+    },
+    {
+      "action": "run_command",
+      "target": "psql -c \"CREATE EXTENSION IF NOT EXISTS vector;\"",
+      "description": "Enable pgvector extension in your Postgres database"
+    },
+    {
+      "action": "create_file",
+      "target": "db/schema/documents.ts",
+      "description": "Create documents table with content TEXT and embedding vector(1536) columns"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/embed.ts",
+      "description": "Create embedText() function using text-embedding-3-small, returns Float32Array"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/ingest.ts",
+      "description": "Create ingest() that chunks documents, embeds each chunk, and upserts to DB"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/search.ts",
+      "description": "Create semanticSearch(query, limit) using cosine similarity operator (<=>)"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/rag/route.ts",
+      "description": "Create RAG API route: search → inject context → stream answer with citations"
+    },
+    {
+      "action": "create_file",
+      "target": "scripts/seed-docs.ts",
+      "description": "Create ingestion script that loads markdown files from /docs and ingests them"
+    },
+    {
+      "action": "run_command",
+      "target": "npx tsx scripts/seed-docs.ts",
+      "description": "Ingest sample documents and verify embeddings stored",
+      "expect": "N documents ingested"
+    }
+  ],
+  "parameters": {
+    "EMBEDDING_MODEL": "text-embedding-3-small",
+    "EMBEDDING_DIMS": "1536",
+    "CHUNK_SIZE": "512",
+    "TOP_K": "5"
+  },
+  "tags": [
+    "ai",
+    "rag",
+    "pgvector",
+    "embeddings",
+    "semantic-search",
+    "postgresql",
+    "openai"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "rag-pgvector",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.176Z",
+    "updatedAt": "2026-03-25T19:00:59.176Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "5241472050697065",
+    "category": "ai",
+    "stack": [
+      "nextjs",
+      "nodejs",
+      "postgresql"
+    ],
+    "tagline": "Production RAG: embed your docs, store in Postgres, semantic search in <100ms"
+  }
+}

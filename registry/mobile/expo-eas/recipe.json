@@ -1,0 +1,73 @@
+{
+  "name": "React Native with Expo EAS",
+  "description": "Set up a React Native app with Expo and EAS (Expo Application Services). Get OTA updates (ship without App Store review), cloud builds (no Mac needed for iOS), and preview builds for testing.",
+  "sourceSessionId": "curated-expo-eas",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npx create-expo-app@latest my-app --template blank-typescript",
+      "description": "Create new Expo app with TypeScript template"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install -g eas-cli && eas login",
+      "description": "Install EAS CLI and authenticate"
+    },
+    {
+      "action": "run_command",
+      "target": "eas build:configure",
+      "description": "Configure EAS builds — creates eas.json with development/preview/production profiles"
+    },
+    {
+      "action": "run_command",
+      "target": "eas update:configure",
+      "description": "Configure OTA updates — creates update branch per EAS profile"
+    },
+    {
+      "action": "create_file",
+      "target": "app/_layout.tsx",
+      "description": "Set up Expo Router with tab and stack navigation, typed routes"
+    },
+    {
+      "action": "run_command",
+      "target": "eas build --profile development --platform all",
+      "description": "Build development client for iOS and Android",
+      "expect": "Build submitted"
+    },
+    {
+      "action": "run_command",
+      "target": "eas update --branch preview --message \"First update\"",
+      "description": "Push first OTA update to preview channel"
+    }
+  ],
+  "parameters": {
+    "APP_SLUG": "my-app",
+    "BUNDLE_ID": "com.company.myapp"
+  },
+  "tags": [
+    "mobile",
+    "expo",
+    "react-native",
+    "ios",
+    "android",
+    "ota",
+    "eas"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "expo-eas",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.181Z",
+    "updatedAt": "2026-03-25T19:00:59.181Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "5265616374204e61",
+    "category": "mobile",
+    "stack": [
+      "react-native"
+    ],
+    "tagline": "Build iOS and Android from one codebase — OTA updates, no App Store wait"
+  }
+}

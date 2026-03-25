@@ -1,0 +1,61 @@
+{
+  "name": "n8n Workflow Automation",
+  "description": "Deploy and integrate n8n for workflow automation. Create automations that trigger on webhooks, schedule with cron, and connect your app to Slack, email, databases, and 400+ other services. Self-hosted for data privacy.",
+  "sourceSessionId": "curated-n8n-automation",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "docker run -d --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n n8nio/n8n",
+      "description": "Start n8n with persistent storage"
+    },
+    {
+      "action": "create_file",
+      "target": "n8n/docker-compose.yml",
+      "description": "Create production n8n compose with PostgreSQL backend, SMTP config, and webhook URL"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/webhooks/n8n/route.ts",
+      "description": "Create webhook endpoint that n8n can trigger to start workflows from your app events"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/n8n.ts",
+      "description": "Create triggerWorkflow(workflowId, data) function using n8n REST API for app-initiated automations"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env.local",
+      "description": "Add N8N_BASE_URL, N8N_API_KEY, N8N_WEBHOOK_URL"
+    }
+  ],
+  "parameters": {
+    "N8N_PORT": "5678",
+    "DB_TYPE": "postgresdb"
+  },
+  "tags": [
+    "automation",
+    "n8n",
+    "no-code",
+    "workflows",
+    "integration",
+    "non-tech"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "n8n-automation",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.181Z",
+    "updatedAt": "2026-03-25T19:00:59.181Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "6e386e20576f726b",
+    "category": "mobile",
+    "stack": [
+      "nodejs"
+    ],
+    "tagline": "No-code automation for non-tech users — connect 400+ apps without writing code"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "name": "Terraform AWS Infrastructure",
+  "description": "Define AWS production infrastructure with Terraform. Creates VPC with public/private subnets, ECS Fargate cluster, RDS PostgreSQL (Multi-AZ), Application Load Balancer, ACM certificate, and ECR registry.",
+  "sourceSessionId": "curated-terraform-aws",
+  "steps": [
+    {
+      "action": "create_file",
+      "target": "infrastructure/main.tf",
+      "description": "Create Terraform root module with AWS provider and required_version constraints"
+    },
+    {
+      "action": "create_file",
+      "target": "infrastructure/vpc.tf",
+      "description": "Create VPC module: 2 AZs, public subnets (ALB), private subnets (ECS, RDS), NAT Gateway"
+    },
+    {
+      "action": "create_file",
+      "target": "infrastructure/ecs.tf",
+      "description": "Create ECS Fargate cluster, task definition, service with auto-scaling on CPU/memory"
+    },
+    {
+      "action": "create_file",
+      "target": "infrastructure/rds.tf",
+      "description": "Create RDS PostgreSQL 16, Multi-AZ, automated backups (7 days), encrypted storage"
+    },
+    {
+      "action": "create_file",
+      "target": "infrastructure/alb.tf",
+      "description": "Create ALB with HTTPS listener (ACM cert), HTTP→HTTPS redirect, and target group health checks"
+    },
+    {
+      "action": "create_file",
+      "target": "infrastructure/variables.tf",
+      "description": "Define variables: environment, region, app_name, db_instance_class, min/max_capacity"
+    },
+    {
+      "action": "create_file",
+      "target": "infrastructure/outputs.tf",
+      "description": "Output: alb_dns, rds_endpoint, ecr_repository_url, ecs_cluster_name"
+    },
+    {
+      "action": "run_command",
+      "target": "terraform init && terraform plan",
+      "description": "Initialize Terraform and preview changes",
+      "expect": "Plan: N to add, 0 to change, 0 to destroy"
+    }
+  ],
+  "parameters": {
+    "AWS_REGION": "us-east-1",
+    "ENVIRONMENT": "production",
+    "DB_INSTANCE": "db.t3.medium"
+  },
+  "tags": [
+    "devops",
+    "terraform",
+    "aws",
+    "ecs",
+    "rds",
+    "infrastructure",
+    "iac"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "terraform-aws",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.178Z",
+    "updatedAt": "2026-03-25T19:00:59.178Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "5465727261666f72",
+    "category": "devops",
+    "stack": [
+      "nodejs"
+    ],
+    "tagline": "VPC, ECS Fargate, RDS Postgres, and ALB — production AWS in code"
+  }
+}

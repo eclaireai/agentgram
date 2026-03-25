@@ -1,72 +1,52 @@
 {
   "name": "API Key Authentication",
-  "description": "Add API key authentication for machine-to-machine communication. Keys are hashed (never stored in plain text), support scopes (read/write/admin), and tie into rate limiting.",
+  "description": "Implement API key authentication for developer-facing APIs. Keys are SHA-256 hashed before storage (never store raw keys), support scopes (read/write/admin), have per-key rate limits, and log every request for billing.",
   "sourceSessionId": "curated-api-key-auth",
   "steps": [
     {
-      "action": "find",
-      "target": "package.json",
-      "description": "Check existing auth setup and middleware"
-    },
-    {
-      "action": "run_command",
-      "target": "npm install crypto-js",
-      "description": "Install crypto library for key hashing"
+      "action": "create_file",
+      "target": "lib/api-keys.ts",
+      "description": "Create generateApiKey() using crypto.randomBytes(32), hashKey() using SHA-256, prefix with \"ag_\""
     },
     {
       "action": "create_file",
-      "target": "src/utils/apiKeys.ts",
-      "description": "Create generateApiKey(), hashKey(), and verifyKey() utilities"
+      "target": "db/schema/api-keys.ts",
+      "description": "Create api_keys table: id, keyHash, prefix (first 8 chars for lookup), scopes, userId, lastUsed, rateLimit"
     },
     {
       "action": "create_file",
-      "target": "src/models/ApiKey.ts",
-      "description": "Create ApiKey model with id, keyHash, name, scopes, lastUsed, expiresAt"
+      "target": "middleware/api-auth.ts",
+      "description": "Create validateApiKey(req) middleware: extract Bearer token, hash, lookup by prefix, verify hash, check scopes"
     },
     {
       "action": "create_file",
-      "target": "src/middleware/apiKeyAuth.ts",
-      "description": "Create middleware that extracts Bearer token, hashes it, and looks up the key"
+      "target": "app/api/keys/route.ts",
+      "description": "Create POST /api/keys (create key, return raw key ONCE), GET /api/keys (list keys with last-used), DELETE /api/keys/[id]"
     },
     {
       "action": "create_file",
-      "target": "src/routes/apiKeys.ts",
-      "description": "Create POST /api-keys (create), GET /api-keys (list), DELETE /api-keys/:id (revoke)"
-    },
-    {
-      "action": "modify_file",
-      "target": "src/app.ts",
-      "description": "Apply apiKeyAuth middleware to /v1/* routes"
-    },
-    {
-      "action": "create_file",
-      "target": "tests/apiKeys.test.ts",
-      "description": "Test key generation, authentication, and revocation"
-    },
-    {
-      "action": "run_command",
-      "target": "npm test",
-      "description": "Verify API key auth tests pass"
+      "target": "db/schema/api-usage.ts",
+      "description": "Create api_usage table for per-key request logging (for billing and analytics)"
     }
   ],
   "parameters": {
-    "src": "src",
-    "tests": "tests"
+    "KEY_PREFIX": "ag_",
+    "KEY_LENGTH": "32",
+    "DEFAULT_RATE_LIMIT": "1000"
   },
   "tags": [
     "auth",
-    "api-key",
+    "api-keys",
     "security",
-    "express",
-    "nodejs",
-    "typescript"
+    "rate-limiting",
+    "developer-api"
   ],
-  "version": "1.0.0",
+  "version": "2.0.0",
   "metadata": {
     "id": "api-key-auth",
     "author": "agentgram",
-    "createdAt": "2026-03-25T14:59:58.200Z",
-    "updatedAt": "2026-03-25T14:59:58.200Z",
+    "createdAt": "2026-03-25T19:00:59.177Z",
+    "updatedAt": "2026-03-25T19:00:59.177Z",
     "downloads": 0,
     "rating": 5,
     "ratingCount": 1,
@@ -74,10 +54,9 @@
     "checksum": "415049204b657920",
     "category": "auth",
     "stack": [
-      "nodejs",
-      "express",
-      "typescript"
+      "nextjs",
+      "nodejs"
     ],
-    "tagline": "Secure machine-to-machine auth with hashed keys, scopes, and rate limiting"
+    "tagline": "Secure your API with hashed keys, scopes, rate limits, and usage tracking"
   }
 }

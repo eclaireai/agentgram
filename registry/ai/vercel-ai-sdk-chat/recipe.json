@@ -1,0 +1,79 @@
+{
+  "name": "AI Streaming Chat (Vercel AI SDK)",
+  "description": "Integrate the Vercel AI SDK to stream AI responses in real time. Includes useChat hook, streaming API route, message history, and abort handling. Works with OpenAI, Anthropic, Google, and Groq.",
+  "sourceSessionId": "curated-vercel-ai-sdk-chat",
+  "steps": [
+    {
+      "action": "find",
+      "target": "package.json",
+      "description": "Detect Next.js version and existing AI dependencies"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install ai @ai-sdk/openai",
+      "description": "Install Vercel AI SDK and OpenAI provider"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/chat/route.ts",
+      "description": "Create streaming POST /api/chat route using streamText() with message history support"
+    },
+    {
+      "action": "create_file",
+      "target": "components/Chat.tsx",
+      "description": "Create Chat component with useChat hook, message list, input form, and loading indicator"
+    },
+    {
+      "action": "create_file",
+      "target": "components/Message.tsx",
+      "description": "Create Message component with role-based styling (user vs assistant), markdown rendering"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env.local",
+      "description": "Add OPENAI_API_KEY environment variable"
+    },
+    {
+      "action": "modify_file",
+      "target": "app/page.tsx",
+      "description": "Add Chat component to the main page"
+    },
+    {
+      "action": "run_command",
+      "target": "npm run dev",
+      "description": "Start dev server and verify streaming works end to end",
+      "expect": "Chat streams responses"
+    }
+  ],
+  "parameters": {
+    "MODEL": "gpt-4o",
+    "MAX_TOKENS": "1000",
+    "SYSTEM_PROMPT": "You are a helpful assistant."
+  },
+  "tags": [
+    "ai",
+    "llm",
+    "streaming",
+    "nextjs",
+    "openai",
+    "vercel-ai-sdk",
+    "chatbot"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "vercel-ai-sdk-chat",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.175Z",
+    "updatedAt": "2026-03-25T19:00:59.175Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "4149205374726561",
+    "category": "ai",
+    "stack": [
+      "nextjs"
+    ],
+    "tagline": "Add a streaming GPT-4o chatbot to any Next.js app in under 30 minutes"
+  }
+}

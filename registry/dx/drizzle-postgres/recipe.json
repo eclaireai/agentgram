@@ -1,0 +1,78 @@
+{
+  "name": "Drizzle ORM + PostgreSQL",
+  "description": "Set up Drizzle ORM with PostgreSQL. Define schemas in TypeScript, run type-safe queries, generate and apply migrations. Includes relations, prepared statements, and Drizzle Studio for visual data exploration.",
+  "sourceSessionId": "curated-drizzle-postgres",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install drizzle-orm postgres",
+      "description": "Install Drizzle ORM and postgres client"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install -D drizzle-kit",
+      "description": "Install Drizzle Kit for migrations"
+    },
+    {
+      "action": "create_file",
+      "target": "db/schema/index.ts",
+      "description": "Define tables using pgTable(), column types, and indexes"
+    },
+    {
+      "action": "create_file",
+      "target": "db/index.ts",
+      "description": "Create Drizzle client with postgres connection pool, exported as db"
+    },
+    {
+      "action": "create_file",
+      "target": "drizzle.config.ts",
+      "description": "Configure schema path, migrations output, and connection string for Drizzle Kit"
+    },
+    {
+      "action": "run_command",
+      "target": "npx drizzle-kit generate",
+      "description": "Generate SQL migration from schema diff"
+    },
+    {
+      "action": "run_command",
+      "target": "npx drizzle-kit migrate",
+      "description": "Apply migration to database",
+      "expect": "Migrations applied"
+    },
+    {
+      "action": "run_command",
+      "target": "npx drizzle-kit studio",
+      "description": "Open Drizzle Studio at https://local.drizzle.studio"
+    }
+  ],
+  "parameters": {
+    "DB_URL": "postgresql://user:password@localhost/mydb"
+  },
+  "tags": [
+    "dx",
+    "drizzle",
+    "orm",
+    "postgresql",
+    "typescript",
+    "sql",
+    "migrations"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "drizzle-postgres",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.179Z",
+    "updatedAt": "2026-03-25T19:00:59.179Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "4472697a7a6c6520",
+    "category": "dx",
+    "stack": [
+      "nextjs",
+      "nodejs"
+    ],
+    "tagline": "Type-safe SQL that feels like writing SQL — migrations, relations, zero runtime overhead"
+  }
+}

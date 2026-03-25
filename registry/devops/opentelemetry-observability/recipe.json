@@ -1,0 +1,66 @@
+{
+  "name": "OpenTelemetry Full Observability",
+  "description": "Instrument a Node.js app with OpenTelemetry SDK. Exports traces to Jaeger, metrics to Prometheus, and logs to Grafana Loki. Includes auto-instrumentation for HTTP, database, and custom business spans.",
+  "sourceSessionId": "curated-opentelemetry-observability",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install @opentelemetry/sdk-node @opentelemetry/auto-instrumentations-node @opentelemetry/exporter-trace-otlp-http",
+      "description": "Install OpenTelemetry SDK and exporters"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/telemetry.ts",
+      "description": "Create NodeSDK with auto-instrumentation, OTLP trace exporter, and Prometheus metrics exporter"
+    },
+    {
+      "action": "modify_file",
+      "target": "src/index.ts",
+      "description": "Import telemetry.ts FIRST (before any other imports) to ensure auto-instrumentation"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/tracing.ts",
+      "description": "Create trace(name, fn) helper for manual business spans with error recording"
+    },
+    {
+      "action": "create_file",
+      "target": "docker-compose.observability.yml",
+      "description": "Add Jaeger, Prometheus, and Grafana to local compose for development"
+    },
+    {
+      "action": "create_file",
+      "target": "dashboards/app.json",
+      "description": "Create Grafana dashboard JSON with request rate, p99 latency, error rate, and DB query panels"
+    }
+  ],
+  "parameters": {
+    "SERVICE_NAME": "my-service",
+    "OTLP_ENDPOINT": "http://localhost:4318"
+  },
+  "tags": [
+    "devops",
+    "observability",
+    "opentelemetry",
+    "tracing",
+    "metrics",
+    "grafana"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "opentelemetry-observability",
+    "author": "agentgram",
+    "createdAt": "2026-03-25T19:00:59.179Z",
+    "updatedAt": "2026-03-25T19:00:59.179Z",
+    "downloads": 0,
+    "rating": 5,
+    "ratingCount": 1,
+    "sourceAgent": "curated",
+    "checksum": "4f70656e54656c65",
+    "category": "devops",
+    "stack": [
+      "nodejs"
+    ],
+    "tagline": "Traces, metrics, and logs in one — vendor-neutral observability for any stack"
+  }
+}

@@ -1,43 +1,41 @@
-# GitHub Actions CI
+# GitHub Actions CI/CD
 
-> Lint + test + build on every push, Node 18/20/22 matrix, cache npm deps
+> Fast CI with dependency caching, parallel jobs, and automated deploys on merge
 
-## What it does
+## Why This Exists
 
-Add a production-grade GitHub Actions CI pipeline: typecheck, lint, test (Node 18/20/22 matrix), build, and optional npm publish on release tags. npm dependency caching keeps it fast.
+A CI pipeline that takes 10 minutes kills developer velocity. This recipe uses npm caching, job parallelization, and early exits to get feedback in under 2 minutes. The deploy step means every merge to main goes live automatically.
 
-## Why this recipe exists
+## Steps (5 total)
 
-A PR without CI is a liability. This recipe gives you the matrix strategy (Node LTS versions), proper npm caching, and a build step that catches broken imports before they hit main.
+1. 📄 **Create CI workflow: trigger on PR and push to main, runs on ubuntu-latest**
+   `.github/workflows/ci.yml`
 
-## Steps (6 total)
+2. ✏️ **Add npm cache step using actions/cache with cache key on package-lock.json hash**
+   `.github/workflows/ci.yml`
 
-1. 🔍 **`find`** → `package.json`  
-   Check test, lint, typecheck, and build scripts
+3. ✏️ **Add parallel jobs: typecheck, lint, test (with coverage upload), build**
+   `.github/workflows/ci.yml`
 
-2. ⚡ **`run_command`** → `mkdir -p .github/workflows`  
-   Create GitHub Actions directory
+4. 📄 **Create deploy workflow triggered on push to main: runs tests then deploys to Vercel**
+   `.github/workflows/deploy.yml`
 
-3. 📄 **`create_file`** → `.github/workflows/ci.yml`  
-   Create CI workflow: checkout, node matrix (18/20/22), npm ci, typecheck, lint, test, build
+5. 📄 **Add weekly security scan: npm audit, CodeQL analysis, Dependabot alerts**
+   `.github/workflows/security.yml`
 
-4. 📄 **`create_file`** → `.github/workflows/release.yml`  
-   Create release workflow: triggered on version tags, runs CI then npm publish
+## Parameters
 
-5. ✏️ **`modify_file`** → `package.json`  
-   Ensure typecheck, lint, test, and build scripts all exist and exit non-zero on failure
-
-6. 📄 **`create_file`** → `.github/dependabot.yml`  
-   Enable Dependabot for weekly npm and GitHub Actions updates
-
-
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `NODE_VERSION` | `22` | — |
+| `CACHE_KEY` | `node-modules-${{ hashFiles('package-lock.json') }}` | — |
 ## Tags
 
-`ci` · `github-actions` · `devops` · `nodejs` · `typescript`
+`devops` · `github-actions` · `ci-cd` · `automation` · `deployment` · `caching`
 
 ## Stack
 
-Works with: nodejs
+Works with: nodejs, nextjs
 
 ---
 
