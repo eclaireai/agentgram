@@ -1,0 +1,60 @@
+{
+  "name": "Setup Vitest Testing",
+  "description": "Set up Vitest testing framework with TypeScript support, coverage, and a sample test",
+  "sourceSessionId": "seed-setup-vitest-testing",
+  "steps": [
+    {
+      "action": "find",
+      "target": "package.json",
+      "description": "Check existing test framework",
+      "pattern": "package.json, tsconfig.json"
+    },
+    {
+      "action": "run_command",
+      "target": "{npm_install_d_vitest_vitest}/coverage-v8",
+      "description": "Install vitest"
+    },
+    {
+      "action": "create_file",
+      "target": "vitest.config.ts",
+      "description": "Create vitest config with TypeScript and coverage"
+    },
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Add test scripts: test, test:watch, test:coverage"
+    },
+    {
+      "action": "create_file",
+      "target": "{tests}/example.test.ts",
+      "description": "Create sample test file"
+    },
+    {
+      "action": "run_command",
+      "target": "npm test",
+      "description": "Verify tests pass"
+    }
+  ],
+  "parameters": {
+    "npm_install_d_vitest_vitest": "npm install -D vitest @vitest",
+    "tests": "tests"
+  },
+  "tags": [
+    "testing",
+    "vitest",
+    "typescript",
+    "setup"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "setup-vitest-testing-jdy6x7",
+    "author": "eclaireai",
+    "createdAt": "2026-03-25T13:03:02.252Z",
+    "updatedAt": "2026-03-25T13:03:02.252Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "claude-code",
+    "checksum": "e20e24ebff5c1096"
+  }
+}

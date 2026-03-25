@@ -1,0 +1,57 @@
+{
+  "name": "Add Docker Support",
+  "description": "Containerize a Node.js app with multi-stage Dockerfile, docker-compose for dev, and .dockerignore",
+  "sourceSessionId": "seed-add-docker-support",
+  "steps": [
+    {
+      "action": "find",
+      "target": "package.json",
+      "description": "Check Node version and scripts",
+      "pattern": "package.json, tsconfig.json"
+    },
+    {
+      "action": "create_file",
+      "target": "Dockerfile",
+      "description": "Multi-stage build: deps → build → runtime"
+    },
+    {
+      "action": "create_file",
+      "target": ".dockerignore",
+      "description": "Ignore node_modules, dist, .git, tests"
+    },
+    {
+      "action": "create_file",
+      "target": "docker-compose.yml",
+      "description": "Dev setup with hot reload and volume mounts"
+    },
+    {
+      "action": "create_file",
+      "target": "docker-compose.prod.yml",
+      "description": "Production setup with health checks"
+    },
+    {
+      "action": "run_command",
+      "target": "docker build -t app .",
+      "description": "Verify build succeeds"
+    }
+  ],
+  "parameters": {},
+  "tags": [
+    "docker",
+    "containerization",
+    "devops",
+    "nodejs"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "add-docker-support-w8u9jx",
+    "author": "eclaireai",
+    "createdAt": "2026-03-25T13:03:02.254Z",
+    "updatedAt": "2026-03-25T13:03:02.254Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "claude-code",
+    "checksum": "3ba9f0b20b24d268"
+  }
+}

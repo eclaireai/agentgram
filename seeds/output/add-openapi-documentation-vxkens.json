@@ -1,0 +1,62 @@
+{
+  "name": "Add OpenAPI Documentation",
+  "description": "Generate OpenAPI 3.0 spec from Express routes with Swagger UI and auto-validation",
+  "sourceSessionId": "seed-add-openapi-documentation",
+  "steps": [
+    {
+      "action": "find",
+      "target": "{src}",
+      "description": "Understand route structure",
+      "pattern": "src/app.ts, src/routes/index.ts"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install swagger-ui-express swagger-jsdoc",
+      "description": "Install Swagger deps"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_config}/swagger.ts",
+      "description": "OpenAPI 3.0 spec with info, servers, security"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_routes}/index.ts",
+      "description": "Add JSDoc annotations to routes"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/app.ts",
+      "description": "Mount Swagger UI at /api-docs"
+    },
+    {
+      "action": "run_command",
+      "target": "npm run dev",
+      "description": "Verify Swagger UI loads"
+    }
+  ],
+  "parameters": {
+    "src_config": "src/config",
+    "src_routes": "src/routes",
+    "src": "src"
+  },
+  "tags": [
+    "documentation",
+    "openapi",
+    "swagger",
+    "api",
+    "express"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "add-openapi-documentation-vxkens",
+    "author": "eclaireai",
+    "createdAt": "2026-03-25T13:03:02.254Z",
+    "updatedAt": "2026-03-25T13:03:02.254Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "claude-code",
+    "checksum": "31fc2aeabf5feb79"
+  }
+}

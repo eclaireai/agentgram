@@ -1,0 +1,49 @@
+{
+  "name": "Setup GitHub Actions CI",
+  "description": "Set up GitHub Actions CI pipeline with Node.js matrix testing, caching, and status badges",
+  "sourceSessionId": "seed-setup-github-actions-ci",
+  "steps": [
+    {
+      "action": "find",
+      "target": "package.json",
+      "description": "Check test and build scripts",
+      "pattern": "package.json, tsconfig.json"
+    },
+    {
+      "action": "create_file",
+      "target": "{github_workflows}/ci.yml",
+      "description": "Create CI workflow with Node matrix [18,20,22]"
+    },
+    {
+      "action": "modify_file",
+      "target": "README.md",
+      "description": "Add CI status badge"
+    },
+    {
+      "action": "run_command",
+      "target": "git add -A && git commit -m \"ci: add GitHub Actions\"",
+      "description": "Commit CI config"
+    }
+  ],
+  "parameters": {
+    "github_workflows": ".github/workflows"
+  },
+  "tags": [
+    "ci",
+    "github-actions",
+    "devops",
+    "automation"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "setup-github-actions-ci-hh6zhr",
+    "author": "eclaireai",
+    "createdAt": "2026-03-25T13:03:02.253Z",
+    "updatedAt": "2026-03-25T13:03:02.253Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "claude-code",
+    "checksum": "ebb478e1dd2534f2"
+  }
+}

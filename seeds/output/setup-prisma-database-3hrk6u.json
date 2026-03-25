@@ -1,0 +1,80 @@
+{
+  "name": "Setup Prisma Database",
+  "description": "Set up Prisma ORM with PostgreSQL, initial schema, migrations, and seed script",
+  "sourceSessionId": "seed-setup-prisma-database",
+  "steps": [
+    {
+      "action": "find",
+      "target": "package.json",
+      "description": "Check existing deps"
+    },
+    {
+      "action": "run_command",
+      "target": "{npm_install_prisma_prisma}/client",
+      "description": "Install Prisma"
+    },
+    {
+      "action": "run_command",
+      "target": "npx prisma init",
+      "description": "Initialize Prisma with PostgreSQL"
+    },
+    {
+      "action": "modify_file",
+      "target": "{prisma}/schema.prisma",
+      "description": "Define User and Post models"
+    },
+    {
+      "action": "create_file",
+      "target": ".env",
+      "description": "Add DATABASE_URL"
+    },
+    {
+      "action": "modify_file",
+      "target": ".gitignore",
+      "description": "Add .env to gitignore"
+    },
+    {
+      "action": "run_command",
+      "target": "npx prisma migrate dev --name init",
+      "description": "Run initial migration"
+    },
+    {
+      "action": "create_file",
+      "target": "{prisma}/seed.ts",
+      "description": "Create seed script with sample data"
+    },
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Add prisma seed and db scripts"
+    },
+    {
+      "action": "run_command",
+      "target": "npx prisma db seed",
+      "description": "Run seed"
+    }
+  ],
+  "parameters": {
+    "npm_install_prisma_prisma": "npm install prisma @prisma",
+    "prisma": "prisma"
+  },
+  "tags": [
+    "database",
+    "prisma",
+    "postgresql",
+    "orm",
+    "nodejs"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "setup-prisma-database-3hrk6u",
+    "author": "eclaireai",
+    "createdAt": "2026-03-25T13:03:02.254Z",
+    "updatedAt": "2026-03-25T13:03:02.254Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "claude-code",
+    "checksum": "ea0d90e3873e8ba1"
+  }
+}

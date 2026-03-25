@@ -1,0 +1,65 @@
+{
+  "name": "Setup ESLint and Prettier",
+  "description": "Configure ESLint with TypeScript support and Prettier integration for consistent code style",
+  "sourceSessionId": "seed-setup-eslint-and-prettier",
+  "steps": [
+    {
+      "action": "find",
+      "target": "package.json",
+      "description": "Check existing linting setup",
+      "pattern": "package.json, tsconfig.json"
+    },
+    {
+      "action": "run_command",
+      "target": "{npm_install_d_eslint_typescript_eslint_parser_typescript_eslint}/eslint-plugin prettier eslint-config-prettier",
+      "description": "Install linting deps"
+    },
+    {
+      "action": "create_file",
+      "target": "eslint.config.js",
+      "description": "Create flat config ESLint setup"
+    },
+    {
+      "action": "create_file",
+      "target": ".prettierrc",
+      "description": "Create Prettier config"
+    },
+    {
+      "action": "create_file",
+      "target": ".prettierignore",
+      "description": "Ignore dist and node_modules"
+    },
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Add lint and format scripts"
+    },
+    {
+      "action": "run_command",
+      "target": "npm run lint",
+      "description": "Verify linting passes"
+    }
+  ],
+  "parameters": {
+    "npm_install_d_eslint_typescript_eslint_parser_typescript_eslint": "npm install -D eslint @typescript-eslint/parser @typescript-eslint"
+  },
+  "tags": [
+    "linting",
+    "eslint",
+    "prettier",
+    "typescript",
+    "code-quality"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "setup-eslint-and-prettier-4ggjky",
+    "author": "eclaireai",
+    "createdAt": "2026-03-25T13:03:02.253Z",
+    "updatedAt": "2026-03-25T13:03:02.253Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "claude-code",
+    "checksum": "02adfc1730985feb"
+  }
+}

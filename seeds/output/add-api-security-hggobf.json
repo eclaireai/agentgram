@@ -1,0 +1,69 @@
+{
+  "name": "Add API Security",
+  "description": "Add rate limiting, CORS, helmet security headers, and request validation to Express API",
+  "sourceSessionId": "seed-add-api-security",
+  "steps": [
+    {
+      "action": "find",
+      "target": "{src}/app.ts",
+      "description": "Check existing middleware",
+      "pattern": "src/app.ts, package.json"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install helmet cors express-rate-limit",
+      "description": "Install security deps"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_middleware}/rate-limiter.ts",
+      "description": "Configure rate limiter: 100 req/15min"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/app.ts",
+      "description": "Add helmet, cors, rate limiter middleware"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_config}/cors.ts",
+      "description": "CORS whitelist configuration"
+    },
+    {
+      "action": "create_file",
+      "target": "{tests}/security.test.ts",
+      "description": "Test rate limiting and headers"
+    },
+    {
+      "action": "run_command",
+      "target": "npm test",
+      "description": "Verify security tests pass"
+    }
+  ],
+  "parameters": {
+    "src": "src",
+    "src_middleware": "src/middleware",
+    "src_config": "src/config",
+    "tests": "tests"
+  },
+  "tags": [
+    "security",
+    "rate-limiting",
+    "express",
+    "api",
+    "cors",
+    "helmet"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "add-api-security-hggobf",
+    "author": "eclaireai",
+    "createdAt": "2026-03-25T13:03:02.254Z",
+    "updatedAt": "2026-03-25T13:03:02.254Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "claude-code",
+    "checksum": "fcc75335e605c36e"
+  }
+}

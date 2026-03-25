@@ -1,0 +1,184 @@
+{
+  "version": "1",
+  "updatedAt": "2026-03-25T13:03:02.254Z",
+  "recipes": [
+    {
+      "id": "setup-vitest-testing-jdy6x7",
+      "name": "Setup Vitest Testing",
+      "description": "Set up Vitest testing framework with TypeScript support, coverage, and a sample test",
+      "author": "eclaireai",
+      "tags": [
+        "testing",
+        "vitest",
+        "typescript",
+        "setup"
+      ],
+      "sourceAgent": "claude-code",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T13:03:02.252Z",
+      "stepCount": 6
+    },
+    {
+      "id": "setup-eslint-and-prettier-4ggjky",
+      "name": "Setup ESLint and Prettier",
+      "description": "Configure ESLint with TypeScript support and Prettier integration for consistent code style",
+      "author": "eclaireai",
+      "tags": [
+        "linting",
+        "eslint",
+        "prettier",
+        "typescript",
+        "code-quality"
+      ],
+      "sourceAgent": "claude-code",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T13:03:02.253Z",
+      "stepCount": 7
+    },
+    {
+      "id": "setup-github-actions-ci-hh6zhr",
+      "name": "Setup GitHub Actions CI",
+      "description": "Set up GitHub Actions CI pipeline with Node.js matrix testing, caching, and status badges",
+      "author": "eclaireai",
+      "tags": [
+        "ci",
+        "github-actions",
+        "devops",
+        "automation"
+      ],
+      "sourceAgent": "claude-code",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T13:03:02.253Z",
+      "stepCount": 4
+    },
+    {
+      "id": "add-jwt-authentication-028f55",
+      "name": "Add JWT Authentication",
+      "description": "Add JWT-based authentication to an Express API with middleware, token refresh, and tests",
+      "author": "eclaireai",
+      "tags": [
+        "auth",
+        "jwt",
+        "express",
+        "nodejs",
+        "security",
+        "api"
+      ],
+      "sourceAgent": "claude-code",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T13:03:02.254Z",
+      "stepCount": 10
+    },
+    {
+      "id": "add-docker-support-w8u9jx",
+      "name": "Add Docker Support",
+      "description": "Containerize a Node.js app with multi-stage Dockerfile, docker-compose for dev, and .dockerignore",
+      "author": "eclaireai",
+      "tags": [
+        "docker",
+        "containerization",
+        "devops",
+        "nodejs"
+      ],
+      "sourceAgent": "claude-code",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T13:03:02.254Z",
+      "stepCount": 6
+    },
+    {
+      "id": "add-error-handling-and-logging-8bske1",
+      "name": "Add Error Handling and Logging",
+      "description": "Add structured error handling with custom error classes, global handler, and request logging",
+      "author": "eclaireai",
+      "tags": [
+        "error-handling",
+        "logging",
+        "express",
+        "nodejs",
+        "observability"
+      ],
+      "sourceAgent": "claude-code",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T13:03:02.254Z",
+      "stepCount": 9
+    },
+    {
+      "id": "setup-prisma-database-3hrk6u",
+      "name": "Setup Prisma Database",
+      "description": "Set up Prisma ORM with PostgreSQL, initial schema, migrations, and seed script",
+      "author": "eclaireai",
+      "tags": [
+        "database",
+        "prisma",
+        "postgresql",
+        "orm",
+        "nodejs"
+      ],
+      "sourceAgent": "claude-code",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T13:03:02.254Z",
+      "stepCount": 10
+    },
+    {
+      "id": "add-api-security-hggobf",
+      "name": "Add API Security",
+      "description": "Add rate limiting, CORS, helmet security headers, and request validation to Express API",
+      "author": "eclaireai",
+      "tags": [
+        "security",
+        "rate-limiting",
+        "express",
+        "api",
+        "cors",
+        "helmet"
+      ],
+      "sourceAgent": "claude-code",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T13:03:02.254Z",
+      "stepCount": 7
+    },
+    {
+      "id": "add-openapi-documentation-vxkens",
+      "name": "Add OpenAPI Documentation",
+      "description": "Generate OpenAPI 3.0 spec from Express routes with Swagger UI and auto-validation",
+      "author": "eclaireai",
+      "tags": [
+        "documentation",
+        "openapi",
+        "swagger",
+        "api",
+        "express"
+      ],
+      "sourceAgent": "claude-code",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T13:03:02.254Z",
+      "stepCount": 6
+    },
+    {
+      "id": "migrate-to-typescript-kgbwbq",
+      "name": "Migrate to TypeScript",
+      "description": "Migrate a JavaScript project to TypeScript with strict mode, path aliases, and updated build",
+      "author": "eclaireai",
+      "tags": [
+        "typescript",
+        "migration",
+        "refactoring",
+        "javascript"
+      ],
+      "sourceAgent": "claude-code",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T13:03:02.254Z",
+      "stepCount": 9
+    }
+  ]
+}

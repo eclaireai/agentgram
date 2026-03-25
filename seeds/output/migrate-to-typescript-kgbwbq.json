@@ -1,0 +1,75 @@
+{
+  "name": "Migrate to TypeScript",
+  "description": "Migrate a JavaScript project to TypeScript with strict mode, path aliases, and updated build",
+  "sourceSessionId": "seed-migrate-to-typescript",
+  "steps": [
+    {
+      "action": "find",
+      "target": "package.json",
+      "description": "Check build tools",
+      "pattern": "package.json, src/index.js"
+    },
+    {
+      "action": "run_command",
+      "target": "{npm_install_d_typescript_types}/node",
+      "description": "Install TypeScript"
+    },
+    {
+      "action": "create_file",
+      "target": "tsconfig.json",
+      "description": "Create strict tsconfig with path aliases"
+    },
+    {
+      "action": "run_command",
+      "target": "find src -name \"*.js\" -exec bash -c 'mv \"$0\" \"${0%.js}.ts\"' {} \\;",
+      "description": "Rename .js to .ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/index.ts",
+      "description": "Add type annotations to entry point"
+    },
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Update scripts: build with tsc, add typecheck"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/index.ts",
+      "description": "Fix remaining type errors"
+    },
+    {
+      "action": "run_command",
+      "target": "npm run typecheck",
+      "description": "Verify zero type errors"
+    },
+    {
+      "action": "run_command",
+      "target": "npm run build",
+      "description": "Verify build succeeds"
+    }
+  ],
+  "parameters": {
+    "npm_install_d_typescript_types": "npm install -D typescript @types",
+    "src": "src"
+  },
+  "tags": [
+    "typescript",
+    "migration",
+    "refactoring",
+    "javascript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "migrate-to-typescript-kgbwbq",
+    "author": "eclaireai",
+    "createdAt": "2026-03-25T13:03:02.254Z",
+    "updatedAt": "2026-03-25T13:03:02.254Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "claude-code",
+    "checksum": "be02dfe76648ae4c"
+  }
+}

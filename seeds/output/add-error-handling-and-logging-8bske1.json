@@ -1,0 +1,79 @@
+{
+  "name": "Add Error Handling and Logging",
+  "description": "Add structured error handling with custom error classes, global handler, and request logging",
+  "sourceSessionId": "seed-add-error-handling-and-logging",
+  "steps": [
+    {
+      "action": "find",
+      "target": "{src}",
+      "description": "Understand app structure",
+      "pattern": "src/app.ts, src/routes/index.ts"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install pino pino-http",
+      "description": "Install structured logger"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_utils}/logger.ts",
+      "description": "Create Pino logger with request ID"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_errors}/AppError.ts",
+      "description": "Create custom error classes: NotFound, Validation, Auth"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_middleware}/error-handler.ts",
+      "description": "Create global error handler middleware"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_middleware}/request-logger.ts",
+      "description": "Create request logging middleware"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/app.ts",
+      "description": "Register logger and error handler middleware"
+    },
+    {
+      "action": "create_file",
+      "target": "{tests}/errors.test.ts",
+      "description": "Test error handling"
+    },
+    {
+      "action": "run_command",
+      "target": "npm test",
+      "description": "Verify tests pass"
+    }
+  ],
+  "parameters": {
+    "src_utils": "src/utils",
+    "src_errors": "src/errors",
+    "src_middleware": "src/middleware",
+    "src": "src",
+    "tests": "tests"
+  },
+  "tags": [
+    "error-handling",
+    "logging",
+    "express",
+    "nodejs",
+    "observability"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "add-error-handling-and-logging-8bske1",
+    "author": "eclaireai",
+    "createdAt": "2026-03-25T13:03:02.254Z",
+    "updatedAt": "2026-03-25T13:03:02.254Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "claude-code",
+    "checksum": "591a90e1feac0a7e"
+  }
+}
