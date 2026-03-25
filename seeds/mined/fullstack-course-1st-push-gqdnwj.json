@@ -1,0 +1,81 @@
+{
+  "name": "Fullstack course 1st push",
+  "description": "fullstack course 1st push",
+  "sourceSessionId": "8f29a2bb1734",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install axios bcryptjs jsonwebtoken mongoose nodemailer react-hot-toast",
+      "description": "Run `npm install axios bcryptjs jsonwebtoken mongoose nodemailer react-hot-toast`"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_app_api_users_login}/route.ts",
+      "description": "Create src/app/api/users/login/route.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_app_api_users_signup}/route.ts",
+      "description": "Create src/app/api/users/signup/route.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_app}/layout.tsx",
+      "description": "Modify src/app/layout.tsx"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_app_login}/page.tsx",
+      "description": "Create src/app/login/page.tsx"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_app_profile_id}/page.tsx",
+      "description": "Create src/app/profile/[id]/page.tsx"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_app_profile}/page.tsx",
+      "description": "Create src/app/profile/page.tsx"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_app_signup}/page.tsx",
+      "description": "Create src/app/signup/page.tsx"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_dbconfig}/dbConfig.ts",
+      "description": "Create src/dbConfig/dbConfig.ts"
+    }
+  ],
+  "parameters": {
+    "src_app_api_users_login": "src/app/api/users/login",
+    "src_app_api_users_signup": "src/app/api/users/signup",
+    "src_app": "src/app",
+    "src_app_login": "src/app/login",
+    "src_app_profile_id": "src/app/profile/[id]",
+    "src_app_profile": "src/app/profile",
+    "src_app_signup": "src/app/signup",
+    "src_dbconfig": "src/dbConfig"
+  },
+  "tags": [
+    "auth",
+    "api",
+    "typescript",
+    "nextjs",
+    "mongoose"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fullstack-course-1st-push-gqdnwj",
+    "author": "hiteshchoudhary",
+    "createdAt": "2026-03-25T14:16:24.147Z",
+    "updatedAt": "2026-03-25T14:16:24.147Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "510837210099666c"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "name": "Support graphql-ws client for GraphiQL IDE (#755)",
+  "description": "feat: support graphql-ws client for GraphiQL IDE (#755)",
+  "sourceSessionId": "e02079cf35dc",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "{npm_install_graphiql_toolkit_types}/ws graphql-ws ws",
+      "description": "Run `npm install @graphiql/toolkit @types/ws graphql-ws ws`"
+    },
+    {
+      "action": "modify_file",
+      "target": "README.md",
+      "description": "Modify README.md"
+    },
+    {
+      "action": "create_file",
+      "target": "{examples}/index_subscription.ts",
+      "description": "Create examples/index_subscription.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{examples}/index_subscription_legacy.ts",
+      "description": "Create examples/index_subscription_legacy.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{examples}/schema.ts",
+      "description": "Create examples/schema.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_tests}/http-test.ts",
+      "description": "Modify src/__tests__/http-test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/renderGraphiQL.ts",
+      "description": "Modify src/renderGraphiQL.ts"
+    }
+  ],
+  "parameters": {
+    "npm_install_graphiql_toolkit_types": "npm install @graphiql/toolkit @types",
+    "examples": "examples",
+    "src_tests": "src/__tests__",
+    "src": "src"
+  },
+  "tags": [
+    "testing",
+    "typescript",
+    "express"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "support-graphql-ws-client-for-graphiql-i-v0daxp",
+    "author": "graphql",
+    "createdAt": "2026-03-25T14:16:27.700Z",
+    "updatedAt": "2026-03-25T14:16:27.700Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "baa964edf3b18091"
+  }
+}

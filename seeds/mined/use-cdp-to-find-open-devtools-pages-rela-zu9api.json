@@ -1,0 +1,42 @@
+{
+  "name": "Use CDP to find open DevTools pages (reland) (#1210)",
+  "description": "perf: use CDP to find open DevTools pages (reland) (#1210)",
+  "sourceSessionId": "53483bc63756",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{src}/DevtoolsUtils.ts",
+      "description": "Modify src/DevtoolsUtils.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/McpContext.ts",
+      "description": "Modify src/McpContext.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests}/DevtoolsUtils.test.ts",
+      "description": "Modify tests/DevtoolsUtils.test.ts"
+    }
+  ],
+  "parameters": {
+    "src": "src",
+    "tests": "tests"
+  },
+  "tags": [
+    "testing",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "use-cdp-to-find-open-devtools-pages-rela-zu9api",
+    "author": "ChromeDevTools",
+    "createdAt": "2026-03-25T14:18:07.878Z",
+    "updatedAt": "2026-03-25T14:18:07.878Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "e10f6892e2809889"
+  }
+}

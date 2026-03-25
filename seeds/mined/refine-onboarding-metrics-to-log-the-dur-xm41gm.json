@@ -1,0 +1,81 @@
+{
+  "name": "Refine onboarding metrics to log the duration explicitly and use the tier name. ",
+  "description": "Refine onboarding metrics to log the duration explicitly and use the tier name. (#23678)",
+  "sourceSessionId": "397ff84b0e2a",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{code_assist}/setup.test.ts",
+      "description": "Modify packages/core/src/code_assist/setup.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{code_assist}/setup.ts",
+      "description": "Modify packages/core/src/code_assist/setup.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{telemetry_clearcut_logger}/clearcut-logger.test.ts",
+      "description": "Modify packages/core/src/telemetry/clearcut-logger/clearcut-logger.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{telemetry_clearcut_logger}/clearcut-logger.ts",
+      "description": "Modify packages/core/src/telemetry/clearcut-logger/clearcut-logger.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{telemetry_clearcut_logger}/event-metadata-key.ts",
+      "description": "Modify packages/core/src/telemetry/clearcut-logger/event-metadata-key.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{telemetry}/loggers.test.ts",
+      "description": "Modify packages/core/src/telemetry/loggers.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{telemetry}/loggers.ts",
+      "description": "Modify packages/core/src/telemetry/loggers.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{telemetry}/metrics.test.ts",
+      "description": "Modify packages/core/src/telemetry/metrics.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{telemetry}/metrics.ts",
+      "description": "Modify packages/core/src/telemetry/metrics.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{telemetry}/types.ts",
+      "description": "Modify packages/core/src/telemetry/types.ts"
+    }
+  ],
+  "parameters": {
+    "source_dir": "packages/core/src",
+    "code_assist": "packages/core/src/code_assist",
+    "telemetry_clearcut_logger": "packages/core/src/telemetry/clearcut-logger",
+    "telemetry": "packages/core/src/telemetry"
+  },
+  "tags": [
+    "testing",
+    "ci",
+    "logging",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "refine-onboarding-metrics-to-log-the-dur-xm41gm",
+    "author": "google-gemini",
+    "createdAt": "2026-03-25T14:18:04.118Z",
+    "updatedAt": "2026-03-25T14:18:04.118Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "b9b98166683f3ffe"
+  }
+}

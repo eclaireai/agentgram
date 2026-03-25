@@ -1,0 +1,42 @@
+{
+  "name": "Replace :has(.BannerActions) with data-has-actions attribute (#7598)",
+  "description": "perf(Banner): replace :has(.BannerActions) with data-has-actions attribute (#7598)",
+  "sourceSessionId": "4b345db22899",
+  "steps": [
+    {
+      "action": "create_file",
+      "target": "{changeset}/perf-banner-css-has-selector.md",
+      "description": "Create .changeset/perf-banner-css-has-selector.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_banner}/Banner.module.css",
+      "description": "Modify packages/react/src/Banner/Banner.module.css"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_banner}/Banner.tsx",
+      "description": "Modify packages/react/src/Banner/Banner.tsx"
+    }
+  ],
+  "parameters": {
+    "changeset": ".changeset",
+    "packages_react_src_banner": "packages/react/src/Banner"
+  },
+  "tags": [
+    "react",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "replace-has-banneractions-with-data-has--t6uvan",
+    "author": "primer",
+    "createdAt": "2026-03-25T14:16:39.387Z",
+    "updatedAt": "2026-03-25T14:16:39.387Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "430f6f30dfbea277"
+  }
+}

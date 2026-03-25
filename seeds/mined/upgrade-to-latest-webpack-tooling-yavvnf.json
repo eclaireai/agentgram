@@ -1,0 +1,43 @@
+{
+  "name": "Upgrade to latest webpack tooling",
+  "description": "chore: upgrade to latest webpack tooling",
+  "sourceSessionId": "d80b23a11b99",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{examples_typescript_components}/Nest.tsx",
+      "description": "Modify examples/typescript/components/Nest.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{examples_typescript}/webpack.config.js",
+      "description": "Modify examples/typescript/webpack.config.js"
+    },
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Modify package.json"
+    }
+  ],
+  "parameters": {
+    "examples_typescript_components": "examples/typescript/components",
+    "examples_typescript": "examples/typescript"
+  },
+  "tags": [
+    "testing",
+    "typescript",
+    "react"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "upgrade-to-latest-webpack-tooling-yavvnf",
+    "author": "ui-router",
+    "createdAt": "2026-03-25T14:16:42.187Z",
+    "updatedAt": "2026-03-25T14:16:42.187Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "d0b5e9d32271faec"
+  }
+}

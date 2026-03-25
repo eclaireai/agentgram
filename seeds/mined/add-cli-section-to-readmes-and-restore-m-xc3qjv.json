@@ -1,0 +1,47 @@
+{
+  "name": "Add CLI section to READMEs and restore @moemail/cli package name",
+  "description": "docs: add CLI section to READMEs and restore @moemail/cli package name",
+  "sourceSessionId": "f66c3e83a9b9",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "README.md",
+      "description": "Modify README.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "README.zh-CN.md",
+      "description": "Modify README.zh-CN.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli}/README.md",
+      "description": "Modify packages/cli/README.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{public}/llms.txt",
+      "description": "Modify public/llms.txt"
+    }
+  ],
+  "parameters": {
+    "packages_cli": "packages/cli",
+    "public": "public"
+  },
+  "tags": [
+    "nextjs",
+    "drizzle"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "add-cli-section-to-readmes-and-restore-m-xc3qjv",
+    "author": "beilunyang",
+    "createdAt": "2026-03-25T14:16:23.553Z",
+    "updatedAt": "2026-03-25T14:16:23.553Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "b5fd7fa48b2b9ddc"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "Clear storage button",
+  "description": "feat: clear storage button",
+  "sourceSessionId": "3fb20ca21fe4",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{assets_style}/index.postcss",
+      "description": "Modify packages/app-frontend/src/assets/style/index.postcss"
+    },
+    {
+      "action": "modify_file",
+      "target": "{features_settings}/GlobalSettings.vue",
+      "description": "Modify packages/app-frontend/src/features/settings/GlobalSettings.vue"
+    },
+    {
+      "action": "modify_file",
+      "target": "{features_ui_components}/VueModal.vue",
+      "description": "Modify packages/app-frontend/src/features/ui/components/VueModal.vue"
+    }
+  ],
+  "parameters": {
+    "source_dir": "packages/app-frontend/src",
+    "assets_style": "packages/app-frontend/src/assets/style",
+    "features_settings": "packages/app-frontend/src/features/settings",
+    "features_ui_components": "packages/app-frontend/src/features/ui/components"
+  },
+  "tags": [],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "clear-storage-button-9ij9gk",
+    "author": "vuejs",
+    "createdAt": "2026-03-25T14:18:09.447Z",
+    "updatedAt": "2026-03-25T14:18:09.447Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "604aea6d950a4f6f"
+  }
+}

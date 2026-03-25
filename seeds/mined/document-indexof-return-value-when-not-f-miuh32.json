@@ -1,0 +1,42 @@
+{
+  "name": "Document indexOf return value when not found (#60569)",
+  "description": "Document indexOf return value when not found (#60569)",
+  "sourceSessionId": "70c5fcaaa260",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{src_lib}/es2020.bigint.d.ts",
+      "description": "Modify src/lib/es2020.bigint.d.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_lib}/es5.d.ts",
+      "description": "Modify src/lib/es5.d.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/completionsStringMethods.baseline",
+      "description": "Modify tests/baselines/reference/completionsStringMethods.baseline"
+    }
+  ],
+  "parameters": {
+    "src_lib": "src/lib",
+    "tests_baselines_reference": "tests/baselines/reference"
+  },
+  "tags": [
+    "testing",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "document-indexof-return-value-when-not-f-miuh32",
+    "author": "microsoft",
+    "createdAt": "2026-03-25T14:16:10.732Z",
+    "updatedAt": "2026-03-25T14:16:10.732Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "284270d26fcf9602"
+  }
+}

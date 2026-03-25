@@ -1,0 +1,49 @@
+{
+  "name": "Clone default/replacement values in #default()/#replace()",
+  "description": "Clone default/replacement values in #default()/#replace()",
+  "sourceSessionId": "1d7d41af02c0",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{docs_api}/validation-chain.md",
+      "description": "Modify docs/api/validation-chain.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_chain}/sanitizers-impl.spec.ts",
+      "description": "Modify src/chain/sanitizers-impl.spec.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_chain}/sanitizers-impl.ts",
+      "description": "Modify src/chain/sanitizers-impl.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{website_versioned_docs_version_7_2_0_api}/validation-chain.md",
+      "description": "Modify website/versioned_docs/version-7.2.0/api/validation-chain.md"
+    }
+  ],
+  "parameters": {
+    "docs_api": "docs/api",
+    "src_chain": "src/chain",
+    "website_versioned_docs_version_7_2_0_api": "website/versioned_docs/version-7.2.0/api"
+  },
+  "tags": [
+    "testing",
+    "api",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "clone-default-replacement-values-in-defa-2d8srv",
+    "author": "express-validator",
+    "createdAt": "2026-03-25T14:16:26.835Z",
+    "updatedAt": "2026-03-25T14:16:26.835Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "5ad87a1aeb2288b9"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Replace O(n) TreeWalker with O(depth) sibling traversal (#7544)",
+  "description": "perf(TreeView): replace O(n) TreeWalker with O(depth) sibling traversal (#7544)",
+  "sourceSessionId": "63bfd67b6d3e",
+  "steps": [
+    {
+      "action": "create_file",
+      "target": "{changeset}/treeview-sibling-traversal.md",
+      "description": "Create .changeset/treeview-sibling-traversal.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_treeview}/TreeView.test.tsx",
+      "description": "Modify packages/react/src/TreeView/TreeView.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_treeview}/useRovingTabIndex.ts",
+      "description": "Modify packages/react/src/TreeView/useRovingTabIndex.ts"
+    }
+  ],
+  "parameters": {
+    "changeset": ".changeset",
+    "packages_react_src_treeview": "packages/react/src/TreeView"
+  },
+  "tags": [
+    "testing",
+    "react",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "replace-o-n-treewalker-with-o-depth-sibl-dj03kb",
+    "author": "primer",
+    "createdAt": "2026-03-25T14:16:39.387Z",
+    "updatedAt": "2026-03-25T14:16:39.387Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "7fe3ed852d3767b8"
+  }
+}

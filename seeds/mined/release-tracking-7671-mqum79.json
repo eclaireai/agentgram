@@ -1,0 +1,80 @@
+{
+  "name": "Release tracking (#7671)",
+  "description": "Release tracking (#7671)",
+  "sourceSessionId": "e4c7364fcd91",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{changeset}/curly-moments-show.md",
+      "description": "Modify .changeset/curly-moments-show.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{changeset}/early-ravens-visit.md",
+      "description": "Modify .changeset/early-ravens-visit.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{changeset}/fuzzy-rabbits-wave.md",
+      "description": "Modify .changeset/fuzzy-rabbits-wave.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{changeset}/iconbutton-keybinding-hint-array.md",
+      "description": "Modify .changeset/iconbutton-keybinding-hint-array.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{changeset}/nine-colts-grow.md",
+      "description": "Modify .changeset/nine-colts-grow.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{examples_codesandbox}/package.json",
+      "description": "Modify examples/codesandbox/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{examples_nextjs}/package.json",
+      "description": "Modify examples/nextjs/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{examples_theming}/package.json",
+      "description": "Modify examples/theming/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react}/CHANGELOG.md",
+      "description": "Modify packages/react/CHANGELOG.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react}/package.json",
+      "description": "Modify packages/react/package.json"
+    }
+  ],
+  "parameters": {
+    "changeset": ".changeset",
+    "examples_codesandbox": "examples/codesandbox",
+    "examples_nextjs": "examples/nextjs",
+    "examples_theming": "examples/theming",
+    "packages_react": "packages/react"
+  },
+  "tags": [
+    "react",
+    "nextjs"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "release-tracking-7671-mqum79",
+    "author": "primer",
+    "createdAt": "2026-03-25T14:16:39.386Z",
+    "updatedAt": "2026-03-25T14:16:39.386Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "96444c9a9b67b385"
+  }
+}

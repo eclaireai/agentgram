@@ -1,0 +1,43 @@
+{
+  "name": "Return iterable of RegExpExecArray from RegExp#[Symbol.matchAll] (#60516)",
+  "description": "Return iterable of RegExpExecArray from RegExp#[Symbol.matchAll] (#60516)",
+  "sourceSessionId": "8bb72d2d965a",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{src_lib}/es2020.symbol.wellknown.d.ts",
+      "description": "Modify src/lib/es2020.symbol.wellknown.d.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/regexMatchAll-esnext.types",
+      "description": "Modify tests/baselines/reference/regexMatchAll-esnext.types"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/regexMatchAll.types",
+      "description": "Modify tests/baselines/reference/regexMatchAll.types"
+    }
+  ],
+  "parameters": {
+    "src_lib": "src/lib",
+    "tests_baselines_reference": "tests/baselines/reference"
+  },
+  "tags": [
+    "testing",
+    "typescript",
+    "nextjs"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "return-iterable-of-regexpexecarray-from--gwxhrb",
+    "author": "microsoft",
+    "createdAt": "2026-03-25T14:16:10.732Z",
+    "updatedAt": "2026-03-25T14:16:10.732Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "3e3d7915d6e150d8"
+  }
+}

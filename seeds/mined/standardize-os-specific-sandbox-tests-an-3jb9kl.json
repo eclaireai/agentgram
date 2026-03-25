@@ -1,0 +1,61 @@
+{
+  "name": "Standardize OS-specific sandbox tests and extract linux helper methods (#23715)",
+  "description": "refactor(core): standardize OS-specific sandbox tests and extract linux helper methods (#23715)",
+  "sourceSessionId": "5b7f7b30a728",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{linux}/LinuxSandboxManager.test.ts",
+      "description": "Modify packages/core/src/sandbox/linux/LinuxSandboxManager.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{linux}/LinuxSandboxManager.ts",
+      "description": "Modify packages/core/src/sandbox/linux/LinuxSandboxManager.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{macos}/MacOsSandboxManager.test.ts",
+      "description": "Modify packages/core/src/sandbox/macos/MacOsSandboxManager.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{macos}/seatbeltArgsBuilder.test.ts",
+      "description": "Modify packages/core/src/sandbox/macos/seatbeltArgsBuilder.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{windows}/WindowsSandboxManager.test.ts",
+      "description": "Modify packages/core/src/sandbox/windows/WindowsSandboxManager.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{windows}/WindowsSandboxManager.ts",
+      "description": "Modify packages/core/src/sandbox/windows/WindowsSandboxManager.ts"
+    }
+  ],
+  "parameters": {
+    "source_dir": "packages/core/src/sandbox",
+    "linux": "packages/core/src/sandbox/linux",
+    "macos": "packages/core/src/sandbox/macos",
+    "windows": "packages/core/src/sandbox/windows"
+  },
+  "tags": [
+    "testing",
+    "ci",
+    "build",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "standardize-os-specific-sandbox-tests-an-3jb9kl",
+    "author": "google-gemini",
+    "createdAt": "2026-03-25T14:18:04.118Z",
+    "updatedAt": "2026-03-25T14:18:04.118Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "7f738c7ccad8496b"
+  }
+}

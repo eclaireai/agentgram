@@ -1,0 +1,109 @@
+{
+  "name": "Update DOM types (#63137)",
+  "description": "Update DOM types (#63137)",
+  "sourceSessionId": "347254895823",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{src_lib}/dom.generated.d.ts",
+      "description": "Modify src/lib/dom.generated.d.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_lib}/webworker.generated.d.ts",
+      "description": "Modify src/lib/webworker.generated.d.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/checkJsxChildrenCanBeTupleType.types",
+      "description": "Modify tests/baselines/reference/checkJsxChildrenCanBeTupleType.types"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/contextuallyTypedJsxChildren.types",
+      "description": "Modify tests/baselines/reference/contextuallyTypedJsxChildren.types"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/globalThisBlockscopedProperties.types",
+      "description": "Modify tests/baselines/reference/globalThisBlockscopedProperties.types"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/jsxElementType.types",
+      "description": "Modify tests/baselines/reference/jsxElementType.types"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/jsxFragmentFactoryNoUnusedLocals.types",
+      "description": "Modify tests/baselines/reference/jsxFragmentFactoryNoUnusedLocals.types"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/jsxJsxsCjsTransformNestedSelfClosingChild(jsx=react-jsx).types",
+      "description": "Modify tests/baselines/reference/jsxJsxsCjsTransformNestedSelfClosingChild(jsx=react-jsx).types"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/jsxJsxsCjsTransformNestedSelfClosingChild(jsx=react-jsxdev).types",
+      "description": "Modify tests/baselines/reference/jsxJsxsCjsTransformNestedSelfClosingChild(jsx=react-jsxdev).types"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/jsxRuntimePragma(jsx=preserve).types",
+      "description": "Modify tests/baselines/reference/jsxRuntimePragma(jsx=preserve).types"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/jsxRuntimePragma(jsx=react).types",
+      "description": "Modify tests/baselines/reference/jsxRuntimePragma(jsx=react).types"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/jsxRuntimePragma(jsx=react-jsx).types",
+      "description": "Modify tests/baselines/reference/jsxRuntimePragma(jsx=react-jsx).types"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/jsxRuntimePragma(jsx=react-jsxdev).types",
+      "description": "Modify tests/baselines/reference/jsxRuntimePragma(jsx=react-jsxdev).types"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/mappedTypeRecursiveInference.errors.txt",
+      "description": "Modify tests/baselines/reference/mappedTypeRecursiveInference.errors.txt"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/mappedTypeRecursiveInference.types",
+      "description": "Modify tests/baselines/reference/mappedTypeRecursiveInference.types"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/tsxReactEmitSpreadAttribute(target=es2018).types",
+      "description": "Modify tests/baselines/reference/tsxReactEmitSpreadAttribute(target=es2018).types"
+    }
+  ],
+  "parameters": {
+    "src_lib": "src/lib",
+    "tests_baselines_reference": "tests/baselines/reference"
+  },
+  "tags": [
+    "testing",
+    "error-handling",
+    "typescript",
+    "react"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "update-dom-types-63137-i60csq",
+    "author": "microsoft",
+    "createdAt": "2026-03-25T14:16:10.732Z",
+    "updatedAt": "2026-03-25T14:16:10.732Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "81433a2d8212d2af"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "name": "Fix invalid Tailwind CSS classes (#159)",
+  "description": "Fix invalid Tailwind CSS classes (#159)",
+  "sourceSessionId": "3568c739236a",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{application_file_upload}/file-upload-base.tsx",
+      "description": "Modify components/application/file-upload/file-upload-base.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{base_avatar_base_components}/avatar-company-icon.tsx",
+      "description": "Modify components/base/avatar/base-components/avatar-company-icon.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{base_buttons}/buttons.demo.tsx",
+      "description": "Modify components/base/buttons/buttons.demo.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{base_input}/input-tags.tsx",
+      "description": "Modify components/base/input/input-tags.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{base_input}/inputs.demo.tsx",
+      "description": "Modify components/base/input/inputs.demo.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{shared_assets_credit_card}/credit-card.tsx",
+      "description": "Modify components/shared-assets/credit-card/credit-card.tsx"
+    }
+  ],
+  "parameters": {
+    "source_dir": "components",
+    "application_file_upload": "components/application/file-upload",
+    "base_avatar_base_components": "components/base/avatar/base-components",
+    "base_buttons": "components/base/buttons",
+    "base_input": "components/base/input",
+    "shared_assets_credit_card": "components/shared-assets/credit-card"
+  },
+  "tags": [
+    "typescript",
+    "nextjs"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fix-invalid-tailwind-css-classes-159-1o7y8s",
+    "author": "untitleduico",
+    "createdAt": "2026-03-25T14:16:40.684Z",
+    "updatedAt": "2026-03-25T14:16:40.684Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "4a220c473072f720"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "name": "Add wildcard values to custom validator's metadata (#1308)",
+  "description": "Add wildcard values to custom validator's metadata (#1308)",
+  "sourceSessionId": "858b3a658ba4",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{docs_api}/validation-chain.md",
+      "description": "Modify docs/api/validation-chain.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/base.ts",
+      "description": "Modify src/base.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_chain}/context-runner-impl.spec.ts",
+      "description": "Modify src/chain/context-runner-impl.spec.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_chain}/context-runner-impl.ts",
+      "description": "Modify src/chain/context-runner-impl.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_chain}/sanitizers-impl.spec.ts",
+      "description": "Modify src/chain/sanitizers-impl.spec.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_chain}/validators-impl.spec.ts",
+      "description": "Modify src/chain/validators-impl.spec.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_context_items}/bail.spec.ts",
+      "description": "Modify src/context-items/bail.spec.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_context_items}/chain-condition.spec.ts",
+      "description": "Modify src/context-items/chain-condition.spec.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_context_items}/custom-condition.spec.ts",
+      "description": "Modify src/context-items/custom-condition.spec.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_context_items}/custom-validation.spec.ts",
+      "description": "Modify src/context-items/custom-validation.spec.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_context_items}/sanitization.spec.ts",
+      "description": "Modify src/context-items/sanitization.spec.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_context_items}/standard-validation.spec.ts",
+      "description": "Modify src/context-items/standard-validation.spec.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/context.spec.ts",
+      "description": "Modify src/context.spec.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/express-validator.spec.ts",
+      "description": "Modify src/express-validator.spec.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/field-selection.spec.ts",
+      "description": "Modify src/field-selection.spec.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/field-selection.ts",
+      "description": "Modify src/field-selection.ts"
+    }
+  ],
+  "parameters": {
+    "docs_api": "docs/api",
+    "src": "src",
+    "src_chain": "src/chain",
+    "src_context_items": "src/context-items"
+  },
+  "tags": [
+    "testing",
+    "api",
+    "express",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "add-wildcard-values-to-custom-validator--6cz7g4",
+    "author": "express-validator",
+    "createdAt": "2026-03-25T14:16:26.835Z",
+    "updatedAt": "2026-03-25T14:16:26.835Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "3f4ecbad41c57bc7"
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "name": "Release tracking (#7653)",
+  "description": "Release tracking (#7653)",
+  "sourceSessionId": "3e61f8325dd8",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{changeset}/gold-rooms-bake.md",
+      "description": "Modify .changeset/gold-rooms-bake.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{changeset}/perf-action-list-memoization.md",
+      "description": "Modify .changeset/perf-action-list-memoization.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{changeset}/perf-banner-css-has-selector.md",
+      "description": "Modify .changeset/perf-banner-css-has-selector.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{changeset}/perf-button-css-has-selector.md",
+      "description": "Modify .changeset/perf-button-css-has-selector.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{changeset}/perf-dialog-css-has-selector.md",
+      "description": "Modify .changeset/perf-dialog-css-has-selector.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{changeset}/perf-dialog-stable-context.md",
+      "description": "Modify .changeset/perf-dialog-stable-context.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{changeset}/perf-select-panel-memo-context.md",
+      "description": "Modify .changeset/perf-select-panel-memo-context.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{changeset}/perf-textinput-character-counter-updates.md",
+      "description": "Modify .changeset/perf-textinput-character-counter-updates.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{changeset}/select-panel-ios-safe-area.md",
+      "description": "Modify .changeset/select-panel-ios-safe-area.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{changeset}/treeview-defer-scroll.md",
+      "description": "Modify .changeset/treeview-defer-scroll.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{examples_codesandbox}/package.json",
+      "description": "Modify examples/codesandbox/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{examples_nextjs}/package.json",
+      "description": "Modify examples/nextjs/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{examples_theming}/package.json",
+      "description": "Modify examples/theming/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react}/CHANGELOG.md",
+      "description": "Modify packages/react/CHANGELOG.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react}/package.json",
+      "description": "Modify packages/react/package.json"
+    }
+  ],
+  "parameters": {
+    "changeset": ".changeset",
+    "examples_codesandbox": "examples/codesandbox",
+    "examples_nextjs": "examples/nextjs",
+    "examples_theming": "examples/theming",
+    "packages_react": "packages/react"
+  },
+  "tags": [
+    "react",
+    "nextjs"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "release-tracking-7653-qlu8sb",
+    "author": "primer",
+    "createdAt": "2026-03-25T14:16:39.387Z",
+    "updatedAt": "2026-03-25T14:16:39.387Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "559ee9c4c047c31e"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "name": "Improve validation (#8746)",
+  "description": "feat(remark-lint): improve validation (#8746)",
+  "sourceSessionId": "1dd8a0b6f161",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/package.json",
+      "description": "Modify packages/remark-lint/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/api.mjs",
+      "description": "Modify packages/remark-lint/src/api.mjs"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_rules_tests}/invalid-deprecations.test.mjs",
+      "description": "Create packages/remark-lint/src/rules/__tests__/invalid-deprecations.test.mjs"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_rules_tests}/invalid-type-reference.test.mjs",
+      "description": "Modify packages/remark-lint/src/rules/__tests__/invalid-type-reference.test.mjs"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_rules}/duplicate-stability-nodes.mjs",
+      "description": "Modify packages/remark-lint/src/rules/duplicate-stability-nodes.mjs"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_rules}/invalid-deprecations.mjs",
+      "description": "Create packages/remark-lint/src/rules/invalid-deprecations.mjs"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_rules}/invalid-type-reference.mjs",
+      "description": "Modify packages/remark-lint/src/rules/invalid-type-reference.mjs"
+    }
+  ],
+  "parameters": {
+    "source_dir": "packages/remark-lint",
+    "src": "packages/remark-lint/src",
+    "src_rules_tests": "packages/remark-lint/src/rules/__tests__",
+    "src_rules": "packages/remark-lint/src/rules"
+  },
+  "tags": [
+    "testing",
+    "linting",
+    "api",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "improve-validation-8746-wksz6t",
+    "author": "nodejs",
+    "createdAt": "2026-03-25T14:16:49.123Z",
+    "updatedAt": "2026-03-25T14:16:49.123Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "7e85d3b9d09bfdb8"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "name": "Add approximatelySign to NumberFormatRangePartTypeRegistry for ES2023 (#62013)",
+  "description": "Add approximatelySign to NumberFormatRangePartTypeRegistry for ES2023 (#62013)",
+  "sourceSessionId": "fbe22193a3aa",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{src_lib}/es2023.intl.d.ts",
+      "description": "Modify src/lib/es2023.intl.d.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/intlNumberFormatES2023.js",
+      "description": "Modify tests/baselines/reference/intlNumberFormatES2023.js"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/intlNumberFormatES2023.symbols",
+      "description": "Modify tests/baselines/reference/intlNumberFormatES2023.symbols"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/intlNumberFormatES2023.types",
+      "description": "Modify tests/baselines/reference/intlNumberFormatES2023.types"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_cases_conformance_es2023}/intlNumberFormatES2023.ts",
+      "description": "Modify tests/cases/conformance/es2023/intlNumberFormatES2023.ts"
+    }
+  ],
+  "parameters": {
+    "src_lib": "src/lib",
+    "tests_baselines_reference": "tests/baselines/reference",
+    "tests_cases_conformance_es2023": "tests/cases/conformance/es2023"
+  },
+  "tags": [
+    "testing",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "add-approximatelysign-to-numberformatran-n6vwo9",
+    "author": "microsoft",
+    "createdAt": "2026-03-25T14:16:10.732Z",
+    "updatedAt": "2026-03-25T14:16:10.732Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "c899821a8db845d6"
+  }
+}

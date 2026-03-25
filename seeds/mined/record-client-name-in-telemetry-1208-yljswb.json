@@ -1,0 +1,49 @@
+{
+  "name": "Record client name in telemetry. (#1208)",
+  "description": "feat: record client name in telemetry. (#1208)",
+  "sourceSessionId": "9a47b657d7b1",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{src}/index.ts",
+      "description": "Modify src/index.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_telemetry}/ClearcutLogger.ts",
+      "description": "Modify src/telemetry/ClearcutLogger.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_telemetry}/types.ts",
+      "description": "Modify src/telemetry/types.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_telemetry}/ClearcutLogger.test.ts",
+      "description": "Modify tests/telemetry/ClearcutLogger.test.ts"
+    }
+  ],
+  "parameters": {
+    "src": "src",
+    "src_telemetry": "src/telemetry",
+    "tests_telemetry": "tests/telemetry"
+  },
+  "tags": [
+    "testing",
+    "logging",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "record-client-name-in-telemetry-1208-yljswb",
+    "author": "ChromeDevTools",
+    "createdAt": "2026-03-25T14:18:07.878Z",
+    "updatedAt": "2026-03-25T14:18:07.878Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "630788197fd9eebd"
+  }
+}

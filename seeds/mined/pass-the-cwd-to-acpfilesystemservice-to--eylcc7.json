@@ -1,0 +1,41 @@
+{
+  "name": "Pass the cwd to `AcpFileSystemService` to avoid looping failures in asking for p",
+  "description": "fix(acp): Pass the cwd to `AcpFileSystemService` to avoid looping failures in asking for perms to write plan md file (#23612)",
+  "sourceSessionId": "46fd7b486411",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/acpClient.ts",
+      "description": "Modify packages/cli/src/acp/acpClient.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/fileSystemService.test.ts",
+      "description": "Modify packages/cli/src/acp/fileSystemService.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/fileSystemService.ts",
+      "description": "Modify packages/cli/src/acp/fileSystemService.ts"
+    }
+  ],
+  "parameters": {
+    "source_dir": "packages/cli/src/acp"
+  },
+  "tags": [
+    "testing",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "pass-the-cwd-to-acpfilesystemservice-to--eylcc7",
+    "author": "google-gemini",
+    "createdAt": "2026-03-25T14:18:04.118Z",
+    "updatedAt": "2026-03-25T14:18:04.118Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "e4382893ea8d916a"
+  }
+}

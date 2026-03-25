@@ -1,0 +1,75 @@
+{
+  "name": "Conditionally expose additional_permissions in shell tool (#23729)",
+  "description": "fix(core): conditionally expose additional_permissions in shell tool (#23729)",
+  "sourceSessionId": "a6c7affedbe5",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{policy}/policy-engine.ts",
+      "description": "Modify packages/core/src/policy/policy-engine.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tools_definitions}/coreTools.ts",
+      "description": "Modify packages/core/src/tools/definitions/coreTools.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tools_definitions}/coreToolsModelSnapshots.test.ts",
+      "description": "Modify packages/core/src/tools/definitions/coreToolsModelSnapshots.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tools_definitions}/dynamic-declaration-helpers.ts",
+      "description": "Modify packages/core/src/tools/definitions/dynamic-declaration-helpers.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tools_definitions_model_family_sets}/default-legacy.ts",
+      "description": "Modify packages/core/src/tools/definitions/model-family-sets/default-legacy.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tools_definitions_model_family_sets}/gemini-3.ts",
+      "description": "Modify packages/core/src/tools/definitions/model-family-sets/gemini-3.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tools_definitions}/types.ts",
+      "description": "Modify packages/core/src/tools/definitions/types.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tools}/shell.test.ts",
+      "description": "Modify packages/core/src/tools/shell.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tools}/shell.ts",
+      "description": "Modify packages/core/src/tools/shell.ts"
+    }
+  ],
+  "parameters": {
+    "source_dir": "packages/core/src",
+    "policy": "packages/core/src/policy",
+    "tools_definitions": "packages/core/src/tools/definitions",
+    "tools_definitions_model_family_sets": "packages/core/src/tools/definitions/model-family-sets",
+    "tools": "packages/core/src/tools"
+  },
+  "tags": [
+    "testing",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "conditionally-expose-additional-permissi-2ftupv",
+    "author": "google-gemini",
+    "createdAt": "2026-03-25T14:18:04.118Z",
+    "updatedAt": "2026-03-25T14:18:04.118Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "5cdb91754ff2f78d"
+  }
+}

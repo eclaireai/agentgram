@@ -1,0 +1,46 @@
+{
+  "name": "Prevent over-eager slash subcommand completion (#20136)",
+  "description": "fix(ui): prevent over-eager slash subcommand completion (#20136)",
+  "sourceSessionId": "46aa3fd19389",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/useCommandCompletion.test.tsx",
+      "description": "Modify packages/cli/src/ui/hooks/useCommandCompletion.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/useCommandCompletion.tsx",
+      "description": "Modify packages/cli/src/ui/hooks/useCommandCompletion.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/useSlashCompletion.test.ts",
+      "description": "Modify packages/cli/src/ui/hooks/useSlashCompletion.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/useSlashCompletion.ts",
+      "description": "Modify packages/cli/src/ui/hooks/useSlashCompletion.ts"
+    }
+  ],
+  "parameters": {
+    "source_dir": "packages/cli/src/ui/hooks"
+  },
+  "tags": [
+    "testing",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "prevent-over-eager-slash-subcommand-comp-ngmp9t",
+    "author": "google-gemini",
+    "createdAt": "2026-03-25T14:18:04.118Z",
+    "updatedAt": "2026-03-25T14:18:04.118Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "d28bb4019ba95200"
+  }
+}

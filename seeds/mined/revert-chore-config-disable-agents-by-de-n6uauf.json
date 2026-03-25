@@ -1,0 +1,77 @@
+{
+  "name": "Revert: chore(config): disable agents by default (#23672)",
+  "description": "revert: chore(config): disable agents by default (#23672)",
+  "sourceSessionId": "055ff92276cf",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{docs_reference}/configuration.md",
+      "description": "Modify docs/reference/configuration.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{integration_tests}/browser-policy.test.ts",
+      "description": "Modify integration-tests/browser-policy.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_a2a_server_src_config}/config.test.ts",
+      "description": "Modify packages/a2a-server/src/config/config.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_a2a_server_src_config}/config.ts",
+      "description": "Modify packages/a2a-server/src/config/config.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_src_config}/settingsSchema.test.ts",
+      "description": "Modify packages/cli/src/config/settingsSchema.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_src_config}/settingsSchema.ts",
+      "description": "Modify packages/cli/src/config/settingsSchema.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_core_src_config}/config.ts",
+      "description": "Modify packages/core/src/config/config.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_core_src}/index.ts",
+      "description": "Modify packages/core/src/index.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{schemas}/settings.schema.json",
+      "description": "Modify schemas/settings.schema.json"
+    }
+  ],
+  "parameters": {
+    "docs_reference": "docs/reference",
+    "integration_tests": "integration-tests",
+    "packages_a2a_server_src_config": "packages/a2a-server/src/config",
+    "packages_cli_src_config": "packages/cli/src/config",
+    "packages_core_src_config": "packages/core/src/config",
+    "packages_core_src": "packages/core/src",
+    "schemas": "schemas"
+  },
+  "tags": [
+    "testing",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "revert-chore-config-disable-agents-by-de-n6uauf",
+    "author": "google-gemini",
+    "createdAt": "2026-03-25T14:18:04.118Z",
+    "updatedAt": "2026-03-25T14:18:04.118Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "daa8e518ee12b575"
+  }
+}

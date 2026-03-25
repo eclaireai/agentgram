@@ -1,0 +1,49 @@
+{
+  "name": "Don't re-export internals (#1211)",
+  "description": "chore: don't re-export internals (#1211)",
+  "sourceSessionId": "e56d79393c7e",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{src}/McpContext.ts",
+      "description": "Modify src/McpContext.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_formatters}/SnapshotFormatter.ts",
+      "description": "Modify src/formatters/SnapshotFormatter.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_tools}/input.ts",
+      "description": "Modify src/tools/input.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_formatters}/snapshotFormatter.test.ts",
+      "description": "Modify tests/formatters/snapshotFormatter.test.ts"
+    }
+  ],
+  "parameters": {
+    "src": "src",
+    "src_formatters": "src/formatters",
+    "src_tools": "src/tools",
+    "tests_formatters": "tests/formatters"
+  },
+  "tags": [
+    "testing",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "don-t-re-export-internals-1211-03qfrk",
+    "author": "ChromeDevTools",
+    "createdAt": "2026-03-25T14:18:07.878Z",
+    "updatedAt": "2026-03-25T14:18:07.878Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "2c636c67638935de"
+  }
+}

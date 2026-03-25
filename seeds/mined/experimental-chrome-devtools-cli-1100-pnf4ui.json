@@ -1,0 +1,39 @@
+{
+  "name": "Experimental `chrome-devtools` CLI (#1100)",
+  "description": "feat: experimental `chrome-devtools` CLI (#1100)",
+  "sourceSessionId": "1ac574e71549",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Modify package.json"
+    },
+    {
+      "action": "create_file",
+      "target": "{skills_chrome_devtools_cli}/SKILL.md",
+      "description": "Create skills/chrome-devtools-cli/SKILL.md"
+    },
+    {
+      "action": "create_file",
+      "target": "{skills_chrome_devtools_cli_references}/installation.md",
+      "description": "Create skills/chrome-devtools-cli/references/installation.md"
+    }
+  ],
+  "parameters": {
+    "skills_chrome_devtools_cli": "skills/chrome-devtools-cli",
+    "skills_chrome_devtools_cli_references": "skills/chrome-devtools-cli/references"
+  },
+  "tags": [],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "experimental-chrome-devtools-cli-1100-pnf4ui",
+    "author": "ChromeDevTools",
+    "createdAt": "2026-03-25T14:18:07.878Z",
+    "updatedAt": "2026-03-25T14:18:07.878Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "4100d3379ed9e792"
+  }
+}

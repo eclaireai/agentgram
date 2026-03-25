@@ -1,0 +1,44 @@
+{
+  "name": "Propagate resolved port to build when default port is unavailable (#2783)",
+  "description": "fix: propagate resolved port to build when default port is unavailable (#2783)",
+  "sourceSessionId": "ef5421b97f2f",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{cli_platform_android_src_commands_runandroid}/index.ts",
+      "description": "Modify packages/cli-platform-android/src/commands/runAndroid/index.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{cli_platform_apple_src_commands_runcommand}/createRun.ts",
+      "description": "Modify packages/cli-platform-apple/src/commands/runCommand/createRun.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{cli_tools_src}/handlePortUnavailable.ts",
+      "description": "Modify packages/cli-tools/src/handlePortUnavailable.ts"
+    }
+  ],
+  "parameters": {
+    "source_dir": "packages",
+    "cli_platform_android_src_commands_runandroid": "packages/cli-platform-android/src/commands/runAndroid",
+    "cli_platform_apple_src_commands_runcommand": "packages/cli-platform-apple/src/commands/runCommand",
+    "cli_tools_src": "packages/cli-tools/src"
+  },
+  "tags": [
+    "build",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "propagate-resolved-port-to-build-when-de-dd7v7h",
+    "author": "react-native-community",
+    "createdAt": "2026-03-25T14:17:30.719Z",
+    "updatedAt": "2026-03-25T14:17:30.719Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "226ab859d76396b7"
+  }
+}

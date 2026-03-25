@@ -1,0 +1,44 @@
+{
+  "name": "Revert \"Allow custom handling of runtime query errors\"",
+  "description": "Revert \"Allow custom handling of runtime query errors\"",
+  "sourceSessionId": "20e34662a461",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "README.md",
+      "description": "Modify README.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_tests}/usage-test.ts",
+      "description": "Modify src/__tests__/usage-test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/index.ts",
+      "description": "Modify src/index.ts"
+    }
+  ],
+  "parameters": {
+    "src_tests": "src/__tests__",
+    "src": "src"
+  },
+  "tags": [
+    "testing",
+    "error-handling",
+    "typescript",
+    "express"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "revert-allow-custom-handling-of-runtime--aj8udz",
+    "author": "graphql",
+    "createdAt": "2026-03-25T14:16:27.700Z",
+    "updatedAt": "2026-03-25T14:16:27.700Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "d779f7676ac9d5c5"
+  }
+}

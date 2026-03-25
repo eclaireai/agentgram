@@ -1,0 +1,41 @@
+{
+  "name": "Update classnames library which has default export type (#939)",
+  "description": "fix: update classnames library which has default export type (#939)",
+  "sourceSessionId": "c771405a6b1c",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Modify package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_components}/UISref.tsx",
+      "description": "Modify src/components/UISref.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_components}/UISrefActive.tsx",
+      "description": "Modify src/components/UISrefActive.tsx"
+    }
+  ],
+  "parameters": {
+    "src_components": "src/components"
+  },
+  "tags": [
+    "typescript",
+    "react"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "update-classnames-library-which-has-defa-6i32ij",
+    "author": "ui-router",
+    "createdAt": "2026-03-25T14:16:42.187Z",
+    "updatedAt": "2026-03-25T14:16:42.187Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "bc67d4063c8869be"
+  }
+}

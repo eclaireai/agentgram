@@ -1,0 +1,64 @@
+{
+  "name": "Signup and login complete",
+  "description": "signup and login complete",
+  "sourceSessionId": "365c7c3c67ce",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "{npm_install_types_bcryptjs_types}/jsonwebtoken",
+      "description": "Run `npm install @types/bcryptjs @types/jsonwebtoken`"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_app_api_users_login}/route.ts",
+      "description": "Modify src/app/api/users/login/route.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_app_api_users_signup}/route.ts",
+      "description": "Modify src/app/api/users/signup/route.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_app_login}/page.tsx",
+      "description": "Modify src/app/login/page.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_app_signup}/page.tsx",
+      "description": "Modify src/app/signup/page.tsx"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_models}/userModel.js",
+      "description": "Create src/models/userModel.js"
+    }
+  ],
+  "parameters": {
+    "npm_install_types_bcryptjs_types": "npm install @types/bcryptjs @types",
+    "src_app_api_users_login": "src/app/api/users/login",
+    "src_app_api_users_signup": "src/app/api/users/signup",
+    "src_app_login": "src/app/login",
+    "src_app_signup": "src/app/signup",
+    "src_models": "src/models"
+  },
+  "tags": [
+    "auth",
+    "api",
+    "typescript",
+    "nextjs",
+    "mongoose"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "signup-and-login-complete-hs47d0",
+    "author": "hiteshchoudhary",
+    "createdAt": "2026-03-25T14:16:24.147Z",
+    "updatedAt": "2026-03-25T14:16:24.147Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "006fd75536423c0c"
+  }
+}

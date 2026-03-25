@@ -1,0 +1,60 @@
+{
+  "name": "Fix `from` and `with` method types of `Temporal.PlainMonthDay` (#63142)",
+  "description": "Fix `from` and `with` method types of `Temporal.PlainMonthDay` (#63142)",
+  "sourceSessionId": "0ed1ee5d7cc2",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{src_lib}/esnext.temporal.d.ts",
+      "description": "Modify src/lib/esnext.temporal.d.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/temporal.errors.txt",
+      "description": "Modify tests/baselines/reference/temporal.errors.txt"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/temporal.js",
+      "description": "Modify tests/baselines/reference/temporal.js"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/temporal.symbols",
+      "description": "Modify tests/baselines/reference/temporal.symbols"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/temporal.types",
+      "description": "Modify tests/baselines/reference/temporal.types"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_cases_compiler}/temporal.ts",
+      "description": "Modify tests/cases/compiler/temporal.ts"
+    }
+  ],
+  "parameters": {
+    "src_lib": "src/lib",
+    "tests_baselines_reference": "tests/baselines/reference",
+    "tests_cases_compiler": "tests/cases/compiler"
+  },
+  "tags": [
+    "testing",
+    "error-handling",
+    "typescript",
+    "nextjs"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fix-from-and-with-method-types-of-tempor-2jjst1",
+    "author": "microsoft",
+    "createdAt": "2026-03-25T14:16:10.732Z",
+    "updatedAt": "2026-03-25T14:16:10.732Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "8c5360c17be54413"
+  }
+}

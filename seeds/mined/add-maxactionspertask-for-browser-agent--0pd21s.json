@@ -1,0 +1,70 @@
+{
+  "name": "Add maxActionsPerTask for browser agent setting (#23216)",
+  "description": "feat(browser): add maxActionsPerTask for browser agent setting (#23216)",
+  "sourceSessionId": "466671eed483",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{docs_reference}/configuration.md",
+      "description": "Modify docs/reference/configuration.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_src_config}/settingsSchema.ts",
+      "description": "Modify packages/cli/src/config/settingsSchema.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_core_src_agents_browser}/browserAgentDefinition.ts",
+      "description": "Modify packages/core/src/agents/browser/browserAgentDefinition.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_core_src_agents_browser}/browserManager.test.ts",
+      "description": "Modify packages/core/src/agents/browser/browserManager.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_core_src_agents_browser}/browserManager.ts",
+      "description": "Modify packages/core/src/agents/browser/browserManager.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_core_src_config}/config.test.ts",
+      "description": "Modify packages/core/src/config/config.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_core_src_config}/config.ts",
+      "description": "Modify packages/core/src/config/config.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{schemas}/settings.schema.json",
+      "description": "Modify schemas/settings.schema.json"
+    }
+  ],
+  "parameters": {
+    "docs_reference": "docs/reference",
+    "packages_cli_src_config": "packages/cli/src/config",
+    "packages_core_src_agents_browser": "packages/core/src/agents/browser",
+    "packages_core_src_config": "packages/core/src/config",
+    "schemas": "schemas"
+  },
+  "tags": [
+    "testing",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "add-maxactionspertask-for-browser-agent--0pd21s",
+    "author": "google-gemini",
+    "createdAt": "2026-03-25T14:18:04.118Z",
+    "updatedAt": "2026-03-25T14:18:04.118Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "b2b6832bcf83d54e"
+  }
+}

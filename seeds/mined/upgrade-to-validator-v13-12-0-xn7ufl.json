@@ -1,0 +1,59 @@
+{
+  "name": "Upgrade to validator v13.12.0",
+  "description": "Upgrade to validator v13.12.0",
+  "sourceSessionId": "3150af0c271d",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{declarations}/validator.d.ts",
+      "description": "Modify declarations/validator.d.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{docs_api_validator}/_validators.md",
+      "description": "Modify docs/api/validator/_validators.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Modify package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_chain}/validators-impl.ts",
+      "description": "Modify src/chain/validators-impl.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_chain}/validators.ts",
+      "description": "Modify src/chain/validators.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/options.ts",
+      "description": "Modify src/options.ts"
+    }
+  ],
+  "parameters": {
+    "declarations": "declarations",
+    "docs_api_validator": "docs/api/validator",
+    "src_chain": "src/chain",
+    "src": "src"
+  },
+  "tags": [
+    "api",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "upgrade-to-validator-v13-12-0-xn7ufl",
+    "author": "express-validator",
+    "createdAt": "2026-03-25T14:16:26.835Z",
+    "updatedAt": "2026-03-25T14:16:26.835Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "3020991fa0d30f24"
+  }
+}

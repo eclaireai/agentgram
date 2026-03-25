@@ -1,0 +1,54 @@
+{
+  "name": "Drop Node v18 Support (#2334)",
+  "description": "Drop Node v18 Support (#2334)",
+  "sourceSessionId": "1a9f45e167b7",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{circleci}/config.yml",
+      "description": "Modify .circleci/config.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{github_workflows}/ci.yml",
+      "description": "Modify .github/workflows/ci.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": ".size-limit.cjs",
+      "description": "Modify .size-limit.cjs"
+    },
+    {
+      "action": "modify_file",
+      "target": "CONTRIBUTING.md",
+      "description": "Modify CONTRIBUTING.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Modify package.json"
+    }
+  ],
+  "parameters": {
+    "circleci": ".circleci",
+    "github_workflows": ".github/workflows"
+  },
+  "tags": [
+    "ci",
+    "github-actions",
+    "config",
+    "nextjs"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "drop-node-v18-support-2334-kakpmo",
+    "author": "i18next",
+    "createdAt": "2026-03-25T14:16:22.486Z",
+    "updatedAt": "2026-03-25T14:16:22.486Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "32782e2b3a8e5d62"
+  }
+}

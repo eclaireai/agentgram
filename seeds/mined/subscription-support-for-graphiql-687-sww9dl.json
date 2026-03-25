@@ -1,0 +1,48 @@
+{
+  "name": "Subscription support for GraphiQL (#687)",
+  "description": "Subscription support for GraphiQL (#687)",
+  "sourceSessionId": "6f888980b87b",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install graphiql-subscriptions-fetcher subscriptions-transport-ws",
+      "description": "Run `npm install graphiql-subscriptions-fetcher subscriptions-transport-ws`"
+    },
+    {
+      "action": "modify_file",
+      "target": "README.md",
+      "description": "Modify README.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_tests}/http-test.ts",
+      "description": "Modify src/__tests__/http-test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/renderGraphiQL.ts",
+      "description": "Modify src/renderGraphiQL.ts"
+    }
+  ],
+  "parameters": {
+    "src_tests": "src/__tests__",
+    "src": "src"
+  },
+  "tags": [
+    "testing",
+    "typescript",
+    "express"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "subscription-support-for-graphiql-687-sww9dl",
+    "author": "graphql",
+    "createdAt": "2026-03-25T14:16:27.700Z",
+    "updatedAt": "2026-03-25T14:16:27.700Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "8937f39ce2d19965"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Added Double Factorial Iterative Implementation (#187)",
+  "description": "feat: Added Double Factorial Iterative Implementation (#187)",
+  "sourceSessionId": "c5b12db2f800",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "DIRECTORY.md",
+      "description": "Modify DIRECTORY.md"
+    },
+    {
+      "action": "create_file",
+      "target": "{maths}/double_factorial_iterative.ts",
+      "description": "Create maths/double_factorial_iterative.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{maths_test}/double_factorial_iterative.test.ts",
+      "description": "Create maths/test/double_factorial_iterative.test.ts"
+    }
+  ],
+  "parameters": {
+    "maths": "maths",
+    "maths_test": "maths/test"
+  },
+  "tags": [
+    "testing",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "added-double-factorial-iterative-impleme-j28q1r",
+    "author": "TheAlgorithms",
+    "createdAt": "2026-03-25T14:16:19.238Z",
+    "updatedAt": "2026-03-25T14:16:19.238Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "ab93d5f2b57ba0cf"
+  }
+}

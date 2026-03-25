@@ -1,0 +1,42 @@
+{
+  "name": "Fix img url",
+  "description": "fix img url",
+  "sourceSessionId": "0157a05a837e",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "README.md",
+      "description": "Modify README.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{examples_auto_static_optimize_pages}/index.tsx",
+      "description": "Modify examples/auto-static-optimize/pages/index.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{examples_simple_pages}/index.tsx",
+      "description": "Modify examples/simple/pages/index.tsx"
+    }
+  ],
+  "parameters": {
+    "examples_auto_static_optimize_pages": "examples/auto-static-optimize/pages",
+    "examples_simple_pages": "examples/simple/pages"
+  },
+  "tags": [
+    "typescript",
+    "nextjs"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fix-img-url-4ws4lg",
+    "author": "i18next",
+    "createdAt": "2026-03-25T14:16:22.486Z",
+    "updatedAt": "2026-03-25T14:16:22.486Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "aecf7b42bf143bfa"
+  }
+}

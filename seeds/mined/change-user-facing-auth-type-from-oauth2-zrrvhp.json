@@ -1,0 +1,44 @@
+{
+  "name": "Change user-facing auth type from oauth2 to oauth (#23639)",
+  "description": "feat(core): change user-facing auth type from oauth2 to oauth (#23639)",
+  "sourceSessionId": "999ae7827d27",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{docs_core}/remote-agents.md",
+      "description": "Modify docs/core/remote-agents.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_core_src_agents}/agentLoader.test.ts",
+      "description": "Modify packages/core/src/agents/agentLoader.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_core_src_agents}/agentLoader.ts",
+      "description": "Modify packages/core/src/agents/agentLoader.ts"
+    }
+  ],
+  "parameters": {
+    "docs_core": "docs/core",
+    "packages_core_src_agents": "packages/core/src/agents"
+  },
+  "tags": [
+    "auth",
+    "testing",
+    "ci",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "change-user-facing-auth-type-from-oauth2-zrrvhp",
+    "author": "google-gemini",
+    "createdAt": "2026-03-25T14:18:04.118Z",
+    "updatedAt": "2026-03-25T14:18:04.118Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "546cb4668938034e"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Send missing components data asa they are registered, fix #2152",
+  "description": "fix: send missing components data asa they are registered, fix #2152",
+  "sourceSessionId": "b928d3a312b1",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{app_backend_api_src}/app-record.ts",
+      "description": "Modify packages/app-backend-api/src/app-record.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{app_backend_core_src}/app.ts",
+      "description": "Modify packages/app-backend-core/src/app.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{app_backend_core_src}/component.ts",
+      "description": "Modify packages/app-backend-core/src/component.ts"
+    }
+  ],
+  "parameters": {
+    "source_dir": "packages",
+    "app_backend_api_src": "packages/app-backend-api/src",
+    "app_backend_core_src": "packages/app-backend-core/src"
+  },
+  "tags": [
+    "api",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "send-missing-components-data-asa-they-ar-v8ox15",
+    "author": "vuejs",
+    "createdAt": "2026-03-25T14:18:09.447Z",
+    "updatedAt": "2026-03-25T14:18:09.447Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "824e4f3adb482e43"
+  }
+}

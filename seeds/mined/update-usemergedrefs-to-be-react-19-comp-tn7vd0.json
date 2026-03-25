@@ -1,0 +1,94 @@
+{
+  "name": "Update `useMergedRefs` to be React 19 compatible and public + deprecate `useRefO",
+  "description": "Update `useMergedRefs` to be React 19 compatible and public + deprecate `useRefObjectAsForwardedRef` and `useProvidedRefOrCreate` (#7672)",
+  "sourceSessionId": "77735f975c71",
+  "steps": [
+    {
+      "action": "create_file",
+      "target": "{changeset}/early-ravens-visit.md",
+      "description": "Create .changeset/early-ravens-visit.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_banner}/Banner.tsx",
+      "description": "Modify packages/react/src/Banner/Banner.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_details}/Details.tsx",
+      "description": "Modify packages/react/src/Details/Details.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_tests_snapshots}/exports.test.ts.snap",
+      "description": "Modify packages/react/src/__tests__/__snapshots__/exports.test.ts.snap"
+    },
+    {
+      "action": "create_file",
+      "target": "{packages_react_src_hooks_tests}/useMergedRefs.test.tsx",
+      "description": "Create packages/react/src/hooks/__tests__/useMergedRefs.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_hooks}/index.ts",
+      "description": "Modify packages/react/src/hooks/index.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{packages_react_src_hooks}/useMergedRefs.hookDocs.json",
+      "description": "Create packages/react/src/hooks/useMergedRefs.hookDocs.json"
+    },
+    {
+      "action": "create_file",
+      "target": "{packages_react_src_hooks}/useMergedRefs.ts",
+      "description": "Create packages/react/src/hooks/useMergedRefs.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_hooks}/useProvidedRefOrCreate.ts",
+      "description": "Modify packages/react/src/hooks/useProvidedRefOrCreate.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_hooks}/useRefObjectAsForwardedRef.ts",
+      "description": "Modify packages/react/src/hooks/useRefObjectAsForwardedRef.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src}/index.ts",
+      "description": "Modify packages/react/src/index.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_internal_hooks}/useMergedRefs.ts",
+      "description": "Modify packages/react/src/internal/hooks/useMergedRefs.ts"
+    }
+  ],
+  "parameters": {
+    "changeset": ".changeset",
+    "packages_react_src_banner": "packages/react/src/Banner",
+    "packages_react_src_details": "packages/react/src/Details",
+    "packages_react_src_tests_snapshots": "packages/react/src/__tests__/__snapshots__",
+    "packages_react_src_hooks_tests": "packages/react/src/hooks/__tests__",
+    "packages_react_src_hooks": "packages/react/src/hooks",
+    "packages_react_src": "packages/react/src",
+    "packages_react_src_internal_hooks": "packages/react/src/internal/hooks"
+  },
+  "tags": [
+    "testing",
+    "react",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "update-usemergedrefs-to-be-react-19-comp-tn7vd0",
+    "author": "primer",
+    "createdAt": "2026-03-25T14:16:39.387Z",
+    "updatedAt": "2026-03-25T14:16:39.387Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "0206925bc02e5de6"
+  }
+}

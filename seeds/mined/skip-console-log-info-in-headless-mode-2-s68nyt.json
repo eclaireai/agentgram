@@ -1,0 +1,58 @@
+{
+  "name": "Skip console log/info in headless mode (#22739)",
+  "description": "fix(cli): skip console log/info in headless mode (#22739)",
+  "sourceSessionId": "5e186bfb22a6",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{integration_tests}/extensions-install.test.ts",
+      "description": "Modify integration-tests/extensions-install.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{integration_tests}/extensions-reload.test.ts",
+      "description": "Modify integration-tests/extensions-reload.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_src}/gemini.tsx",
+      "description": "Modify packages/cli/src/gemini.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_src}/nonInteractiveCli.ts",
+      "description": "Modify packages/cli/src/nonInteractiveCli.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{packages_cli_src_ui_utils}/ConsolePatcher.test.ts",
+      "description": "Create packages/cli/src/ui/utils/ConsolePatcher.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_src_ui_utils}/ConsolePatcher.ts",
+      "description": "Modify packages/cli/src/ui/utils/ConsolePatcher.ts"
+    }
+  ],
+  "parameters": {
+    "integration_tests": "integration-tests",
+    "packages_cli_src": "packages/cli/src",
+    "packages_cli_src_ui_utils": "packages/cli/src/ui/utils"
+  },
+  "tags": [
+    "testing",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "skip-console-log-info-in-headless-mode-2-s68nyt",
+    "author": "google-gemini",
+    "createdAt": "2026-03-25T14:18:04.118Z",
+    "updatedAt": "2026-03-25T14:18:04.118Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "7bcb49659b2bb74a"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Replace :has(.Footer) with data-has-footer attribute (#7599)",
+  "description": "perf(Dialog): replace :has(.Footer) with data-has-footer attribute (#7599)",
+  "sourceSessionId": "e6513c2a8a5b",
+  "steps": [
+    {
+      "action": "create_file",
+      "target": "{changeset}/perf-dialog-css-has-selector.md",
+      "description": "Create .changeset/perf-dialog-css-has-selector.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_dialog}/Dialog.module.css",
+      "description": "Modify packages/react/src/Dialog/Dialog.module.css"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_dialog}/Dialog.test.tsx",
+      "description": "Modify packages/react/src/Dialog/Dialog.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_dialog}/Dialog.tsx",
+      "description": "Modify packages/react/src/Dialog/Dialog.tsx"
+    }
+  ],
+  "parameters": {
+    "changeset": ".changeset",
+    "packages_react_src_dialog": "packages/react/src/Dialog"
+  },
+  "tags": [
+    "testing",
+    "react",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "replace-has-footer-with-data-has-footer--tepjjg",
+    "author": "primer",
+    "createdAt": "2026-03-25T14:16:39.387Z",
+    "updatedAt": "2026-03-25T14:16:39.387Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "a4f719db8d77946e"
+  }
+}

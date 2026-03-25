@@ -1,0 +1,47 @@
+{
+  "name": "Update Node and TypeScript versions in tests (#765)",
+  "description": "Update Node and TypeScript versions in tests (#765)",
+  "sourceSessionId": "2061b0949c0d",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{github_workflows}/ci.yml",
+      "description": "Modify .github/workflows/ci.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{integrationtests_node}/package.json",
+      "description": "Modify integrationTests/node/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{integrationtests_ts}/package.json",
+      "description": "Modify integrationTests/ts/package.json"
+    }
+  ],
+  "parameters": {
+    "github_workflows": ".github/workflows",
+    "integrationtests_node": "integrationTests/node",
+    "integrationtests_ts": "integrationTests/ts"
+  },
+  "tags": [
+    "testing",
+    "ci",
+    "github-actions",
+    "typescript",
+    "config",
+    "express"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "update-node-and-typescript-versions-in-t-q7oqvt",
+    "author": "graphql",
+    "createdAt": "2026-03-25T14:16:27.700Z",
+    "updatedAt": "2026-03-25T14:16:27.700Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "268f199ed5d1345e"
+  }
+}

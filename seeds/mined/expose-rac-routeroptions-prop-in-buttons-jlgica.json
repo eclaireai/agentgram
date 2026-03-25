@@ -1,0 +1,43 @@
+{
+  "name": "Expose RAC `routerOptions` prop in buttons and links (#144)",
+  "description": "Expose RAC `routerOptions` prop in buttons and links (#144)",
+  "sourceSessionId": "3e4d3517d193",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/button-utility.tsx",
+      "description": "Modify components/base/buttons/button-utility.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/button.tsx",
+      "description": "Modify components/base/buttons/button.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/social-button.tsx",
+      "description": "Modify components/base/buttons/social-button.tsx"
+    }
+  ],
+  "parameters": {
+    "source_dir": "components/base/buttons"
+  },
+  "tags": [
+    "ci",
+    "api",
+    "typescript",
+    "nextjs"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "expose-rac-routeroptions-prop-in-buttons-jlgica",
+    "author": "untitleduico",
+    "createdAt": "2026-03-25T14:16:40.684Z",
+    "updatedAt": "2026-03-25T14:16:40.684Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "20b28eb233f2414e"
+  }
+}

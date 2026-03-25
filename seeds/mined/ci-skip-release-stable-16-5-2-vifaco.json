@@ -1,0 +1,126 @@
+{
+  "name": "[CI Skip] release/stable 16.5.2",
+  "description": "[CI Skip] release/stable 16.5.2",
+  "sourceSessionId": "8704fd09b322",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "CONTRIBUTORS",
+      "description": "Modify CONTRIBUTORS"
+    },
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Modify package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_api_augment_src}/packageInfo.ts",
+      "description": "Modify packages/api-augment/src/packageInfo.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_api_base_src}/packageInfo.ts",
+      "description": "Modify packages/api-base/src/packageInfo.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_api_contract_src}/packageInfo.ts",
+      "description": "Modify packages/api-contract/src/packageInfo.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_api_derive_src}/packageInfo.ts",
+      "description": "Modify packages/api-derive/src/packageInfo.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_api_src}/packageInfo.ts",
+      "description": "Modify packages/api/src/packageInfo.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_rpc_augment_src}/packageInfo.ts",
+      "description": "Modify packages/rpc-augment/src/packageInfo.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_rpc_core_src}/packageInfo.ts",
+      "description": "Modify packages/rpc-core/src/packageInfo.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_rpc_provider_src}/packageInfo.ts",
+      "description": "Modify packages/rpc-provider/src/packageInfo.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_typegen_src}/packageInfo.ts",
+      "description": "Modify packages/typegen/src/packageInfo.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_types_augment_src}/packageInfo.ts",
+      "description": "Modify packages/types-augment/src/packageInfo.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_types_codec_src}/packageInfo.ts",
+      "description": "Modify packages/types-codec/src/packageInfo.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_types_create_src}/packageInfo.ts",
+      "description": "Modify packages/types-create/src/packageInfo.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_types_known_src}/packageInfo.ts",
+      "description": "Modify packages/types-known/src/packageInfo.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_types_support_src}/packageInfo.ts",
+      "description": "Modify packages/types-support/src/packageInfo.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_types_src}/packageInfo.ts",
+      "description": "Modify packages/types/src/packageInfo.ts"
+    }
+  ],
+  "parameters": {
+    "packages_api_augment_src": "packages/api-augment/src",
+    "packages_api_base_src": "packages/api-base/src",
+    "packages_api_contract_src": "packages/api-contract/src",
+    "packages_api_derive_src": "packages/api-derive/src",
+    "packages_api_src": "packages/api/src",
+    "packages_rpc_augment_src": "packages/rpc-augment/src",
+    "packages_rpc_core_src": "packages/rpc-core/src",
+    "packages_rpc_provider_src": "packages/rpc-provider/src",
+    "packages_typegen_src": "packages/typegen/src",
+    "packages_types_augment_src": "packages/types-augment/src",
+    "packages_types_codec_src": "packages/types-codec/src",
+    "packages_types_create_src": "packages/types-create/src",
+    "packages_types_known_src": "packages/types-known/src",
+    "packages_types_support_src": "packages/types-support/src",
+    "packages_types_src": "packages/types/src"
+  },
+  "tags": [
+    "ci",
+    "api",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ci-skip-release-stable-16-5-2-vifaco",
+    "author": "polkadot-js",
+    "createdAt": "2026-03-25T14:16:56.546Z",
+    "updatedAt": "2026-03-25T14:16:56.546Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "d43f031dedb54fcd"
+  }
+}

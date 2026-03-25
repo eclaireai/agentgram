@@ -1,0 +1,59 @@
+{
+  "name": "Fix crash in declaration emit with nested binding patterns (#63154)",
+  "description": "Fix crash in declaration emit with nested binding patterns (#63154)",
+  "sourceSessionId": "ad04bf748838",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{src_compiler_transformers}/declarations.ts",
+      "description": "Modify src/compiler/transformers/declarations.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{tests_baselines_reference}/declarationEmitNestedBindingPattern.errors.txt",
+      "description": "Create tests/baselines/reference/declarationEmitNestedBindingPattern.errors.txt"
+    },
+    {
+      "action": "create_file",
+      "target": "{tests_baselines_reference}/declarationEmitNestedBindingPattern.js",
+      "description": "Create tests/baselines/reference/declarationEmitNestedBindingPattern.js"
+    },
+    {
+      "action": "create_file",
+      "target": "{tests_baselines_reference}/declarationEmitNestedBindingPattern.symbols",
+      "description": "Create tests/baselines/reference/declarationEmitNestedBindingPattern.symbols"
+    },
+    {
+      "action": "create_file",
+      "target": "{tests_baselines_reference}/declarationEmitNestedBindingPattern.types",
+      "description": "Create tests/baselines/reference/declarationEmitNestedBindingPattern.types"
+    },
+    {
+      "action": "create_file",
+      "target": "{tests_cases_compiler}/declarationEmitNestedBindingPattern.ts",
+      "description": "Create tests/cases/compiler/declarationEmitNestedBindingPattern.ts"
+    }
+  ],
+  "parameters": {
+    "src_compiler_transformers": "src/compiler/transformers",
+    "tests_baselines_reference": "tests/baselines/reference",
+    "tests_cases_compiler": "tests/cases/compiler"
+  },
+  "tags": [
+    "testing",
+    "error-handling",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fix-crash-in-declaration-emit-with-neste-hs32dm",
+    "author": "microsoft",
+    "createdAt": "2026-03-25T14:16:10.732Z",
+    "updatedAt": "2026-03-25T14:16:10.732Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "fa4d93d09d3a2996"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Better error when fs files not available at runtime",
+  "description": "better error when fs files not available at runtime",
+  "sourceSessionId": "f199004df864",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "CHANGELOG.md",
+      "description": "Modify CHANGELOG.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "README.md",
+      "description": "Modify README.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_approuter}/server.ts",
+      "description": "Modify src/appRouter/server.ts"
+    }
+  ],
+  "parameters": {
+    "src_approuter": "src/appRouter"
+  },
+  "tags": [
+    "api",
+    "error-handling",
+    "typescript",
+    "nextjs"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "better-error-when-fs-files-not-available-98v8pc",
+    "author": "i18next",
+    "createdAt": "2026-03-25T14:16:22.485Z",
+    "updatedAt": "2026-03-25T14:16:22.485Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "52f70f7dc29c55ef"
+  }
+}

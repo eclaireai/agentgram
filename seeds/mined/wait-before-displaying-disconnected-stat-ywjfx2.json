@@ -1,0 +1,49 @@
+{
+  "name": "Wait before displaying disconnected state",
+  "description": "feat: wait before displaying disconnected state",
+  "sourceSessionId": "635fad8be33f",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{app_frontend_src_features}/App.vue",
+      "description": "Modify packages/app-frontend/src/features/App.vue"
+    },
+    {
+      "action": "modify_file",
+      "target": "{app_frontend_src_features_connection}/index.ts",
+      "description": "Modify packages/app-frontend/src/features/connection/index.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{app_frontend_src}/index.ts",
+      "description": "Modify packages/app-frontend/src/index.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{shell_chrome_src}/devtools.js",
+      "description": "Modify packages/shell-chrome/src/devtools.js"
+    }
+  ],
+  "parameters": {
+    "source_dir": "packages",
+    "app_frontend_src_features": "packages/app-frontend/src/features",
+    "app_frontend_src_features_connection": "packages/app-frontend/src/features/connection",
+    "app_frontend_src": "packages/app-frontend/src",
+    "shell_chrome_src": "packages/shell-chrome/src"
+  },
+  "tags": [
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "wait-before-displaying-disconnected-stat-ywjfx2",
+    "author": "vuejs",
+    "createdAt": "2026-03-25T14:18:09.447Z",
+    "updatedAt": "2026-03-25T14:18:09.447Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "e2e2d14a7e94fd96"
+  }
+}

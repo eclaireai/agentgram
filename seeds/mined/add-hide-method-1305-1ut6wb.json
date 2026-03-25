@@ -1,0 +1,75 @@
+{
+  "name": "Add hide() method (#1305)",
+  "description": "Add hide() method (#1305)",
+  "sourceSessionId": "8cf795ed993e",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{docs_api}/validation-chain.md",
+      "description": "Modify docs/api/validation-chain.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/base.ts",
+      "description": "Modify src/base.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_chain}/context-handler-impl.spec.ts",
+      "description": "Modify src/chain/context-handler-impl.spec.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_chain}/context-handler-impl.ts",
+      "description": "Modify src/chain/context-handler-impl.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_chain}/context-handler.ts",
+      "description": "Modify src/chain/context-handler.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/context-builder.spec.ts",
+      "description": "Modify src/context-builder.spec.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/context-builder.ts",
+      "description": "Modify src/context-builder.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/context.spec.ts",
+      "description": "Modify src/context.spec.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/context.ts",
+      "description": "Modify src/context.ts"
+    }
+  ],
+  "parameters": {
+    "docs_api": "docs/api",
+    "src": "src",
+    "src_chain": "src/chain"
+  },
+  "tags": [
+    "testing",
+    "api",
+    "build",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "add-hide-method-1305-1ut6wb",
+    "author": "express-validator",
+    "createdAt": "2026-03-25T14:16:26.835Z",
+    "updatedAt": "2026-03-25T14:16:26.835Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "44c9035a0c5dc819"
+  }
+}

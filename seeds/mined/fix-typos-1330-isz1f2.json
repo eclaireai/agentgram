@@ -1,0 +1,89 @@
+{
+  "name": "Fix typos (#1330)",
+  "description": "fix typos (#1330)",
+  "sourceSessionId": "8e035216acf2",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{docs_api}/misc.md",
+      "description": "Modify docs/api/misc.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_context_items}/custom-validation.ts",
+      "description": "Modify src/context-items/custom-validation.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_context_items}/sanitization.ts",
+      "description": "Modify src/context-items/sanitization.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{website_versioned_docs_version_5_2_0}/api-validation-chain.md",
+      "description": "Modify website/versioned_docs/version-5.2.0/api-validation-chain.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{website_versioned_docs_version_5_2_0}/feature-error-messages.md",
+      "description": "Modify website/versioned_docs/version-5.2.0/feature-error-messages.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{website_versioned_docs_version_5_3_0}/api-validation-chain.md",
+      "description": "Modify website/versioned_docs/version-5.3.0/api-validation-chain.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{website_versioned_docs_version_5_3_0}/feature-error-messages.md",
+      "description": "Modify website/versioned_docs/version-5.3.0/feature-error-messages.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{website_versioned_docs_version_6_0_0}/api-validation-chain.md",
+      "description": "Modify website/versioned_docs/version-6.0.0/api-validation-chain.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{website_versioned_docs_version_6_1_0}/api-validation-chain.md",
+      "description": "Modify website/versioned_docs/version-6.1.0/api-validation-chain.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{website_versioned_docs_version_7_0_0_api}/misc.md",
+      "description": "Modify website/versioned_docs/version-7.0.0/api/misc.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{website_versioned_docs_version_7_2_0_api}/misc.md",
+      "description": "Modify website/versioned_docs/version-7.2.0/api/misc.md"
+    }
+  ],
+  "parameters": {
+    "docs_api": "docs/api",
+    "src_context_items": "src/context-items",
+    "website_versioned_docs_version_5_2_0": "website/versioned_docs/version-5.2.0",
+    "website_versioned_docs_version_5_3_0": "website/versioned_docs/version-5.3.0",
+    "website_versioned_docs_version_6_0_0": "website/versioned_docs/version-6.0.0",
+    "website_versioned_docs_version_6_1_0": "website/versioned_docs/version-6.1.0",
+    "website_versioned_docs_version_7_0_0_api": "website/versioned_docs/version-7.0.0/api",
+    "website_versioned_docs_version_7_2_0_api": "website/versioned_docs/version-7.2.0/api"
+  },
+  "tags": [
+    "api",
+    "error-handling",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fix-typos-1330-isz1f2",
+    "author": "express-validator",
+    "createdAt": "2026-03-25T14:16:26.835Z",
+    "updatedAt": "2026-03-25T14:16:26.835Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "f93cad9cae741533"
+  }
+}

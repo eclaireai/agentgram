@@ -1,0 +1,2254 @@
+{
+  "version": "1",
+  "updatedAt": "2026-03-25T14:18:39.499Z",
+  "recipes": [
+    {
+      "id": "port-anyfunctiontype-subtype-fix-and-jsx-tlo5ye",
+      "name": "Port anyFunctionType subtype fix and JSX children NonInferrableType propagation ",
+      "description": "Port anyFunctionType subtype fix and JSX children NonInferrableType propagation from typescript-go (#63163)",
+      "author": "microsoft",
+      "tags": [
+        "testing",
+        "error-handling",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:10.730Z",
+      "stepCount": 11
+    },
+    {
+      "id": "eliminate-interpolation-from-workflows-6-9av6ex",
+      "name": "Eliminate interpolation from workflows (#63188)",
+      "description": "Eliminate interpolation from workflows (#63188)",
+      "author": "microsoft",
+      "tags": [
+        "ci",
+        "github-actions",
+        "config"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:10.731Z",
+      "stepCount": 6
+    },
+    {
+      "id": "update-dom-types-63137-i60csq",
+      "name": "Update DOM types (#63137)",
+      "description": "Update DOM types (#63137)",
+      "author": "microsoft",
+      "tags": [
+        "testing",
+        "error-handling",
+        "typescript",
+        "react"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:10.732Z",
+      "stepCount": 16
+    },
+    {
+      "id": "fix-crash-in-declaration-emit-with-neste-hs32dm",
+      "name": "Fix crash in declaration emit with nested binding patterns (#63154)",
+      "description": "Fix crash in declaration emit with nested binding patterns (#63154)",
+      "author": "microsoft",
+      "tags": [
+        "testing",
+        "error-handling",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:10.732Z",
+      "stepCount": 6
+    },
+    {
+      "id": "fix-from-and-with-method-types-of-tempor-2jjst1",
+      "name": "Fix `from` and `with` method types of `Temporal.PlainMonthDay` (#63142)",
+      "description": "Fix `from` and `with` method types of `Temporal.PlainMonthDay` (#63142)",
+      "author": "microsoft",
+      "tags": [
+        "testing",
+        "error-handling",
+        "typescript",
+        "nextjs"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:10.732Z",
+      "stepCount": 6
+    },
+    {
+      "id": "un-consolidate-and-fix-weakmap-construct-k32oik",
+      "name": "Un‑consolidate and fix `WeakMap` constructor overloads (#56713)",
+      "description": "Un‑consolidate and fix `WeakMap` constructor overloads (#56713)",
+      "author": "microsoft",
+      "tags": [
+        "testing",
+        "error-handling",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:10.732Z",
+      "stepCount": 7
+    },
+    {
+      "id": "document-indexof-return-value-when-not-f-miuh32",
+      "name": "Document indexOf return value when not found (#60569)",
+      "description": "Document indexOf return value when not found (#60569)",
+      "author": "microsoft",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:10.732Z",
+      "stepCount": 3
+    },
+    {
+      "id": "return-iterable-of-regexpexecarray-from--gwxhrb",
+      "name": "Return iterable of RegExpExecArray from RegExp#[Symbol.matchAll] (#60516)",
+      "description": "Return iterable of RegExpExecArray from RegExp#[Symbol.matchAll] (#60516)",
+      "author": "microsoft",
+      "tags": [
+        "testing",
+        "typescript",
+        "nextjs"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:10.732Z",
+      "stepCount": 3
+    },
+    {
+      "id": "add-approximatelysign-to-numberformatran-n6vwo9",
+      "name": "Add approximatelySign to NumberFormatRangePartTypeRegistry for ES2023 (#62013)",
+      "description": "Add approximatelySign to NumberFormatRangePartTypeRegistry for ES2023 (#62013)",
+      "author": "microsoft",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:10.732Z",
+      "stepCount": 5
+    },
+    {
+      "id": "release-typescript-5-8-5-9-alwxdg",
+      "name": "Release: TypeScript 5.8 & 5.9",
+      "description": "release: TypeScript 5.8 & 5.9",
+      "author": "zhongsp",
+      "tags": [
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:18.460Z",
+      "stepCount": 5
+    },
+    {
+      "id": "release-typescript-5-7-qom07t",
+      "name": "Release: TypeScript 5.7",
+      "description": "release: TypeScript 5.7",
+      "author": "zhongsp",
+      "tags": [
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:18.461Z",
+      "stepCount": 4
+    },
+    {
+      "id": "release-typescript-5-6-c3h49t",
+      "name": "Release: TypeScript 5.6",
+      "description": "release: TypeScript 5.6",
+      "author": "zhongsp",
+      "tags": [
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:18.461Z",
+      "stepCount": 4
+    },
+    {
+      "id": "release-typescript-5-5-dvd1n0",
+      "name": "Release: TypeScript 5.5",
+      "description": "release: TypeScript 5.5",
+      "author": "zhongsp",
+      "tags": [
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:18.461Z",
+      "stepCount": 3
+    },
+    {
+      "id": "exponential-search-247-8n8xyv",
+      "name": "Exponential search (#247)",
+      "description": "Exponential search (#247)",
+      "author": "TheAlgorithms",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:19.238Z",
+      "stepCount": 4
+    },
+    {
+      "id": "use-for-of-241-0mmqr3",
+      "name": "Use `for-of` (#241)",
+      "description": "style: use `for-of` (#241)",
+      "author": "TheAlgorithms",
+      "tags": [
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:19.238Z",
+      "stepCount": 3
+    },
+    {
+      "id": "added-double-factorial-iterative-impleme-j28q1r",
+      "name": "Added Double Factorial Iterative Implementation (#187)",
+      "description": "feat: Added Double Factorial Iterative Implementation (#187)",
+      "author": "TheAlgorithms",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:19.238Z",
+      "stepCount": 3
+    },
+    {
+      "id": "add-treesort-algorithm-217-g6fbja",
+      "name": "Add treesort algorithm (#217)",
+      "description": "feat: add treesort algorithm (#217)",
+      "author": "TheAlgorithms",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:19.238Z",
+      "stepCount": 3
+    },
+    {
+      "id": "better-error-when-fs-files-not-available-98v8pc",
+      "name": "Better error when fs files not available at runtime",
+      "description": "better error when fs files not available at runtime",
+      "author": "i18next",
+      "tags": [
+        "api",
+        "error-handling",
+        "typescript",
+        "nextjs"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:22.485Z",
+      "stepCount": 3
+    },
+    {
+      "id": "drop-node-v18-support-2334-kakpmo",
+      "name": "Drop Node v18 Support (#2334)",
+      "description": "Drop Node v18 Support (#2334)",
+      "author": "i18next",
+      "tags": [
+        "ci",
+        "github-actions",
+        "config",
+        "nextjs"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:22.486Z",
+      "stepCount": 5
+    },
+    {
+      "id": "fix-img-url-4ws4lg",
+      "name": "Fix img url",
+      "description": "fix img url",
+      "author": "i18next",
+      "tags": [
+        "typescript",
+        "nextjs"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:22.486Z",
+      "stepCount": 3
+    },
+    {
+      "id": "update-example-deps-zyzkzc",
+      "name": "Update example deps",
+      "description": "update example deps",
+      "author": "i18next",
+      "tags": [
+        "nextjs",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:22.486Z",
+      "stepCount": 4
+    },
+    {
+      "id": "types-fix-withtranslation-type-from-next-ljvpdo",
+      "name": "Types: fix: WithTranslation type from next-i18next is not generic (TS error) #23",
+      "description": "types: fix: WithTranslation type from next-i18next is not generic (TS error) #2329",
+      "author": "i18next",
+      "tags": [
+        "testing",
+        "error-handling",
+        "typescript",
+        "nextjs"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:22.486Z",
+      "stepCount": 3
+    },
+    {
+      "id": "update-links-and-images-5ixhms",
+      "name": "Update links and images",
+      "description": "update links and images",
+      "author": "i18next",
+      "tags": [
+        "typescript",
+        "nextjs"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:22.486Z",
+      "stepCount": 5
+    },
+    {
+      "id": "update-examples-f6irtz",
+      "name": "Update examples",
+      "description": "update examples",
+      "author": "i18next",
+      "tags": [
+        "nextjs",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:22.486Z",
+      "stepCount": 5
+    },
+    {
+      "id": "add-cli-section-to-readmes-and-restore-m-xc3qjv",
+      "name": "Add CLI section to READMEs and restore @moemail/cli package name",
+      "description": "docs: add CLI section to READMEs and restore @moemail/cli package name",
+      "author": "beilunyang",
+      "tags": [
+        "nextjs",
+        "drizzle"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:23.553Z",
+      "stepCount": 4
+    },
+    {
+      "id": "add-config-module-and-config-command-gtk55h",
+      "name": "Add config module and config command",
+      "description": "feat(cli): add config module and config command",
+      "author": "beilunyang",
+      "tags": [
+        "typescript",
+        "nextjs",
+        "drizzle"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:23.553Z",
+      "stepCount": 3
+    },
+    {
+      "id": "scaffold-cli-package-with-commander-2vvz60",
+      "name": "Scaffold CLI package with commander",
+      "description": "feat(cli): scaffold CLI package with commander",
+      "author": "beilunyang",
+      "tags": [
+        "typescript",
+        "nextjs",
+        "drizzle"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:23.553Z",
+      "stepCount": 3
+    },
+    {
+      "id": "mail-and-assignment-added-x5uisd",
+      "name": "Mail and assignment added",
+      "description": "mail and assignment added",
+      "author": "hiteshchoudhary",
+      "tags": [
+        "api",
+        "middleware",
+        "nextjs",
+        "typescript",
+        "mongoose"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:24.147Z",
+      "stepCount": 8
+    },
+    {
+      "id": "added-middleware-and-me-route-z0obrq",
+      "name": "Added middleware and me route",
+      "description": "added middleware and me route",
+      "author": "hiteshchoudhary",
+      "tags": [
+        "api",
+        "middleware",
+        "typescript",
+        "nextjs",
+        "mongoose"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:24.147Z",
+      "stepCount": 5
+    },
+    {
+      "id": "signup-and-login-complete-hs47d0",
+      "name": "Signup and login complete",
+      "description": "signup and login complete",
+      "author": "hiteshchoudhary",
+      "tags": [
+        "auth",
+        "api",
+        "typescript",
+        "nextjs",
+        "mongoose"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:24.147Z",
+      "stepCount": 6
+    },
+    {
+      "id": "fullstack-course-1st-push-gqdnwj",
+      "name": "Fullstack course 1st push",
+      "description": "fullstack course 1st push",
+      "author": "hiteshchoudhary",
+      "tags": [
+        "auth",
+        "api",
+        "typescript",
+        "nextjs",
+        "mongoose"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:24.147Z",
+      "stepCount": 9
+    },
+    {
+      "id": "deps-upgrade-validator-to-13-15-23-mg3bq9",
+      "name": "Deps: upgrade validator to ~13.15.23",
+      "description": "deps: upgrade validator to ~13.15.23",
+      "author": "express-validator",
+      "tags": [
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:26.835Z",
+      "stepCount": 3
+    },
+    {
+      "id": "deps-upgrade-validator-to-v13-15-15-arv4hd",
+      "name": "Deps: upgrade validator to v13.15.15",
+      "description": "deps: upgrade validator to v13.15.15",
+      "author": "express-validator",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:26.835Z",
+      "stepCount": 6
+    },
+    {
+      "id": "fix-typos-1330-isz1f2",
+      "name": "Fix typos (#1330)",
+      "description": "fix typos (#1330)",
+      "author": "express-validator",
+      "tags": [
+        "api",
+        "error-handling",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:26.835Z",
+      "stepCount": 11
+    },
+    {
+      "id": "clone-default-replacement-values-in-defa-2d8srv",
+      "name": "Clone default/replacement values in #default()/#replace()",
+      "description": "Clone default/replacement values in #default()/#replace()",
+      "author": "express-validator",
+      "tags": [
+        "testing",
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:26.835Z",
+      "stepCount": 4
+    },
+    {
+      "id": "add-wildcard-values-to-custom-validator--6cz7g4",
+      "name": "Add wildcard values to custom validator's metadata (#1308)",
+      "description": "Add wildcard values to custom validator's metadata (#1308)",
+      "author": "express-validator",
+      "tags": [
+        "testing",
+        "api",
+        "express",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:26.835Z",
+      "stepCount": 16
+    },
+    {
+      "id": "add-hide-method-1305-1ut6wb",
+      "name": "Add hide() method (#1305)",
+      "description": "Add hide() method (#1305)",
+      "author": "express-validator",
+      "tags": [
+        "testing",
+        "api",
+        "build",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:26.835Z",
+      "stepCount": 9
+    },
+    {
+      "id": "upgrade-to-validator-v13-12-0-xn7ufl",
+      "name": "Upgrade to validator v13.12.0",
+      "description": "Upgrade to validator v13.12.0",
+      "author": "express-validator",
+      "tags": [
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:26.835Z",
+      "stepCount": 6
+    },
+    {
+      "id": "update-node-and-typescript-versions-in-t-q7oqvt",
+      "name": "Update Node and TypeScript versions in tests (#765)",
+      "description": "Update Node and TypeScript versions in tests (#765)",
+      "author": "graphql",
+      "tags": [
+        "testing",
+        "ci",
+        "github-actions",
+        "typescript",
+        "config",
+        "express"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:27.700Z",
+      "stepCount": 3
+    },
+    {
+      "id": "support-graphql-ws-client-for-graphiql-i-v0daxp",
+      "name": "Support graphql-ws client for GraphiQL IDE (#755)",
+      "description": "feat: support graphql-ws client for GraphiQL IDE (#755)",
+      "author": "graphql",
+      "tags": [
+        "testing",
+        "typescript",
+        "express"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:27.700Z",
+      "stepCount": 7
+    },
+    {
+      "id": "revert-allow-custom-handling-of-runtime--aj8udz",
+      "name": "Revert \"Allow custom handling of runtime query errors\"",
+      "description": "Revert \"Allow custom handling of runtime query errors\"",
+      "author": "graphql",
+      "tags": [
+        "testing",
+        "error-handling",
+        "typescript",
+        "express"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:27.700Z",
+      "stepCount": 3
+    },
+    {
+      "id": "allow-custom-handling-of-runtime-query-e-vaqc8d",
+      "name": "Allow custom handling of runtime query errors",
+      "description": "Allow custom handling of runtime query errors",
+      "author": "graphql",
+      "tags": [
+        "testing",
+        "error-handling",
+        "typescript",
+        "express"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:27.700Z",
+      "stepCount": 3
+    },
+    {
+      "id": "subscription-support-for-graphiql-687-sww9dl",
+      "name": "Subscription support for GraphiQL (#687)",
+      "description": "Subscription support for GraphiQL (#687)",
+      "author": "graphql",
+      "tags": [
+        "testing",
+        "typescript",
+        "express"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:27.700Z",
+      "stepCount": 4
+    },
+    {
+      "id": "annotate-basicauth-security-scheme-in-op-wl7fas",
+      "name": "Annotate basicAuth security scheme in OpenAPI",
+      "description": "Annotate basicAuth security scheme in OpenAPI",
+      "author": "w3tecch",
+      "tags": [
+        "auth",
+        "api",
+        "security",
+        "typescript",
+        "express",
+        "typeorm"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:28.793Z",
+      "stepCount": 3
+    },
+    {
+      "id": "remove-manual-swagger-json-and-reference-2wtenu",
+      "name": "Remove manual swagger.json and references, update README",
+      "description": "Remove manual swagger.json and references, update README",
+      "author": "w3tecch",
+      "tags": [
+        "testing",
+        "api",
+        "typescript",
+        "express",
+        "typeorm"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:28.793Z",
+      "stepCount": 6
+    },
+    {
+      "id": "release-tracking-7671-mqum79",
+      "name": "Release tracking (#7671)",
+      "description": "Release tracking (#7671)",
+      "author": "primer",
+      "tags": [
+        "react",
+        "nextjs"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:39.386Z",
+      "stepCount": 10
+    },
+    {
+      "id": "update-iconbutton-and-actionbar-iconbutt-nhuztz",
+      "name": "Update IconButton and ActionBar.IconButton to support multiple keybinding hints ",
+      "description": "Update IconButton and ActionBar.IconButton to support multiple keybinding hints (#7623)",
+      "author": "primer",
+      "tags": [
+        "testing",
+        "typescript",
+        "react"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:39.387Z",
+      "stepCount": 9
+    },
+    {
+      "id": "ensure-max-height-does-not-surpass-viewp-l58wg7",
+      "name": "Ensure max-height does not surpass viewport height in Overlay, ActionMenu under ",
+      "description": "chore: ensure max-height does not surpass viewport height in Overlay, ActionMenu under feature flag (#7510)",
+      "author": "primer",
+      "tags": [
+        "testing",
+        "react",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:39.387Z",
+      "stepCount": 18
+    },
+    {
+      "id": "update-usemergedrefs-to-be-react-19-comp-tn7vd0",
+      "name": "Update `useMergedRefs` to be React 19 compatible and public + deprecate `useRefO",
+      "description": "Update `useMergedRefs` to be React 19 compatible and public + deprecate `useRefObjectAsForwardedRef` and `useProvidedRefOrCreate` (#7672)",
+      "author": "primer",
+      "tags": [
+        "testing",
+        "react",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:39.387Z",
+      "stepCount": 12
+    },
+    {
+      "id": "improve-prop-passthrough-for-actionlist--15yl71",
+      "name": "Improve prop passthrough for ActionList.LinkItem and Breadcrumbs.Item (#7658)",
+      "description": "fix(polymorphic): Improve prop passthrough for ActionList.LinkItem and Breadcrumbs.Item (#7658)",
+      "author": "primer",
+      "tags": [
+        "testing",
+        "react",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:39.387Z",
+      "stepCount": 8
+    },
+    {
+      "id": "release-tracking-7670-vu72o7",
+      "name": "Release tracking (#7670)",
+      "description": "Release tracking (#7670)",
+      "author": "primer",
+      "tags": [
+        "react",
+        "nextjs"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:39.387Z",
+      "stepCount": 6
+    },
+    {
+      "id": "anchoredoverlay-add-support-for-css-anch-7atfjd",
+      "name": "AnchoredOverlay: Add support for CSS anchor positioning PR (Reverted) (#7661)",
+      "description": "AnchoredOverlay: Add support for CSS anchor positioning PR (Reverted) (#7661)",
+      "author": "primer",
+      "tags": [
+        "testing",
+        "react",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:39.387Z",
+      "stepCount": 17
+    },
+    {
+      "id": "release-tracking-7653-qlu8sb",
+      "name": "Release tracking (#7653)",
+      "description": "Release tracking (#7653)",
+      "author": "primer",
+      "tags": [
+        "react",
+        "nextjs"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:39.387Z",
+      "stepCount": 15
+    },
+    {
+      "id": "revert-perf-treeview-replace-o-n-treewal-1l2t4x",
+      "name": "Revert \"perf(TreeView): replace O(n) TreeWalker with O(depth) sibling traversal\"",
+      "description": "Revert \"perf(TreeView): replace O(n) TreeWalker with O(depth) sibling traversal\" (#7659)",
+      "author": "primer",
+      "tags": [
+        "testing",
+        "react",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:39.387Z",
+      "stepCount": 3
+    },
+    {
+      "id": "memoize-context-values-menuitemprops-ari-wl8kti",
+      "name": "Memoize context values, menuItemProps, aria attributes (#7554)",
+      "description": "perf(ActionList): memoize context values, menuItemProps, aria attributes (#7554)",
+      "author": "primer",
+      "tags": [
+        "react",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:39.387Z",
+      "stepCount": 3
+    },
+    {
+      "id": "replace-has-banneractions-with-data-has--t6uvan",
+      "name": "Replace :has(.BannerActions) with data-has-actions attribute (#7598)",
+      "description": "perf(Banner): replace :has(.BannerActions) with data-has-actions attribute (#7598)",
+      "author": "primer",
+      "tags": [
+        "react",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:39.387Z",
+      "stepCount": 3
+    },
+    {
+      "id": "replace-has-footer-with-data-has-footer--tepjjg",
+      "name": "Replace :has(.Footer) with data-has-footer attribute (#7599)",
+      "description": "perf(Dialog): replace :has(.Footer) with data-has-footer attribute (#7599)",
+      "author": "primer",
+      "tags": [
+        "testing",
+        "react",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:39.387Z",
+      "stepCount": 4
+    },
+    {
+      "id": "replace-o-n-treewalker-with-o-depth-sibl-dj03kb",
+      "name": "Replace O(n) TreeWalker with O(depth) sibling traversal (#7544)",
+      "description": "perf(TreeView): replace O(n) TreeWalker with O(depth) sibling traversal (#7544)",
+      "author": "primer",
+      "tags": [
+        "testing",
+        "react",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:39.387Z",
+      "stepCount": 3
+    },
+    {
+      "id": "revert-anchoredoverlay-add-support-for-c-hpjdgu",
+      "name": "Revert \"AnchoredOverlay: Add support for CSS anchor positioning (#7604)\" (#7657)",
+      "description": "Revert \"AnchoredOverlay: Add support for CSS anchor positioning (#7604)\" (#7657)",
+      "author": "primer",
+      "tags": [
+        "testing",
+        "react",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:39.387Z",
+      "stepCount": 17
+    },
+    {
+      "id": "fix-invalid-tailwind-css-classes-159-1o7y8s",
+      "name": "Fix invalid Tailwind CSS classes (#159)",
+      "description": "Fix invalid Tailwind CSS classes (#159)",
+      "author": "untitleduico",
+      "tags": [
+        "typescript",
+        "nextjs"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:40.684Z",
+      "stepCount": 6
+    },
+    {
+      "id": "fix-minor-type-errors-9hvus8",
+      "name": "Fix minor type errors",
+      "description": "Fix minor type errors",
+      "author": "untitleduico",
+      "tags": [
+        "error-handling",
+        "typescript",
+        "nextjs"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:40.684Z",
+      "stepCount": 4
+    },
+    {
+      "id": "expose-rac-routeroptions-prop-in-buttons-jlgica",
+      "name": "Expose RAC `routerOptions` prop in buttons and links (#144)",
+      "description": "Expose RAC `routerOptions` prop in buttons and links (#144)",
+      "author": "untitleduico",
+      "tags": [
+        "ci",
+        "api",
+        "typescript",
+        "nextjs"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:40.684Z",
+      "stepCount": 3
+    },
+    {
+      "id": "add-support-for-react-17-18-and-19-krdv58",
+      "name": "Add support for React 17, 18, and 19",
+      "description": "feat: add support for React 17, 18, and 19",
+      "author": "ui-router",
+      "tags": [
+        "testing",
+        "api",
+        "react",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:42.187Z",
+      "stepCount": 9
+    },
+    {
+      "id": "upgrade-to-latest-webpack-tooling-yavvnf",
+      "name": "Upgrade to latest webpack tooling",
+      "description": "chore: upgrade to latest webpack tooling",
+      "author": "ui-router",
+      "tags": [
+        "testing",
+        "typescript",
+        "react"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:42.187Z",
+      "stepCount": 3
+    },
+    {
+      "id": "migrate-from-enzyme-to-react-testing-lib-9wimxh",
+      "name": "Migrate from enzyme to react-testing-library",
+      "description": "test(*): migrate from enzyme to react-testing-library",
+      "author": "ui-router",
+      "tags": [
+        "testing",
+        "jest",
+        "api",
+        "react",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:42.187Z",
+      "stepCount": 13
+    },
+    {
+      "id": "update-classnames-library-which-has-defa-6i32ij",
+      "name": "Update classnames library which has default export type (#939)",
+      "description": "fix: update classnames library which has default export type (#939)",
+      "author": "ui-router",
+      "tags": [
+        "typescript",
+        "react"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:42.187Z",
+      "stepCount": 3
+    },
+    {
+      "id": "update-step-security-harden-runner-actio-a7q2ql",
+      "name": "Update step-security/harden-runner action to v2.16.0",
+      "description": "chore(action): update step-security/harden-runner action to v2.16.0",
+      "author": "kelektiv",
+      "tags": [
+        "testing",
+        "ci",
+        "github-actions",
+        "linting",
+        "security",
+        "config"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:45.233Z",
+      "stepCount": 5
+    },
+    {
+      "id": "update-step-security-harden-runner-actio-x0rnys",
+      "name": "Update step-security/harden-runner action to v2.15.1",
+      "description": "chore(action): update step-security/harden-runner action to v2.15.1",
+      "author": "kelektiv",
+      "tags": [
+        "testing",
+        "ci",
+        "github-actions",
+        "linting",
+        "security",
+        "config"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:45.233Z",
+      "stepCount": 5
+    },
+    {
+      "id": "update-step-security-harden-runner-actio-e54icw",
+      "name": "Update step-security/harden-runner action to v2.14.2",
+      "description": "chore(action): update step-security/harden-runner action to v2.14.2",
+      "author": "kelektiv",
+      "tags": [
+        "testing",
+        "ci",
+        "github-actions",
+        "linting",
+        "security",
+        "config"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:45.233Z",
+      "stepCount": 5
+    },
+    {
+      "id": "update-actions-checkout-action-to-v6-0-2-u6ompf",
+      "name": "Update actions/checkout action to v6.0.2 (#1039)",
+      "description": "chore(action): update actions/checkout action to v6.0.2 (#1039)",
+      "author": "kelektiv",
+      "tags": [
+        "testing",
+        "ci",
+        "github-actions",
+        "config"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:45.233Z",
+      "stepCount": 4
+    },
+    {
+      "id": "improve-validation-8746-wksz6t",
+      "name": "Improve validation (#8746)",
+      "description": "feat(remark-lint): improve validation (#8746)",
+      "author": "nodejs",
+      "tags": [
+        "testing",
+        "linting",
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:49.123Z",
+      "stepCount": 7
+    },
+    {
+      "id": "add-zizmor-8728-j7kofs",
+      "name": "Add zizmor (#8728)",
+      "description": "feat(ci): add zizmor (#8728)",
+      "author": "nodejs",
+      "tags": [
+        "testing",
+        "ci",
+        "github-actions",
+        "linting",
+        "nextjs",
+        "deployment",
+        "build",
+        "config"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:49.123Z",
+      "stepCount": 20
+    },
+    {
+      "id": "empty-space-on-search-8725-s540mh",
+      "name": "Empty space on search (#8725)",
+      "description": "fix(ui): empty space on search (#8725)",
+      "author": "nodejs",
+      "tags": [],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:49.123Z",
+      "stepCount": 3
+    },
+    {
+      "id": "functionsignature-return-type-container--h93j4e",
+      "name": "FunctionSignature return type container (#8717)",
+      "description": "refactor: FunctionSignature return type container (#8717)",
+      "author": "nodejs",
+      "tags": [
+        "docker",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:49.123Z",
+      "stepCount": 4
+    },
+    {
+      "id": "split-docs-into-modules-il5xdo",
+      "name": "Split docs into modules",
+      "description": "refactor(docs): split docs into modules",
+      "author": "dilame",
+      "tags": [
+        "error-handling",
+        "typescript",
+        "build"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:51.461Z",
+      "stepCount": 11
+    },
+    {
+      "id": "use-typedoc-command-and-config-for-gener-9smil7",
+      "name": "Use `typedoc` command and config for generate-docs",
+      "description": "docs: use `typedoc` command and config for generate-docs",
+      "author": "dilame",
+      "tags": [
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:51.461Z",
+      "stepCount": 3
+    },
+    {
+      "id": "ci-skip-release-stable-16-5-6-j1dgaa",
+      "name": "[CI Skip] release/stable 16.5.6",
+      "description": "[CI Skip] release/stable 16.5.6",
+      "author": "polkadot-js",
+      "tags": [
+        "ci",
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:56.546Z",
+      "stepCount": 17
+    },
+    {
+      "id": "16-5-6-6251-lektui",
+      "name": "16.5.6 (#6251)",
+      "description": "16.5.6 (#6251)",
+      "author": "polkadot-js",
+      "tags": [
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:56.546Z",
+      "stepCount": 17
+    },
+    {
+      "id": "ci-skip-release-stable-16-5-5-gx0jam",
+      "name": "[CI Skip] release/stable 16.5.5",
+      "description": "[CI Skip] release/stable 16.5.5",
+      "author": "polkadot-js",
+      "tags": [
+        "ci",
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:56.546Z",
+      "stepCount": 17
+    },
+    {
+      "id": "16-5-5-6237-rtgghk",
+      "name": "16.5.5 (#6237)",
+      "description": "16.5.5 (#6237)",
+      "author": "polkadot-js",
+      "tags": [
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:56.546Z",
+      "stepCount": 17
+    },
+    {
+      "id": "improve-subscriptions-for-observable-han-13lltw",
+      "name": "Improve subscriptions for observable handling (#6236)",
+      "description": "Improve subscriptions for observable handling (#6236)",
+      "author": "polkadot-js",
+      "tags": [
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:56.546Z",
+      "stepCount": 4
+    },
+    {
+      "id": "ci-skip-release-stable-16-5-4-cua41r",
+      "name": "[CI Skip] release/stable 16.5.4",
+      "description": "[CI Skip] release/stable 16.5.4",
+      "author": "polkadot-js",
+      "tags": [
+        "ci",
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:56.546Z",
+      "stepCount": 17
+    },
+    {
+      "id": "16-5-4-6234-cat9vr",
+      "name": "16.5.4 (#6234)",
+      "description": "16.5.4 (#6234)",
+      "author": "polkadot-js",
+      "tags": [
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:56.546Z",
+      "stepCount": 17
+    },
+    {
+      "id": "ci-skip-release-stable-16-5-3-mjy4ky",
+      "name": "[CI Skip] release/stable 16.5.3",
+      "description": "[CI Skip] release/stable 16.5.3",
+      "author": "polkadot-js",
+      "tags": [
+        "ci",
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:56.546Z",
+      "stepCount": 17
+    },
+    {
+      "id": "16-5-3-6231-wncw2t",
+      "name": "16.5.3 (#6231)",
+      "description": "16.5.3 (#6231)",
+      "author": "polkadot-js",
+      "tags": [
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:56.546Z",
+      "stepCount": 17
+    },
+    {
+      "id": "ci-skip-release-stable-16-5-2-vifaco",
+      "name": "[CI Skip] release/stable 16.5.2",
+      "description": "[CI Skip] release/stable 16.5.2",
+      "author": "polkadot-js",
+      "tags": [
+        "ci",
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:56.546Z",
+      "stepCount": 17
+    },
+    {
+      "id": "16-5-2-6223-hotuyp",
+      "name": "16.5.2 (#6223)",
+      "description": "16.5.2 (#6223)",
+      "author": "polkadot-js",
+      "tags": [
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:56.546Z",
+      "stepCount": 17
+    },
+    {
+      "id": "twisted-rightwards-arrows-merge-1765-arr-l892qk",
+      "name": ":twisted_rightwards_arrows: Merge #1765 (:arrow_up: Bump actions/setup-node from",
+      "description": ":twisted_rightwards_arrows: Merge #1765 (:arrow_up: Bump actions/setup-node from v2.1.4 to v2.1.5)",
+      "author": "staart",
+      "tags": [
+        "testing",
+        "ci",
+        "github-actions",
+        "config",
+        "prisma"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:57.839Z",
+      "stepCount": 3
+    },
+    {
+      "id": "arrow-up-bump-actions-setup-node-from-v2-wro5rd",
+      "name": ":arrow_up: Bump actions/setup-node from v2.1.4 to v2.1.5",
+      "description": ":arrow_up: Bump actions/setup-node from v2.1.4 to v2.1.5",
+      "author": "staart",
+      "tags": [
+        "testing",
+        "ci",
+        "github-actions",
+        "config",
+        "prisma"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:16:57.839Z",
+      "stepCount": 3
+    },
+    {
+      "id": "v20-1-3-aiebct",
+      "name": "V20.1.3",
+      "description": "v20.1.3",
+      "author": "react-native-community",
+      "tags": [
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:17:30.719Z",
+      "stepCount": 14
+    },
+    {
+      "id": "propagate-resolved-port-to-build-when-de-dd7v7h",
+      "name": "Propagate resolved port to build when default port is unavailable (#2783)",
+      "description": "fix: propagate resolved port to build when default port is unavailable (#2783)",
+      "author": "react-native-community",
+      "tags": [
+        "build",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:17:30.719Z",
+      "stepCount": 3
+    },
+    {
+      "id": "v20-1-2-lyrpsq",
+      "name": "V20.1.2",
+      "description": "v20.1.2",
+      "author": "react-native-community",
+      "tags": [
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:17:30.719Z",
+      "stepCount": 14
+    },
+    {
+      "id": "mock-node-zlib-2761-4jainz",
+      "name": "Mock node:zlib (#2761)",
+      "description": "fix(tests): mock node:zlib (#2761)",
+      "author": "react-native-community",
+      "tags": [
+        "testing",
+        "jest",
+        "api",
+        "build",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:17:30.719Z",
+      "stepCount": 6
+    },
+    {
+      "id": "fail-if-version-does-not-match-2764-ajzxg3",
+      "name": "Fail if version does not match (#2764)",
+      "description": "fix: fail if version does not match (#2764)",
+      "author": "react-native-community",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:17:30.719Z",
+      "stepCount": 3
+    },
+    {
+      "id": "v20-1-1-vrs77i",
+      "name": "V20.1.1",
+      "description": "v20.1.1",
+      "author": "react-native-community",
+      "tags": [
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:17:30.719Z",
+      "stepCount": 14
+    },
+    {
+      "id": "prevent-rce-in-openurlmiddleware-via-url-b1hxm2",
+      "name": "Prevent RCE in openURLMiddleware via URL sanitization (#2758)",
+      "description": "fix: prevent RCE in openURLMiddleware via URL sanitization (#2758)",
+      "author": "react-native-community",
+      "tags": [
+        "testing",
+        "api",
+        "middleware",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:17:30.719Z",
+      "stepCount": 3
+    },
+    {
+      "id": "v20-1-0-c4cz19",
+      "name": "V20.1.0",
+      "description": "v20.1.0",
+      "author": "react-native-community",
+      "tags": [
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:17:30.720Z",
+      "stepCount": 14
+    },
+    {
+      "id": "fix-yarn-skip-install-combo-causing-temp-swhpol",
+      "name": "Fix yarn + skip-install combo causing template copy failure (#2748)",
+      "description": "fix(init): Fix yarn + skip-install combo causing template copy failure (#2748)",
+      "author": "react-native-community",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:17:30.720Z",
+      "stepCount": 5
+    },
+    {
+      "id": "fix-destination-in-buildproject-2706-1h4qdl",
+      "name": "Fix destination in `buildProject` (#2706)",
+      "description": "Fix destination in `buildProject` (#2706)",
+      "author": "react-native-community",
+      "tags": [
+        "build",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:17:30.720Z",
+      "stepCount": 4
+    },
+    {
+      "id": "v20-0-2-vf8gz7",
+      "name": "V20.0.2",
+      "description": "v20.0.2",
+      "author": "react-native-community",
+      "tags": [
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:17:30.720Z",
+      "stepCount": 14
+    },
+    {
+      "id": "skip-console-log-info-in-headless-mode-2-s68nyt",
+      "name": "Skip console log/info in headless mode (#22739)",
+      "description": "fix(cli): skip console log/info in headless mode (#22739)",
+      "author": "google-gemini",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:04.118Z",
+      "stepCount": 6
+    },
+    {
+      "id": "support-inline-agentcardjson-for-remote--8e2xzv",
+      "name": "Support inline agentCardJson for remote agents (#23743)",
+      "description": "feat(core): support inline agentCardJson for remote agents (#23743)",
+      "author": "google-gemini",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:04.118Z",
+      "stepCount": 9
+    },
+    {
+      "id": "fix-dynamic-model-routing-for-gemini-3-1-vfupp2",
+      "name": "Fix dynamic model routing for gemini 3.1 pro to customtools model (#23641)",
+      "description": "Fix dynamic model routing for gemini 3.1 pro to customtools model (#23641)",
+      "author": "google-gemini",
+      "tags": [
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:04.118Z",
+      "stepCount": 3
+    },
+    {
+      "id": "prevent-over-eager-slash-subcommand-comp-ngmp9t",
+      "name": "Prevent over-eager slash subcommand completion (#20136)",
+      "description": "fix(ui): prevent over-eager slash subcommand completion (#20136)",
+      "author": "google-gemini",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:04.118Z",
+      "stepCount": 4
+    },
+    {
+      "id": "standardize-os-specific-sandbox-tests-an-3jb9kl",
+      "name": "Standardize OS-specific sandbox tests and extract linux helper methods (#23715)",
+      "description": "refactor(core): standardize OS-specific sandbox tests and extract linux helper methods (#23715)",
+      "author": "google-gemini",
+      "tags": [
+        "testing",
+        "ci",
+        "build",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:04.118Z",
+      "stepCount": 6
+    },
+    {
+      "id": "conditionally-expose-additional-permissi-2ftupv",
+      "name": "Conditionally expose additional_permissions in shell tool (#23729)",
+      "description": "fix(core): conditionally expose additional_permissions in shell tool (#23729)",
+      "author": "google-gemini",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:04.118Z",
+      "stepCount": 9
+    },
+    {
+      "id": "implement-forbiddenpaths-for-os-specific-e5nqgv",
+      "name": "Implement forbiddenPaths for OS-specific sandbox managers (#23282)",
+      "description": "feat(sandbox): implement forbiddenPaths for OS-specific sandbox managers (#23282)",
+      "author": "google-gemini",
+      "tags": [
+        "testing",
+        "ci",
+        "build",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:04.118Z",
+      "stepCount": 12
+    },
+    {
+      "id": "stabilize-copy-mode-to-prevent-flickerin-jquv9x",
+      "name": "Stabilize copy mode to prevent flickering and cursor resets (#22584)",
+      "description": "fix(cli): stabilize copy mode to prevent flickering and cursor resets (#22584)",
+      "author": "google-gemini",
+      "tags": [
+        "testing",
+        "docker",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:04.118Z",
+      "stepCount": 11
+    },
+    {
+      "id": "refine-onboarding-metrics-to-log-the-dur-xm41gm",
+      "name": "Refine onboarding metrics to log the duration explicitly and use the tier name. ",
+      "description": "Refine onboarding metrics to log the duration explicitly and use the tier name. (#23678)",
+      "author": "google-gemini",
+      "tags": [
+        "testing",
+        "ci",
+        "logging",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:04.118Z",
+      "stepCount": 10
+    },
+    {
+      "id": "only-show-updating-spinner-when-auto-upd-1m4ugi",
+      "name": "Only show updating spinner when auto-update is in progress (#23709)",
+      "description": "fix(cli): only show updating spinner when auto-update is in progress (#23709)",
+      "author": "google-gemini",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:04.118Z",
+      "stepCount": 4
+    },
+    {
+      "id": "add-maxactionspertask-for-browser-agent--0pd21s",
+      "name": "Add maxActionsPerTask for browser agent setting (#23216)",
+      "description": "feat(browser): add maxActionsPerTask for browser agent setting (#23216)",
+      "author": "google-gemini",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:04.118Z",
+      "stepCount": 8
+    },
+    {
+      "id": "revert-chore-config-disable-agents-by-de-n6uauf",
+      "name": "Revert: chore(config): disable agents by default (#23672)",
+      "description": "revert: chore(config): disable agents by default (#23672)",
+      "author": "google-gemini",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:04.118Z",
+      "stepCount": 9
+    },
+    {
+      "id": "centralize-test-agents-into-test-utils-f-t1hlph",
+      "name": "Centralize test agents into test-utils for reuse (#23616)",
+      "description": "feat(evals): centralize test agents into test-utils for reuse (#23616)",
+      "author": "google-gemini",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:04.118Z",
+      "stepCount": 3
+    },
+    {
+      "id": "change-user-facing-auth-type-from-oauth2-zrrvhp",
+      "name": "Change user-facing auth type from oauth2 to oauth (#23639)",
+      "description": "feat(core): change user-facing auth type from oauth2 to oauth (#23639)",
+      "author": "google-gemini",
+      "tags": [
+        "auth",
+        "testing",
+        "ci",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:04.118Z",
+      "stepCount": 3
+    },
+    {
+      "id": "stop-gemini-cli-from-producing-unsafe-ca-ohn21j",
+      "name": "Stop gemini CLI from producing unsafe casts (#23611)",
+      "description": "refactor(core): stop gemini CLI from producing unsafe casts (#23611)",
+      "author": "google-gemini",
+      "tags": [
+        "testing",
+        "ci",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:04.118Z",
+      "stepCount": 3
+    },
+    {
+      "id": "improve-remote-agent-streaming-ui-and-ux-7o0ujv",
+      "name": "Improve remote agent streaming UI and UX (#23633)",
+      "description": "fix(core): improve remote agent streaming UI and UX (#23633)",
+      "author": "google-gemini",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:04.118Z",
+      "stepCount": 5
+    },
+    {
+      "id": "reorganize-windows-sandbox-files-23645-1q7n1x",
+      "name": "Reorganize Windows sandbox files (#23645)",
+      "description": "refactor(sandbox): reorganize Windows sandbox files (#23645)",
+      "author": "google-gemini",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:04.118Z",
+      "stepCount": 4
+    },
+    {
+      "id": "pass-the-cwd-to-acpfilesystemservice-to--eylcc7",
+      "name": "Pass the cwd to `AcpFileSystemService` to avoid looping failures in asking for p",
+      "description": "fix(acp): Pass the cwd to `AcpFileSystemService` to avoid looping failures in asking for perms to write plan md file (#23612)",
+      "author": "google-gemini",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:04.118Z",
+      "stepCount": 3
+    },
+    {
+      "id": "handling-more-client-name-enums-1228-qb7rqt",
+      "name": "Handling more client name enums (#1228)",
+      "description": "chore: handling more client name enums (#1228)",
+      "author": "ChromeDevTools",
+      "tags": [
+        "testing",
+        "logging",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:07.878Z",
+      "stepCount": 5
+    },
+    {
+      "id": "versioning-for-claude-code-plugin-1233-seod3h",
+      "name": "Versioning for Claude Code plugin (#1233)",
+      "description": "fix: versioning for Claude Code plugin (#1233)",
+      "author": "ChromeDevTools",
+      "tags": [],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:07.878Z",
+      "stepCount": 3
+    },
+    {
+      "id": "add-a-skill-for-detecting-memory-leaks-u-1dlgsg",
+      "name": "Add a skill for detecting memory leaks using take_memory_snapshot tool (#1162)",
+      "description": "feat: add a skill for detecting memory leaks using take_memory_snapshot tool (#1162)",
+      "author": "ChromeDevTools",
+      "tags": [
+        "linting",
+        "eslint"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:07.878Z",
+      "stepCount": 5
+    },
+    {
+      "id": "record-client-name-in-telemetry-1208-yljswb",
+      "name": "Record client name in telemetry. (#1208)",
+      "description": "feat: record client name in telemetry. (#1208)",
+      "author": "ChromeDevTools",
+      "tags": [
+        "testing",
+        "logging",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:07.878Z",
+      "stepCount": 4
+    },
+    {
+      "id": "release-chrome-devtools-mcp-0-20-3-1203-hxq7z9",
+      "name": "Release chrome-devtools-mcp 0.20.3 (#1203)",
+      "description": "chore(main): release chrome-devtools-mcp 0.20.3 (#1203)",
+      "author": "ChromeDevTools",
+      "tags": [
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:07.878Z",
+      "stepCount": 5
+    },
+    {
+      "id": "don-t-re-export-internals-1211-03qfrk",
+      "name": "Don't re-export internals (#1211)",
+      "description": "chore: don't re-export internals (#1211)",
+      "author": "ChromeDevTools",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:07.878Z",
+      "stepCount": 4
+    },
+    {
+      "id": "use-cdp-to-find-open-devtools-pages-rela-zu9api",
+      "name": "Use CDP to find open DevTools pages (reland) (#1210)",
+      "description": "perf: use CDP to find open DevTools pages (reland) (#1210)",
+      "author": "ChromeDevTools",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:07.878Z",
+      "stepCount": 3
+    },
+    {
+      "id": "mark-categoryextensions-flag-mutually-ex-rnb5io",
+      "name": "Mark categoryExtensions flag mutually exclusive with autoConnect (#1202)",
+      "description": "fix: mark categoryExtensions flag mutually exclusive with autoConnect (#1202)",
+      "author": "ChromeDevTools",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:07.878Z",
+      "stepCount": 3
+    },
+    {
+      "id": "release-chrome-devtools-mcp-0-20-2-1199-t4x88d",
+      "name": "Release chrome-devtools-mcp 0.20.2 (#1199)",
+      "description": "chore(main): release chrome-devtools-mcp 0.20.2 (#1199)",
+      "author": "ChromeDevTools",
+      "tags": [
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:07.878Z",
+      "stepCount": 5
+    },
+    {
+      "id": "revert-reverts-perf-use-cdp-to-find-open-7rqor4",
+      "name": "Revert: Reverts \"perf: use CDP to find open DevTools pages.\" (#1201)",
+      "description": "revert: Reverts \"perf: use CDP to find open DevTools pages.\" (#1201)",
+      "author": "ChromeDevTools",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:07.878Z",
+      "stepCount": 3
+    },
+    {
+      "id": "release-chrome-devtools-mcp-0-20-1-1163-xm8g5z",
+      "name": "Release chrome-devtools-mcp 0.20.1 (#1163)",
+      "description": "chore(main): release chrome-devtools-mcp 0.20.1 (#1163)",
+      "author": "ChromeDevTools",
+      "tags": [
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:07.878Z",
+      "stepCount": 5
+    },
+    {
+      "id": "use-cdp-to-find-open-devtools-pages-1150-oovt46",
+      "name": "Use CDP to find open DevTools pages. (#1150)",
+      "description": "perf: use CDP to find open DevTools pages. (#1150)",
+      "author": "ChromeDevTools",
+      "tags": [
+        "testing",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:07.878Z",
+      "stepCount": 3
+    },
+    {
+      "id": "release-chrome-devtools-mcp-0-20-0-1126-bt3izq",
+      "name": "Release chrome-devtools-mcp 0.20.0 (#1126)",
+      "description": "chore(main): release chrome-devtools-mcp 0.20.0 (#1126)",
+      "author": "ChromeDevTools",
+      "tags": [
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:07.878Z",
+      "stepCount": 5
+    },
+    {
+      "id": "experimental-chrome-devtools-cli-1100-pnf4ui",
+      "name": "Experimental `chrome-devtools` CLI (#1100)",
+      "description": "feat: experimental `chrome-devtools` CLI (#1100)",
+      "author": "ChromeDevTools",
+      "tags": [],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:07.878Z",
+      "stepCount": 3
+    },
+    {
+      "id": "release-ywftlh",
+      "name": "Release",
+      "description": "chore: release",
+      "author": "vuejs",
+      "tags": [
+        "api"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:09.447Z",
+      "stepCount": 5
+    },
+    {
+      "id": "v6-6-3-ebiszk",
+      "name": "V6.6.3",
+      "description": "v6.6.3",
+      "author": "vuejs",
+      "tags": [
+        "api"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:09.447Z",
+      "stepCount": 5
+    },
+    {
+      "id": "reload-only-on-page-navigation-event-6o8nwm",
+      "name": "Reload only on page navigation event",
+      "description": "fix: reload only on page navigation event",
+      "author": "vuejs",
+      "tags": [
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:09.447Z",
+      "stepCount": 3
+    },
+    {
+      "id": "v6-6-2-8drbz8",
+      "name": "V6.6.2",
+      "description": "v6.6.2",
+      "author": "vuejs",
+      "tags": [
+        "api"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:09.447Z",
+      "stepCount": 5
+    },
+    {
+      "id": "update-eslint-u1axiu",
+      "name": "Update eslint",
+      "description": "chore: update eslint",
+      "author": "vuejs",
+      "tags": [
+        "linting",
+        "eslint",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:09.447Z",
+      "stepCount": 6
+    },
+    {
+      "id": "send-missing-components-data-asa-they-ar-v8ox15",
+      "name": "Send missing components data asa they are registered, fix #2152",
+      "description": "fix: send missing components data asa they are registered, fix #2152",
+      "author": "vuejs",
+      "tags": [
+        "api",
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:09.447Z",
+      "stepCount": 3
+    },
+    {
+      "id": "v6-6-1-a6g1wb",
+      "name": "V6.6.1",
+      "description": "v6.6.1",
+      "author": "vuejs",
+      "tags": [
+        "api"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:09.447Z",
+      "stepCount": 5
+    },
+    {
+      "id": "clear-storage-button-9ij9gk",
+      "name": "Clear storage button",
+      "description": "feat: clear storage button",
+      "author": "vuejs",
+      "tags": [],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:09.447Z",
+      "stepCount": 3
+    },
+    {
+      "id": "v6-5-1-9wgxbm",
+      "name": "V6.5.1",
+      "description": "v6.5.1",
+      "author": "vuejs",
+      "tags": [
+        "api"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:09.447Z",
+      "stepCount": 4
+    },
+    {
+      "id": "wait-before-displaying-disconnected-stat-ywjfx2",
+      "name": "Wait before displaying disconnected state",
+      "description": "feat: wait before displaying disconnected state",
+      "author": "vuejs",
+      "tags": [
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:09.447Z",
+      "stepCount": 4
+    },
+    {
+      "id": "separate-firefox-shell-with-manifest-v2-rb873x",
+      "name": "Separate firefox shell with manifest v2",
+      "description": "feat: separate firefox shell with manifest v2",
+      "author": "vuejs",
+      "tags": [],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:09.447Z",
+      "stepCount": 13
+    },
+    {
+      "id": "toggle-timeline-recording-39db74",
+      "name": "Toggle timeline recording",
+      "description": "feat: toggle timeline recording",
+      "author": "vuejs",
+      "tags": [
+        "typescript"
+      ],
+      "sourceAgent": "git-history",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T14:18:09.447Z",
+      "stepCount": 4
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Types: fix: WithTranslation type from next-i18next is not generic (TS error) #23",
+  "description": "types: fix: WithTranslation type from next-i18next is not generic (TS error) #2329",
+  "sourceSessionId": "bd9b0161a48b",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "CHANGELOG.md",
+      "description": "Modify CHANGELOG.md"
+    },
+    {
+      "action": "create_file",
+      "target": "{src}/types.test.ts",
+      "description": "Create src/types.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/types.ts",
+      "description": "Modify src/types.ts"
+    }
+  ],
+  "parameters": {
+    "src": "src"
+  },
+  "tags": [
+    "testing",
+    "error-handling",
+    "typescript",
+    "nextjs"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "types-fix-withtranslation-type-from-next-ljvpdo",
+    "author": "i18next",
+    "createdAt": "2026-03-25T14:16:22.486Z",
+    "updatedAt": "2026-03-25T14:16:22.486Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "743c28cbabcdae45"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Release: TypeScript 5.6",
+  "description": "release: TypeScript 5.6",
+  "sourceSessionId": "e10c3d5db90a",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "README.md",
+      "description": "Modify README.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "SUMMARY.md",
+      "description": "Modify SUMMARY.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{zh_release_notes}/README.md",
+      "description": "Modify zh/release-notes/README.md"
+    },
+    {
+      "action": "create_file",
+      "target": "{zh_release_notes}/typescript-5.6.md",
+      "description": "Create zh/release-notes/typescript-5.6.md"
+    }
+  ],
+  "parameters": {
+    "zh_release_notes": "zh/release-notes"
+  },
+  "tags": [
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "release-typescript-5-6-c3h49t",
+    "author": "zhongsp",
+    "createdAt": "2026-03-25T14:16:18.461Z",
+    "updatedAt": "2026-03-25T14:16:18.461Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "9c2013d2ea1460b8"
+  }
+}

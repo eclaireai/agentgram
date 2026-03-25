@@ -1,0 +1,52 @@
+{
+  "name": "Add a skill for detecting memory leaks using take_memory_snapshot tool (#1162)",
+  "description": "feat: add a skill for detecting memory leaks using take_memory_snapshot tool (#1162)",
+  "sourceSessionId": "d19a2350f975",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "eslint.config.mjs",
+      "description": "Modify eslint.config.mjs"
+    },
+    {
+      "action": "create_file",
+      "target": "{skills_memory_leak_debugging}/SKILL.md",
+      "description": "Create skills/memory-leak-debugging/SKILL.md"
+    },
+    {
+      "action": "create_file",
+      "target": "{skills_memory_leak_debugging_references}/common-leaks.md",
+      "description": "Create skills/memory-leak-debugging/references/common-leaks.md"
+    },
+    {
+      "action": "create_file",
+      "target": "{skills_memory_leak_debugging_references}/compare_snapshots.js",
+      "description": "Create skills/memory-leak-debugging/references/compare_snapshots.js"
+    },
+    {
+      "action": "create_file",
+      "target": "{skills_memory_leak_debugging_references}/memlab.md",
+      "description": "Create skills/memory-leak-debugging/references/memlab.md"
+    }
+  ],
+  "parameters": {
+    "skills_memory_leak_debugging": "skills/memory-leak-debugging",
+    "skills_memory_leak_debugging_references": "skills/memory-leak-debugging/references"
+  },
+  "tags": [
+    "linting",
+    "eslint"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "add-a-skill-for-detecting-memory-leaks-u-1dlgsg",
+    "author": "ChromeDevTools",
+    "createdAt": "2026-03-25T14:18:07.878Z",
+    "updatedAt": "2026-03-25T14:18:07.878Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "8d3077199be94fc0"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "name": "Release tracking (#7670)",
+  "description": "Release tracking (#7670)",
+  "sourceSessionId": "0c653aeff11c",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{changeset}/nine-buttons-lose.md",
+      "description": "Modify .changeset/nine-buttons-lose.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{examples_codesandbox}/package.json",
+      "description": "Modify examples/codesandbox/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{examples_nextjs}/package.json",
+      "description": "Modify examples/nextjs/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{examples_theming}/package.json",
+      "description": "Modify examples/theming/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react}/CHANGELOG.md",
+      "description": "Modify packages/react/CHANGELOG.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react}/package.json",
+      "description": "Modify packages/react/package.json"
+    }
+  ],
+  "parameters": {
+    "changeset": ".changeset",
+    "examples_codesandbox": "examples/codesandbox",
+    "examples_nextjs": "examples/nextjs",
+    "examples_theming": "examples/theming",
+    "packages_react": "packages/react"
+  },
+  "tags": [
+    "react",
+    "nextjs"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "release-tracking-7670-vu72o7",
+    "author": "primer",
+    "createdAt": "2026-03-25T14:16:39.387Z",
+    "updatedAt": "2026-03-25T14:16:39.387Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "4be5cd7976e6afca"
+  }
+}

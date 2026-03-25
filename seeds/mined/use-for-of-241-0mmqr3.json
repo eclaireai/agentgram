@@ -1,0 +1,42 @@
+{
+  "name": "Use `for-of` (#241)",
+  "description": "style: use `for-of` (#241)",
+  "sourceSessionId": "8c8a0ecf2de8",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{dynamic_programming}/coin_change.ts",
+      "description": "Modify dynamic_programming/coin_change.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{graph}/prim.ts",
+      "description": "Modify graph/prim.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{sorts}/counting_sort.ts",
+      "description": "Modify sorts/counting_sort.ts"
+    }
+  ],
+  "parameters": {
+    "dynamic_programming": "dynamic_programming",
+    "graph": "graph",
+    "sorts": "sorts"
+  },
+  "tags": [
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "use-for-of-241-0mmqr3",
+    "author": "TheAlgorithms",
+    "createdAt": "2026-03-25T14:16:19.238Z",
+    "updatedAt": "2026-03-25T14:16:19.238Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "651797c6a5db26ac"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "name": "V6.6.2",
+  "description": "v6.6.2",
+  "sourceSessionId": "af51c9d3e968",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Modify package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_api}/package.json",
+      "description": "Modify packages/api/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_shell_chrome}/manifest.json",
+      "description": "Modify packages/shell-chrome/manifest.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_shell_electron}/package.json",
+      "description": "Modify packages/shell-electron/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_shell_firefox}/manifest.json",
+      "description": "Modify packages/shell-firefox/manifest.json"
+    }
+  ],
+  "parameters": {
+    "packages_api": "packages/api",
+    "packages_shell_chrome": "packages/shell-chrome",
+    "packages_shell_electron": "packages/shell-electron",
+    "packages_shell_firefox": "packages/shell-firefox"
+  },
+  "tags": [
+    "api"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "v6-6-2-8drbz8",
+    "author": "vuejs",
+    "createdAt": "2026-03-25T14:18:09.447Z",
+    "updatedAt": "2026-03-25T14:18:09.447Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "a2479f460f4120cf"
+  }
+}

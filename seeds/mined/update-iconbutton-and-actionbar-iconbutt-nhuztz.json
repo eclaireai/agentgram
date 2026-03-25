@@ -1,0 +1,76 @@
+{
+  "name": "Update IconButton and ActionBar.IconButton to support multiple keybinding hints ",
+  "description": "Update IconButton and ActionBar.IconButton to support multiple keybinding hints (#7623)",
+  "sourceSessionId": "42847d1bb943",
+  "steps": [
+    {
+      "action": "create_file",
+      "target": "{changeset}/iconbutton-keybinding-hint-array.md",
+      "description": "Create .changeset/iconbutton-keybinding-hint-array.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_actionbar}/ActionBar.stories.tsx",
+      "description": "Modify packages/react/src/ActionBar/ActionBar.stories.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_button}/IconButton.docs.json",
+      "description": "Modify packages/react/src/Button/IconButton.docs.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_button}/IconButton.features.stories.tsx",
+      "description": "Modify packages/react/src/Button/IconButton.features.stories.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_button}/types.ts",
+      "description": "Modify packages/react/src/Button/types.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_tooltipv2}/Tooltip.docs.json",
+      "description": "Modify packages/react/src/TooltipV2/Tooltip.docs.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_tooltipv2}/Tooltip.module.css",
+      "description": "Modify packages/react/src/TooltipV2/Tooltip.module.css"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_tooltipv2}/Tooltip.tsx",
+      "description": "Modify packages/react/src/TooltipV2/Tooltip.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_tooltipv2_tests}/Tooltip.test.tsx",
+      "description": "Modify packages/react/src/TooltipV2/__tests__/Tooltip.test.tsx"
+    }
+  ],
+  "parameters": {
+    "changeset": ".changeset",
+    "packages_react_src_actionbar": "packages/react/src/ActionBar",
+    "packages_react_src_button": "packages/react/src/Button",
+    "packages_react_src_tooltipv2": "packages/react/src/TooltipV2",
+    "packages_react_src_tooltipv2_tests": "packages/react/src/TooltipV2/__tests__"
+  },
+  "tags": [
+    "testing",
+    "typescript",
+    "react"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "update-iconbutton-and-actionbar-iconbutt-nhuztz",
+    "author": "primer",
+    "createdAt": "2026-03-25T14:16:39.387Z",
+    "updatedAt": "2026-03-25T14:16:39.387Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "3b7cb55a20898a08"
+  }
+}

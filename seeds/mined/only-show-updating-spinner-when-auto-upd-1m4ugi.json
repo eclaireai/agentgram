@@ -1,0 +1,49 @@
+{
+  "name": "Only show updating spinner when auto-update is in progress (#23709)",
+  "description": "fix(cli): only show updating spinner when auto-update is in progress (#23709)",
+  "sourceSessionId": "1f07efb5d823",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{ui_components}/AppHeader.tsx",
+      "description": "Modify packages/cli/src/ui/components/AppHeader.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{ui_utils}/updateCheck.ts",
+      "description": "Modify packages/cli/src/ui/utils/updateCheck.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{utils}/handleAutoUpdate.test.ts",
+      "description": "Modify packages/cli/src/utils/handleAutoUpdate.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{utils}/handleAutoUpdate.ts",
+      "description": "Modify packages/cli/src/utils/handleAutoUpdate.ts"
+    }
+  ],
+  "parameters": {
+    "source_dir": "packages/cli/src",
+    "ui_components": "packages/cli/src/ui/components",
+    "ui_utils": "packages/cli/src/ui/utils",
+    "utils": "packages/cli/src/utils"
+  },
+  "tags": [
+    "testing",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "only-show-updating-spinner-when-auto-upd-1m4ugi",
+    "author": "google-gemini",
+    "createdAt": "2026-03-25T14:18:04.118Z",
+    "updatedAt": "2026-03-25T14:18:04.118Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "b660204a33525150"
+  }
+}

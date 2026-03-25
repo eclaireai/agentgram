@@ -1,0 +1,49 @@
+{
+  "name": "Reorganize Windows sandbox files (#23645)",
+  "description": "refactor(sandbox): reorganize Windows sandbox files (#23645)",
+  "sourceSessionId": "fc1876815556",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{scripts}/compile-windows-sandbox.js",
+      "description": "Modify packages/core/scripts/compile-windows-sandbox.js"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/index.ts",
+      "description": "Modify packages/core/src/index.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_services}/sandboxManager.test.ts",
+      "description": "Modify packages/core/src/services/sandboxManager.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_services}/sandboxManagerFactory.ts",
+      "description": "Modify packages/core/src/services/sandboxManagerFactory.ts"
+    }
+  ],
+  "parameters": {
+    "source_dir": "packages/core",
+    "scripts": "packages/core/scripts",
+    "src": "packages/core/src",
+    "src_services": "packages/core/src/services"
+  },
+  "tags": [
+    "testing",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "reorganize-windows-sandbox-files-23645-1q7n1x",
+    "author": "google-gemini",
+    "createdAt": "2026-03-25T14:18:04.118Z",
+    "updatedAt": "2026-03-25T14:18:04.118Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "45225e8c600dc438"
+  }
+}

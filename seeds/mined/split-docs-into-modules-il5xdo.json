@@ -1,0 +1,82 @@
+{
+  "name": "Split docs into modules",
+  "description": "refactor(docs): split docs into modules",
+  "sourceSessionId": "b3351b902b5c",
+  "steps": [
+    {
+      "action": "create_file",
+      "target": "{tools_doc_entries}/entities.ts",
+      "description": "Create tools/doc-entries/entities.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{tools_doc_entries}/errors.ts",
+      "description": "Create tools/doc-entries/errors.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{tools_doc_entries}/feeds.ts",
+      "description": "Create tools/doc-entries/feeds.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{tools_doc_entries}/index.ts",
+      "description": "Create tools/doc-entries/index.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{tools_doc_entries}/repositories.ts",
+      "description": "Create tools/doc-entries/repositories.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{tools_doc_entries}/responses.ts",
+      "description": "Create tools/doc-entries/responses.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{tools_doc_entries}/services.ts",
+      "description": "Create tools/doc-entries/services.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{tools_doc_entries}/sticker-builder.ts",
+      "description": "Create tools/doc-entries/sticker-builder.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{tools_doc_entries}/types.ts",
+      "description": "Create tools/doc-entries/types.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "tsconfig.docs.json",
+      "description": "Modify tsconfig.docs.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "typedoc.json",
+      "description": "Modify typedoc.json"
+    }
+  ],
+  "parameters": {
+    "tools_doc_entries": "tools/doc-entries"
+  },
+  "tags": [
+    "error-handling",
+    "typescript",
+    "build"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "split-docs-into-modules-il5xdo",
+    "author": "dilame",
+    "createdAt": "2026-03-25T14:16:51.461Z",
+    "updatedAt": "2026-03-25T14:16:51.461Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "36105a1c153cc437"
+  }
+}

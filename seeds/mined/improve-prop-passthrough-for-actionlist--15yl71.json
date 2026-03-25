@@ -1,0 +1,72 @@
+{
+  "name": "Improve prop passthrough for ActionList.LinkItem and Breadcrumbs.Item (#7658)",
+  "description": "fix(polymorphic): Improve prop passthrough for ActionList.LinkItem and Breadcrumbs.Item (#7658)",
+  "sourceSessionId": "259fdff67550",
+  "steps": [
+    {
+      "action": "create_file",
+      "target": "{changeset}/curly-moments-show.md",
+      "description": "Create .changeset/curly-moments-show.md"
+    },
+    {
+      "action": "create_file",
+      "target": "{packages_react_src_actionlist}/LinkItem.test.tsx",
+      "description": "Create packages/react/src/ActionList/LinkItem.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_actionlist}/LinkItem.tsx",
+      "description": "Modify packages/react/src/ActionList/LinkItem.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_breadcrumbs}/Breadcrumbs.tsx",
+      "description": "Modify packages/react/src/Breadcrumbs/Breadcrumbs.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_breadcrumbs_tests}/Breadcrumbs.test.tsx",
+      "description": "Modify packages/react/src/Breadcrumbs/__tests__/Breadcrumbs.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_navlist}/NavList.test.tsx",
+      "description": "Modify packages/react/src/NavList/NavList.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_navlist}/NavList.tsx",
+      "description": "Modify packages/react/src/NavList/NavList.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_styled_react_src_components}/ActionList.tsx",
+      "description": "Modify packages/styled-react/src/components/ActionList.tsx"
+    }
+  ],
+  "parameters": {
+    "changeset": ".changeset",
+    "packages_react_src_actionlist": "packages/react/src/ActionList",
+    "packages_react_src_breadcrumbs": "packages/react/src/Breadcrumbs",
+    "packages_react_src_breadcrumbs_tests": "packages/react/src/Breadcrumbs/__tests__",
+    "packages_react_src_navlist": "packages/react/src/NavList",
+    "packages_styled_react_src_components": "packages/styled-react/src/components"
+  },
+  "tags": [
+    "testing",
+    "react",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "improve-prop-passthrough-for-actionlist--15yl71",
+    "author": "primer",
+    "createdAt": "2026-03-25T14:16:39.387Z",
+    "updatedAt": "2026-03-25T14:16:39.387Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "e8631aa4a87f462e"
+  }
+}

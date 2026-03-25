@@ -1,0 +1,42 @@
+{
+  "name": "Memoize context values, menuItemProps, aria attributes (#7554)",
+  "description": "perf(ActionList): memoize context values, menuItemProps, aria attributes (#7554)",
+  "sourceSessionId": "f34f0c37c2bb",
+  "steps": [
+    {
+      "action": "create_file",
+      "target": "{changeset}/perf-action-list-memoization.md",
+      "description": "Create .changeset/perf-action-list-memoization.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_actionlist}/Item.tsx",
+      "description": "Modify packages/react/src/ActionList/Item.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_actionlist}/List.tsx",
+      "description": "Modify packages/react/src/ActionList/List.tsx"
+    }
+  ],
+  "parameters": {
+    "changeset": ".changeset",
+    "packages_react_src_actionlist": "packages/react/src/ActionList"
+  },
+  "tags": [
+    "react",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "memoize-context-values-menuitemprops-ari-wl8kti",
+    "author": "primer",
+    "createdAt": "2026-03-25T14:16:39.387Z",
+    "updatedAt": "2026-03-25T14:16:39.387Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "852ebb2c8080ed48"
+  }
+}

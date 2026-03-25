@@ -1,0 +1,108 @@
+{
+  "name": "V20.0.2",
+  "description": "v20.0.2",
+  "sourceSessionId": "7c8951c9cd53",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "lerna.json",
+      "description": "Modify lerna.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_clean}/package.json",
+      "description": "Modify packages/cli-clean/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_config_android}/package.json",
+      "description": "Modify packages/cli-config-android/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_config_apple}/package.json",
+      "description": "Modify packages/cli-config-apple/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_config}/package.json",
+      "description": "Modify packages/cli-config/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_doctor}/package.json",
+      "description": "Modify packages/cli-doctor/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_link_assets}/package.json",
+      "description": "Modify packages/cli-link-assets/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_platform_android}/package.json",
+      "description": "Modify packages/cli-platform-android/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_platform_apple}/package.json",
+      "description": "Modify packages/cli-platform-apple/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_platform_ios}/package.json",
+      "description": "Modify packages/cli-platform-ios/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_server_api}/package.json",
+      "description": "Modify packages/cli-server-api/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_tools}/package.json",
+      "description": "Modify packages/cli-tools/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_types}/package.json",
+      "description": "Modify packages/cli-types/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli}/package.json",
+      "description": "Modify packages/cli/package.json"
+    }
+  ],
+  "parameters": {
+    "packages_cli_clean": "packages/cli-clean",
+    "packages_cli_config_android": "packages/cli-config-android",
+    "packages_cli_config_apple": "packages/cli-config-apple",
+    "packages_cli_config": "packages/cli-config",
+    "packages_cli_doctor": "packages/cli-doctor",
+    "packages_cli_link_assets": "packages/cli-link-assets",
+    "packages_cli_platform_android": "packages/cli-platform-android",
+    "packages_cli_platform_apple": "packages/cli-platform-apple",
+    "packages_cli_platform_ios": "packages/cli-platform-ios",
+    "packages_cli_server_api": "packages/cli-server-api",
+    "packages_cli_tools": "packages/cli-tools",
+    "packages_cli_types": "packages/cli-types",
+    "packages_cli": "packages/cli"
+  },
+  "tags": [
+    "api",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "v20-0-2-vf8gz7",
+    "author": "react-native-community",
+    "createdAt": "2026-03-25T14:17:30.720Z",
+    "updatedAt": "2026-03-25T14:17:30.720Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "0612c042655264c0"
+  }
+}

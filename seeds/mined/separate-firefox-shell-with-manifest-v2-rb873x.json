@@ -1,0 +1,89 @@
+{
+  "name": "Separate firefox shell with manifest v2",
+  "description": "feat: separate firefox shell with manifest v2",
+  "sourceSessionId": "9ad80ccebc34",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "extension-zips.js",
+      "description": "Modify extension-zips.js"
+    },
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Modify package.json"
+    },
+    {
+      "action": "create_file",
+      "target": "{packages_shell_firefox}/copy.sh",
+      "description": "Create packages/shell-firefox/copy.sh"
+    },
+    {
+      "action": "create_file",
+      "target": "{packages_shell_firefox}/manifest.json",
+      "description": "Create packages/shell-firefox/manifest.json"
+    },
+    {
+      "action": "create_file",
+      "target": "{packages_shell_firefox}/package.json",
+      "description": "Create packages/shell-firefox/package.json"
+    },
+    {
+      "action": "create_file",
+      "target": "{packages_shell_firefox_src}/backend.js",
+      "description": "Create packages/shell-firefox/src/backend.js"
+    },
+    {
+      "action": "create_file",
+      "target": "{packages_shell_firefox_src}/background.js",
+      "description": "Create packages/shell-firefox/src/background.js"
+    },
+    {
+      "action": "create_file",
+      "target": "{packages_shell_firefox_src}/detector.js",
+      "description": "Create packages/shell-firefox/src/detector.js"
+    },
+    {
+      "action": "create_file",
+      "target": "{packages_shell_firefox_src}/devtools-background.js",
+      "description": "Create packages/shell-firefox/src/devtools-background.js"
+    },
+    {
+      "action": "create_file",
+      "target": "{packages_shell_firefox_src}/devtools.js",
+      "description": "Create packages/shell-firefox/src/devtools.js"
+    },
+    {
+      "action": "create_file",
+      "target": "{packages_shell_firefox_src}/hook.js",
+      "description": "Create packages/shell-firefox/src/hook.js"
+    },
+    {
+      "action": "create_file",
+      "target": "{packages_shell_firefox_src}/proxy.js",
+      "description": "Create packages/shell-firefox/src/proxy.js"
+    },
+    {
+      "action": "create_file",
+      "target": "{packages_shell_firefox}/webpack.config.js",
+      "description": "Create packages/shell-firefox/webpack.config.js"
+    }
+  ],
+  "parameters": {
+    "packages_shell_firefox": "packages/shell-firefox",
+    "packages_shell_firefox_src": "packages/shell-firefox/src"
+  },
+  "tags": [],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "separate-firefox-shell-with-manifest-v2-rb873x",
+    "author": "vuejs",
+    "createdAt": "2026-03-25T14:18:09.447Z",
+    "updatedAt": "2026-03-25T14:18:09.447Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "7a8ed6eb3c6ab97c"
+  }
+}

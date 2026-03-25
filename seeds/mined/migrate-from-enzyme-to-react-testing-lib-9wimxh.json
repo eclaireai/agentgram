@@ -1,0 +1,97 @@
+{
+  "name": "Migrate from enzyme to react-testing-library",
+  "description": "test(*): migrate from enzyme to react-testing-library",
+  "sourceSessionId": "24a678d90ef9",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "{npm_install_testing_library_jest_dom_testing_library}/react",
+      "description": "Run `npm install @testing-library/jest-dom @testing-library/react`"
+    },
+    {
+      "action": "modify_file",
+      "target": "jest.setup.js",
+      "description": "Modify jest.setup.js"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_tests}/util.tsx",
+      "description": "Modify src/__tests__/util.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_components_tests}/UIRouter.test.tsx",
+      "description": "Modify src/components/__tests__/UIRouter.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_components_tests}/UISref.test.tsx",
+      "description": "Modify src/components/__tests__/UISref.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_components_tests}/UISrefActive.test.tsx",
+      "description": "Modify src/components/__tests__/UISrefActive.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_components_tests}/UIView.test.tsx",
+      "description": "Modify src/components/__tests__/UIView.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_hooks_tests}/useDeepObjectDiff.test.tsx",
+      "description": "Modify src/hooks/__tests__/useDeepObjectDiff.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_hooks_tests}/useIsActive.test.tsx",
+      "description": "Modify src/hooks/__tests__/useIsActive.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_hooks_tests}/useSref.test.tsx",
+      "description": "Modify src/hooks/__tests__/useSref.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_hooks_tests}/useSrefActive.test.tsx",
+      "description": "Modify src/hooks/__tests__/useSrefActive.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_hooks_tests}/useSrefActiveExact.test.tsx",
+      "description": "Modify src/hooks/__tests__/useSrefActiveExact.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_hooks_tests}/useStableCallback.test.tsx",
+      "description": "Modify src/hooks/__tests__/useStableCallback.test.tsx"
+    }
+  ],
+  "parameters": {
+    "npm_install_testing_library_jest_dom_testing_library": "npm install @testing-library/jest-dom @testing-library",
+    "src_tests": "src/__tests__",
+    "src_components_tests": "src/components/__tests__",
+    "src_hooks_tests": "src/hooks/__tests__"
+  },
+  "tags": [
+    "testing",
+    "jest",
+    "api",
+    "react",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "migrate-from-enzyme-to-react-testing-lib-9wimxh",
+    "author": "ui-router",
+    "createdAt": "2026-03-25T14:16:42.187Z",
+    "updatedAt": "2026-03-25T14:16:42.187Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "41469ef340a1d297"
+  }
+}

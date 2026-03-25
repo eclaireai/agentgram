@@ -1,0 +1,43 @@
+{
+  "name": "Add config module and config command",
+  "description": "feat(cli): add config module and config command",
+  "sourceSessionId": "1b9bd76b82eb",
+  "steps": [
+    {
+      "action": "create_file",
+      "target": "{commands}/config.ts",
+      "description": "Create packages/cli/src/commands/config.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{source_dir}/config.ts",
+      "description": "Create packages/cli/src/config.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/index.ts",
+      "description": "Modify packages/cli/src/index.ts"
+    }
+  ],
+  "parameters": {
+    "source_dir": "packages/cli/src",
+    "commands": "packages/cli/src/commands"
+  },
+  "tags": [
+    "typescript",
+    "nextjs",
+    "drizzle"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "add-config-module-and-config-command-gtk55h",
+    "author": "beilunyang",
+    "createdAt": "2026-03-25T14:16:23.553Z",
+    "updatedAt": "2026-03-25T14:16:23.553Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "e579beb6e8f7d498"
+  }
+}

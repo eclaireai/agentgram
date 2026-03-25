@@ -1,0 +1,133 @@
+{
+  "name": "Add zizmor (#8728)",
+  "description": "feat(ci): add zizmor (#8728)",
+  "sourceSessionId": "ccc1d9ff09b5",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/dependabot.yml",
+      "description": "Modify .github/dependabot.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{workflows}/auto-merge.yml",
+      "description": "Modify .github/workflows/auto-merge.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{workflows}/build.yml",
+      "description": "Modify .github/workflows/build.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{workflows}/bundle-compare.yml",
+      "description": "Modify .github/workflows/bundle-compare.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{workflows}/chromatic.yml",
+      "description": "Modify .github/workflows/chromatic.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{workflows}/create-release-post.yml",
+      "description": "Modify .github/workflows/create-release-post.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{workflows}/lighthouse.yml",
+      "description": "Modify .github/workflows/lighthouse.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{workflows}/lint-and-tests.yml",
+      "description": "Modify .github/workflows/lint-and-tests.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{workflows}/notify-on-push.yml",
+      "description": "Modify .github/workflows/notify-on-push.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{workflows}/playwright.yml",
+      "description": "Modify .github/workflows/playwright.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{workflows}/pnpm-updater.yml",
+      "description": "Modify .github/workflows/pnpm-updater.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{workflows}/publish-packages.yml",
+      "description": "Modify .github/workflows/publish-packages.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{workflows}/pull-request-label.yml",
+      "description": "Modify .github/workflows/pull-request-label.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{workflows}/request-codeowner-review.yml",
+      "description": "Modify .github/workflows/request-codeowner-review.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{workflows}/sync-orama.yml",
+      "description": "Modify .github/workflows/sync-orama.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{workflows}/tmp-cloudflare-open-next-deploy.yml",
+      "description": "Modify .github/workflows/tmp-cloudflare-open-next-deploy.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{workflows}/translations-pr-lint.yml",
+      "description": "Modify .github/workflows/translations-pr-lint.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{workflows}/translations-sync.yml",
+      "description": "Modify .github/workflows/translations-sync.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{workflows}/translations-upload.yml",
+      "description": "Modify .github/workflows/translations-upload.yml"
+    },
+    {
+      "action": "create_file",
+      "target": "{workflows}/zizmor.yml",
+      "description": "Create .github/workflows/zizmor.yml"
+    }
+  ],
+  "parameters": {
+    "source_dir": ".github",
+    "workflows": ".github/workflows"
+  },
+  "tags": [
+    "testing",
+    "ci",
+    "github-actions",
+    "linting",
+    "nextjs",
+    "deployment",
+    "build",
+    "config"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "add-zizmor-8728-j7kofs",
+    "author": "nodejs",
+    "createdAt": "2026-03-25T14:16:49.123Z",
+    "updatedAt": "2026-03-25T14:16:49.123Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "692e988c39cba702"
+  }
+}

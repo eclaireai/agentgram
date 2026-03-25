@@ -1,0 +1,42 @@
+{
+  "name": "Add treesort algorithm (#217)",
+  "description": "feat: add treesort algorithm (#217)",
+  "sourceSessionId": "e0ae74498376",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "DIRECTORY.md",
+      "description": "Modify DIRECTORY.md"
+    },
+    {
+      "action": "create_file",
+      "target": "{sorts_test}/tree_sort.test.ts",
+      "description": "Create sorts/test/tree_sort.test.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{sorts}/tree_sort.ts",
+      "description": "Create sorts/tree_sort.ts"
+    }
+  ],
+  "parameters": {
+    "sorts_test": "sorts/test",
+    "sorts": "sorts"
+  },
+  "tags": [
+    "testing",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "add-treesort-algorithm-217-g6fbja",
+    "author": "TheAlgorithms",
+    "createdAt": "2026-03-25T14:16:19.238Z",
+    "updatedAt": "2026-03-25T14:16:19.238Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "9f0ae1af70b54186"
+  }
+}

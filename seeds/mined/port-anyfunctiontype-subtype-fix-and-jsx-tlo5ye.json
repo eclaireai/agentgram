@@ -1,0 +1,84 @@
+{
+  "name": "Port anyFunctionType subtype fix and JSX children NonInferrableType propagation ",
+  "description": "Port anyFunctionType subtype fix and JSX children NonInferrableType propagation from typescript-go (#63163)",
+  "sourceSessionId": "c9e7428bb76f",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{src_compiler}/checker.ts",
+      "description": "Modify src/compiler/checker.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{tests_baselines_reference}/contextuallyTypedJsxChildren2.symbols",
+      "description": "Create tests/baselines/reference/contextuallyTypedJsxChildren2.symbols"
+    },
+    {
+      "action": "create_file",
+      "target": "{tests_baselines_reference}/contextuallyTypedJsxChildren2.types",
+      "description": "Create tests/baselines/reference/contextuallyTypedJsxChildren2.types"
+    },
+    {
+      "action": "create_file",
+      "target": "{tests_baselines_reference}/jsxFunctionTypeChildren.symbols",
+      "description": "Create tests/baselines/reference/jsxFunctionTypeChildren.symbols"
+    },
+    {
+      "action": "create_file",
+      "target": "{tests_baselines_reference}/jsxFunctionTypeChildren.types",
+      "description": "Create tests/baselines/reference/jsxFunctionTypeChildren.types"
+    },
+    {
+      "action": "create_file",
+      "target": "{tests_baselines_reference}/subtypeReductionWithAnyFunctionType.errors.txt",
+      "description": "Create tests/baselines/reference/subtypeReductionWithAnyFunctionType.errors.txt"
+    },
+    {
+      "action": "create_file",
+      "target": "{tests_baselines_reference}/subtypeReductionWithAnyFunctionType.symbols",
+      "description": "Create tests/baselines/reference/subtypeReductionWithAnyFunctionType.symbols"
+    },
+    {
+      "action": "create_file",
+      "target": "{tests_baselines_reference}/subtypeReductionWithAnyFunctionType.types",
+      "description": "Create tests/baselines/reference/subtypeReductionWithAnyFunctionType.types"
+    },
+    {
+      "action": "create_file",
+      "target": "{tests_cases_compiler}/contextuallyTypedJsxChildren2.tsx",
+      "description": "Create tests/cases/compiler/contextuallyTypedJsxChildren2.tsx"
+    },
+    {
+      "action": "create_file",
+      "target": "{tests_cases_compiler}/jsxFunctionTypeChildren.tsx",
+      "description": "Create tests/cases/compiler/jsxFunctionTypeChildren.tsx"
+    },
+    {
+      "action": "create_file",
+      "target": "{tests_cases_compiler}/subtypeReductionWithAnyFunctionType.ts",
+      "description": "Create tests/cases/compiler/subtypeReductionWithAnyFunctionType.ts"
+    }
+  ],
+  "parameters": {
+    "src_compiler": "src/compiler",
+    "tests_baselines_reference": "tests/baselines/reference",
+    "tests_cases_compiler": "tests/cases/compiler"
+  },
+  "tags": [
+    "testing",
+    "error-handling",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "port-anyfunctiontype-subtype-fix-and-jsx-tlo5ye",
+    "author": "microsoft",
+    "createdAt": "2026-03-25T14:16:10.730Z",
+    "updatedAt": "2026-03-25T14:16:10.730Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "7054ad480af70457"
+  }
+}

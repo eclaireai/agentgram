@@ -1,0 +1,44 @@
+{
+  "name": "Fail if version does not match (#2764)",
+  "description": "fix: fail if version does not match (#2764)",
+  "sourceSessionId": "61401002a77b",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{commands_init}/version.ts",
+      "description": "Modify packages/cli/src/commands/init/version.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tools_tests}/npm-test.ts",
+      "description": "Modify packages/cli/src/tools/__tests__/npm-test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tools}/npm.ts",
+      "description": "Modify packages/cli/src/tools/npm.ts"
+    }
+  ],
+  "parameters": {
+    "source_dir": "packages/cli/src",
+    "commands_init": "packages/cli/src/commands/init",
+    "tools_tests": "packages/cli/src/tools/__tests__",
+    "tools": "packages/cli/src/tools"
+  },
+  "tags": [
+    "testing",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fail-if-version-does-not-match-2764-ajzxg3",
+    "author": "react-native-community",
+    "createdAt": "2026-03-25T14:17:30.719Z",
+    "updatedAt": "2026-03-25T14:17:30.719Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "e27cd53d813d5de6"
+  }
+}

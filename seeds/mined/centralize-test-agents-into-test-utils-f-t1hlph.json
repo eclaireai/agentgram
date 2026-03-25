@@ -1,0 +1,43 @@
+{
+  "name": "Centralize test agents into test-utils for reuse (#23616)",
+  "description": "feat(evals): centralize test agents into test-utils for reuse (#23616)",
+  "sourceSessionId": "84f40768a156",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{evals}/subagents.eval.ts",
+      "description": "Modify evals/subagents.eval.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{packages_test_utils_src_fixtures}/agents.ts",
+      "description": "Create packages/test-utils/src/fixtures/agents.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_test_utils_src}/index.ts",
+      "description": "Modify packages/test-utils/src/index.ts"
+    }
+  ],
+  "parameters": {
+    "evals": "evals",
+    "packages_test_utils_src_fixtures": "packages/test-utils/src/fixtures",
+    "packages_test_utils_src": "packages/test-utils/src"
+  },
+  "tags": [
+    "testing",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "centralize-test-agents-into-test-utils-f-t1hlph",
+    "author": "google-gemini",
+    "createdAt": "2026-03-25T14:18:04.118Z",
+    "updatedAt": "2026-03-25T14:18:04.118Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "57bba4263cd853f1"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Mark categoryExtensions flag mutually exclusive with autoConnect (#1202)",
+  "description": "fix: mark categoryExtensions flag mutually exclusive with autoConnect (#1202)",
+  "sourceSessionId": "8c2a7fc21ead",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{src_bin}/chrome-devtools-mcp-cli-options.ts",
+      "description": "Modify src/bin/chrome-devtools-mcp-cli-options.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/index.ts",
+      "description": "Modify src/index.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests}/cli.test.ts",
+      "description": "Modify tests/cli.test.ts"
+    }
+  ],
+  "parameters": {
+    "src_bin": "src/bin",
+    "src": "src",
+    "tests": "tests"
+  },
+  "tags": [
+    "testing",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "mark-categoryextensions-flag-mutually-ex-rnb5io",
+    "author": "ChromeDevTools",
+    "createdAt": "2026-03-25T14:18:07.878Z",
+    "updatedAt": "2026-03-25T14:18:07.878Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "c87b107e7c8317f6"
+  }
+}

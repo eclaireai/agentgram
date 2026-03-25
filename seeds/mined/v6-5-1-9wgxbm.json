@@ -1,0 +1,47 @@
+{
+  "name": "V6.5.1",
+  "description": "v6.5.1",
+  "sourceSessionId": "8bda9691f5bb",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Modify package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_api}/package.json",
+      "description": "Modify packages/api/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_shell_chrome}/manifest.json",
+      "description": "Modify packages/shell-chrome/manifest.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_shell_electron}/package.json",
+      "description": "Modify packages/shell-electron/package.json"
+    }
+  ],
+  "parameters": {
+    "packages_api": "packages/api",
+    "packages_shell_chrome": "packages/shell-chrome",
+    "packages_shell_electron": "packages/shell-electron"
+  },
+  "tags": [
+    "api"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "v6-5-1-9wgxbm",
+    "author": "vuejs",
+    "createdAt": "2026-03-25T14:18:09.447Z",
+    "updatedAt": "2026-03-25T14:18:09.447Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "6ad3e1bf7a806afb"
+  }
+}

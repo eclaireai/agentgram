@@ -1,0 +1,45 @@
+{
+  "name": "Release: TypeScript 5.7",
+  "description": "release: TypeScript 5.7",
+  "sourceSessionId": "3f8a6f9ddf13",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "README.md",
+      "description": "Modify README.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "SUMMARY.md",
+      "description": "Modify SUMMARY.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{zh_release_notes}/README.md",
+      "description": "Modify zh/release-notes/README.md"
+    },
+    {
+      "action": "create_file",
+      "target": "{zh_release_notes}/typescript-5.7.md",
+      "description": "Create zh/release-notes/typescript-5.7.md"
+    }
+  ],
+  "parameters": {
+    "zh_release_notes": "zh/release-notes"
+  },
+  "tags": [
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "release-typescript-5-7-qom07t",
+    "author": "zhongsp",
+    "createdAt": "2026-03-25T14:16:18.461Z",
+    "updatedAt": "2026-03-25T14:16:18.461Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "5201c7109f92af4e"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Toggle timeline recording",
+  "description": "feat: toggle timeline recording",
+  "sourceSessionId": "bf5db9eaa30b",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{app_backend_core_src}/timeline-marker.ts",
+      "description": "Modify packages/app-backend-core/src/timeline-marker.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{app_backend_core_src}/timeline.ts",
+      "description": "Modify packages/app-backend-core/src/timeline.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{app_frontend_src_features_timeline}/Timeline.vue",
+      "description": "Modify packages/app-frontend/src/features/timeline/Timeline.vue"
+    },
+    {
+      "action": "modify_file",
+      "target": "{shared_utils_src}/shared-data.ts",
+      "description": "Modify packages/shared-utils/src/shared-data.ts"
+    }
+  ],
+  "parameters": {
+    "source_dir": "packages",
+    "app_backend_core_src": "packages/app-backend-core/src",
+    "app_frontend_src_features_timeline": "packages/app-frontend/src/features/timeline",
+    "shared_utils_src": "packages/shared-utils/src"
+  },
+  "tags": [
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "toggle-timeline-recording-39db74",
+    "author": "vuejs",
+    "createdAt": "2026-03-25T14:18:09.447Z",
+    "updatedAt": "2026-03-25T14:18:09.447Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "0f90189714c451be"
+  }
+}

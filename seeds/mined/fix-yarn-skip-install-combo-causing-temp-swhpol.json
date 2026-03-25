@@ -1,0 +1,53 @@
+{
+  "name": "Fix yarn + skip-install combo causing template copy failure (#2748)",
+  "description": "fix(init): Fix yarn + skip-install combo causing template copy failure (#2748)",
+  "sourceSessionId": "cc19409d0be2",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{husky}/pre-commit",
+      "description": "Modify .husky/pre-commit"
+    },
+    {
+      "action": "modify_file",
+      "target": "{e2e}/init.test.ts",
+      "description": "Modify __e2e__/init.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Modify package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_src_commands_init}/init.ts",
+      "description": "Modify packages/cli/src/commands/init/init.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_src_commands_init}/template.ts",
+      "description": "Modify packages/cli/src/commands/init/template.ts"
+    }
+  ],
+  "parameters": {
+    "husky": ".husky",
+    "e2e": "__e2e__",
+    "packages_cli_src_commands_init": "packages/cli/src/commands/init"
+  },
+  "tags": [
+    "testing",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fix-yarn-skip-install-combo-causing-temp-swhpol",
+    "author": "react-native-community",
+    "createdAt": "2026-03-25T14:17:30.720Z",
+    "updatedAt": "2026-03-25T14:17:30.720Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "d5777849eb954c61"
+  }
+}

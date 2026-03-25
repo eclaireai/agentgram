@@ -1,0 +1,38 @@
+{
+  "name": "Versioning for Claude Code plugin (#1233)",
+  "description": "fix: versioning for Claude Code plugin (#1233)",
+  "sourceSessionId": "966b86f3aaa9",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{claude_plugin}/marketplace.json",
+      "description": "Modify .claude-plugin/marketplace.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{claude_plugin}/plugin.json",
+      "description": "Modify .claude-plugin/plugin.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "release-please-config.json",
+      "description": "Modify release-please-config.json"
+    }
+  ],
+  "parameters": {
+    "claude_plugin": ".claude-plugin"
+  },
+  "tags": [],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "versioning-for-claude-code-plugin-1233-seod3h",
+    "author": "ChromeDevTools",
+    "createdAt": "2026-03-25T14:18:07.878Z",
+    "updatedAt": "2026-03-25T14:18:07.878Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "b0151d4e1b16f070"
+  }
+}

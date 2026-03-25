@@ -1,0 +1,118 @@
+{
+  "name": "AnchoredOverlay: Add support for CSS anchor positioning PR (Reverted) (#7661)",
+  "description": "AnchoredOverlay: Add support for CSS anchor positioning PR (Reverted) (#7661)",
+  "sourceSessionId": "dceb79c5e0f8",
+  "steps": [
+    {
+      "action": "create_file",
+      "target": "{changeset}/nine-buttons-lose.md",
+      "description": "Create .changeset/nine-buttons-lose.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{playwright_snapshots_components_anchoredoverlay_test_ts_snapshots}/AnchoredOverlay-Anchor-Alignment-light-css-anchor-positioning-linux.png",
+      "description": "Modify .playwright/snapshots/components/AnchoredOverlay.test.ts-snapshots/AnchoredOverlay-Anchor-Alignment-light-css-anchor-positioning-linux.png"
+    },
+    {
+      "action": "modify_file",
+      "target": "{playwright_snapshots_components_anchoredoverlay_test_ts_snapshots}/AnchoredOverlay-Anchor-Position-Grid-light-css-anchor-positioning-linux.png",
+      "description": "Modify .playwright/snapshots/components/AnchoredOverlay.test.ts-snapshots/AnchoredOverlay-Anchor-Position-Grid-light-css-anchor-positioning-linux.png"
+    },
+    {
+      "action": "modify_file",
+      "target": "{playwright_snapshots_components_anchoredoverlay_test_ts_snapshots}/AnchoredOverlay-Fullscreen-Variant-light-css-anchor-positioning-linux.png",
+      "description": "Modify .playwright/snapshots/components/AnchoredOverlay.test.ts-snapshots/AnchoredOverlay-Fullscreen-Variant-light-css-anchor-positioning-linux.png"
+    },
+    {
+      "action": "modify_file",
+      "target": "{playwright_snapshots_components_anchoredoverlay_test_ts_snapshots}/AnchoredOverlay-Offset-Alignment-From-Anchor-light-css-anchor-positioning-linux.png",
+      "description": "Modify .playwright/snapshots/components/AnchoredOverlay.test.ts-snapshots/AnchoredOverlay-Offset-Alignment-From-Anchor-light-css-anchor-positioning-linux.png"
+    },
+    {
+      "action": "modify_file",
+      "target": "{playwright_snapshots_components_anchoredoverlay_test_ts_snapshots}/AnchoredOverlay-Offset-Position-From-Anchor-light-css-anchor-positioning-linux.png",
+      "description": "Modify .playwright/snapshots/components/AnchoredOverlay.test.ts-snapshots/AnchoredOverlay-Offset-Position-From-Anchor-light-css-anchor-positioning-linux.png"
+    },
+    {
+      "action": "modify_file",
+      "target": "{playwright_snapshots_components_anchoredoverlay_test_ts_snapshots}/AnchoredOverlay-Scroll-With-Anchor-light-css-anchor-positioning-linux.png",
+      "description": "Modify .playwright/snapshots/components/AnchoredOverlay.test.ts-snapshots/AnchoredOverlay-Scroll-With-Anchor-light-css-anchor-positioning-linux.png"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react}/package.json",
+      "description": "Modify packages/react/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_actionmenu}/ActionMenu.examples.stories.tsx",
+      "description": "Modify packages/react/src/ActionMenu/ActionMenu.examples.stories.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_actionmenu}/ActionMenu.test.tsx",
+      "description": "Modify packages/react/src/ActionMenu/ActionMenu.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_actionmenu}/ActionMenu.tsx",
+      "description": "Modify packages/react/src/ActionMenu/ActionMenu.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_anchoredoverlay}/AnchoredOverlay.module.css",
+      "description": "Modify packages/react/src/AnchoredOverlay/AnchoredOverlay.module.css"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_anchoredoverlay}/AnchoredOverlay.test.tsx",
+      "description": "Modify packages/react/src/AnchoredOverlay/AnchoredOverlay.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_anchoredoverlay}/AnchoredOverlay.tsx",
+      "description": "Modify packages/react/src/AnchoredOverlay/AnchoredOverlay.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_featureflags}/DefaultFeatureFlags.ts",
+      "description": "Modify packages/react/src/FeatureFlags/DefaultFeatureFlags.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_overlay}/Overlay.module.css",
+      "description": "Modify packages/react/src/Overlay/Overlay.module.css"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_overlay}/Overlay.tsx",
+      "description": "Modify packages/react/src/Overlay/Overlay.tsx"
+    }
+  ],
+  "parameters": {
+    "changeset": ".changeset",
+    "playwright_snapshots_components_anchoredoverlay_test_ts_snapshots": ".playwright/snapshots/components/AnchoredOverlay.test.ts-snapshots",
+    "packages_react": "packages/react",
+    "packages_react_src_actionmenu": "packages/react/src/ActionMenu",
+    "packages_react_src_anchoredoverlay": "packages/react/src/AnchoredOverlay",
+    "packages_react_src_featureflags": "packages/react/src/FeatureFlags",
+    "packages_react_src_overlay": "packages/react/src/Overlay"
+  },
+  "tags": [
+    "testing",
+    "react",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "anchoredoverlay-add-support-for-css-anch-7atfjd",
+    "author": "primer",
+    "createdAt": "2026-03-25T14:16:39.387Z",
+    "updatedAt": "2026-03-25T14:16:39.387Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "4fd704c97863357f"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "name": "Mail and assignment added",
+  "description": "mail and assignment added",
+  "sourceSessionId": "48249edba93f",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "{npm_install_types}/nodemailer",
+      "description": "Run `npm install @types/nodemailer`"
+    },
+    {
+      "action": "modify_file",
+      "target": "README.md",
+      "description": "Modify README.md"
+    },
+    {
+      "action": "create_file",
+      "target": "nextjs.png",
+      "description": "Create nextjs.png"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_app_api_users_signup}/route.ts",
+      "description": "Modify src/app/api/users/signup/route.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_app_api_users_verifyemail}/route.ts",
+      "description": "Create src/app/api/users/verifyemail/route.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_app_verifyemail}/page.tsx",
+      "description": "Create src/app/verifyemail/page.tsx"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_helpers}/mailer.ts",
+      "description": "Create src/helpers/mailer.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/middleware.ts",
+      "description": "Modify src/middleware.ts"
+    }
+  ],
+  "parameters": {
+    "npm_install_types": "npm install @types",
+    "src_app_api_users_signup": "src/app/api/users/signup",
+    "src_app_api_users_verifyemail": "src/app/api/users/verifyemail",
+    "src_app_verifyemail": "src/app/verifyemail",
+    "src_helpers": "src/helpers",
+    "src": "src"
+  },
+  "tags": [
+    "api",
+    "middleware",
+    "nextjs",
+    "typescript",
+    "mongoose"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "mail-and-assignment-added-x5uisd",
+    "author": "hiteshchoudhary",
+    "createdAt": "2026-03-25T14:16:24.147Z",
+    "updatedAt": "2026-03-25T14:16:24.147Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "fe1dce5c1ca01269"
+  }
+}

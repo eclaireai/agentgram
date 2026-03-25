@@ -1,0 +1,44 @@
+{
+  "name": ":arrow_up: Bump actions/setup-node from v2.1.4 to v2.1.5",
+  "description": ":arrow_up: Bump actions/setup-node from v2.1.4 to v2.1.5",
+  "sourceSessionId": "8c4115074d95",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/codeql.yml",
+      "description": "Modify .github/workflows/codeql.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/node.yml",
+      "description": "Modify .github/workflows/node.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/test.yml",
+      "description": "Modify .github/workflows/test.yml"
+    }
+  ],
+  "parameters": {
+    "source_dir": ".github/workflows"
+  },
+  "tags": [
+    "testing",
+    "ci",
+    "github-actions",
+    "config",
+    "prisma"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "arrow-up-bump-actions-setup-node-from-v2-wro5rd",
+    "author": "staart",
+    "createdAt": "2026-03-25T14:16:57.839Z",
+    "updatedAt": "2026-03-25T14:16:57.839Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "f9d285bc9a9f2575"
+  }
+}

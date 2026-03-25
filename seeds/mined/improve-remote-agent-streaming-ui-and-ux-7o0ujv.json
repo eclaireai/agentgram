@@ -1,0 +1,53 @@
+{
+  "name": "Improve remote agent streaming UI and UX (#23633)",
+  "description": "fix(core): improve remote agent streaming UI and UX (#23633)",
+  "sourceSessionId": "91d756f391e8",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{cli_src_ui_components_messages}/SubagentProgressDisplay.tsx",
+      "description": "Modify packages/cli/src/ui/components/messages/SubagentProgressDisplay.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{core_src_agents}/a2aUtils.test.ts",
+      "description": "Modify packages/core/src/agents/a2aUtils.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{core_src_agents}/a2aUtils.ts",
+      "description": "Modify packages/core/src/agents/a2aUtils.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{core_src_agents}/remote-invocation.test.ts",
+      "description": "Modify packages/core/src/agents/remote-invocation.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{core_src_agents}/remote-invocation.ts",
+      "description": "Modify packages/core/src/agents/remote-invocation.ts"
+    }
+  ],
+  "parameters": {
+    "source_dir": "packages",
+    "cli_src_ui_components_messages": "packages/cli/src/ui/components/messages",
+    "core_src_agents": "packages/core/src/agents"
+  },
+  "tags": [
+    "testing",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "improve-remote-agent-streaming-ui-and-ux-7o0ujv",
+    "author": "google-gemini",
+    "createdAt": "2026-03-25T14:18:04.118Z",
+    "updatedAt": "2026-03-25T14:18:04.118Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "ccd0a983db2c00fe"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "name": "Ensure max-height does not surpass viewport height in Overlay, ActionMenu under ",
+  "description": "chore: ensure max-height does not surpass viewport height in Overlay, ActionMenu under feature flag (#7510)",
+  "sourceSessionId": "8fa988ba6131",
+  "steps": [
+    {
+      "action": "create_file",
+      "target": "{changeset}/fuzzy-rabbits-wave.md",
+      "description": "Create .changeset/fuzzy-rabbits-wave.md"
+    },
+    {
+      "action": "create_file",
+      "target": "{playwright_snapshots_components_overlay_test_ts_snapshots}/Overlay-Setting-Max-Height-dark-colorblind-linux.png",
+      "description": "Create .playwright/snapshots/components/Overlay.test.ts-snapshots/Overlay-Setting-Max-Height-dark-colorblind-linux.png"
+    },
+    {
+      "action": "create_file",
+      "target": "{playwright_snapshots_components_overlay_test_ts_snapshots}/Overlay-Setting-Max-Height-dark-dimmed-linux.png",
+      "description": "Create .playwright/snapshots/components/Overlay.test.ts-snapshots/Overlay-Setting-Max-Height-dark-dimmed-linux.png"
+    },
+    {
+      "action": "create_file",
+      "target": "{playwright_snapshots_components_overlay_test_ts_snapshots}/Overlay-Setting-Max-Height-dark-high-contrast-linux.png",
+      "description": "Create .playwright/snapshots/components/Overlay.test.ts-snapshots/Overlay-Setting-Max-Height-dark-high-contrast-linux.png"
+    },
+    {
+      "action": "create_file",
+      "target": "{playwright_snapshots_components_overlay_test_ts_snapshots}/Overlay-Setting-Max-Height-dark-linux.png",
+      "description": "Create .playwright/snapshots/components/Overlay.test.ts-snapshots/Overlay-Setting-Max-Height-dark-linux.png"
+    },
+    {
+      "action": "create_file",
+      "target": "{playwright_snapshots_components_overlay_test_ts_snapshots}/Overlay-Setting-Max-Height-dark-tritanopia-linux.png",
+      "description": "Create .playwright/snapshots/components/Overlay.test.ts-snapshots/Overlay-Setting-Max-Height-dark-tritanopia-linux.png"
+    },
+    {
+      "action": "create_file",
+      "target": "{playwright_snapshots_components_overlay_test_ts_snapshots}/Overlay-Setting-Max-Height-light-colorblind-linux.png",
+      "description": "Create .playwright/snapshots/components/Overlay.test.ts-snapshots/Overlay-Setting-Max-Height-light-colorblind-linux.png"
+    },
+    {
+      "action": "create_file",
+      "target": "{playwright_snapshots_components_overlay_test_ts_snapshots}/Overlay-Setting-Max-Height-light-high-contrast-linux.png",
+      "description": "Create .playwright/snapshots/components/Overlay.test.ts-snapshots/Overlay-Setting-Max-Height-light-high-contrast-linux.png"
+    },
+    {
+      "action": "create_file",
+      "target": "{playwright_snapshots_components_overlay_test_ts_snapshots}/Overlay-Setting-Max-Height-light-linux.png",
+      "description": "Create .playwright/snapshots/components/Overlay.test.ts-snapshots/Overlay-Setting-Max-Height-light-linux.png"
+    },
+    {
+      "action": "create_file",
+      "target": "{playwright_snapshots_components_overlay_test_ts_snapshots}/Overlay-Setting-Max-Height-light-tritanopia-linux.png",
+      "description": "Create .playwright/snapshots/components/Overlay.test.ts-snapshots/Overlay-Setting-Max-Height-light-tritanopia-linux.png"
+    },
+    {
+      "action": "modify_file",
+      "target": "{e2e_components}/Overlay.test.ts",
+      "description": "Modify e2e/components/Overlay.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_actionmenu}/ActionMenu.module.css",
+      "description": "Modify packages/react/src/ActionMenu/ActionMenu.module.css"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_actionmenu}/ActionMenu.tsx",
+      "description": "Modify packages/react/src/ActionMenu/ActionMenu.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_featureflags}/DefaultFeatureFlags.ts",
+      "description": "Modify packages/react/src/FeatureFlags/DefaultFeatureFlags.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_overlay}/Overlay.features.stories.module.css",
+      "description": "Modify packages/react/src/Overlay/Overlay.features.stories.module.css"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_overlay}/Overlay.features.stories.tsx",
+      "description": "Modify packages/react/src/Overlay/Overlay.features.stories.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_overlay}/Overlay.module.css",
+      "description": "Modify packages/react/src/Overlay/Overlay.module.css"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_react_src_overlay}/Overlay.tsx",
+      "description": "Modify packages/react/src/Overlay/Overlay.tsx"
+    }
+  ],
+  "parameters": {
+    "changeset": ".changeset",
+    "playwright_snapshots_components_overlay_test_ts_snapshots": ".playwright/snapshots/components/Overlay.test.ts-snapshots",
+    "e2e_components": "e2e/components",
+    "packages_react_src_actionmenu": "packages/react/src/ActionMenu",
+    "packages_react_src_featureflags": "packages/react/src/FeatureFlags",
+    "packages_react_src_overlay": "packages/react/src/Overlay"
+  },
+  "tags": [
+    "testing",
+    "react",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ensure-max-height-does-not-surpass-viewp-l58wg7",
+    "author": "primer",
+    "createdAt": "2026-03-25T14:16:39.387Z",
+    "updatedAt": "2026-03-25T14:16:39.387Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "67546a7e9ed9a9e9"
+  }
+}

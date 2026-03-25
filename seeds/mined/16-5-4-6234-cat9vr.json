@@ -1,0 +1,125 @@
+{
+  "name": "16.5.4 (#6234)",
+  "description": "16.5.4 (#6234)",
+  "sourceSessionId": "c2e3b7ce0b71",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "CHANGELOG.md",
+      "description": "Modify CHANGELOG.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Modify package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_api_augment}/package.json",
+      "description": "Modify packages/api-augment/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_api_base}/package.json",
+      "description": "Modify packages/api-base/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_api_contract}/package.json",
+      "description": "Modify packages/api-contract/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_api_derive}/package.json",
+      "description": "Modify packages/api-derive/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_api}/package.json",
+      "description": "Modify packages/api/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_rpc_augment}/package.json",
+      "description": "Modify packages/rpc-augment/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_rpc_core}/package.json",
+      "description": "Modify packages/rpc-core/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_rpc_provider}/package.json",
+      "description": "Modify packages/rpc-provider/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_typegen}/package.json",
+      "description": "Modify packages/typegen/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_types_augment}/package.json",
+      "description": "Modify packages/types-augment/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_types_codec}/package.json",
+      "description": "Modify packages/types-codec/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_types_create}/package.json",
+      "description": "Modify packages/types-create/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_types_known}/package.json",
+      "description": "Modify packages/types-known/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_types_support}/package.json",
+      "description": "Modify packages/types-support/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_types}/package.json",
+      "description": "Modify packages/types/package.json"
+    }
+  ],
+  "parameters": {
+    "packages_api_augment": "packages/api-augment",
+    "packages_api_base": "packages/api-base",
+    "packages_api_contract": "packages/api-contract",
+    "packages_api_derive": "packages/api-derive",
+    "packages_api": "packages/api",
+    "packages_rpc_augment": "packages/rpc-augment",
+    "packages_rpc_core": "packages/rpc-core",
+    "packages_rpc_provider": "packages/rpc-provider",
+    "packages_typegen": "packages/typegen",
+    "packages_types_augment": "packages/types-augment",
+    "packages_types_codec": "packages/types-codec",
+    "packages_types_create": "packages/types-create",
+    "packages_types_known": "packages/types-known",
+    "packages_types_support": "packages/types-support",
+    "packages_types": "packages/types"
+  },
+  "tags": [
+    "api",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "16-5-4-6234-cat9vr",
+    "author": "polkadot-js",
+    "createdAt": "2026-03-25T14:16:56.546Z",
+    "updatedAt": "2026-03-25T14:16:56.546Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "26615a9a1b439f3d"
+  }
+}

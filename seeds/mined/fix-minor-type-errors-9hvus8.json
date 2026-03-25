@@ -1,0 +1,50 @@
+{
+  "name": "Fix minor type errors",
+  "description": "Fix minor type errors",
+  "sourceSessionId": "d341ca667669",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{application_app_navigation}/header-navigation.story.tsx",
+      "description": "Modify components/application/app-navigation/header-navigation.story.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{application_app_navigation}/sidebar-navigation.story.tsx",
+      "description": "Modify components/application/app-navigation/sidebar-navigation.story.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{base_select}/select.demo.tsx",
+      "description": "Modify components/base/select/select.demo.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{internal}/decorators.tsx",
+      "description": "Modify components/internal/decorators.tsx"
+    }
+  ],
+  "parameters": {
+    "source_dir": "components",
+    "application_app_navigation": "components/application/app-navigation",
+    "base_select": "components/base/select",
+    "internal": "components/internal"
+  },
+  "tags": [
+    "error-handling",
+    "typescript",
+    "nextjs"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fix-minor-type-errors-9hvus8",
+    "author": "untitleduico",
+    "createdAt": "2026-03-25T14:16:40.684Z",
+    "updatedAt": "2026-03-25T14:16:40.684Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "d466623e955e4819"
+  }
+}

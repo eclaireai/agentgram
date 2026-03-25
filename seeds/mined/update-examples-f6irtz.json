@@ -1,0 +1,54 @@
+{
+  "name": "Update examples",
+  "description": "update examples",
+  "sourceSessionId": "f137c135faaa",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{auto_static_optimize}/next-env.d.ts",
+      "description": "Modify examples/auto-static-optimize/next-env.d.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{auto_static_optimize}/package.json",
+      "description": "Modify examples/auto-static-optimize/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{simple}/next-env.d.ts",
+      "description": "Modify examples/simple/next-env.d.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{simple}/package.json",
+      "description": "Modify examples/simple/package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{ssg}/package.json",
+      "description": "Modify examples/ssg/package.json"
+    }
+  ],
+  "parameters": {
+    "source_dir": "examples",
+    "auto_static_optimize": "examples/auto-static-optimize",
+    "simple": "examples/simple",
+    "ssg": "examples/ssg"
+  },
+  "tags": [
+    "nextjs",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "update-examples-f6irtz",
+    "author": "i18next",
+    "createdAt": "2026-03-25T14:16:22.486Z",
+    "updatedAt": "2026-03-25T14:16:22.486Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "ec4deb4f42257707"
+  }
+}

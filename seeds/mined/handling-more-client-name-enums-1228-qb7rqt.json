@@ -1,0 +1,54 @@
+{
+  "name": "Handling more client name enums (#1228)",
+  "description": "chore: handling more client name enums (#1228)",
+  "sourceSessionId": "b2b5e3fef684",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{src_daemon}/daemon.ts",
+      "description": "Modify src/daemon/daemon.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_daemon}/utils.ts",
+      "description": "Modify src/daemon/utils.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_telemetry}/ClearcutLogger.ts",
+      "description": "Modify src/telemetry/ClearcutLogger.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_telemetry}/types.ts",
+      "description": "Modify src/telemetry/types.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_telemetry}/ClearcutLogger.test.ts",
+      "description": "Modify tests/telemetry/ClearcutLogger.test.ts"
+    }
+  ],
+  "parameters": {
+    "src_daemon": "src/daemon",
+    "src_telemetry": "src/telemetry",
+    "tests_telemetry": "tests/telemetry"
+  },
+  "tags": [
+    "testing",
+    "logging",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "handling-more-client-name-enums-1228-qb7rqt",
+    "author": "ChromeDevTools",
+    "createdAt": "2026-03-25T14:18:07.878Z",
+    "updatedAt": "2026-03-25T14:18:07.878Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "df3e45500f473b91"
+  }
+}

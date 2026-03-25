@@ -1,0 +1,57 @@
+{
+  "name": "Eliminate interpolation from workflows (#63188)",
+  "description": "Eliminate interpolation from workflows (#63188)",
+  "sourceSessionId": "b24015058ae0",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/ci.yml",
+      "description": "Modify .github/workflows/ci.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/close-issues.yml",
+      "description": "Modify .github/workflows/close-issues.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/lkg.yml",
+      "description": "Modify .github/workflows/lkg.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/new-release-branch.yaml",
+      "description": "Modify .github/workflows/new-release-branch.yaml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/pr-modified-files.yml",
+      "description": "Modify .github/workflows/pr-modified-files.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/set-version.yaml",
+      "description": "Modify .github/workflows/set-version.yaml"
+    }
+  ],
+  "parameters": {
+    "source_dir": ".github/workflows"
+  },
+  "tags": [
+    "ci",
+    "github-actions",
+    "config"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "eliminate-interpolation-from-workflows-6-9av6ex",
+    "author": "microsoft",
+    "createdAt": "2026-03-25T14:16:10.731Z",
+    "updatedAt": "2026-03-25T14:16:10.731Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "619f163f7ef0a7a6"
+  }
+}

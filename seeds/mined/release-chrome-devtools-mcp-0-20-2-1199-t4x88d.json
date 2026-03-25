@@ -1,0 +1,50 @@
+{
+  "name": "Release chrome-devtools-mcp 0.20.2 (#1199)",
+  "description": "chore(main): release chrome-devtools-mcp 0.20.2 (#1199)",
+  "sourceSessionId": "62791770169c",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": ".release-please-manifest.json",
+      "description": "Modify .release-please-manifest.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "CHANGELOG.md",
+      "description": "Modify CHANGELOG.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Modify package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "server.json",
+      "description": "Modify server.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/version.ts",
+      "description": "Modify src/version.ts"
+    }
+  ],
+  "parameters": {
+    "src": "src"
+  },
+  "tags": [
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "release-chrome-devtools-mcp-0-20-2-1199-t4x88d",
+    "author": "ChromeDevTools",
+    "createdAt": "2026-03-25T14:18:07.878Z",
+    "updatedAt": "2026-03-25T14:18:07.878Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "6ad9fdc1c619caa9"
+  }
+}

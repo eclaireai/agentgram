@@ -1,0 +1,44 @@
+{
+  "name": ":twisted_rightwards_arrows: Merge #1765 (:arrow_up: Bump actions/setup-node from",
+  "description": ":twisted_rightwards_arrows: Merge #1765 (:arrow_up: Bump actions/setup-node from v2.1.4 to v2.1.5)",
+  "sourceSessionId": "dba7066cfde8",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/codeql.yml",
+      "description": "Modify .github/workflows/codeql.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/node.yml",
+      "description": "Modify .github/workflows/node.yml"
+    },
+    {
+      "action": "modify_file",
+      "target": "{source_dir}/test.yml",
+      "description": "Modify .github/workflows/test.yml"
+    }
+  ],
+  "parameters": {
+    "source_dir": ".github/workflows"
+  },
+  "tags": [
+    "testing",
+    "ci",
+    "github-actions",
+    "config",
+    "prisma"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "twisted-rightwards-arrows-merge-1765-arr-l892qk",
+    "author": "staart",
+    "createdAt": "2026-03-25T14:16:57.839Z",
+    "updatedAt": "2026-03-25T14:16:57.839Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "be1af10debe1f602"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "name": "Update eslint",
+  "description": "chore: update eslint",
+  "sourceSessionId": "042c73ec2a23",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "package.json",
+      "description": "Modify package.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_app_frontend_src_features_ui_components}/icons.ts",
+      "description": "Modify packages/app-frontend/src/features/ui/components/icons.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_app_frontend_src_plugins}/i18n.ts",
+      "description": "Modify packages/app-frontend/src/plugins/i18n.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_app_frontend_src_util_format}/value.ts",
+      "description": "Modify packages/app-frontend/src/util/format/value.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_shared_utils_src}/util.ts",
+      "description": "Modify packages/shared-utils/src/util.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_shell_host_src}/DevIframe.vue",
+      "description": "Modify packages/shell-host/src/DevIframe.vue"
+    }
+  ],
+  "parameters": {
+    "packages_app_frontend_src_features_ui_components": "packages/app-frontend/src/features/ui/components",
+    "packages_app_frontend_src_plugins": "packages/app-frontend/src/plugins",
+    "packages_app_frontend_src_util_format": "packages/app-frontend/src/util/format",
+    "packages_shared_utils_src": "packages/shared-utils/src",
+    "packages_shell_host_src": "packages/shell-host/src"
+  },
+  "tags": [
+    "linting",
+    "eslint",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "update-eslint-u1axiu",
+    "author": "vuejs",
+    "createdAt": "2026-03-25T14:18:09.447Z",
+    "updatedAt": "2026-03-25T14:18:09.447Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "b2886c6dcb475468"
+  }
+}

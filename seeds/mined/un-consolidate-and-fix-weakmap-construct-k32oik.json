@@ -1,0 +1,64 @@
+{
+  "name": "Un‑consolidate and fix `WeakMap` constructor overloads (#56713)",
+  "description": "Un‑consolidate and fix `WeakMap` constructor overloads (#56713)",
+  "sourceSessionId": "e872a6e982da",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{src_lib}/es2015.iterable.d.ts",
+      "description": "Modify src/lib/es2015.iterable.d.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/dissallowSymbolAsWeakType.errors.txt",
+      "description": "Modify tests/baselines/reference/dissallowSymbolAsWeakType.errors.txt"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/newMap.errors.txt",
+      "description": "Modify tests/baselines/reference/newMap.errors.txt"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/newMap.js",
+      "description": "Modify tests/baselines/reference/newMap.js"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/newMap.symbols",
+      "description": "Modify tests/baselines/reference/newMap.symbols"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_baselines_reference}/newMap.types",
+      "description": "Modify tests/baselines/reference/newMap.types"
+    },
+    {
+      "action": "modify_file",
+      "target": "{tests_cases_compiler}/newMap.ts",
+      "description": "Modify tests/cases/compiler/newMap.ts"
+    }
+  ],
+  "parameters": {
+    "src_lib": "src/lib",
+    "tests_baselines_reference": "tests/baselines/reference",
+    "tests_cases_compiler": "tests/cases/compiler"
+  },
+  "tags": [
+    "testing",
+    "error-handling",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "un-consolidate-and-fix-weakmap-construct-k32oik",
+    "author": "microsoft",
+    "createdAt": "2026-03-25T14:16:10.732Z",
+    "updatedAt": "2026-03-25T14:16:10.732Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "5b62a03702ac1e38"
+  }
+}

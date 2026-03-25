@@ -1,0 +1,60 @@
+{
+  "name": "Remove manual swagger.json and references, update README",
+  "description": "Remove manual swagger.json and references, update README",
+  "sourceSessionId": "fe28b4998b9c",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": ".env.example",
+      "description": "Modify .env.example"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env.test",
+      "description": "Modify .env.test"
+    },
+    {
+      "action": "modify_file",
+      "target": "README.md",
+      "description": "Modify README.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "package-scripts.js",
+      "description": "Modify package-scripts.js"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_api}/swagger.json",
+      "description": "Modify src/api/swagger.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/env.ts",
+      "description": "Modify src/env.ts"
+    }
+  ],
+  "parameters": {
+    "src_api": "src/api",
+    "src": "src"
+  },
+  "tags": [
+    "testing",
+    "api",
+    "typescript",
+    "express",
+    "typeorm"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "remove-manual-swagger-json-and-reference-2wtenu",
+    "author": "w3tecch",
+    "createdAt": "2026-03-25T14:16:28.793Z",
+    "updatedAt": "2026-03-25T14:16:28.793Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "d0eace2a2fb29477"
+  }
+}

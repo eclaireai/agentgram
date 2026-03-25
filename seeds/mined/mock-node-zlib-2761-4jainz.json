@@ -1,0 +1,63 @@
+{
+  "name": "Mock node:zlib (#2761)",
+  "description": "fix(tests): mock node:zlib (#2761)",
+  "sourceSessionId": "555b8342d6e3",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{e2e}/default.test.ts",
+      "description": "Modify __e2e__/default.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{e2e}/init.test.ts",
+      "description": "Modify __e2e__/init.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{jest}/setupUnitTests.js",
+      "description": "Modify jest/setupUnitTests.js"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_doctor_src_tools_healthchecks}/androidStudio.ts",
+      "description": "Modify packages/cli-doctor/src/tools/healthchecks/androidStudio.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_platform_apple_src_commands_runcommand}/getBuildSettings.ts",
+      "description": "Modify packages/cli-platform-apple/src/commands/runCommand/getBuildSettings.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_cli_server_api}/package.json",
+      "description": "Modify packages/cli-server-api/package.json"
+    }
+  ],
+  "parameters": {
+    "e2e": "__e2e__",
+    "jest": "jest",
+    "packages_cli_doctor_src_tools_healthchecks": "packages/cli-doctor/src/tools/healthchecks",
+    "packages_cli_platform_apple_src_commands_runcommand": "packages/cli-platform-apple/src/commands/runCommand",
+    "packages_cli_server_api": "packages/cli-server-api"
+  },
+  "tags": [
+    "testing",
+    "jest",
+    "api",
+    "build",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "mock-node-zlib-2761-4jainz",
+    "author": "react-native-community",
+    "createdAt": "2026-03-25T14:17:30.719Z",
+    "updatedAt": "2026-03-25T14:17:30.719Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "b98a40c012a9cfc6"
+  }
+}

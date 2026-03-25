@@ -1,0 +1,44 @@
+{
+  "name": "Stop gemini CLI from producing unsafe casts (#23611)",
+  "description": "refactor(core): stop gemini CLI from producing unsafe casts (#23611)",
+  "sourceSessionId": "6b7dc4d82232",
+  "steps": [
+    {
+      "action": "create_file",
+      "target": "{evals}/redundant_casts.eval.ts",
+      "description": "Create evals/redundant_casts.eval.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_core_src_core_snapshots}/prompts.test.ts.snap",
+      "description": "Modify packages/core/src/core/__snapshots__/prompts.test.ts.snap"
+    },
+    {
+      "action": "modify_file",
+      "target": "{packages_core_src_prompts}/snippets.ts",
+      "description": "Modify packages/core/src/prompts/snippets.ts"
+    }
+  ],
+  "parameters": {
+    "evals": "evals",
+    "packages_core_src_core_snapshots": "packages/core/src/core/__snapshots__",
+    "packages_core_src_prompts": "packages/core/src/prompts"
+  },
+  "tags": [
+    "testing",
+    "ci",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "stop-gemini-cli-from-producing-unsafe-ca-ohn21j",
+    "author": "google-gemini",
+    "createdAt": "2026-03-25T14:18:04.118Z",
+    "updatedAt": "2026-03-25T14:18:04.118Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "f04f7dc682860841"
+  }
+}

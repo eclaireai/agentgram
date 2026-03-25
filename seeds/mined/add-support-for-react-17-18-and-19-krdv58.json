@@ -1,0 +1,78 @@
+{
+  "name": "Add support for React 17, 18, and 19",
+  "description": "feat: add support for React 17, 18, and 19",
+  "sourceSessionId": "a550bd76aeaa",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "{npm_install_testing_library}/dom",
+      "description": "Run `npm install @testing-library/dom`"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_tests}/util.tsx",
+      "description": "Modify src/__tests__/util.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_components}/UIRouter.tsx",
+      "description": "Modify src/components/UIRouter.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_components}/UISref.tsx",
+      "description": "Modify src/components/UISref.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_components}/UIView.tsx",
+      "description": "Modify src/components/UIView.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_components_tests}/UIRouter.test.tsx",
+      "description": "Modify src/components/__tests__/UIRouter.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_components_tests}/UIView.test.tsx",
+      "description": "Modify src/components/__tests__/UIView.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_hooks_tests}/useSref.test.tsx",
+      "description": "Modify src/hooks/__tests__/useSref.test.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/interface.tsx",
+      "description": "Modify src/interface.tsx"
+    }
+  ],
+  "parameters": {
+    "npm_install_testing_library": "npm install @testing-library",
+    "src_tests": "src/__tests__",
+    "src_components": "src/components",
+    "src_components_tests": "src/components/__tests__",
+    "src_hooks_tests": "src/hooks/__tests__",
+    "src": "src"
+  },
+  "tags": [
+    "testing",
+    "api",
+    "react",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "add-support-for-react-17-18-and-19-krdv58",
+    "author": "ui-router",
+    "createdAt": "2026-03-25T14:16:42.187Z",
+    "updatedAt": "2026-03-25T14:16:42.187Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "84154348fac7a30a"
+  }
+}

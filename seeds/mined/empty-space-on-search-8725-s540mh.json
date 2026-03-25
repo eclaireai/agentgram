@@ -1,0 +1,41 @@
+{
+  "name": "Empty space on search (#8725)",
+  "description": "fix(ui): empty space on search (#8725)",
+  "sourceSessionId": "783305ec8a98",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{results_tabs}/index.module.css",
+      "description": "Modify packages/ui-components/src/Common/Search/Results/Tabs/index.module.css"
+    },
+    {
+      "action": "modify_file",
+      "target": "{results}/index.module.css",
+      "description": "Modify packages/ui-components/src/Common/Search/Results/index.module.css"
+    },
+    {
+      "action": "modify_file",
+      "target": "{suggestions}/index.module.css",
+      "description": "Modify packages/ui-components/src/Common/Search/Suggestions/index.module.css"
+    }
+  ],
+  "parameters": {
+    "source_dir": "packages/ui-components/src/Common/Search",
+    "results_tabs": "packages/ui-components/src/Common/Search/Results/Tabs",
+    "results": "packages/ui-components/src/Common/Search/Results",
+    "suggestions": "packages/ui-components/src/Common/Search/Suggestions"
+  },
+  "tags": [],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "empty-space-on-search-8725-s540mh",
+    "author": "nodejs",
+    "createdAt": "2026-03-25T14:16:49.123Z",
+    "updatedAt": "2026-03-25T14:16:49.123Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "50b1726aa8d4954e"
+  }
+}

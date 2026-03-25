@@ -1,0 +1,54 @@
+{
+  "name": "Update links and images",
+  "description": "update links and images",
+  "sourceSessionId": "9f4c4a76f776",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "README.md",
+      "description": "Modify README.md"
+    },
+    {
+      "action": "modify_file",
+      "target": "{examples_auto_static_optimize_pages}/index.tsx",
+      "description": "Modify examples/auto-static-optimize/pages/index.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{examples_simple_pages}/index.tsx",
+      "description": "Modify examples/simple/pages/index.tsx"
+    },
+    {
+      "action": "modify_file",
+      "target": "{examples_simple_public_locales_de}/common.json",
+      "description": "Modify examples/simple/public/locales/de/common.json"
+    },
+    {
+      "action": "modify_file",
+      "target": "{examples_simple_public_locales_en}/common.json",
+      "description": "Modify examples/simple/public/locales/en/common.json"
+    }
+  ],
+  "parameters": {
+    "examples_auto_static_optimize_pages": "examples/auto-static-optimize/pages",
+    "examples_simple_pages": "examples/simple/pages",
+    "examples_simple_public_locales_de": "examples/simple/public/locales/de",
+    "examples_simple_public_locales_en": "examples/simple/public/locales/en"
+  },
+  "tags": [
+    "typescript",
+    "nextjs"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "update-links-and-images-5ixhms",
+    "author": "i18next",
+    "createdAt": "2026-03-25T14:16:22.486Z",
+    "updatedAt": "2026-03-25T14:16:22.486Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "f8965fb702bc22a7"
+  }
+}

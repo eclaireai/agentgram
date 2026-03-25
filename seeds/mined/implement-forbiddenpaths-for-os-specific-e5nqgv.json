@@ -1,0 +1,92 @@
+{
+  "name": "Implement forbiddenPaths for OS-specific sandbox managers (#23282)",
+  "description": "feat(sandbox): implement forbiddenPaths for OS-specific sandbox managers (#23282)",
+  "sourceSessionId": "578d656de9a0",
+  "steps": [
+    {
+      "action": "modify_file",
+      "target": "{sandbox_linux}/LinuxSandboxManager.test.ts",
+      "description": "Modify packages/core/src/sandbox/linux/LinuxSandboxManager.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{sandbox_linux}/LinuxSandboxManager.ts",
+      "description": "Modify packages/core/src/sandbox/linux/LinuxSandboxManager.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{sandbox_macos}/MacOsSandboxManager.integration.test.ts",
+      "description": "Modify packages/core/src/sandbox/macos/MacOsSandboxManager.integration.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{sandbox_macos}/MacOsSandboxManager.test.ts",
+      "description": "Modify packages/core/src/sandbox/macos/MacOsSandboxManager.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{sandbox_macos}/MacOsSandboxManager.ts",
+      "description": "Modify packages/core/src/sandbox/macos/MacOsSandboxManager.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{sandbox_macos}/seatbeltArgsBuilder.test.ts",
+      "description": "Modify packages/core/src/sandbox/macos/seatbeltArgsBuilder.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{sandbox_macos}/seatbeltArgsBuilder.ts",
+      "description": "Modify packages/core/src/sandbox/macos/seatbeltArgsBuilder.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{sandbox_windows}/WindowsSandboxManager.test.ts",
+      "description": "Modify packages/core/src/sandbox/windows/WindowsSandboxManager.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{sandbox_windows}/WindowsSandboxManager.ts",
+      "description": "Modify packages/core/src/sandbox/windows/WindowsSandboxManager.ts"
+    },
+    {
+      "action": "create_file",
+      "target": "{services}/sandboxManager.integration.test.ts",
+      "description": "Create packages/core/src/services/sandboxManager.integration.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{services}/sandboxManager.test.ts",
+      "description": "Modify packages/core/src/services/sandboxManager.test.ts"
+    },
+    {
+      "action": "modify_file",
+      "target": "{services}/sandboxManager.ts",
+      "description": "Modify packages/core/src/services/sandboxManager.ts"
+    }
+  ],
+  "parameters": {
+    "source_dir": "packages/core/src",
+    "sandbox_linux": "packages/core/src/sandbox/linux",
+    "sandbox_macos": "packages/core/src/sandbox/macos",
+    "sandbox_windows": "packages/core/src/sandbox/windows",
+    "services": "packages/core/src/services"
+  },
+  "tags": [
+    "testing",
+    "ci",
+    "build",
+    "typescript"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "implement-forbiddenpaths-for-os-specific-e5nqgv",
+    "author": "google-gemini",
+    "createdAt": "2026-03-25T14:18:04.118Z",
+    "updatedAt": "2026-03-25T14:18:04.118Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "git-history",
+    "checksum": "6b75684fbee85875"
+  }
+}
