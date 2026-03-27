@@ -1179,6 +1179,118 @@ ${chalk.dim('Examples:')}
       }
     });
 
+  // ── preflight ─────────────────────────────────────────────────────────────
+  program
+    .command('preflight <task>')
+    .description('Check a task description against known dead-end patterns before starting')
+    .option('-n, --limit <n>', 'max warnings to show', '5')
+    .option('--domain <domain>', 'filter to a specific domain (ai, auth, payments, devops, ...)')
+    .option('--json', 'output as JSON')
+    .action(async (task: string, options: { limit: string; domain?: string; json?: boolean }) => {
+      const { LocalFingerprintStore, preflight, formatPreflightResult } = await import('./fingerprint/index.js');
+      const store = new LocalFingerprintStore();
+      const result = preflight(task, store, {
+        limit: parseInt(options.limit, 10),
+        domain: options.domain,
+      });
+      if (options.json) { console.log(JSON.stringify(result, null, 2)); return; }
+      console.log(formatPreflightResult(result));
+    });
+
+  const deadendsCmd = new Command('deadends').description('Manage the dead-end pattern database (crowdsourced warnings)');
+
+  deadendsCmd
+    .command('sync')
+    .description('Sync local dead-end patterns with the agentgram cloud')
+    .action(async () => {
+      const { syncWithCloud } = await import('./fingerprint/index.js');
+      process.stdout.write(chalk.dim('  Syncing dead-end patterns...'));
+      const result = await syncWithCloud();
+      console.log(chalk.green(' done'));
+      console.log(`  Pushed: ${result.pushed}  Pulled: ${result.pulled}  New warnings: ${result.newWarnings}`);
+      if (result.errors.length > 0) result.errors.forEach((e) => console.log(chalk.yellow('  ⚠ ' + e)));
+    });
+
+  deadendsCmd
+    .command('stats')
+    .description('Show dead-end pattern database statistics')
+    .action(async () => {
+      const { LocalFingerprintStore } = await import('./fingerprint/index.js');
+      const store = new LocalFingerprintStore();
+      const stats = store.stats();
+      console.log(`\n  ${chalk.bold('Dead-End Pattern Database')}`);
+      console.log(`  Total patterns: ${chalk.cyan(stats.total)}`);
+      console.log(`  Total tokens wasted: ${chalk.yellow(stats.totalWasted.toLocaleString())}`);
+      for (const [domain, count] of Object.entries(stats.byDomain).sort(([, a], [, b]) => (b as number) - (a as number))) {
+        console.log(`    ${domain.padEnd(12)} ${count} occurrences`);
+      }
+      console.log();
+    });
+
+  deadendsCmd
+    .command('extract <session-id>')
+    .description('Extract dead-end patterns from a cognitive trace session')
+    .action(async (sessionId: string) => {
+      const { loadCognitiveTrace } = await import('./cognitive/capture.js');
+      const { extractAndStore } = await import('./fingerprint/index.js');
+      const trace = loadCognitiveTrace(sessionId);
+      if (!trace) { console.log(chalk.red(`✖  Session not found: ${sessionId}`)); process.exit(1); }
+      const count = extractAndStore(trace);
+      console.log(`\n  ${chalk.green(`✔  ${count} pattern${count !== 1 ? 's' : ''}`)} extracted from ${sessionId}\n`);
+    });
+
+  program.addCommand(deadendsCmd);
+
+  // ── compliance / tracevault ───────────────────────────────────────────────
+  const tracevaultCmd = new Command('tracevault').description('Tamper-evident compliance bundles for AI agent sessions');
+
+  tracevaultCmd
+    .command('export')
+    .description('Export signed compliance bundle')
+    .requiredOption('--sessions <ids>', 'comma-separated session IDs')
+    .requiredOption('--out <dir>', 'output directory for the bundle')
+    .option('--developer <name>', 'developer name for audit reports')
+    .option('--force', 'overwrite existing output directory')
+    .action(async (options: { sessions: string; out: string; developer?: string; force?: boolean }) => {
+      const { exportComplianceBundle } = await import('./compliance/index.js');
+      const sessionIds = options.sessions.split(',').map((s) => s.trim()).filter(Boolean);
+      console.log(`\n  ${chalk.bold('TraceVault')} — exporting ${sessionIds.length} session${sessionIds.length !== 1 ? 's' : ''}...`);
+      const result = await exportComplianceBundle({ sessionIds, outputDir: options.out, developer: options.developer, force: options.force });
+      if (result.errors.length > 0) result.errors.forEach((e) => console.log(chalk.yellow('  ⚠ ' + e)));
+      console.log(`\n  ${chalk.green('✔')}  Bundle → ${chalk.cyan(result.bundlePath)}`);
+      console.log(`     ${result.sessionCount} session${result.sessionCount !== 1 ? 's' : ''} — signed, chained, audit-ready`);
+      console.log(chalk.dim(`\n  Verify: agentgram tracevault verify --bundle ${result.bundlePath}\n`));
+    });
+
+  tracevaultCmd
+    .command('verify')
+    .description('Verify integrity of a compliance bundle')
+    .requiredOption('--bundle <dir>', 'path to compliance bundle directory')
+    .option('--json', 'output as JSON')
+    .action(async (options: { bundle: string; json?: boolean }) => {
+      const { verifyComplianceBundle } = await import('./compliance/index.js');
+      const results = verifyComplianceBundle(options.bundle);
+      if (options.json) { console.log(JSON.stringify(results, null, 2)); return; }
+      const allValid = results.every((r) => r.valid);
+      console.log(`\n  ${chalk.bold('TraceVault Verification')} — ${results.length} session${results.length !== 1 ? 's' : ''}\n`);
+      for (const r of results) {
+        const icon = r.valid ? chalk.green('✔') : chalk.red('✖');
+        const sigStr = r.signatureValid ? chalk.green('sig✓') : chalk.red('sig✗');
+        const chainStr = r.chainIntact ? chalk.green('chain✓') : chalk.red('chain✗');
+        console.log(`  ${icon}  ${r.sessionId}  ${sigStr}  ${chainStr}`);
+        if (r.errors.length > 0) r.errors.forEach((e) => console.log(chalk.red(`     ✗ ${e}`)));
+      }
+      console.log();
+      if (allValid) {
+        console.log(chalk.green('  ✅ All sessions verified — bundle intact\n'));
+      } else {
+        console.log(chalk.red('  ❌ Verification FAILED — possible tampering\n'));
+        process.exit(1);
+      }
+    });
+
+  program.addCommand(tracevaultCmd);
+
   // ── compose ───────────────────────────────────────────────────────────────
   program
     .command('compose <name> <recipe-ids...>')

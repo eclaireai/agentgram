@@ -134,3 +134,11 @@ export type { MemoryEntry, RecallResult, RecallOptions } from './memory/index.js
 // Utilities
 export { contentHash, generateId, sessionBranchName } from './utils/hash.js';
 export { isGitRepo, createGit } from './utils/git.js';
+
+// Dead-End Fingerprint Database — crowdsourced warning system
+export { anonymizeDeadEnd, anonymizeDeadEnds, LocalFingerprintStore, matchFingerprints, preflight, formatPreflightResult, extractAndStore, syncWithCloud, createCloudClient } from './fingerprint/index.js';
+export type { FingerprintRecord, FingerprintMatch, PreflightResult, SyncResult } from './fingerprint/types.js';
+
+// TraceVault — compliance replay & tamper-evident audit trail
+export { generateKeyPair, loadOrCreateKeyPair, signTrace, verifySignedTrace, buildChain, verifyChain, chainSummary, generateAuditReport, formatAuditReportMarkdown, exportComplianceBundle, verifyComplianceBundle } from './compliance/index.js';
+export type { KeyPair, SignedTrace, MerkleNode, AuditReport, ComplianceBundle, VerificationResult } from './compliance/types.js';
