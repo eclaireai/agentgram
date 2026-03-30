@@ -8,7 +8,7 @@
  * You can inspect what gets sent with: agentgram fingerprint show --pending
  */
 
-import type { FingerprintRecord, SyncResult } from './types.js';
+import type { FingerprintRecord } from './types.js';
 
 export const CLOUD_API = process.env['AGENTGRAM_API'] ?? 'https://api.agentgram.dev';
 export const SYNC_TIMEOUT_MS = 5000;

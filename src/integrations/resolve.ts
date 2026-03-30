@@ -17,7 +17,7 @@
 
 import type { Session } from '../core/types.js';
 import type { TicketRecipe } from './ticket.js';
-import { parseTicketUrl, formatTicketRef } from './ticket.js';
+import { parseTicketUrl } from './ticket.js';
 import { GitHubIntegration } from './github.js';
 import { RecipeDistiller } from '../recipe/distill.js';
 import { prepareForSharing } from '../recipe/share.js';
@@ -113,7 +113,7 @@ export async function resolveSessionToTicket(
   session: Session,
   options: ResolveOptions,
 ): Promise<ResolveResult> {
-  const startedAt = Date.now();
+  const _startedAt = Date.now();
   const cwd = options.cwd ?? process.cwd();
 
   // 1. Parse ticket URL

@@ -990,7 +990,7 @@ ${chalk.dim('Subcommands:')}
       console.log(chalk.dim(`  ${limited.length} tickets resolved with AI${options.tag ? ` (filtered: ${options.tag})` : ''}\n`));
 
       for (const entry of limited) {
-        const date = new Date(entry.resolvedAt).toLocaleDateString();
+        const _date = new Date(entry.resolvedAt).toLocaleDateString();
         const dur = entry.durationMin > 0 ? chalk.dim(`${entry.durationMin}min`) : '';
 
         console.log(
@@ -1147,7 +1147,7 @@ ${chalk.dim('Examples:')}
     .action(async (options: { limit: string; tag?: string }) => {
       const { AgentMemory } = await import('./memory/index.js');
       const { GitHubRecipeRegistry } = await import('./recipe/registry.js');
-      const { DEFAULT_REGISTRY_CONFIG } = await import('./recipe/types.js');
+
 
       const registry = new GitHubRecipeRegistry({});
       const memory = new AgentMemory();
@@ -1199,7 +1199,9 @@ ${chalk.dim('Examples:')}
     .option('--domain <domain>', 'filter to a specific domain (ai, auth, payments, devops, ...)')
     .option('--json', 'output as JSON')
     .action(async (task: string, options: { limit: string; domain?: string; json?: boolean }) => {
-      const { LocalFingerprintStore, preflight, formatPreflightResult } = await import('./fingerprint/index.js');
+      const { LocalFingerprintStore, preflight, formatPreflightResult, ensureSeeded } = await import('./fingerprint/index.js');
+      // Auto-seed on first run so preflight shows value immediately
+      ensureSeeded();
       const store = new LocalFingerprintStore();
       const result = preflight(task, store, {
         limit: parseInt(options.limit, 10),

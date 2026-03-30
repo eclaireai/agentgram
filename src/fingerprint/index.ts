@@ -14,12 +14,31 @@ export { anonymizeDeadEnd, anonymizeDeadEnds } from './anonymize.js';
 export { LocalFingerprintStore } from './local-store.js';
 export { matchFingerprints, preflight, formatPreflightResult } from './match.js';
 export { HttpCloudClient, OfflineCloudClient, createCloudClient } from './client.js';
+export { SEEDED_FINGERPRINTS } from './seeds.js';
 
 import { LocalFingerprintStore } from './local-store.js';
 import { anonymizeDeadEnds } from './anonymize.js';
 import { createCloudClient } from './client.js';
+import { SEEDED_FINGERPRINTS } from './seeds.js';
 import type { CognitiveTrace } from '../cognitive/trace.js';
 import type { SyncResult } from './types.js';
+
+/**
+ * Ensure the local store is seeded with the built-in dead-end patterns.
+ * Idempotent — skips fingerprints already present. Call before preflight on first run.
+ */
+export function ensureSeeded(agentgramDir = '.agentgram'): { added: number; already: number } {
+  const store = new LocalFingerprintStore(agentgramDir);
+  let added = 0;
+  let already = 0;
+  for (const fp of SEEDED_FINGERPRINTS) {
+    const result = store.upsert(fp);
+    if (result === 'added') added++;
+    else already++;
+  }
+  if (added > 0) store.save();
+  return { added, already };
+}
 
 /**
  * High-level: extract fingerprints from a cognitive trace and add to local store.

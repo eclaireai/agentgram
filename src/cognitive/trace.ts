@@ -259,7 +259,7 @@ function extractPackageName(npmCmd: string): string | null {
  *
  * This function extracts the reasoning that preceded the tool call.
  */
-export function extractReasoning(assistantMessage: string, toolName: string): ReasoningTurn | null {
+export function extractReasoning(assistantMessage: string, _toolName: string): ReasoningTurn | null {
   if (!assistantMessage) return null;
 
   // Find the text block before the tool use

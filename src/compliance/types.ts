@@ -9,7 +9,6 @@
  * FedRAMP Revision 5 AU-2/AU-3, and ISO 27001 A.12.4.
  */
 
-import type { CognitiveTrace } from '../cognitive/trace.js';
 
 // ---------------------------------------------------------------------------
 // Key management
