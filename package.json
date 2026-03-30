@@ -30,7 +30,8 @@
     "lint": "eslint src tests",
     "typecheck": "tsc --noEmit",
     "ci": "npm run typecheck && npm run lint && npm run test:coverage && npm run build",
-    "prepublishOnly": "npm run ci"
+    "prepublishOnly": "npm run ci",
+    "seed:fingerprints": "npx tsx seeds/seed-fingerprints.ts"
   },
   "keywords": [
     "agent",
