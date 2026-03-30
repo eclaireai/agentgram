@@ -145,19 +145,31 @@ export class GitHubRecipeRegistry {
 
   /** Pull a recipe by ID */
   async pull(recipeId: RecipeId): Promise<SharedRecipe> {
-    const filepath = `${this.config.recipesDir}/${recipeId}.json`;
-    const url = this.rawUrl(filepath);
-    const response = await this.fetch(url);
+    // Try flat path first (backward compat), then category-based path via index lookup
+    const flatPath = `${this.config.recipesDir}/${recipeId}.json`;
+    const flatResponse = await this.fetch(this.rawUrl(flatPath));
 
-    if (response.status === 404) {
-      throw new RegistryError(`Recipe not found: ${recipeId}`, 404);
+    if (flatResponse.ok) {
+      return (await flatResponse.json()) as SharedRecipe;
+    }
+    if (flatResponse.status !== 404) {
+      throw new RegistryError(`Failed to fetch recipe: ${flatResponse.status}`, flatResponse.status);
     }
 
-    if (!response.ok) {
-      throw new RegistryError(`Failed to fetch recipe: ${response.status}`, response.status);
+    // Flat path was 404 — look up category from index and try category-based path
+    const index = await this.fetchIndex();
+    const entry = index.recipes.find((r) => r.id === recipeId);
+    const category = (entry as (RecipeIndexEntry & { category?: string }) | undefined)?.category;
+
+    if (category) {
+      const catPath = `${this.config.recipesDir}/${category}/${recipeId}.json`;
+      const catResponse = await this.fetch(this.rawUrl(catPath));
+      if (catResponse.ok) {
+        return (await catResponse.json()) as SharedRecipe;
+      }
     }
 
-    return (await response.json()) as SharedRecipe;
+    throw new RegistryError(`Recipe not found: ${recipeId}`, 404);
   }
 
   /** List recipes from the registry */

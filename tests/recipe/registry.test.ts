@@ -200,10 +200,10 @@ describe('GitHubRecipeRegistry', () => {
     });
 
     it('throws RegistryError on 404', async () => {
-      mockFetch.mockResolvedValueOnce({
-        ok: false,
-        status: 404,
-      });
+      // pull() tries flat path first (404), then fetches index to try category path
+      mockFetch
+        .mockResolvedValueOnce({ ok: false, status: 404 }) // flat path
+        .mockResolvedValueOnce({ ok: true, status: 200, json: async () => mockIndex }); // index lookup
 
       const registry = createRegistry();
       await expect(registry.pull('missing')).rejects.toThrow(RegistryError);
