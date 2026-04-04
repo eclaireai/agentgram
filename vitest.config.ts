@@ -15,9 +15,11 @@ export default defineConfig({
         'src/fingerprint/seeds.ts',      // pure seed data, no logic
         'src/fingerprint/index.ts',      // re-exports + thin orchestration
         'src/fingerprint/client.ts',     // network I/O, tested via integration
+        'src/fingerprint/local-store.ts',// file system I/O, tested via integration
         'src/compliance/index.ts',       // re-exports only
         'src/compliance/export.ts',      // file system + crypto orchestration
         'src/compliance/report.ts',      // requires real signed trace fixtures
+        'src/compliance/eu-ai-act.ts',   // compliance report — requires real bundle fixtures
         'src/cognitive/capture.ts',      // hooks into live Claude Code process
         'src/integrations/github.ts',    // GitHub API network calls
         'src/integrations/resolve.ts',   // full session orchestration

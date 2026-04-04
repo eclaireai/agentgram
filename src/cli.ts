@@ -1347,6 +1347,124 @@ ${chalk.dim('Examples:')}
       }
     });
 
+  // ── context ───────────────────────────────────────────────────────────────
+  program
+    .command('context')
+    .description('Refresh the project context file (.agentgram/CONTEXT.md) from recorded sessions')
+    .option('--show', 'print the context to stdout instead of just writing the file')
+    .option('--inject', 'output a compact version ready to paste into CLAUDE.md')
+    .action(async (options: { show?: boolean; inject?: boolean }) => {
+      const { ProjectContextManager } = await import('./memory/project-context.js');
+      const mgr = new ProjectContextManager();
+
+      if (options.inject) {
+        const text = mgr.getContextForInjection();
+        if (!text) {
+          console.log(chalk.dim('\n  No context yet. Run agentgram context first.\n'));
+        } else {
+          console.log(chalk.bold('\n  Paste into CLAUDE.md:\n'));
+          console.log(text);
+        }
+        return;
+      }
+
+      process.stdout.write(chalk.dim('  Building project context from sessions...'));
+      const outPath = await mgr.updateContextFile();
+      console.log(chalk.green(' done'));
+      console.log(`  Written: ${chalk.bold(outPath)}`);
+
+      if (options.show) {
+        const fs = await import('node:fs/promises');
+        const content = await fs.readFile(outPath, 'utf8');
+        console.log('\n' + content);
+      } else {
+        console.log(chalk.dim('  Run with --show to print, --inject for CLAUDE.md snippet\n'));
+      }
+    });
+
+  // ── eu-report ─────────────────────────────────────────────────────────────
+  program
+    .command('eu-report')
+    .description('Generate EU AI Act compliance documentation from TraceVault bundles')
+    .option('--bundle <dir>', 'path to a tracevault bundle directory', './audit-bundle')
+    .option('--output <file>', 'output file path', './eu-ai-act-report.md')
+    .option('--json', 'output machine-readable JSON instead of markdown')
+    .option('--risk <level>', 'risk category: limited | high', 'limited')
+    .action(async (options: { bundle: string; output: string; json?: boolean; risk: string }) => {
+      const { generateEuAiActReport, formatEuAiActReportMarkdown, formatEuAiActReportJson } = await import('./compliance/eu-ai-act.js');
+      const fs = await import('node:fs/promises');
+
+      try {
+        process.stdout.write(chalk.dim('  Loading bundle...'));
+        const bundleJsonPath = path.join(options.bundle, 'bundle.json');
+        const bundleRaw = await fs.readFile(bundleJsonPath, 'utf8');
+        const bundle = JSON.parse(bundleRaw) as import('./compliance/types.js').ComplianceBundle;
+        console.log(chalk.green(' done'));
+
+        process.stdout.write(chalk.dim('  Generating EU AI Act report...'));
+        const report = generateEuAiActReport({
+          bundle,
+          riskCategory: options.risk as 'limited' | 'high',
+        });
+        console.log(chalk.green(' done'));
+
+        const content = options.json
+          ? formatEuAiActReportJson(report)
+          : formatEuAiActReportMarkdown(report);
+
+        await fs.writeFile(options.output, content, 'utf8');
+        console.log(`\n  ${chalk.green('✔')}  Report written: ${chalk.bold(options.output)}`);
+        console.log(`  Sessions: ${report.totalSessions}  ·  Human oversight events: ${report.humanOversightEvents}`);
+
+        const compliant = report.sections.filter((s) => s.status === 'compliant').length;
+        const partial = report.sections.filter((s) => s.status === 'partial').length;
+        console.log(`  Articles: ${chalk.green(compliant + ' compliant')}  ${chalk.yellow(partial + ' partial')}\n`);
+      } catch (err) {
+        console.error(chalk.red('\n✖  Failed:'), err instanceof Error ? err.message : err);
+        process.exit(1);
+      }
+    });
+
+  // ── marketplace ───────────────────────────────────────────────────────────
+  program
+    .command('marketplace <recipe-id>')
+    .description('Show marketplace listing for a recipe with drift detection and premium metadata')
+    .action(async (recipeId: string) => {
+      const { LocalRecipeStore } = await import('./recipe/store.js');
+      const { detectRecipeDrift, formatMarketplaceListing } = await import('./recipe/premium.js');
+      const store = new LocalRecipeStore(process.cwd());
+
+      let recipe;
+      try {
+        recipe = await store.load(recipeId);
+      } catch {
+        console.error(chalk.red(`✖  Recipe not found locally: ${recipeId}`));
+        console.error(chalk.dim(`   Pull it first: agentgram pull ${recipeId}`));
+        process.exit(1);
+      }
+
+      const drift = detectRecipeDrift(recipe);
+      const metadata = (recipe as unknown as Record<string, unknown>).metadata as import('./recipe/premium.js').PremiumRecipeMetadata | undefined;
+
+      if (!metadata) {
+        // Basic listing for non-premium recipes
+        console.log(chalk.bold(`\n📦  ${recipe.name}\n`));
+        console.log(`  Steps: ${recipe.steps.length}  Tags: ${recipe.tags.join(', ')}`);
+        if (drift.hasDrift) {
+          console.log(chalk.yellow('\n  ⚠  Version drift detected:'));
+          for (const w of drift.warnings) {
+            console.log(`    ${w.package}: recipe=${w.recipeVersion} local=${w.installedVersion} (${w.severity})`);
+          }
+        } else {
+          console.log(chalk.green('\n  ✓  No version drift detected'));
+        }
+        console.log();
+        return;
+      }
+
+      console.log(formatMarketplaceListing(recipe, metadata));
+    });
+
   return program;
 }
 

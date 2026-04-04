@@ -142,3 +142,15 @@ export type { FingerprintRecord, FingerprintMatch, PreflightResult, SyncResult }
 // TraceVault — compliance replay & tamper-evident audit trail
 export { generateKeyPair, loadOrCreateKeyPair, signTrace, verifySignedTrace, buildChain, verifyChain, chainSummary, generateAuditReport, formatAuditReportMarkdown, exportComplianceBundle, verifyComplianceBundle } from './compliance/index.js';
 export type { KeyPair, SignedTrace, MerkleNode, AuditReport, ComplianceBundle, VerificationResult } from './compliance/types.js';
+
+// EU AI Act compliance documentation generator
+export { generateEuAiActReport, formatEuAiActReportMarkdown, formatEuAiActReportJson } from './compliance/eu-ai-act.js';
+export type { EuAiActReport, EuAiActSection } from './compliance/eu-ai-act.js';
+
+// Project context — auto-maintained memory file for agent briefing
+export { ProjectContextManager, refreshProjectContext } from './memory/project-context.js';
+export type { ProjectContext, ProjectDecision } from './memory/project-context.js';
+
+// Recipe economy — premium recipes, drift detection, marketplace
+export { detectRecipeDrift, formatEarningsReport, formatMarketplaceListing } from './recipe/premium.js';
+export type { PremiumRecipeMetadata, DriftReport, DriftWarning } from './recipe/premium.js';

@@ -39,3 +39,11 @@ export {
   exportComplianceBundle,
   verifyComplianceBundle,
 } from './export.js';
+
+export type { EuAiActSection, EuAiActReport } from './eu-ai-act.js';
+
+export {
+  generateEuAiActReport,
+  formatEuAiActReportMarkdown,
+  formatEuAiActReportJson,
+} from './eu-ai-act.js';
