@@ -762,6 +762,183 @@ export function createProgram(): Command {
       }
     });
 
+  // ── debug (time-travel debugger) ──────────────────────────────────────────
+  program
+    .command('debug <session-id>')
+    .description('Open the interactive time-travel debugger in your browser')
+    .option('-o, --output <file>', 'save HTML to file instead of opening browser')
+    .option('--tape <file>', 'attach a replay tape file (.tape.json)')
+    .action(async (sessionId: string, options: { output?: string; tape?: string }) => {
+      const session = await readSession(sessionId);
+      const distiller = new RecipeDistiller();
+      const recipe = distiller.distill(session);
+      const tracker = new ProvenanceTracker(session.id);
+
+      for (const op of session.operations) {
+        if (op.type === 'read') tracker.addRead(op);
+        else if (op.type === 'exec') tracker.addExec(op);
+        else tracker.addWrite(op);
+      }
+
+      const { generateDebuggerHtml } = await import('./viz/html.js');
+
+      // Load tape if provided
+      let tape = null;
+      if (options.tape) {
+        try {
+          const { TapePlayer } = await import('./replay/tape-player.js');
+          const player = TapePlayer.fromFile(path.resolve(options.tape));
+          tape = player['tape'] as unknown;
+        } catch (err) {
+          console.error(chalk.yellow(`⚠  Could not load tape: ${err instanceof Error ? err.message : err}`));
+        }
+      }
+
+      const html = generateDebuggerHtml({ session, provenance: tracker.getProvenance(), recipe, tape: tape as never });
+
+      if (options.output) {
+        const dest = path.resolve(options.output);
+        await fs.writeFile(dest, html, 'utf8');
+        console.log(chalk.green('✔') + `  Debugger saved to ${chalk.cyan(dest)}`);
+      } else {
+        const tmpDir = path.join(process.cwd(), '.agentgram', 'tmp');
+        await fs.mkdir(tmpDir, { recursive: true });
+        const tmpFile = path.join(tmpDir, `debug-${sessionId.slice(0, 12)}.html`);
+        await fs.writeFile(tmpFile, html, 'utf8');
+        const { exec } = await import('node:child_process');
+        const openCmd = process.platform === 'darwin' ? 'open' : process.platform === 'win32' ? 'start' : 'xdg-open';
+        exec(`${openCmd} "${tmpFile}"`);
+        console.log(chalk.green('✔') + `  Opening time-travel debugger...`);
+        console.log(chalk.dim(`   ${session.operations.length} operations · step through with ← →`));
+        console.log(chalk.dim(`   File: ${tmpFile}`));
+      }
+    });
+
+  // ── tape ──────────────────────────────────────────────────────────────────
+  const tapeCmd = new Command('tape').description('Record and replay deterministic session tapes');
+
+  tapeCmd
+    .command('record <session-id>')
+    .description('Create a minimal replay tape from a recorded session (~50KB for a 2hr session)')
+    .option('-o, --output <file>', 'output path (default: .agentgram/tapes/<session-id>.tape.json)')
+    .action(async (sessionId: string, options: { output?: string }) => {
+      const session = await readSession(sessionId);
+      const { sessionToTape } = await import('./replay/index.js');
+
+      process.stdout.write(chalk.dim('  Building tape...'));
+      const tape = sessionToTape(session);
+      const outPath = options.output ?? path.join('.agentgram', 'tapes', `${sessionId}.tape.json`);
+      await fs.mkdir(path.dirname(outPath), { recursive: true });
+      await fs.writeFile(outPath, JSON.stringify(tape, null, 2));
+
+      const sizeKb = (JSON.stringify(tape).length / 1024).toFixed(1);
+      console.log(chalk.green(' done'));
+      console.log(`  ${chalk.green('✔')}  Tape written: ${chalk.bold(outPath)}`);
+      console.log(`  ${chalk.dim('Entries:')}       ${tape.entries.length}`);
+      console.log(`  ${chalk.dim('Size:')}          ${sizeKb} KB`);
+      console.log(`  ${chalk.dim('Tape hash:')}     ${tape.tapeHash.slice(0, 16)}...`);
+      console.log(`  ${chalk.dim('Deduped:')}       ${tape.deduplicatedCount} delta entries`);
+      console.log(chalk.dim(`\n  Attach to debugger: agentgram debug ${sessionId} --tape ${outPath}\n`));
+    });
+
+  tapeCmd
+    .command('verify <tape-file>')
+    .description('Verify a tape file has not been tampered with')
+    .action(async (tapeFile: string) => {
+      const { TapePlayer } = await import('./replay/tape-player.js');
+      const player = TapePlayer.fromFile(path.resolve(tapeFile));
+      const result = player.verify();
+
+      if (result.valid) {
+        console.log(chalk.green('\n  ✅  Tape is valid — not tampered with\n'));
+        const summary = player.summary();
+        console.log(`  ${chalk.dim('Name:')}     ${summary.name}`);
+        console.log(`  ${chalk.dim('Model:')}    ${summary.model}`);
+        console.log(`  ${chalk.dim('Duration:')} ${summary.duration}`);
+        console.log(`  ${chalk.dim('Entries:')}  ${summary.entries}`);
+        console.log(`  ${chalk.dim('Size:')}     ${summary.sizeKb} KB\n`);
+      } else {
+        console.log(chalk.red('\n  ❌  Tape FAILED verification — possible tampering\n'));
+        for (const err of result.errors) console.log(chalk.red(`  ✗ ${err}`));
+        process.exit(1);
+      }
+    });
+
+  tapeCmd
+    .command('show <tape-file>')
+    .description('Print a human-readable summary of a tape file')
+    .option('--markdown', 'output as markdown document')
+    .action(async (tapeFile: string, options: { markdown?: boolean }) => {
+      const { TapePlayer } = await import('./replay/tape-player.js');
+      const player = TapePlayer.fromFile(path.resolve(tapeFile));
+
+      if (options.markdown) {
+        console.log(player.toMarkdown());
+        return;
+      }
+
+      const s = player.summary();
+      const prompt = player.getPrompt();
+      console.log(chalk.bold(`\n📼  Tape: ${s.name}\n`));
+      console.log(`  ${chalk.dim('Model:')}     ${s.model}`);
+      console.log(`  ${chalk.dim('Duration:')} ${s.duration}`);
+      console.log(`  ${chalk.dim('Entries:')}  ${s.entries}`);
+      console.log(`  ${chalk.dim('Files:')}    ${s.uniqueFiles}`);
+      console.log(`  ${chalk.dim('Commands:')} ${s.commands.length}`);
+      console.log(`  ${chalk.dim('Size:')}     ${s.sizeKb} KB`);
+      if (prompt) console.log(`\n  ${chalk.dim('Prompt:')} ${prompt.slice(0, 120)}...`);
+      console.log();
+    });
+
+  program.addCommand(tapeCmd);
+
+  // ── fork ──────────────────────────────────────────────────────────────────
+  program
+    .command('fork <session-id>')
+    .description('Fork a session from a specific step to explore an alternative path')
+    .option('--from <op-id>', 'operation ID to fork from (shown in debugger)')
+    .option('--from-step <n>', 'step number to fork from (1-indexed)')
+    .action(async (sessionId: string, options: { from?: string; fromStep?: string }) => {
+      const session = await readSession(sessionId);
+
+      let forkIndex = session.operations.length - 1;
+
+      if (options.from) {
+        const idx = session.operations.findIndex((op) => op.id === options.from);
+        if (idx === -1) {
+          console.error(chalk.red(`✖  Operation not found: ${options.from}`));
+          process.exit(1);
+        }
+        forkIndex = idx;
+      } else if (options.fromStep) {
+        forkIndex = parseInt(options.fromStep, 10) - 1;
+        if (forkIndex < 0 || forkIndex >= session.operations.length) {
+          console.error(chalk.red(`✖  Step out of range (1–${session.operations.length})`));
+          process.exit(1);
+        }
+      }
+
+      const forkOp = session.operations[forkIndex];
+      const forkedSession = {
+        ...session,
+        id: `${session.id}-fork-${forkIndex}`,
+        name: `${session.name} (fork from step ${forkIndex + 1})`,
+        operations: session.operations.slice(0, forkIndex + 1),
+        state: 'stopped' as const,
+      };
+
+      const outPath = path.join('.agentgram', 'sessions', `${forkedSession.id}.json`);
+      await fs.mkdir(path.dirname(outPath), { recursive: true });
+      await fs.writeFile(outPath, JSON.stringify({ session: forkedSession }, null, 2));
+
+      console.log(chalk.bold(`\n🍴  Forked session\n`));
+      console.log(`  ${chalk.dim('Original:')}   ${session.name}  (${session.operations.length} ops)`);
+      console.log(`  ${chalk.dim('Fork point:')} Step ${forkIndex + 1} — ${forkOp.type}: ${forkOp.target}`);
+      console.log(`  ${chalk.dim('Fork ID:')}    ${forkedSession.id}`);
+      console.log(`  ${chalk.dim('Saved:')}      ${outPath}`);
+      console.log(chalk.dim(`\n  Continue: agentgram debug ${forkedSession.id}\n`));
+    });
+
   // ── hook ──────────────────────────────────────────────────────────────────
   const hookCmd = program
     .command('hook <subcommand>')

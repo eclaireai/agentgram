@@ -155,6 +155,13 @@ export type { ProjectContext, ProjectDecision } from './memory/project-context.j
 export { detectRecipeDrift, formatEarningsReport, formatMarketplaceListing } from './recipe/premium.js';
 export type { PremiumRecipeMetadata, DriftReport, DriftWarning } from './recipe/premium.js';
 
+// Deterministic Replay Tapes — minimal-footprint session replay
+export { TapeRecorder, TapePlayer, sessionToTape } from './replay/index.js';
+export type { TapeEntry, ReplayTape, TapeStats, ReplayFrame } from './replay/types.js';
+
+// Interactive Time-Travel Debugger
+export { generateDebuggerHtml } from './viz/html.js';
+
 // Prediction API — oracle layer for AI tools
 export { PredictionEngine, AgentgramClient, predict, ApiKeyStore, RateLimiter, createPredictServer, startPredictServer, extractOutcome, extractAllOutcomes, inferStack, bootstrapModel, DEV_API_KEY } from './predict/index.js';
 export type { PredictionRequest, PredictionResult, RiskFactor, StackContext, SessionOutcome, PredictionModel } from './predict/types.js';
