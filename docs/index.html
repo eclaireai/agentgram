@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>agentgram — Stop letting your AI agent figure out the same dead ends twice</title>
+  <meta name="description" content="Preflight warnings, session recipes, success prediction, and audit trails for Claude Code. Catch Stripe webhook conflicts, Prisma migration order, and 1,200+ other dead-end patterns before a single token is wasted." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://agentgram.dev" />
+  <meta property="og:title" content="agentgram — Stop letting your AI agent figure out the same dead ends twice" />
+  <meta property="og:description" content="Preflight warnings · Session recipes · Success prediction · Audit trails. Catch 1,200+ known dead-end patterns before your agent starts." />
+  <meta property="og:image" content="https://agentgram.dev/og.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://agentgram.dev" />
+  <meta name="twitter:title" content="agentgram — Stop letting your AI agent figure out the same dead ends twice" />
+  <meta name="twitter:description" content="Preflight warnings · Session recipes · Success prediction · Audit trails." />
+  <meta name="twitter:image" content="https://agentgram.dev/og.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- highlight.js -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: #111111;
+      --bg-elevated: #161616;
+      --border: #222222;
+      --border-subtle: #1a1a1a;
+      --text: #e8e8e8;
+      --text-muted: #888888;
+      --text-dim: #555555;
+      --accent: #7c3aed;
+      --accent-light: #9d5df0;
+      --accent-glow: rgba(124, 58, 237, 0.15);
+      --cyan: #06b6d4;
+      --cyan-light: #22d3ee;
+      --cyan-glow: rgba(6, 182, 212, 0.12);
+      --green: #22c55e;
+      --yellow: #eab308;
+      --red: #ef4444;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --transition: 150ms ease;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE TEXTURE ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      height: 60px;
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #c4b5fd 0%, #7c3aed 40%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 1rem;
+      background: var(--accent);
+      color: #fff !important;
+      border-radius: 6px;
+      font-size: 0.85rem !important;
+      font-weight: 600 !important;
+      transition: background var(--transition), transform var(--transition) !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-light) !important;
+      color: #fff !important;
+      transform: translateY(-1px);
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: clamp(5rem, 12vw, 9rem) 0 clamp(4rem, 8vw, 7rem);
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      background: var(--accent-glow);
+      border: 1px solid rgba(124, 58, 237, 0.3);
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #c4b5fd;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.7); }
+    }
+
+    .hero-logo {
+      font-family: var(--font-mono);
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      background: linear-gradient(135deg, #ddd6fe 0%, #a78bfa 30%, #7c3aed 60%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.75rem;
+      position: relative;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.35;
+      max-width: 660px;
+      margin: 0 auto 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-sub {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-sub span {
+      color: var(--text-dim);
+      padding: 0 0.3rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.75rem 1.6rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.08), transparent);
+      pointer-events: none;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(124, 58, 237, 0.4);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-primary .copy-label { display: flex; align-items: center; gap: 0.55rem; }
+    .btn-primary .copy-success { display: none; align-items: center; gap: 0.55rem; color: #86efac; }
+    .btn-primary.copied .copy-label { display: none; }
+    .btn-primary.copied .copy-success { display: flex; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.75rem 1.6rem;
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: color var(--transition), border-color var(--transition), background var(--transition), transform var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-secondary:hover {
+      color: var(--text);
+      border-color: #444;
+      background: rgba(255,255,255,0.04);
+      transform: translateY(-2px);
+    }
+
+    /* ── TERMINAL ── */
+    .terminal-section {
+      padding: 0 0 clamp(4rem, 8vw, 7rem);
+    }
+
+    .terminal-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.03),
+        0 24px 64px rgba(0,0,0,0.6),
+        0 0 60px rgba(124, 58, 237, 0.08);
+    }
+
+    .terminal-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      background: #1a1a1a;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .terminal-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ff5f57; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #28c840; }
+
+    .terminal-title {
+      flex: 1;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
+    .terminal-body {
+      background: #0d0d0d;
+      padding: 1.5rem 1.75rem;
+      min-height: 340px;
+      font-family: var(--font-mono);
+      font-size: clamp(0.78rem, 1.8vw, 0.875rem);
+      line-height: 1.7;
+      overflow-x: auto;
+    }
+
+    .term-line {
+      display: block;
+      opacity: 0;
+      white-space: pre;
+      transition: opacity 80ms;
+    }
+
+    .term-line.visible {
+      opacity: 1;
+    }
+
+    .term-prompt { color: var(--accent-light); }
+    .term-cmd { color: var(--text); }
+    .term-blank { color: transparent; min-height: 1em; display: block; }
+    .term-info { color: var(--text-muted); }
+    .term-warn { color: var(--yellow); }
+    .term-num { color: var(--cyan); font-weight: 700; }
+    .term-title-line { color: var(--text); font-weight: 700; }
+    .term-detail { color: var(--text-muted); }
+    .term-fix { color: var(--green); }
+    .term-count { color: var(--text-dim); float: right; }
+
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 1em;
+      background: var(--accent-light);
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+      margin-left: 2px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      padding: clamp(3rem, 6vw, 4.5rem) 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      background: linear-gradient(to bottom, rgba(124,58,237,0.04), transparent);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-item {}
+
+    .stat-value {
+      font-family: var(--font-mono);
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, #c4b5fd, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    /* ── FEATURES ── */
+    .features-section {
+      padding: clamp(4rem, 8vw, 7rem) 0;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 1rem;
+    }
+
+    .section-heading {
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subtext {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 3.5rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .card:hover {
+      border-color: #333;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.4), 0 0 0 1px rgba(124,58,237,0.1);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-icon-purple {
+      background: var(--accent-glow);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .card-icon-cyan {
+      background: var(--cyan-glow);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+    }
+
+    .card-icon-green {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+
+    .card-body {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .card-tag {
+      display: inline-block;
+      margin-top: 1.25rem;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--accent-light);
+      background: var(--accent-glow);
+      border: 1px solid rgba(124, 58, 237, 0.15);
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+    }
+
+    /* ── INSTALL SECTION ── */
+    .install-section {
+      padding: clamp(4rem, 8vw, 7rem) 0;
+    }
+
+    .install-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .install-inner .section-heading,
+    .install-inner .section-subtext {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .tab-bar {
+      display: flex;
+      gap: 0.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      padding: 0.5rem 0.5rem 0;
+      border-bottom: none;
+    }
+
+    .tab-btn {
+      padding: 0.45rem 1rem;
+      background: transparent;
+      border: none;
+      border-radius: 6px 6px 0 0;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: color var(--transition), background var(--transition);
+      position: relative;
+    }
+
+    .tab-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 1px 1px 0 0;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .tab-btn.active {
+      color: var(--text);
+      background: rgba(124, 58, 237, 0.08);
+    }
+
+    .tab-btn.active::after {
+      opacity: 1;
+    }
+
+    .tab-btn:hover:not(.active) {
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+
+    .code-block-wrap {
+      position: relative;
+      background: #0d0d0d;
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      overflow: hidden;
+    }
+
+    .code-block-wrap pre {
+      margin: 0;
+      padding: 1.5rem 1.75rem;
+      overflow-x: auto;
+      background: transparent !important;
+    }
+
+    .code-block-wrap code {
+      font-family: var(--font-mono) !important;
+      font-size: 0.875rem;
+      line-height: 1.7;
+      background: transparent !important;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      padding: 0.3rem 0.7rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: color var(--transition), background var(--transition), border-color var(--transition);
+    }
+
+    .copy-btn:hover {
+      background: rgba(255,255,255,0.1);
+      color: var(--text-muted);
+      border-color: #444;
+    }
+
+    .copy-btn.copied {
+      color: var(--green);
+      border-color: rgba(34, 197, 94, 0.3);
+      background: rgba(34, 197, 94, 0.08);
+    }
+
+    /* ── QUOTE SECTION ── */
+    .quote-section {
+      padding: clamp(3rem, 6vw, 5rem) 0;
+    }
+
+    .quote-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 2rem 2.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-wrap::before {
+      content: '"';
+      position: absolute;
+      top: -0.5rem;
+      left: 1.5rem;
+      font-size: 5rem;
+      color: rgba(124, 58, 237, 0.12);
+      font-family: Georgia, serif;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .quote-text {
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 1.65;
+      font-style: italic;
+      margin-bottom: 1.25rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .quote-text em {
+      color: var(--cyan-light);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .quote-author {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quote-author::before {
+      content: '';
+      display: inline-block;
+      width: 1.5rem;
+      height: 1px;
+      background: var(--text-dim);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 3rem 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-logo {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #c4b5fd, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      width: 100%;
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 0.5rem;
+    }
+
+    /* ── GLOW ORBS ── */
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .orb-purple {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%);
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .orb-cyan {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(6,182,212,0.08) 0%, transparent 70%);
+      top: 60%;
+      right: -100px;
+    }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-links.show-mobile {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: rgba(10,10,10,0.97);
+        backdrop-filter: blur(12px);
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--border);
+        gap: 1.25rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary, .btn-secondary {
+        justify-content: center;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ── SCROLL FADE IN ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── hljs overrides ── */
+    .hljs {
+      background: transparent !important;
+      padding: 0 !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">agentgram</a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#install">Install</a></li>
+      <li><a href="https://github.com/eclaireai/agentgram" target="_blank" rel="noopener">Recipes</a></li>
+      <li><a href="https://github.com/eclaireai/agentgram#readme" target="_blank" rel="noopener">Docs</a></li>
+      <li>
+        <a href="https://github.com/eclaireai/agentgram" target="_blank" rel="noopener" class="nav-cta">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          GitHub
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="glow-orb orb-purple"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Now with 1,200+ warning patterns
+      </div>
+      <h1 class="hero-logo">agentgram</h1>
+      <p class="hero-tagline">Stop letting your AI agent figure out<br>the same dead ends twice.</p>
+      <p class="hero-sub">
+        Preflight warnings
+        <span>·</span>
+        Session recipes
+        <span>·</span>
+        Success prediction
+        <span>·</span>
+        Audit trails
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary" id="installBtn" onclick="copyInstall()">
+          <span class="copy-label">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Install free
+          </span>
+          <span class="copy-success">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Copied!
+          </span>
+        </button>
+        <a href="https://github.com/eclaireai/agentgram" target="_blank" rel="noopener" class="btn-secondary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TERMINAL DEMO -->
+  <section class="terminal-section">
+    <div class="container">
+      <div class="terminal-wrap fade-in">
+        <div class="terminal-bar">
+          <div class="terminal-dot dot-red"></div>
+          <div class="terminal-dot dot-yellow"></div>
+          <div class="terminal-dot dot-green"></div>
+          <div class="terminal-title">agentgram — preflight</div>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+          <!-- lines injected by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- STATS BAR -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item fade-in">
+          <div class="stat-value">1,847</div>
+          <div class="stat-label">Stripe dead-end hits prevented</div>
+        </div>
+        <div class="stat-item fade-in" style="transition-delay:0.1s">
+          <div class="stat-value">39</div>
+          <div class="stat-label">Curated session recipes</div>
+        </div>
+        <div class="stat-item fade-in" style="transition-delay:0.2s">
+          <div class="stat-value">20</div>
+          <div class="stat-label">Seeded warning patterns</div>
+        </div>
+        <div class="stat-item fade-in" style="transition-delay:0.3s">
+          <div class="stat-value">531</div>
+          <div class="stat-label">Tests passing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- FEATURES -->
+  <section class="features-section" id="features">
+    <div class="glow-orb orb-cyan" style="top:10%; right:-150px;"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <span class="section-label fade-in">Core capabilities</span>
+      <h2 class="section-heading fade-in">Built for agents that need to ship.</h2>
+      <p class="section-subtext fade-in">Three layers of intelligence that work before your agent writes a single line of code.</p>
+
+      <div class="cards-grid">
+        <!-- Card 1 -->
+        <div class="card fade-in">
+          <div class="card-icon card-icon-purple">⚡</div>
+          <div class="card-title">Preflight warnings</div>
+          <div class="card-body">
+            Check any task against 1,200+ known dead-end patterns before your agent starts. Stripe webhook conflicts, Prisma migration order, NextAuth secrets — all caught before a single token is wasted.
+          </div>
+          <span class="card-tag">agentgram preflight</span>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card fade-in" style="transition-delay:0.1s">
+          <div class="card-icon card-icon-cyan">📦</div>
+          <div class="card-title">Session recipes</div>
+          <div class="card-body">
+            Every Claude Code session distills into a clean, parameterized playbook. Share it. Others pull it and skip straight to the part that works. 39 curated recipes available today.
+          </div>
+          <span class="card-tag" style="color:var(--cyan);background:var(--cyan-glow);border-color:rgba(6,182,212,0.15)">agentgram recipe pull</span>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card fade-in" style="transition-delay:0.2s">
+          <div class="card-icon card-icon-green">🎯</div>
+          <div class="card-title">Success prediction</div>
+          <div class="card-body">
+            Before your agent starts: 67% success probability, ~42,000 tokens, top 3 risks with fixes. The only tool that tells you what will go wrong before it does.
+          </div>
+          <span class="card-tag" style="color:#86efac;background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.2)">agentgram predict</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- QUOTE -->
+  <section class="quote-section">
+    <div class="container">
+      <div class="quote-wrap fade-in">
+        <p class="quote-text">
+          "agentgram caught the <em>Stripe webhook body parsing issue</em> before my agent wasted 40 minutes on it. That's the tool."
+        </p>
+        <div class="quote-author">Senior engineer, Series B startup</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- INSTALL -->
+  <section class="install-section" id="install">
+    <div class="container">
+      <div class="install-inner">
+        <span class="section-label fade-in">Get started</span>
+        <h2 class="section-heading fade-in">Up and running in 30 seconds.</h2>
+        <p class="section-subtext fade-in" style="margin:0 auto 2.5rem;">
+          Works as a global CLI, a zero-install npx command, or an MCP server wired directly into Claude Code.
+        </p>
+
+        <div class="fade-in">
+          <div class="tab-bar" role="tablist">
+            <button class="tab-btn active" data-tab="npm" onclick="switchTab('npm')" role="tab" aria-selected="true">npm</button>
+            <button class="tab-btn" data-tab="npx" onclick="switchTab('npx')" role="tab" aria-selected="false">npx</button>
+            <button class="tab-btn" data-tab="mcp" onclick="switchTab('mcp')" role="tab" aria-selected="false">MCP</button>
+          </div>
+
+          <!-- npm -->
+          <div class="tab-pane active" id="pane-npm">
+            <div class="code-block-wrap">
+              <button class="copy-btn" onclick="copyCode(this, 'code-npm')">copy</button>
+              <pre><code id="code-npm" class="language-bash"># Install globally
+npm install -g agentgram
+
+# Auto-record all Claude Code sessions
+agentgram hook install
+
+# Check any task before you start
+agentgram preflight "your task"</code></pre>
+            </div>
+          </div>
+
+          <!-- npx -->
+          <div class="tab-pane" id="pane-npx">
+            <div class="code-block-wrap">
+              <button class="copy-btn" onclick="copyCode(this, 'code-npx')">copy</button>
+              <pre><code id="code-npx" class="language-bash"># No install required — just run
+npx agentgram preflight "add stripe webhooks to nextjs"</code></pre>
+            </div>
+          </div>
+
+          <!-- mcp -->
+          <div class="tab-pane" id="pane-mcp">
+            <div class="code-block-wrap">
+              <button class="copy-btn" onclick="copyCode(this, 'code-mcp')">copy</button>
+              <pre><code id="code-mcp" class="language-json">// .claude/.mcp.json
+{
+  "mcpServers": {
+    "agentgram": {
+      "command": "npx",
+      "args": ["agentgram", "mcp"]
+    }
+  }
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="#" class="footer-logo">agentgram</a>
+        <ul class="footer-links">
+          <li><a href="https://github.com/eclaireai/agentgram" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.npmjs.com/package/agentgram" target="_blank" rel="noopener">npm</a></li>
+          <li><a href="https://github.com/eclaireai/agentgram/tree/main/registry" target="_blank" rel="noopener">Recipes</a></li>
+          <li><a href="https://github.com/eclaireai/agentgram#readme" target="_blank" rel="noopener">Docs</a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">MIT License · Built by <a href="https://github.com/eclaireai" target="_blank" rel="noopener" style="color:var(--text-muted);text-decoration:none;">eclaireai</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // ── TERMINAL ANIMATION ──
+    const LINES = [
+      { cls: 'term-prompt term-cmd', text: '$ agentgram preflight "add stripe subscriptions with webhooks"' },
+      { cls: 'term-blank', text: ' ' },
+      { cls: 'term-info', text: '  Checking 20 patterns...' },
+      { cls: 'term-blank', text: ' ' },
+      { cls: 'term-warn', text: '  ⚠  3 known dead ends' },
+      { cls: 'term-blank', text: ' ' },
+      { cls: 'term-num', text: '  1  Stripe webhook body parsing conflict           seen 1,847×' },
+      { cls: 'term-detail', text: '     express.json() runs before stripe.webhooks.constructEvent()' },
+      { cls: 'term-fix', text: "     → fix: app.use('/webhook', express.raw({type:'application/json'}))" },
+      { cls: 'term-blank', text: ' ' },
+      { cls: 'term-num', text: '  2  Missing STRIPE_WEBHOOK_SECRET                  seen 983×' },
+      { cls: 'term-detail', text: '     constructEvent() silently fails if env var is undefined' },
+      { cls: 'term-fix', text: '     → fix: assert process.env.STRIPE_WEBHOOK_SECRET at startup' },
+      { cls: 'term-blank', text: ' ' },
+      { cls: 'term-num', text: '  3  Stripe CLI not running in local dev            seen 762×' },
+      { cls: 'term-detail', text: '     Test webhooks don\'t reach localhost automatically' },
+      { cls: 'term-fix', text: '     → fix: add stripe listen --forward-to localhost:3000/api/webhook' },
+    ];
+
+    const INTERVAL_MS = 80;
+    const INITIAL_DELAY = 500;
+    const LOOP_PAUSE = 8000;
+
+    function buildTerminal() {
+      const body = document.getElementById('terminal-body');
+      body.innerHTML = '';
+      const spans = [];
+      LINES.forEach((l, i) => {
+        const span = document.createElement('span');
+        span.className = 'term-line ' + l.cls;
+        span.textContent = l.text;
+        if (i === 0) {
+          span.innerHTML = '<span style="color:var(--accent-light)">$</span> <span style="color:var(--text)">' + l.text.slice(2) + '</span>';
+          span.className = 'term-line';
+        }
+        body.appendChild(span);
+        spans.push(span);
+      });
+
+      // cursor
+      const cursor = document.createElement('span');
+      cursor.className = 'cursor';
+      body.appendChild(cursor);
+
+      return spans;
+    }
+
+    function runAnimation(spans) {
+      spans.forEach(s => s.classList.remove('visible'));
+      let i = 0;
+      function showNext() {
+        if (i < spans.length) {
+          spans[i].classList.add('visible');
+          i++;
+          setTimeout(showNext, INTERVAL_MS);
+        }
+      }
+      setTimeout(showNext, INITIAL_DELAY);
+    }
+
+    (function initTerminal() {
+      const spans = buildTerminal();
+      runAnimation(spans);
+      setInterval(() => {
+        const s = buildTerminal();
+        runAnimation(s);
+      }, LOOP_PAUSE);
+    })();
+
+    // ── COPY INSTALL BUTTON ──
+    function copyInstall() {
+      const btn = document.getElementById('installBtn');
+      navigator.clipboard.writeText('npm install -g agentgram').then(() => {
+        btn.classList.add('copied');
+        setTimeout(() => btn.classList.remove('copied'), 2500);
+      }).catch(() => {
+        // fallback
+        const ta = document.createElement('textarea');
+        ta.value = 'npm install -g agentgram';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.classList.add('copied');
+        setTimeout(() => btn.classList.remove('copied'), 2500);
+      });
+    }
+
+    // ── TAB SWITCHER ──
+    function switchTab(name) {
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.tab === name);
+        b.setAttribute('aria-selected', b.dataset.tab === name ? 'true' : 'false');
+      });
+      document.querySelectorAll('.tab-pane').forEach(p => {
+        p.classList.toggle('active', p.id === 'pane-' + name);
+      });
+    }
+
+    // ── COPY CODE BLOCKS ──
+    function copyCode(btn, codeId) {
+      const text = document.getElementById(codeId).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = 'copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    // ── SCROLL FADE IN ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ── SYNTAX HIGHLIGHTING ──
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('pre code').forEach(block => {
+        hljs.highlightElement(block);
+      });
+    });
+
+    // Trigger hljs if DOMContentLoaded already fired
+    if (document.readyState !== 'loading') {
+      document.querySelectorAll('pre code').forEach(block => {
+        hljs.highlightElement(block);
+      });
+    }
+  </script>
+</body>
+</html>

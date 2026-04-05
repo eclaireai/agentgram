@@ -1,0 +1,8 @@
+node_modules
+.agentgram
+.git
+coverage
+.claude
+*.log
+dist
+.env

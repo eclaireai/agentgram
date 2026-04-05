@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: agentgram-api
+    env: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: node dist/cli.js predict-serve --port $PORT --bootstrap
+    healthCheckPath: /v1/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: AGENTGRAM_ADMIN_KEY
+        generateValue: true
