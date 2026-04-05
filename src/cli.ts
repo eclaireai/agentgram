@@ -99,6 +99,37 @@ export function createProgram(): Command {
 `,
     );
 
+  // ── helpers ───────────────────────────────────────────────────────────────
+
+  function printPrediction(task: string, result: import('./predict/types.js').PredictionResult): void {
+    const pct = Math.round(result.successProbability * 100);
+    const pctColor = pct >= 75 ? chalk.green : pct >= 50 ? chalk.yellow : chalk.red;
+    const conf = Math.round(result.confidence * 100);
+
+    console.log(chalk.bold(`\n🔮  Prediction: "${task}"\n`));
+    console.log(`  ${chalk.dim('Success probability:')}  ${pctColor(`${pct}%`)}  ${chalk.dim(`(confidence: ${conf}%  based on ${result.basedOnSessions} sessions)`)}`);
+    console.log(`  ${chalk.dim('Estimated tokens:')}     ${chalk.cyan(result.estimatedTokens.toLocaleString())}`);
+    console.log(`  ${chalk.dim('Estimated time:')}       ${chalk.cyan(`~${result.estimatedMinutes} min`)}`);
+
+    if (result.recommendedRecipe) {
+      console.log(`  ${chalk.dim('Recommended recipe:')}   ${chalk.green(result.recommendedRecipe)}  ${chalk.dim(`(saves ~${result.tokenSavingsIfRecipeUsed.toLocaleString()} tokens)`)}`);
+    }
+
+    if (result.topRisks.length > 0) {
+      console.log(chalk.bold(`\n  ⚠  ${result.topRisks.length} known risk${result.topRisks.length > 1 ? 's' : ''}:\n`));
+      for (const [i, risk] of result.topRisks.entries()) {
+        const prob = Math.round(risk.probability * 100);
+        const sev = risk.severity === 'critical' ? chalk.red('critical') : risk.severity === 'high' ? chalk.yellow('high') : chalk.dim(risk.severity);
+        console.log(`  ${chalk.dim(String(i + 1))}  ${chalk.bold(risk.pattern)}`);
+        console.log(`     ${chalk.dim(`probability: ${prob}%  severity: `)}${sev}  ${chalk.dim(`seen ${risk.seenCount}×`)}`);
+        console.log(`     ${chalk.dim('fix:')} ${risk.fix}`);
+        console.log();
+      }
+    } else {
+      console.log(chalk.green('\n  ✓  No known risk patterns found\n'));
+    }
+  }
+
   // ── list ──────────────────────────────────────────────────────────────────
   program
     .command('list')
@@ -1346,6 +1377,128 @@ ${chalk.dim('Examples:')}
         console.log(chalk.green(`  ↓ ${saved}% step reduction via deduplication\n`));
       }
     });
+
+  // ── predict ───────────────────────────────────────────────────────────────
+  program
+    .command('predict <task>')
+    .description('Predict success probability, token cost, and risks for a task before starting')
+    .option('--stack <json>', 'JSON stack context e.g. \'{"framework":"nextjs","payments":"stripe"}\'')
+    .option('--agent <name>', 'agent name: claude-code | cursor | devin | copilot')
+    .option('--json', 'output raw JSON')
+    .option('--api-key <key>', 'agentgram API key (or set AGENTGRAM_API_KEY)')
+    .option('--local', 'use local model only — no API call')
+    .action(async (task: string, options: { stack?: string; agent?: string; json?: boolean; apiKey?: string; local?: boolean }) => {
+      const key = options.apiKey ?? process.env['AGENTGRAM_API_KEY'];
+      let stack: Record<string, string> | undefined;
+      if (options.stack) {
+        try { stack = JSON.parse(options.stack) as Record<string, string>; }
+        catch { console.error(chalk.red('✖  Invalid --stack JSON')); process.exit(1); }
+      }
+
+      if (options.local || !key) {
+        // Local prediction — uses the on-disk model
+        const { PredictionEngine } = await import('./predict/engine.js');
+        const engine = new PredictionEngine();
+        const result = engine.predict({ task, stack, agent: options.agent });
+        if (options.json) { console.log(JSON.stringify(result, null, 2)); return; }
+        printPrediction(task, result);
+        return;
+      }
+
+      // Remote prediction via API
+      const { AgentgramClient } = await import('./predict/sdk.js');
+      const client = new AgentgramClient({ apiKey: key });
+      try {
+        const result = await client.predict(task, stack);
+        if (options.json) { console.log(JSON.stringify(result, null, 2)); return; }
+        printPrediction(task, result);
+      } catch (err) {
+        console.error(chalk.red('✖  Prediction failed:'), err instanceof Error ? err.message : err);
+        process.exit(1);
+      }
+    });
+
+  // ── predict serve ─────────────────────────────────────────────────────────
+  program
+    .command('predict-serve')
+    .description('Start the agentgram prediction API server (port 3847)')
+    .option('--port <n>', 'port to listen on', '3847')
+    .option('--bootstrap', 'bootstrap model from existing sessions before starting')
+    .action(async (options: { port: string; bootstrap?: boolean }) => {
+      const { startPredictServer } = await import('./predict/server.js');
+      const { bootstrapModel } = await import('./predict/outcome-extractor.js');
+
+      if (options.bootstrap) {
+        process.stdout.write(chalk.dim('  Bootstrapping model from sessions...'));
+        const count = await bootstrapModel();
+        console.log(chalk.green(` done (${count} outcomes extracted)`));
+      }
+
+      const server = await startPredictServer({ port: parseInt(options.port, 10) });
+      const addr = server.address() as { port: number };
+      console.log(chalk.bold(`\n🔮  Prediction API running\n`));
+      console.log(`  ${chalk.dim('URL:')}    http://localhost:${addr.port}`);
+      console.log(`  ${chalk.dim('Predict:')} POST http://localhost:${addr.port}/v1/predict`);
+      console.log(`  ${chalk.dim('Stats:')}  GET  http://localhost:${addr.port}/v1/model/stats`);
+      console.log(`  ${chalk.dim('Health:')} GET  http://localhost:${addr.port}/v1/health\n`);
+      console.log(chalk.dim('  Press Ctrl+C to stop\n'));
+
+      process.on('SIGINT', () => { server.close(); process.exit(0); });
+    });
+
+  // ── predict bootstrap ─────────────────────────────────────────────────────
+  program
+    .command('predict-bootstrap')
+    .description('Build prediction model from all recorded sessions')
+    .action(async () => {
+      const { bootstrapModel } = await import('./predict/outcome-extractor.js');
+      process.stdout.write(chalk.dim('  Scanning sessions and building model...'));
+      const count = await bootstrapModel();
+      console.log(chalk.green(' done'));
+      console.log(`  ${chalk.bold(String(count))} session outcomes extracted`);
+      console.log(chalk.dim('  Run agentgram predict-serve to start the API\n'));
+    });
+
+  // ── apikey ────────────────────────────────────────────────────────────────
+  const apikeyCmd = new Command('apikey').description('Manage agentgram API keys');
+
+  apikeyCmd
+    .command('create <name>')
+    .description('Generate a new API key')
+    .option('--tier <tier>', 'free | pro | enterprise', 'free')
+    .action(async (name: string, options: { tier: string }) => {
+      const { ApiKeyStore } = await import('./predict/auth.js');
+      const store = new ApiKeyStore();
+      const { key, record } = store.createKey(name, options.tier as 'free' | 'pro' | 'enterprise');
+      console.log(chalk.bold(`\n🔑  API key created\n`));
+      console.log(`  ${chalk.dim('Key:')}  ${chalk.green(key)}`);
+      console.log(`  ${chalk.dim('Name:')} ${record.name}`);
+      console.log(`  ${chalk.dim('Tier:')} ${record.tier}`);
+      console.log(chalk.yellow('\n  Save this key — it will not be shown again.\n'));
+    });
+
+  apikeyCmd
+    .command('list')
+    .description('List all API keys (hashes only)')
+    .action(async () => {
+      const { ApiKeyStore } = await import('./predict/auth.js');
+      const store = new ApiKeyStore();
+      const keys = store.listKeys();
+      if (keys.length === 0) {
+        console.log(chalk.dim('\n  No API keys. Create one with: agentgram apikey create <name>\n'));
+        return;
+      }
+      console.log(chalk.bold(`\n🔑  API keys (${keys.length})\n`));
+      for (const k of keys) {
+        console.log(
+          `  ${chalk.bold(k.name.padEnd(24))}  ${chalk.dim(k.tier.padEnd(12))}  ` +
+          `requests: ${k.requestCount}  created: ${new Date(k.createdAt).toLocaleDateString()}`
+        );
+      }
+      console.log();
+    });
+
+  program.addCommand(apikeyCmd);
 
   // ── context ───────────────────────────────────────────────────────────────
   program
