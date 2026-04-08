@@ -165,3 +165,22 @@ export { generateDebuggerHtml } from './viz/html.js';
 // Prediction API — oracle layer for AI tools
 export { PredictionEngine, AgentgramClient, predict, ApiKeyStore, RateLimiter, createPredictServer, startPredictServer, extractOutcome, extractAllOutcomes, inferStack, bootstrapModel, DEV_API_KEY } from './predict/index.js';
 export type { PredictionRequest, PredictionResult, RiskFactor, StackContext, SessionOutcome, PredictionModel } from './predict/types.js';
+
+// Invertible Operation Log — selective undo via OT-style rebase (#2)
+export { InvertibleLog } from './ops/invertible.js';
+export type { InvertibleOp, UndoResult, FileSnapshot } from './ops/types.js';
+
+// Full Binary Merkle Tree — content-addressable sub-session deduplication (#6)
+export {
+  buildMerkleTree,
+  getMerkleRoot,
+  getMerkleProof,
+  verifyMerkleProof,
+  findSharedSubtrees,
+  getMerkleTreeSummary,
+} from './compliance/merkle-tree.js';
+export type { MerkleTreeNode, MerkleProof, ProofVerification, MerkleTreeSummary } from './compliance/merkle-tree.js';
+
+// FS Overlay Snapshots — copy-on-write filesystem layers (#8)
+export { SnapshotManager } from './snapshot/index.js';
+export type { SnapshotLayer, SerializedLayer, VirtualFS, SnapshotDiff } from './snapshot/index.js';
