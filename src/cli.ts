@@ -2039,11 +2039,24 @@ ${chalk.dim('Examples:')}
 // Entry point
 // ---------------------------------------------------------------------------
 
-// Only run when this file is the main module (not imported in tests)
-if (
-  process.argv[1] &&
-  (process.argv[1].endsWith('cli.js') || process.argv[1].endsWith('cli.ts'))
-) {
+// Only run when this file is the main module (not imported in tests).
+// Supports: direct node execution, symlinked bin, ESM, CJS.
+const isMain = (() => {
+  if (typeof require !== 'undefined' && typeof module !== 'undefined') {
+    // CJS: standard idiom
+    return require.main === module;
+  }
+  // ESM or unknown: fall back to argv check
+  return (
+    process.argv[1] != null &&
+    (process.argv[1].endsWith('cli.js') ||
+      process.argv[1].endsWith('cli.ts') ||
+      process.argv[1].endsWith('cli.cjs') ||
+      process.argv[1].endsWith('agentgram'))
+  );
+})();
+
+if (isMain) {
   createProgram().parseAsync(process.argv).catch((err: unknown) => {
     console.error(chalk.red('✖  Unexpected error:'), err);
     process.exit(1);

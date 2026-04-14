@@ -1,0 +1,86 @@
+{
+  "name": "Add JWT Authentication",
+  "description": "Add JWT-based authentication to an Express API with middleware, token refresh, and tests",
+  "sourceSessionId": "seed-add-jwt-authentication",
+  "steps": [
+    {
+      "action": "find",
+      "target": "{src}/app.ts",
+      "description": "Understand Express app structure",
+      "pattern": "src/app.ts, src/routes/index.ts, package.json"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install jsonwebtoken bcryptjs",
+      "description": "Install auth deps"
+    },
+    {
+      "action": "run_command",
+      "target": "{npm_install_d_types_jsonwebtoken_types}/bcryptjs",
+      "description": "Install type defs"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_middleware}/auth.ts",
+      "description": "Create JWT verification middleware"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_routes}/auth.ts",
+      "description": "Create login and register routes"
+    },
+    {
+      "action": "create_file",
+      "target": "{src_utils}/tokens.ts",
+      "description": "Create token generation and refresh helpers"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src_routes}/index.ts",
+      "description": "Protect API routes with auth middleware"
+    },
+    {
+      "action": "modify_file",
+      "target": "{src}/app.ts",
+      "description": "Register auth routes"
+    },
+    {
+      "action": "create_file",
+      "target": "{tests}/auth.test.ts",
+      "description": "Add auth flow tests"
+    },
+    {
+      "action": "run_command",
+      "target": "npm test",
+      "description": "Verify all tests pass"
+    }
+  ],
+  "parameters": {
+    "src": "src",
+    "npm_install_d_types_jsonwebtoken_types": "npm install -D @types/jsonwebtoken @types",
+    "src_middleware": "src/middleware",
+    "src_routes": "src/routes",
+    "src_utils": "src/utils",
+    "tests": "tests"
+  },
+  "tags": [
+    "auth",
+    "jwt",
+    "express",
+    "nodejs",
+    "security",
+    "api"
+  ],
+  "version": "1.0.0",
+  "metadata": {
+    "id": "add-jwt-authentication-028f55",
+    "author": "eclaireai",
+    "createdAt": "2026-03-25T13:03:02.254Z",
+    "updatedAt": "2026-03-25T13:03:02.254Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "claude-code",
+    "checksum": "5ea599dd09bd051c"
+  }
+}

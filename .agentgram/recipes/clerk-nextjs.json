@@ -1,0 +1,71 @@
+{
+  "name": "Clerk Auth for Next.js",
+  "description": "Add Clerk authentication to a Next.js App Router project. Includes middleware for protected routes, useUser hook, UserButton component, webhooks for user events, and organization support for multi-tenant SaaS.",
+  "sourceSessionId": "curated-clerk-nextjs",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install @clerk/nextjs",
+      "description": "Install Clerk Next.js SDK"
+    },
+    {
+      "action": "modify_file",
+      "target": ".env.local",
+      "description": "Add NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY and CLERK_SECRET_KEY from Clerk dashboard"
+    },
+    {
+      "action": "create_file",
+      "target": "middleware.ts",
+      "description": "Create Clerk middleware with clerkMiddleware() and route protection rules"
+    },
+    {
+      "action": "modify_file",
+      "target": "app/layout.tsx",
+      "description": "Wrap root layout with <ClerkProvider> for global auth context"
+    },
+    {
+      "action": "create_file",
+      "target": "app/(auth)/sign-in/[[...sign-in]]/page.tsx",
+      "description": "Add Clerk <SignIn> component with custom redirect URL"
+    },
+    {
+      "action": "create_file",
+      "target": "app/(auth)/sign-up/[[...sign-up]]/page.tsx",
+      "description": "Add Clerk <SignUp> component"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/webhooks/clerk/route.ts",
+      "description": "Create webhook handler for user.created, user.updated, user.deleted events — sync to your DB"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/auth.ts",
+      "description": "Create getUser() helper for server components and currentUser() for API routes"
+    }
+  ],
+  "parameters": {
+    "AFTER_SIGN_IN_URL": "/dashboard",
+    "AFTER_SIGN_UP_URL": "/onboarding"
+  },
+  "tags": [
+    "auth",
+    "clerk",
+    "nextjs",
+    "oauth",
+    "mfa",
+    "social-login"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "clerk-nextjs",
+    "author": "agentgram-team",
+    "createdAt": "2026-03-27T00:00:00Z",
+    "updatedAt": "2026-03-29T14:41:01.138Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "curator",
+    "checksum": "12c5dc8a254a48e6"
+  }
+}

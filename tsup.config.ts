@@ -14,5 +14,13 @@ export default defineConfig([
     format: ['esm'],
     banner: { js: '#!/usr/bin/env node' },
     sourcemap: true,
+    splitting: false,
+  },
+  {
+    // No shebang — for programmatic launch (MCP server via launch.json)
+    entry: ['src/mcp-server.ts'],
+    format: ['esm'],
+    sourcemap: false,
+    splitting: false,
   },
 ]);

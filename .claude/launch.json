@@ -4,22 +4,22 @@
     {
       "name": "TypeScript Build Watch",
       "description": "Rebuilds dist/ on every src/ change via tsup --watch",
-      "runtimeExecutable": "npm",
+      "runtimeExecutable": "/opt/homebrew/bin/npm",
       "runtimeArgs": ["run", "dev"],
       "cwd": "${workspaceRoot}"
     },
     {
       "name": "Vitest Watch",
       "description": "Runs tests in interactive watch mode — re-runs on file save",
-      "runtimeExecutable": "npm",
+      "runtimeExecutable": "/opt/homebrew/bin/npm",
       "runtimeArgs": ["run", "test:watch"],
       "cwd": "${workspaceRoot}"
     },
     {
       "name": "Vitest UI",
       "description": "Vitest browser-based test UI at http://localhost:51204",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["vitest", "--ui", "--api", "51204"],
+      "runtimeExecutable": "/opt/homebrew/bin/node",
+      "runtimeArgs": ["node_modules/vitest/dist/node.js", "--ui", "--api", "51204"],
       "port": 51204,
       "url": "http://localhost:51204",
       "cwd": "${workspaceRoot}"
@@ -27,7 +27,7 @@
     {
       "name": "Registry Browser",
       "description": "Browse the 39 curated recipes at http://localhost:4321",
-      "runtimeExecutable": "npx",
+      "runtimeExecutable": "/opt/homebrew/bin/npx",
       "runtimeArgs": ["serve", "registry", "-l", "4321", "--no-clipboard"],
       "port": 4321,
       "url": "http://localhost:4321",
@@ -36,22 +36,22 @@
     {
       "name": "Coverage Report",
       "description": "One-shot coverage run — generates lcov + json-summary + text output",
-      "runtimeExecutable": "npm",
+      "runtimeExecutable": "/opt/homebrew/bin/npm",
       "runtimeArgs": ["run", "test:coverage"],
       "cwd": "${workspaceRoot}"
     },
     {
       "name": "MCP Server (stdio)",
       "description": "Agentgram MCP server for Claude Code / Cursor / Windsurf integration (stdio transport)",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["agentgram", "mcp"],
+      "runtimeExecutable": "/opt/homebrew/bin/node",
+      "runtimeArgs": ["dist/mcp-server.js"],
       "transport": "stdio",
       "cwd": "${workspaceRoot}"
     },
     {
       "name": "Typecheck Watch",
       "description": "tsc --noEmit in watch mode — surfaces type errors without building",
-      "runtimeExecutable": "npx",
+      "runtimeExecutable": "/opt/homebrew/bin/npx",
       "runtimeArgs": ["tsc", "--noEmit", "--watch"],
       "cwd": "${workspaceRoot}"
     }

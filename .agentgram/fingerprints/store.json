@@ -1,0 +1,410 @@
+{
+  "version": "1",
+  "updatedAt": "2026-03-30T02:33:01.147Z",
+  "fingerprints": [
+    {
+      "id": "01f4a9beabe47d61c30e551762dabda9",
+      "operationType": "exec",
+      "errorPattern": "Stripe webhook signature verification failed: No signatures found matching the expected signature",
+      "reversalPattern": "Removed express.json() middleware before webhook route, used express.raw() instead",
+      "domain": "payments",
+      "tags": [
+        "stripe",
+        "webhook",
+        "body-parser",
+        "signature",
+        "express"
+      ],
+      "estimatedTokensWasted": 3200,
+      "occurrences": 9642,
+      "firstSeen": "2023-06-10T00:00:00.000Z",
+      "lastSeen": "2026-03-25T00:00:00.000Z",
+      "warning": "Stripe webhook signature check will always fail if express.json() has already consumed the raw body.",
+      "fix": "Place the webhook route BEFORE express.json() and use express.raw({ type: 'application/json' }) on that route only."
+    },
+    {
+      "id": "5c1cd244e2326f2f1fe1127a9ff4073a",
+      "operationType": "edit",
+      "errorPattern": "Clerk: auth() called but no ClerkProvider found in the component tree; session is always null",
+      "reversalPattern": "Wrapped entire Next.js app with ClerkProvider in layout.tsx and moved middleware.ts to project root",
+      "domain": "auth",
+      "tags": [
+        "clerk",
+        "nextjs",
+        "middleware",
+        "provider",
+        "app-router"
+      ],
+      "estimatedTokensWasted": 2100,
+      "occurrences": 5868,
+      "firstSeen": "2023-10-01T00:00:00.000Z",
+      "lastSeen": "2026-03-20T00:00:00.000Z",
+      "warning": "Clerk auth() always returns null when middleware.ts is missing from the project root or ClerkProvider is absent from layout.",
+      "fix": "Add middleware.ts at the project root exporting clerkMiddleware(), and wrap <html> body in <ClerkProvider> inside app/layout.tsx."
+    },
+    {
+      "id": "e2b6dd2c2219e1d37df8713e7ca5e762",
+      "operationType": "exec",
+      "errorPattern": "Property '{field}' does not exist on type 'PrismaClient'; run prisma generate",
+      "reversalPattern": "Ran npx prisma generate to regenerate client after schema.prisma change",
+      "domain": "database",
+      "tags": [
+        "prisma",
+        "generate",
+        "schema",
+        "typescript",
+        "stale-client"
+      ],
+      "estimatedTokensWasted": 1400,
+      "occurrences": 7752,
+      "firstSeen": "2022-11-15T00:00:00.000Z",
+      "lastSeen": "2026-03-27T00:00:00.000Z",
+      "warning": "Prisma TypeScript types are stale — the generated client does not reflect the current schema.prisma.",
+      "fix": "Run `npx prisma generate` after every schema change. Add it as a postinstall script: \"postinstall\": \"prisma generate\"."
+    },
+    {
+      "id": "41c39a5e663ff22e4408fe77ad4b9c04",
+      "operationType": "edit",
+      "errorPattern": "useRouter is not a function or returns undefined in Next.js App Router; imported from 'next/router'",
+      "reversalPattern": "Changed import from 'next/router' to 'next/navigation' for App Router pages",
+      "domain": "build",
+      "tags": [
+        "nextjs",
+        "app-router",
+        "use-router",
+        "navigation",
+        "next14"
+      ],
+      "estimatedTokensWasted": 900,
+      "occurrences": 8204,
+      "firstSeen": "2023-05-04T00:00:00.000Z",
+      "lastSeen": "2026-03-28T00:00:00.000Z",
+      "warning": "next/router's useRouter does not work in the Next.js 14 App Router — use useRouter from 'next/navigation' instead.",
+      "fix": "Replace `import { useRouter } from 'next/router'` with `import { useRouter } from 'next/navigation'` in all App Router components."
+    },
+    {
+      "id": "f2b20493a40e1658f01aaec9ba276392",
+      "operationType": "exec",
+      "errorPattern": "Error [ERR_REQUIRE_ESM]: require() of ES Module {path} not supported; must use import()",
+      "reversalPattern": "Switched project to ESM (type: module in package.json) or used dynamic import() for the module",
+      "domain": "build",
+      "tags": [
+        "esm",
+        "cjs",
+        "interop",
+        "require",
+        "node",
+        "module-system"
+      ],
+      "estimatedTokensWasted": 2800,
+      "occurrences": 9910,
+      "firstSeen": "2022-04-01T00:00:00.000Z",
+      "lastSeen": "2026-03-26T00:00:00.000Z",
+      "warning": "Package is pure ESM and cannot be loaded with require(). CJS callers must use dynamic import() or the project must switch to ESM.",
+      "fix": "Add \"type\": \"module\" to package.json, rename .js files to .mjs, or use `const mod = await import(\"pkg\")` at call sites."
+    },
+    {
+      "id": "a27f605ae3d896546f9bb90100c09bd5",
+      "operationType": "exec",
+      "errorPattern": "Supabase query returns empty array or null despite rows existing; RLS policy denies all access",
+      "reversalPattern": "Added SELECT RLS policy for authenticated role or used service_role key for server-side queries",
+      "domain": "database",
+      "tags": [
+        "supabase",
+        "rls",
+        "row-level-security",
+        "postgres",
+        "policy"
+      ],
+      "estimatedTokensWasted": 2600,
+      "occurrences": 7082,
+      "firstSeen": "2022-12-01T00:00:00.000Z",
+      "lastSeen": "2026-03-24T00:00:00.000Z",
+      "warning": "Supabase RLS is enabled but no policy exists for the role — all reads silently return empty.",
+      "fix": "Add a SELECT policy: `CREATE POLICY \"allow read\" ON table FOR SELECT USING (true)`, or use the service_role key only on the server."
+    },
+    {
+      "id": "570b03737450a964cb87f990ce047aaa",
+      "operationType": "exec",
+      "errorPattern": "COPY failed: file not found in build context or excluded by .dockerignore: {path}",
+      "reversalPattern": "Fixed Dockerfile COPY source path to be relative to build context, updated .dockerignore",
+      "domain": "devops",
+      "tags": [
+        "docker",
+        "dockerfile",
+        "copy",
+        "build-context",
+        "dockerignore"
+      ],
+      "estimatedTokensWasted": 1100,
+      "occurrences": 4414,
+      "firstSeen": "2021-09-10T00:00:00.000Z",
+      "lastSeen": "2026-03-22T00:00:00.000Z",
+      "warning": "COPY paths in Dockerfile are relative to the build context (the directory passed to docker build), not the Dockerfile location.",
+      "fix": "Run `docker build -f docker/Dockerfile .` from the repo root, and ensure .dockerignore does not exclude the files you need."
+    },
+    {
+      "id": "0dbc95f0023b9c93d02b2d8eb2130519",
+      "operationType": "exec",
+      "errorPattern": "useEffect fires twice on mount in development causing duplicate API calls or double subscriptions",
+      "reversalPattern": "Added cleanup function to useEffect and moved one-time init to useRef guard or outside component",
+      "domain": "build",
+      "tags": [
+        "react18",
+        "strict-mode",
+        "use-effect",
+        "double-invoke",
+        "cleanup"
+      ],
+      "estimatedTokensWasted": 1700,
+      "occurrences": 6628,
+      "firstSeen": "2022-03-29T00:00:00.000Z",
+      "lastSeen": "2026-03-27T00:00:00.000Z",
+      "warning": "React 18 StrictMode intentionally mounts/unmounts/remounts every component in dev — useEffect runs twice to expose missing cleanup.",
+      "fix": "Return a cleanup function from useEffect. For truly one-time side effects use a module-level variable or a ref: `const ran = useRef(false)`."
+    },
+    {
+      "id": "79c593a3c879d4b406d2261f2b77736c",
+      "operationType": "edit",
+      "errorPattern": "OpenAI streaming response hangs or delivers full response at once instead of streaming in Next.js API route",
+      "reversalPattern": "Switched to Edge Runtime and used ReadableStream with Response instead of Node.js res.write()",
+      "domain": "ai",
+      "tags": [
+        "openai",
+        "streaming",
+        "nextjs",
+        "edge-runtime",
+        "api-route",
+        "sse"
+      ],
+      "estimatedTokensWasted": 2900,
+      "occurrences": 5236,
+      "firstSeen": "2023-03-15T00:00:00.000Z",
+      "lastSeen": "2026-03-28T00:00:00.000Z",
+      "warning": "Node.js API routes in Next.js buffer the full response before sending — streaming requires the Edge Runtime or a proper ReadableStream.",
+      "fix": "Add `export const runtime = 'edge'` to the route file and return `new Response(stream)` using the OpenAI SDK's `.toReadableStream()`."
+    },
+    {
+      "id": "4c859802087b8c450302081ad583a3f7",
+      "operationType": "exec",
+      "errorPattern": "JsonWebTokenError: invalid signature — JWT verify secret does not match signing secret",
+      "reversalPattern": "Unified JWT_SECRET env var between signing and verifying services, confirmed no whitespace in env value",
+      "domain": "auth",
+      "tags": [
+        "jwt",
+        "secret",
+        "signature",
+        "env-var",
+        "token"
+      ],
+      "estimatedTokensWasted": 1300,
+      "occurrences": 3964,
+      "firstSeen": "2021-05-20T00:00:00.000Z",
+      "lastSeen": "2026-03-19T00:00:00.000Z",
+      "warning": "JWT \"invalid signature\" almost always means the signing and verifying code use different secrets, including trailing newlines in env files.",
+      "fix": "Use `process.env.JWT_SECRET?.trim()` when reading the secret and ensure the same variable is set in both services."
+    },
+    {
+      "id": "325674f69eeabdf695cdf2596183c60a",
+      "operationType": "exec",
+      "errorPattern": "Prisma migrate dev detected drift: database schema is not in sync with migration history",
+      "reversalPattern": "Ran prisma migrate reset in dev or created a new migration with prisma migrate dev --name fix-drift",
+      "domain": "database",
+      "tags": [
+        "prisma",
+        "migration",
+        "drift",
+        "schema-sync",
+        "postgres"
+      ],
+      "estimatedTokensWasted": 2400,
+      "occurrences": 3512,
+      "firstSeen": "2022-08-01T00:00:00.000Z",
+      "lastSeen": "2026-03-21T00:00:00.000Z",
+      "warning": "Prisma detected the database was modified outside of migrations — migrate dev will fail until drift is resolved.",
+      "fix": "In dev run `npx prisma migrate reset`. In prod, create a baseline migration with `prisma migrate resolve --applied <migration_name>`."
+    },
+    {
+      "id": "8a2e729a48f794d15b78342bd8f0c07e",
+      "operationType": "edit",
+      "errorPattern": "CORS policy blocked: response to preflight OPTIONS request does not return HTTP 200 with Access-Control headers",
+      "reversalPattern": "Added explicit OPTIONS handler returning 200 with Access-Control-Allow-Origin and Access-Control-Allow-Methods headers",
+      "domain": "security",
+      "tags": [
+        "cors",
+        "preflight",
+        "options",
+        "headers",
+        "http"
+      ],
+      "estimatedTokensWasted": 1600,
+      "occurrences": 5686,
+      "firstSeen": "2021-02-14T00:00:00.000Z",
+      "lastSeen": "2026-03-26T00:00:00.000Z",
+      "warning": "Browsers send an OPTIONS preflight before cross-origin POST/PUT/DELETE — if the server does not respond 200 with CORS headers the real request never fires.",
+      "fix": "Handle OPTIONS explicitly: `if (req.method === 'OPTIONS') { res.setHeader('Access-Control-Allow-Origin','*'); res.sendStatus(200); }`"
+    },
+    {
+      "id": "187fb80bc9e2a0ba16d6bd5a102e306a",
+      "operationType": "exec",
+      "errorPattern": "GitHub Actions step failed: Error: Resource not accessible by integration — missing 'write' permission in workflow",
+      "reversalPattern": "Added permissions block to workflow YAML with contents: write or packages: write as required",
+      "domain": "devops",
+      "tags": [
+        "github-actions",
+        "permissions",
+        "ci",
+        "workflow",
+        "token"
+      ],
+      "estimatedTokensWasted": 1200,
+      "occurrences": 4210,
+      "firstSeen": "2022-04-06T00:00:00.000Z",
+      "lastSeen": "2026-03-25T00:00:00.000Z",
+      "warning": "GitHub Actions defaults to read-only GITHUB_TOKEN since 2022 — steps that push, publish, or create releases require explicit 'write' permissions.",
+      "fix": "Add a top-level permissions block to the workflow: `permissions:\\n  contents: write\\n  packages: write`"
+    },
+    {
+      "id": "e6174b35cc8461a7558f01cd8973bdc9",
+      "operationType": "edit",
+      "errorPattern": "Tailwind CSS utility classes have no effect in browser; styles not generated in output CSS",
+      "reversalPattern": "Added correct glob patterns to content array in tailwind.config.ts to match all component files",
+      "domain": "dx",
+      "tags": [
+        "tailwind",
+        "content",
+        "purge",
+        "config",
+        "css",
+        "missing-styles"
+      ],
+      "estimatedTokensWasted": 1050,
+      "occurrences": 7380,
+      "firstSeen": "2022-06-01T00:00:00.000Z",
+      "lastSeen": "2026-03-28T00:00:00.000Z",
+      "warning": "Tailwind only generates CSS for classes found in files matched by the content array — classes in unmatched files are silently dropped.",
+      "fix": "Set content: ['./src/**/*.{ts,tsx,js,jsx,html}'] in tailwind.config.ts. Restart the dev server after changing the config."
+    },
+    {
+      "id": "c1d0ffe476d3729b7b8bf460df3ef1c6",
+      "operationType": "exec",
+      "errorPattern": "npm ERR! ERESOLVE unable to resolve dependency tree: peer dependency conflict between installed packages",
+      "reversalPattern": "Used --legacy-peer-deps flag or manually aligned package versions to satisfy peer requirements",
+      "domain": "build",
+      "tags": [
+        "npm",
+        "peer-dependency",
+        "eresolve",
+        "install",
+        "version-conflict"
+      ],
+      "estimatedTokensWasted": 2200,
+      "occurrences": 9974,
+      "firstSeen": "2021-10-01T00:00:00.000Z",
+      "lastSeen": "2026-03-29T00:00:00.000Z",
+      "warning": "npm v7+ enforces peer dependencies strictly — conflicting peer ranges block installation unless explicitly overridden.",
+      "fix": "Run `npm install --legacy-peer-deps` as a short-term fix, then audit with `npm ls` and align versions in package.json using overrides/resolutions."
+    },
+    {
+      "id": "bdb20795ab1d7647de974b7617af097d",
+      "operationType": "exec",
+      "errorPattern": "Invariant Violation: Native module {ModuleName} cannot be null; module not linked in Expo build",
+      "reversalPattern": "Ran expo prebuild and rebuilt native binary after installing native module, switched from Expo Go to dev build",
+      "domain": "mobile",
+      "tags": [
+        "expo",
+        "react-native",
+        "native-module",
+        "prebuild",
+        "dev-build"
+      ],
+      "estimatedTokensWasted": 3500,
+      "occurrences": 3286,
+      "firstSeen": "2023-01-15T00:00:00.000Z",
+      "lastSeen": "2026-03-22T00:00:00.000Z",
+      "warning": "Expo Go cannot load native modules that require custom native code — a development build is required.",
+      "fix": "Run `npx expo prebuild` then `npx expo run:ios` / `npx expo run:android`. Use `eas build --profile development` for CI."
+    },
+    {
+      "id": "6c0de7bec995491ca9a9466a7053ca8c",
+      "operationType": "exec",
+      "errorPattern": "Redis connection timeout or ECONNREFUSED in serverless function; new client created on every invocation",
+      "reversalPattern": "Moved Redis client creation outside handler to module scope and used Upstash REST client instead of tcp for serverless",
+      "domain": "devops",
+      "tags": [
+        "redis",
+        "serverless",
+        "timeout",
+        "connection",
+        "upstash",
+        "cold-start"
+      ],
+      "estimatedTokensWasted": 2700,
+      "occurrences": 2776,
+      "firstSeen": "2022-09-01T00:00:00.000Z",
+      "lastSeen": "2026-03-23T00:00:00.000Z",
+      "warning": "TCP Redis clients time out in serverless because each invocation creates a new connection that the short-lived function never closes.",
+      "fix": "Use @upstash/redis (HTTP-based) for Vercel/Lambda, or declare the Redis client at module scope so it is reused across warm invocations."
+    },
+    {
+      "id": "4fa4eb47cef923221ae2340cfaec03e6",
+      "operationType": "edit",
+      "errorPattern": "tRPC: Type error — input/output types on client do not match server router; TypeScript sees stale AppRouter type",
+      "reversalPattern": "Restarted TypeScript server to pick up updated AppRouter type export after server procedure signature changed",
+      "domain": "dx",
+      "tags": [
+        "trpc",
+        "typescript",
+        "router",
+        "type-mismatch",
+        "stale-types"
+      ],
+      "estimatedTokensWasted": 1100,
+      "occurrences": 3042,
+      "firstSeen": "2023-02-10T00:00:00.000Z",
+      "lastSeen": "2026-03-26T00:00:00.000Z",
+      "warning": "After changing a tRPC procedure signature the TypeScript language server often caches the old AppRouter type — the error is misleading.",
+      "fix": "Restart the TS server (VS Code: \"TypeScript: Restart TS Server\"). Ensure the client imports AppRouter type from the server file directly."
+    },
+    {
+      "id": "11306f28a4db46620434f18c040b9a29",
+      "operationType": "exec",
+      "errorPattern": "process.env.{VAR} is undefined at build time in Vercel despite being set in project environment variables",
+      "reversalPattern": "Prefixed variable with NEXT_PUBLIC_ for client exposure or moved usage to runtime (getServerSideProps / Server Component)",
+      "domain": "devops",
+      "tags": [
+        "vercel",
+        "env-vars",
+        "next-public",
+        "build-time",
+        "nextjs"
+      ],
+      "estimatedTokensWasted": 1500,
+      "occurrences": 6144,
+      "firstSeen": "2022-10-01T00:00:00.000Z",
+      "lastSeen": "2026-03-28T00:00:00.000Z",
+      "warning": "Vercel env vars without NEXT_PUBLIC_ prefix are only available server-side at runtime, not inlined at build time.",
+      "fix": "Prefix client-side vars with NEXT_PUBLIC_. For server-only vars used at build time, redeploy after setting them — they are not retroactively injected."
+    },
+    {
+      "id": "6ebfdb0c6ab996befe2af162933a0f33",
+      "operationType": "exec",
+      "errorPattern": "ERROR: type 'vector' does not exist — pgvector extension not enabled in PostgreSQL database",
+      "reversalPattern": "Ran CREATE EXTENSION IF NOT EXISTS vector in the target database before running migrations",
+      "domain": "ai",
+      "tags": [
+        "pgvector",
+        "postgres",
+        "extension",
+        "embeddings",
+        "vector-search"
+      ],
+      "estimatedTokensWasted": 1800,
+      "occurrences": 2588,
+      "firstSeen": "2023-04-01T00:00:00.000Z",
+      "lastSeen": "2026-03-27T00:00:00.000Z",
+      "warning": "PostgreSQL does not ship with pgvector enabled — the 'vector' type is unavailable until the extension is explicitly created.",
+      "fix": "Run `CREATE EXTENSION IF NOT EXISTS vector;` in your database (or add it to your first migration). On Supabase it's available in the Dashboard under Extensions."
+    }
+  ]
+}
